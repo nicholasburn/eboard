@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=eboard
+Type=Application
+Comment=chess board
+Exec=eboard
+TryExec=eboard
+Icon=eboard.xpm
+Categories=Game;BoardGame;

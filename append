@@ -1,0 +1,28 @@
+chess.cc:  global.output->append(z,0xc0ff00);
+chess.cc:    global.output->append(z,0xc0ff00);
+chess.cc:    global.output->append(z,0xc0ff00);
+chess.cc:    global.output->append(z,0xc0ff00);
+dgtboard.cc:  global.output->append(msg,global.Color.TextNormal);
+dlg_prefs.cc:    global.output->updateFont();
+dlg_prefs.cc:    global.output->setBackground(global.Colors.Background);
+global.cc:  output->updateScrollBack();
+help.cc:    global.output->append("=== START DEBUG INFO ===",0xc0ff00);
+help.cc:      global.output->append(z, global.Colors.TextBright);
+help.cc:    global.output->append("=== END DEBUG INFO ===",0xc0ff00);
+protocol.cc:  global.output->append(netstring,0xffffff);
+proto_fics.cc:    global.output->append(msg, msgcolor,
+proto_fics.cc:    global.output->append(msg, msgcolor,
+proto_fics.cc:    global.output->append(w,global.SelfInputColor);
+proto_fics.cc:    global.output->append(w,global.SelfInputColor);
+proto_p2p.cc:    global.output->append(Chat.getStarToken(0),
+proto_p2p.cc:    global.output->append(z,global.Colors.TextBright,IM_NORMAL);
+proto_p2p.cc:    global.output->append(z,global.Colors.TextBright,IM_NORMAL);
+proto_p2p.cc:    global.output->append(z,global.Colors.TextBright,IM_NORMAL);
+proto_p2p.cc:    global.output->append(z,global.Colors.TextBright,IM_NORMAL);
+proto_p2p.cc:      global.output->append(z,global.Colors.TextBright,IM_PERSONAL);
+proto_p2p.cc:  global.output->append(z,global.Colors.Engine,IM_NORMAL);
+proto_p2p.cc:  global.output->append(z, global.Colors.TextBright,
+proto_xboard.cc:	global.output->append(_("engine claimed illegal move but we didn't move, ignoring it."), global.Colors.TextBright, IM_IGNORE);
+proto_xboard.cc:  global.output->append(netstring, global.Colors.Engine, IM_IGNORE);
+quickbar.cc:      global.output->append(a, global.SelfInputColor);   
+quickbar.cc:      global.output->append(y, global.SelfInputColor);   

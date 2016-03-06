@@ -1,0 +1,2722 @@
+# state: translated
+# (2) pieces.cc:70,157
+msgid   " ** PNG LOAD FAILED: using internal low-res pieceset. It'll look ugly.\n"
+msgstr  " ** 装入 PNG 失败：使用内置的低清晰度棋子集合。它会很难看。\n"
+
+# state: translated
+# (1) sound.cc:383
+msgid   " Browse... "
+msgstr  " 浏览... "
+
+# state: untranslated
+# (1) chess.cc:1490
+msgid   " Remove Field "
+msgstr  ""
+
+# state: untranslated
+# (1) chess.cc:1500
+msgid   " Set "
+msgstr  ""
+
+# state: translated
+# (1) help.cc:343
+msgid  ""
+"#L#Getting Started\n"
+"#M#Common Tasks in eboard\n"
+"\nPlaying against the computer\n"
+"#S#eboard does not \"play chess\" itself, but rather is works as interface to programs that do,\n"
+"called \"engines\", which don't have a graphical interface themselves. You need an engine to\n"
+"play against the computer. GNU Chess, Crafty and Sjeng are chess engines that are available at\n"
+"no cost.\n"
+"Once you have one of them installed, open the #B#Peer#K# menu, then the #B#Play against\n"
+"engine#K# submenu, and select the appropriate option depending on which engine you have\n"
+"installed.\n"
+"\n#M#Playing Chess on the Internet\n"
+"#S#Eboard supports the FICS protocol. FICS runs at freechess.org, but other servers, such as\n"
+"US Chess Live, use FICS's software and should work with eboard too. ICC is not supported.\n"
+"To connect to FICS, open the #B#Peer#K# menu, click #B#Connect to FICS#K#. To connect to\n"
+"other servers, open the #B#Peer#K# menu, click #B#Connect to Other Server...#K#.\n"
+"While you can login as guest on FICS, you'll enjoy it better as a registered user. Registration\n"
+"is done through FICS's site at #B#http://www.freechess.org#K#, and it's free.\n"
+"\n#M#Browsing PGN Games\n"
+"#S#PGN is the most common file format to store chess games. It can store moves and comments\n"
+"(annotations). To open this kind of file within eboard, open the #B#Windows#K# menu, click\n"
+"#B#Games on Client#K#. In the Local Game List dialog, click #B#Load PGN...#K#. To browse a\n"
+"game, #B#select it#K# and click #B#Display#K#. A new tab will be created in the main window\n"
+"with the game.#L#"
+msgstr ""
+"#L#新手上路\n"
+"#M#eboard 中常见的任务\n"
+"\n与电脑对局\n"
+"#S#eboard 不会自己和自己“下棋”，它宁愿作为没有自己界面的这类程序\n"
+"(我们称之为“引擎”)的界面。您需要一个引擎以便同电脑对局。GNU Chess、\n"
+"Crafty 和 Sjeng 是国际象棋引擎而且是免费的。\n"
+"一旦您安装了其中之一，就可以打开 #B#连接#K# 菜单，选择 #B#与引擎\n"
+"对局#K# 子菜单，并根据您安装的引擎选择适当的选项。\n"
+"\n#M#在互联网上下国际象棋\n"
+"#S#eboard 支持 FICS 协议。FICS 运行在 freechess.org 上，但其他服务器，\n"
+"例如 US Chess Live 使用 FICS 的软件，eboard 应该也能成功连接。eboard\n"
+" 不支持 ICC。要连接 FICS，打开 #B#连接#K# 菜单，点击 #B#连接到 FICS#K#。\n"
+"要连接到其他服务器，打开 #B#Peer#K# 菜单，点击 #B#连接到其他服务器...#K#。\n"
+"虽然您可以以客人的身份登录 FICS，但您作为注册用户可以更好地享用它。\n"
+"注册是通过 FICS 位于 #B#http://www.freechess.org#K# 的网站来完成的，\n"
+"而且是免费的。\n"
+"\n#M#浏览 PGN 对局\n"
+"#S#PGN 是储存国际象棋对局最通用的文件格式。它可以储存对局和评论。要在\n"
+" eboard 中打开这类文件，打开 #B#窗口#K# 菜单，点击 #B#客户端上的对局#K#。\n"
+"在本地对局列表框中，点击 #B#装入 PGN...#K#。要浏览一个对局，#B#选择它#K#\n"
+"并点击 #B#显示#K#。主窗口中将出现显示了对局的新窗格。#L#"
+
+# state: untranslated
+# (1) sound.cc:312
+msgid   "%d %s to %s, %d Hz for %d msec"
+msgstr  ""
+
+# state: translated
+# (1) chess.cc:1292
+msgid   "%d games read"
+msgstr  "读入 %d 个对局"
+
+# state: untranslated
+# (2) clock.cc:324,346
+msgid   "%d moves in %s"
+msgstr  ""
+
+# state: translated
+# (1) mainwindow.cc:647
+msgid   "%d. Connect to %s:%d (%s)"
+msgstr  "%d。连接到 %s：%d (%s)"
+
+# state: translated
+# (1) proto_p2p.cc:619
+msgid   "%s (white) vs. %s (black)\n%s\n%d:%.2d %d"
+msgstr  "%s (白棋) vs. %s (黑棋)\n%s\n%d:%.2d %d"
+
+# state: translated
+# (1) proto_p2p.cc:248
+msgid   "%s accepted your game proposal."
+msgstr  "%s 接受了您的对局提议。"
+
+# state: translated
+# (1) proto_xboard.cc:548
+msgid   "%s engine started."
+msgstr  "引擎 %s 已启动。"
+
+# state: translated
+# (2) proto_p2p.cc:261,635
+msgid   "%s offers a draw."
+msgstr  "%s 提出和棋。"
+
+# state: untranslated
+# (1) clock.cc:337
+msgid   "%s per move"
+msgstr  ""
+
+# state: untranslated
+# (1) clock.cc:317
+msgid   "%s/move"
+msgstr  ""
+
+# state: translated
+# (1) text.cc:90
+msgid   "(Wrapped) Match Found at Line %d."
+msgstr  "在第 %d 行(带换行)发现匹配。"
+
+# state: translated
+# (1) mainwindow.cc:792
+msgid   "(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)"
+msgstr  "(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS 帐号: Pulga)"
+
+# state: translated
+# (1) global.cc:826
+msgid   "(message obfuscated -- password mode ?)"
+msgstr  "(消息被屏蔽 -- 口令模式？)"
+
+# state: translated
+# (2) mainwindow.cc:659,704
+msgid   "(no bookmarks)"
+msgstr  "(没有书签)"
+
+# state: translated
+# (2) text.cc:362,506
+msgid   "(none)"
+msgstr  "(无)"
+
+# state: translated
+# (1) clock.cc:481
+msgid   "(time period)"
+msgstr  "(时间)"
+
+# state: translated
+# (1) proto_xboard.cc:436
+msgid   "* game not found: "
+msgstr  "* 找不到对局："
+
+# state: translated
+# (1) mainwindow.cc:1031
+msgid   "** [eboard] bad engine protocol # in bookmark: "
+msgstr  "** [eboard] 书签中的无效引擎协议："
+
+# state: translated
+# (1) global.cc:1479
+msgid   "** eboard ** warning: HOME environment variable not set\n"
+msgstr  "** eboard ** 警告：没有设置换景变量 HOME\n"
+
+# state: untranslated
+# (1) chess.cc:888
+msgid   "--- %s game to PGN file %s"
+msgstr  ""
+
+# state: translated
+# (1) mainwindow.cc:1124
+msgid   "--- Disconnected"
+msgstr  "--- 已断开连接"
+
+# state: translated
+# (1) mainwindow.cc:86
+msgid   "/Game/Ad_journ"
+msgstr  "/对局/延期(_J)"
+
+# state: translated
+# (1) mainwindow.cc:87
+msgid   "/Game/Retract _Move"
+msgstr  "/对局/悔棋(_M)"
+
+# state: translated
+# (1) mainwindow.cc:85
+msgid   "/Game/_Abort"
+msgstr  "/对局/中断(_A)"
+
+# state: translated
+# (1) mainwindow.cc:84
+msgid   "/Game/_Offer Draw"
+msgstr  "/对局/提出和棋(_O)"
+
+# state: translated
+# (1) mainwindow.cc:83
+msgid   "/Game/_Resign"
+msgstr  "/对局/认输(_R)"
+
+# state: translated
+# (1) mainwindow.cc:130
+msgid   "/Help/_About eboard..."
+msgstr  "/帮助/关于 eboard(_A)..."
+
+# state: translated
+# (1) mainwindow.cc:128
+msgid   "/Help/_Debug Info"
+msgstr  "/帮助/调试信息(_D)"
+
+# state: translated
+# (1) mainwindow.cc:126
+msgid   "/Help/_Getting Started"
+msgstr  "/帮助/新手上路(_G)"
+
+# state: translated
+# (1) mainwindow.cc:127
+msgid   "/Help/_Keys"
+msgstr  "/帮助/按键(_K)"
+
+# state: translated
+# (1) mainwindow.cc:129
+msgid   "/Help/sep4"
+msgstr  "/帮助/sep4"
+
+# state: translated
+# (1) mainwindow.cc:63
+msgid   "/Peer/Connect to _FICS"
+msgstr  "/连接/连接到 FICS (_F)"
+
+# state: translated
+# (1) mainwindow.cc:66
+msgid   "/Peer/Direct connect with _Remote eboard..."
+msgstr  "/连接/直接连接到远程 eboard(_R)..."
+
+# state: translated
+# (1) mainwindow.cc:74
+msgid   "/Peer/Engine B_ookmarks"
+msgstr  "/连接/引擎书签(_O)"
+
+# state: translated
+# (1) mainwindow.cc:64
+msgid   "/Peer/ICS _Bookmarks"
+msgstr  "/连接/ICS 书签(_B)"
+
+# state: translated
+# (1) mainwindow.cc:71
+msgid   "/Peer/Play against Engine/Cr_afty..."
+msgstr  "/连接/与引擎对局/Cr_afty..."
+
+# state: translated
+# (1) mainwindow.cc:69
+msgid   "/Peer/Play against Engine/GNU Chess _4..."
+msgstr  "/连接/与引擎对局/GNU Chess _4..."
+
+# state: translated
+# (1) mainwindow.cc:73
+msgid   "/Peer/Play against Engine/_Generic Engine..."
+msgstr  "/连接/与引擎对局/通用引擎(_G)..."
+
+# state: translated
+# (1) mainwindow.cc:70
+msgid   "/Peer/Play against Engine/_Sjeng..."
+msgstr  "/连接/与引擎对局/_Sjeng..."
+
+# state: translated
+# (1) mainwindow.cc:72
+msgid   "/Peer/Play against Engine/sep1"
+msgstr  "/连接/与引擎对局/sep1"
+
+# state: translated
+# (1) mainwindow.cc:68
+msgid   "/Peer/Play against _Engine"
+msgstr  "/连接/与引擎对局(_E)"
+
+# state: translated
+# (1) mainwindow.cc:65
+msgid   "/Peer/_Connect to Other Server..."
+msgstr  "/连接/连接到其他服务器(_C)..."
+
+# state: translated
+# (1) mainwindow.cc:79
+msgid   "/Peer/_Disconnect"
+msgstr  "/连接/断开连接(_D)"
+
+# state: translated
+# (1) mainwindow.cc:76
+msgid   "/Peer/_Empty Scratch Board"
+msgstr  "/连接/空白的临时棋盘(_E)"
+
+# state: translated
+# (1) mainwindow.cc:81
+msgid   "/Peer/_Quit"
+msgstr  "/连接/退出(_Q)"
+
+# state: translated
+# (1) mainwindow.cc:77
+msgid   "/Peer/_Scratch Board with Initial Position"
+msgstr  "/连接/棋子在原始位置的临时棋盘(_S)"
+
+# state: translated
+# (1) mainwindow.cc:80
+msgid   "/Peer/sep2"
+msgstr  "/连接/sep2"
+
+# state: translated
+# (2) mainwindow.cc:75,78
+msgid   "/Peer/sep3"
+msgstr  "/连接/sep3"
+
+# state: translated
+# (1) mainwindow.cc:67
+msgid   "/Peer/sep4"
+msgstr  "/连接/sep4"
+
+# state: translated
+# (1) mainwindow.cc:106
+msgid   "/Settings/Bitmapped Piece Sets/Load _Pieces Only"
+msgstr  "/设置/位图棋子集合/仅装入棋子(_P)"
+
+# state: translated
+# (1) mainwindow.cc:107
+msgid   "/Settings/Bitmapped Piece Sets/Load _Squares Only"
+msgstr  "/设置/位图棋子集合/装入棋盘格(_S)"
+
+# state: translated
+# (1) mainwindow.cc:105
+msgid   "/Settings/Bitmapped Piece Sets/Load _Theme"
+msgstr  "/设置/位图棋子集合/装入场景(_T)"
+
+# state: translated
+# (1) mainwindow.cc:104
+msgid   "/Settings/Bitmapped Piece _Sets"
+msgstr  "/设置/位图棋子集合(_S)"
+
+# state: translated
+# (1) mainwindow.cc:101
+msgid   "/Settings/Enable Legality _Checking"
+msgstr  "/设置/启用有效性检查(_C)"
+
+# state: untranslated
+# (1) mainwindow.cc:98
+msgid   "/Settings/ICS Behavior/Popup Board Panes _Upon Creation"
+msgstr  ""
+
+# state: untranslated
+# (1) mainwindow.cc:99
+msgid   "/Settings/ICS Behavior/Smart _Discard Observed Boards After Game Ends"
+msgstr  ""
+
+# state: untranslated
+# (1) mainwindow.cc:91
+msgid   "/Settings/Pre_move"
+msgstr  ""
+
+# state: translated
+# (1) mainwindow.cc:92
+msgid   "/Settings/Sho_w Coordinates"
+msgstr  "/设置/显示坐标(_W)"
+
+# state: translated
+# (1) mainwindow.cc:90
+msgid   "/Settings/_Animate Moves"
+msgstr  "/设置/动画显示着法(_A)"
+
+# state: translated
+# (1) mainwindow.cc:94
+msgid   "/Settings/_Beep on Opponent Moves"
+msgstr  "/设置/对方走棋时鸣笛(_B)"
+
+# state: translated
+# (1) mainwindow.cc:95
+msgid   "/Settings/_Enable Other Sounds"
+msgstr  "/设置/启用其他音效(_E)"
+
+# state: translated
+# (1) mainwindow.cc:89
+msgid   "/Settings/_Highlight Last Move"
+msgstr  "/设置/高亮显示最后的着法(_H)"
+
+# state: translated
+# (1) mainwindow.cc:97
+msgid   "/Settings/_ICS Behavior"
+msgstr  "/设置/ICS 行为(_I)"
+
+# state: translated
+# (1) mainwindow.cc:109
+msgid   "/Settings/_Preferences..."
+msgstr  "/设置/首选项(_P)..."
+
+# state: translated
+# (1) mainwindow.cc:103
+msgid   "/Settings/_Vectorized Pieces (Faster Rendering)"
+msgstr  "/设置/向量棋子(渲染较快)(_V)"
+
+# state: translated
+# (5) mainwindow.cc:93,96,100,102,108
+msgid   "/Settings/sep3"
+msgstr  "/设置/sep3"
+
+# state: translated
+# (1) mainwindow.cc:121
+msgid   "/Windows/Find _Previous"
+msgstr  "/窗口/向前查找(_P)"
+
+# state: translated
+# (1) mainwindow.cc:114
+msgid   "/Windows/Games on _Client..."
+msgstr  "/窗口/客户端上的对局(_C)..."
+
+# state: translated
+# (1) mainwindow.cc:124
+msgid   "/Windows/Save Desktop _Geometry"
+msgstr  "/窗口/保存桌面布局(_G)"
+
+# state: translated
+# (1) mainwindow.cc:122
+msgid   "/Windows/Save _Text Buffer..."
+msgstr  "/窗口/保存文本缓冲区(_T)..."
+
+# state: translated
+# (1) mainwindow.cc:112
+msgid   "/Windows/_Ads on Server..."
+msgstr  "/窗口/服务器上的广告(_A)..."
+
+# state: translated
+# (1) mainwindow.cc:118
+msgid   "/Windows/_Detached Console"
+msgstr  "/窗口/分离的控制台(_D)"
+
+# state: translated
+# (1) mainwindow.cc:120
+msgid   "/Windows/_Find Text (upwards)..."
+msgstr  "/窗口/查找文字(向上)(_F)..."
+
+# state: translated
+# (1) mainwindow.cc:111
+msgid   "/Windows/_Games on Server..."
+msgstr  "/窗口/服务器上的对局(_G)..."
+
+# state: translated
+# (1) mainwindow.cc:116
+msgid   "/Windows/_Run Script..."
+msgstr  "/窗口/运行脚本(_R)..."
+
+# state: translated
+# (1) mainwindow.cc:113
+msgid   "/Windows/sep1"
+msgstr  "/窗口/sep1"
+
+# state: translated
+# (1) mainwindow.cc:115
+msgid   "/Windows/sep2"
+msgstr  "/窗口/sep2"
+
+# state: translated
+# (3) mainwindow.cc:117,119,123
+msgid   "/Windows/sep3"
+msgstr  "/窗口/sep3"
+
+# state: translated
+# (1) mainwindow.cc:82
+msgid   "/_Game"
+msgstr  "/对局(_G)"
+
+# state: translated
+# (1) mainwindow.cc:125
+msgid   "/_Help"
+msgstr  "/帮助(_H)"
+
+# state: translated
+# (1) mainwindow.cc:62
+msgid   "/_Peer"
+msgstr  "/连接(_P)"
+
+# state: translated
+# (1) mainwindow.cc:88
+msgid   "/_Settings"
+msgstr  "/设置(_S)"
+
+# state: translated
+# (1) mainwindow.cc:110
+msgid   "/_Windows"
+msgstr  "/窗口(_W)"
+
+# state: untranslated
+# (1) dlg_gamelist.cc:820
+msgid  ""
+"<AdListDialog::AdListDialog> Warning: couldn't load fixed font, this dialog's content will look awful.\n"
+"\n"
+msgstr ""
+
+# state: translated
+# (1) proto_fics.cc:1623
+msgid   "<Fics Protocol> abort request sent"
+msgstr  "<Fics 协议> 中断和棋请求"
+
+# state: translated
+# (1) proto_fics.cc:1618
+msgid   "<Fics Protocol> adjourn request sent"
+msgstr  "<Fics 协议> 延期和棋请求"
+
+# state: translated
+# (1) proto_fics.cc:1613
+msgid   "<Fics Protocol> draw request sent"
+msgstr  "<Fics 协议> 已发出和棋请求"
+
+# state: untranslated
+# (1) dlg_gamelist.cc:86
+msgid  ""
+"<GameListDialog::GameListDialog> Warning: couldn't load fixed font, this dialog's content will look awful.\n"
+"\n"
+msgstr ""
+
+# state: translated
+# (2) util.cc:575,627
+msgid   "<PatternMatcher::set> ** bad pattern string: "
+msgstr  "<PatternMatcher::set> ** 错误的模式字符串："
+
+# state: translated
+# (2) pieces.cc:60,77
+msgid   "<PieceSet::PieceSet> ** file not found: "
+msgstr  "<PieceSet::PieceSet> ** 文件不存在: "
+
+# state: untranslated
+# (1) dlg_gamelist.cc:310
+msgid  ""
+"<StockListDialog::StockListDialog> Warning: couldn't load fixed font, this dialog's content will look awful.\n"
+"\n"
+msgstr ""
+
+# state: translated
+# (1) proto_xboard.cc:400
+msgid   "<XBoard Protocol> Adjourning not supported"
+msgstr  "<XBoard 协议> 不支持延期"
+
+# state: translated
+# (1) proto_xboard.cc:151
+msgid   "<XBoard Protocol> Incompatible Engine Protocol"
+msgstr  "<XBoard 协议> 不兼容的引擎协议"
+
+# state: translated
+# (1) proto_xboard.cc:405
+msgid   "<XBoard Protocol> Session Aborted"
+msgstr  "<XBoard 协议> 会话已中断"
+
+# state: translated
+# (1) proto_xboard.cc:396
+msgid   "<XBoard Protocol> draw request sent"
+msgstr  "<XBoard 协议> 已送出和棋请求"
+
+# state: translated
+# (1) mainwindow.cc:1186
+msgid   "<editing>"
+msgstr  "<编辑>"
+
+# state: translated
+# (1) mainwindow.cc:890
+msgid   "> (password sent)"
+msgstr  "> (已发送口令)"
+
+# state: translated
+# (2) proto_fics.cc:1969,1986
+msgid   "> [issued from menu] %s"
+msgstr  "> [从菜单送出] %s"
+
+# state: translated
+# (1) quickbar.cc:127
+msgid   "> [issued from shortcut] "
+msgstr  "> [从快捷按钮送出] "
+
+# state: translated
+# (1) quickbar.cc:117
+msgid   "> [script run from shortcut] %s"
+msgstr  "> [从快捷按钮运行的脚本] %s"
+
+# state: translated
+# (1) help.cc:54
+msgid   "About eboard"
+msgstr  "关于 eboard"
+
+# state: translated
+# (1) proto_p2p.cc:598
+msgid   "Accept"
+msgstr  "接受"
+
+# state: translated
+# (1) network.cc:507
+msgid   "Accepted incoming connection from %s"
+msgstr  "已接收来自 %s 的连接"
+
+# state: translated
+# (1) dlg_gamelist.cc:827
+msgid   "Ad Description"
+msgstr  "广告描述"
+
+# state: translated
+# (2) dlg_gamelist.cc:801,884
+msgid   "Ad List"
+msgstr  "广告列表"
+
+# state: translated
+# (1) dlg_gamelist.cc:897
+msgid   "Ad List (refreshing...)"
+msgstr  "广告列表(正在刷新...)"
+
+# state: translated
+# (1) proto_xboard.cc:851
+msgid   "Add to Peer/Engine Bookmarks menu"
+msgstr  "添加到连接/引擎书签菜单"
+
+# state: translated
+# (1) network.cc:373
+msgid   "Address already in use"
+msgstr  "地址已被占用"
+
+# state: translated
+# (1) dlg_gamelist.cc:854
+msgid   "Ads"
+msgstr  "广告"
+
+# state: translated
+# (1) network.cc:369
+msgid   "Already connected ?!?"
+msgstr  "已经连接了 ?!?"
+
+# state: translated
+# (1) help.cc:117
+msgid  ""
+"Anywhere:\n"
+"F3: Go to previous pane.\n"
+"F4: Go to next pane.\n"
+"F5: Go to the main board pane.\n"
+"F6: Go to the console pane.\n"
+"F7: Go to the seek graph pane (if available).\n"
+"F8: Toggle Shortcut Bar visilibity.\n"
+"Page Up/Page Down: scrolls the text console (must be visible)\n"
+"Ctrl+(Left Arrow): Backward 1 halfmove\n"
+"Ctrl+(Right Arrow): Forward 1 halfmove\n"
+"Ctrl+F: Find Upwards(main console buffer)\n"
+"Ctrl+G: Find Previous\n"
+"\nInput box:\n"
+"Up/Down (arrows): move thru input history\n"
+"Enter: send text line\n"
+"Esc: switch Chat/Command Mode\n"
+"\nSyntaxisms:\n"
+"In main window's input box:\n"
+".. entering %prefix text will set the chat prefix to text.\n"
+".. entering %do scriptname will run scriptname."
+msgstr ""
+"在任何地方：\n"
+"F3: 切换到上一窗格。\n"
+"F4: 切换到下一窗格。\n"
+"F5: 切换到主棋盘窗格。\n"
+"F6: 切换到控制台窗格。\n"
+"F7: 切换到搜索图窗格(如果有的话)。\n"
+"F8: 显示/隐藏快捷按钮条。\n"
+"Page Up/Page Down: 滚动文本控制台 (必须是可见的)\n"
+"Ctrl+(左箭头): 向后退一步棋\n"
+"Ctrl+(右箭头): 向前走一步棋\n"
+"Ctrl+F: 向上查找(主控制台缓冲区)\n"
+"Ctrl+G: 向前查找\n"
+"\n输入框：\n"
+"上/下 (箭头): 在输入历史中滚动\n"
+"回车：送出文本行\n"
+"Esc：在聊天/命令模式间切换\n"
+"\n语法：\n"
+"在主窗口的输入框中：\n"
+".. 输入 %prefix 文本 将把聊天前缀设为 文本。\n"
+".. 输入 %do 脚本名 将运行指定脚本。"
+
+# state: translated
+# (1) dlg_prefs.cc:120
+msgid   "Appearance"
+msgstr  "外观"
+
+# state: untranslated
+# (1) chess.cc:889
+msgid   "Appended"
+msgstr  ""
+
+# state: translated
+# (1) dlg_prefs.cc:570
+msgid   "Apply"
+msgstr  "应用"
+
+# state: translated
+# (1) dlg_connect.cc:329
+msgid   "Apply Changes"
+msgstr  "应用修改"
+
+# state: translated
+# (1) dlg_prefs.cc:495
+msgid   "Auto-save observed games"
+msgstr  "自动保存参观的对局"
+
+# state: translated
+# (1) dlg_prefs.cc:494
+msgid   "Auto-save played games"
+msgstr  "自动保存完成的对局"
+
+# state: translated
+# (1) dlg_prefs.cc:488
+msgid   "Autosave"
+msgstr  "自动保存"
+
+# state: translated
+# (1) dlg_prefs.cc:525
+msgid   "Axis & Buttons"
+msgstr  "坐标和按钮"
+
+# state: translated
+# (1) dlg_prefs.cc:321
+msgid   "Background"
+msgstr  "背景"
+
+# state: translated
+# (1) network.cc:366
+msgid   "Bad descriptor"
+msgstr  "无效的描述符"
+
+# state: untranslated
+# (1) sound.cc:359
+msgid   "Beep (need Pitch, Duration, Count and Device)"
+msgstr  ""
+
+# state: translated
+# (1) board.cc:1009
+msgid   "Bishop  %d"
+msgstr  "象    %d"
+
+# state: translated
+# (5) board.cc:418; dlg_gamelist.cc:321; movelist.cc:66; proto_p2p.cc:551; proto_xboard.cc:1004
+msgid   "Black"
+msgstr  "黑棋"
+
+# state: translated
+# (1) bugpane.cc:241
+msgid   "Black: %s - %s"
+msgstr  "黑棋：%s - %s"
+
+# state: translated
+# (1) dlg_prefs.cc:947
+msgid  ""
+"Board Cursor Axis: %d\n"
+"Board Select Button: %d\n"
+"Board Browsing Axis: %d\n"
+"Previous Tab Button: %d\n"
+"Next Tab Button: %d\n"
+msgstr ""
+"棋盘光标坐标：%d\n"
+"棋盘选择按钮：%d\n"
+"棋盘浏览坐标：%d\n"
+"上一个 Tab 按钮：%d\n"
+"下一个 Tab 按钮：%d\n"
+
+# state: translated
+# (1) dgtboard.cc:417
+msgid   "Board version :%s"
+msgstr  "棋盘版本：%s"
+
+# state: translated
+# (1) dlg_connect.cc:288
+msgid   "Bookmark Caption:"
+msgstr  "书签标题："
+
+# state: translated
+# (1) dlg_prefs.cc:134
+msgid   "Bottom"
+msgstr  "底部"
+
+# state: translated
+# (1) dlg_prefs.cc:311
+msgid   "Bright Text"
+msgstr  "明亮文字"
+
+# state: translated
+# (1) sound.cc:529
+msgid   "Browse"
+msgstr  "浏览"
+
+# state: translated
+# (1) text.cc:110
+msgid   "Buffer Save failed."
+msgstr  "缓冲区保存失败。"
+
+# state: translated
+# (1) mainwindow.cc:265
+msgid   "Bughouse"
+msgstr  "精神病院"
+
+# state: untranslated
+# (2) bugpane.cc:217,218
+msgid   "Bughouse: Partner Game"
+msgstr  ""
+
+# state: translated
+# (1) dgtboard.cc:415
+msgid   "Bus address :%s"
+msgstr  "总线地址：%s"
+
+# state: translated
+# (1) quickbar.cc:220
+msgid   "Button Caption"
+msgstr  "按钮标题"
+
+# state: translated
+# (1) quickbar.cc:219
+msgid   "Button Icon"
+msgstr  "按钮图标"
+
+# state: translated
+# (9) board.cc:2541; clock.cc:507; dlg_connect.cc:145; dlg_prefs.cc:572; p2p.cc:110; proto_xboard.cc:904; quickbar.cc:268; sound.cc:464; text.cc:479
+msgid   "Cancel"
+msgstr  "取消"
+
+# state: translated
+# (1) dlg_prefs.cc:987
+msgid   "Cancel Joystick Configuration"
+msgstr  "取消游戏杆配置"
+
+# state: translated
+# (1) p2p.cc:262
+msgid   "Cancelled connection wait."
+msgstr  "取消等待连接。"
+
+# state: translated
+# (1) dlg_connect.cc:302
+msgid   "Change..."
+msgstr  "修改..."
+
+# state: translated
+# (2) dlg_prefs.cc:195,319
+msgid   "Channel Tells"
+msgstr  "频道聊天"
+
+# state: translated
+# (2) proto_p2p.cc:283,448
+msgid   "Checkmate"
+msgstr  "将杀"
+
+# state: translated
+# (1) dlg_prefs.cc:320
+msgid   "Chess Programs"
+msgstr  "国际象棋程序"
+
+# state: translated
+# (1) dlg_prefs.cc:870
+msgid   "Choose Font"
+msgstr  "选择字体"
+
+# state: translated
+# (5) dlg_prefs.cc:368,372,376,380,384
+msgid   "Choose..."
+msgstr  "选择..."
+
+# state: translated
+# (1) dlg_prefs.cc:366
+msgid   "Clock Font"
+msgstr  "时钟字体"
+
+# state: translated
+# (7) chess.cc:1517; dlg_connect.cc:349; help.cc:100,152,244,322; p2p.cc:159
+msgid   "Close"
+msgstr  "关闭"
+
+# state: translated
+# (1) widgetproxy.cc:343
+msgid   "Color Selection"
+msgstr  "选择颜色"
+
+# state: translated
+# (1) dlg_prefs.cc:304
+msgid   "Colors"
+msgstr  "颜色"
+
+# state: translated
+# (1) quickbar.cc:221
+msgid   "Command"
+msgstr  "命令"
+
+# state: translated
+# (1) dlg_connect.cc:290
+msgid   "Command Line:"
+msgstr  "命令行："
+
+# state: translated
+# (1) proto_xboard.cc:66
+msgid   "Computer"
+msgstr  "电脑"
+
+# state: translated
+# (1) proto_xboard.cc:811
+msgid   "Computer White vs. Human Black"
+msgstr  "电脑执白对人执黑"
+
+# state: translated
+# (3) dlg_prefs.cc:530,971,992
+msgid   "Configure Axis & Buttons"
+msgstr  "配置坐标和按钮"
+
+# state: translated
+# (1) sound.cc:413
+msgid   "Configured Sound Files:"
+msgstr  "已配置的音效文件："
+
+# state: translated
+# (2) dlg_connect.cc:143; p2p.cc:85
+msgid   "Connect"
+msgstr  "连接"
+
+# state: translated
+# (1) dlg_connect.cc:60
+msgid   "Connect to ICS Server"
+msgstr  "连接到 ICS 服务器"
+
+# state: translated
+# (2) network.cc:383,824
+msgid   "Connected to %s (%s)"
+msgstr  "连接到 %s (%s)"
+
+# state: translated
+# (2) network.cc:358,695
+msgid   "Connecting to %s..."
+msgstr  "正在连接 %s..."
+
+# state: translated
+# (1) network.cc:370
+msgid   "Connection refused"
+msgstr  "拒绝连接"
+
+# state: translated
+# (1) network.cc:364
+msgid   "Connection to %s:%d failed: "
+msgstr  "连接 %s:%d 失败："
+
+# state: translated
+# (3) mainwindow.cc:250,288; text.cc:290
+msgid   "Console"
+msgstr  "控制台"
+
+# state: translated
+# (1) sound.cc:365
+msgid   "Console Beep"
+msgstr  "控制台鸣笛"
+
+# state: translated
+# (1) dlg_prefs.cc:378
+msgid   "Console Font"
+msgstr  "控制台字体"
+
+# state: translated
+# (1) text.cc:108
+msgid   "Console buffer saved."
+msgstr  "控制台缓冲区已保存。"
+
+# state: translated
+# (1) sound.cc:381
+msgid   "Count:"
+msgstr  "次数："
+
+# state: translated
+# (1) proto_xboard.cc:1196
+msgid   "Crazyhouse"
+msgstr  "疯人院"
+
+# state: translated
+# (1) dgtboard.cc:411
+msgid   "DGT board found on port %s."
+msgstr  "在端口 %s 上找到了 DGT 棋盘。"
+
+# state: translated
+# (1) dgtboard.cc:250
+msgid   "DGT support error: wrong page"
+msgstr  "DGT 支持错误：错误的页面"
+
+# state: translated
+# (1) dgtboard.cc:350
+msgid   "DGT warning: position mismatch between eboard and DGT board."
+msgstr  "DGT 警告：eboard 和 DGT 棋盘中棋子的位置不匹配。"
+
+# state: translated
+# (1) dgtboard.cc:383
+msgid   "DGT: unrecognized code: %c (%d)"
+msgstr  "DGT：无法识别的代码：%c (%d)"
+
+# state: translated
+# (1) dlg_prefs.cc:148
+msgid   "Dark Squares..."
+msgstr  "黑格..."
+
+# state: translated
+# (1) dlg_connect.cc:331
+msgid   "Delete All Entries"
+msgstr  "删除所有条目"
+
+# state: translated
+# (1) dlg_connect.cc:330
+msgid   "Delete This Entry"
+msgstr  "删除此条目"
+
+# state: translated
+# (1) proto_xboard.cc:838
+msgid   "Depth Limit:"
+msgstr  "深度限制："
+
+# state: translated
+# (1) script.cc:63
+msgid   "Description"
+msgstr  "描述"
+
+# state: translated
+# (1) sound.cc:379
+msgid   "Device:"
+msgstr  "设备："
+
+# state: translated
+# (1) proto_xboard.cc:875
+msgid   "Directory to run from (e.g., where book files are)"
+msgstr  "启动目录 (例如，棋书所在的目录)"
+
+# state: translated
+# (1) dlg_connect.cc:289
+msgid   "Directory:"
+msgstr  "目录："
+
+# state: translated
+# (1) dlg_gamelist.cc:280
+msgid   "Discard All"
+msgstr  "全部放弃"
+
+# state: translated
+# (1) dlg_gamelist.cc:289
+msgid   "Discard Game"
+msgstr  "放弃对局"
+
+# state: untranslated
+# (1) script.cc:81
+msgid   "Dismiss"
+msgstr  ""
+
+# state: translated
+# (1) dlg_gamelist.cc:283
+msgid   "Display Game"
+msgstr  "显示对局"
+
+# state: translated
+# (1) dlg_gamelist.cc:319
+msgid   "Displayed"
+msgstr  "已显示"
+
+# state: translated
+# (1) mainwindow.cc:794
+msgid  ""
+"Distributed under the terms of the GNU General Public License, version 2 or later"
+msgstr ""
+"按照通用公共许可证第二版或更新的版本发行"
+
+# state: translated
+# (1) dlg_prefs.cc:71
+msgid   "Draw Offered"
+msgstr  "已提出和棋"
+
+# state: translated
+# (1) proto_p2p.cc:501
+msgid   "Draw offer sent."
+msgstr  "已送出和棋提议。"
+
+# state: translated
+# (2) proto_p2p.cc:292,496
+msgid   "Drawn by agreement"
+msgstr  "同意和棋"
+
+# state: untranslated
+# (1) board.cc:993
+msgid   "Drop Piece:"
+msgstr  ""
+
+# state: translated
+# (1) sound.cc:378
+msgid   "Duration (msec):"
+msgstr  "持续时间 (msec)："
+
+# state: translated
+# (1) dlg_prefs.cc:241
+msgid   "Dynamic Seek Graph"
+msgstr  "动态搜索图"
+
+# state: translated
+# (1) mainwindow.cc:675
+msgid   "Edit Bookmarks..."
+msgstr  "编辑书签..."
+
+# state: translated
+# (1) dlg_connect.cc:254
+msgid   "Edit Engine Bookmarks"
+msgstr  "编辑引擎书签"
+
+# state: translated
+# (1) dlg_gamelist.cc:292
+msgid   "Edit Game Info"
+msgstr  "编辑对局信息"
+
+# state: translated
+# (1) clock.cc:421
+msgid   "Edit Time Control"
+msgstr  "编辑时间控制"
+
+# state: translated
+# (1) board.cc:2455
+msgid   "Empty"
+msgstr  "空白"
+
+# state: translated
+# (1) dlg_connect.cc:276
+msgid   "Engine Bookmarks"
+msgstr  "引擎书签"
+
+# state: translated
+# (1) proto_xboard.cc:863
+msgid   "Engine Command"
+msgstr  "引擎命令"
+
+# state: translated
+# (2) dlg_connect.cc:308,473
+msgid   "Engine Type:"
+msgstr  "引擎类型："
+
+# state: translated
+# (1) dlg_connect.cc:456
+msgid   "Engine Type: %s (uneditable)"
+msgstr  "引擎类型：%s (不可编辑)"
+
+# state: translated
+# (1) proto_xboard.cc:743
+msgid   "Engine asked more time to startup, waiting."
+msgstr  "引擎请求更多的启动时间，等待中。"
+
+# state: translated
+# (1) proto_xboard.cc:866
+msgid   "Engine command line"
+msgstr  "引擎命令行"
+
+# state: translated
+# (1) proto_xboard.cc:763
+msgid   "Engine loaded."
+msgstr  "引擎已装入。"
+
+# state: translated
+# (1) network.cc:822
+msgid   "Engine running"
+msgstr  "引擎正在运行"
+
+# state: translated
+# (1) proto_xboard.cc:494
+msgid   "Engine started (2 sec timeout)"
+msgstr  "引擎已启动(超时 2 秒)"
+
+# state: untranslated
+# (1) board.cc:2516
+msgid   "Enter FEN Position"
+msgstr  ""
+
+# state: translated
+# (1) sound.cc:352
+msgid   "Event Type"
+msgstr  "事件类型你该"
+
+# state: untranslated
+# (1) proto_fics.cc:863
+msgid   "Exam.Game #%d"
+msgstr  ""
+
+# state: translated
+# (1) proto_xboard.cc:512
+msgid   "Failed command line:"
+msgstr  "失败的命令行："
+
+# state: translated
+# (2) proto_xboard.cc:508,510
+msgid   "Failed to run engine."
+msgstr  "运行引擎失败。"
+
+# state: translated
+# (1) network.cc:806
+msgid   "Failed to run helper program"
+msgstr  "运行助手程序失败"
+
+# state: translated
+# (1) sound.cc:380
+msgid   "File to play / Program to run:"
+msgstr  "需播放的文件 / 需运行的程序："
+
+# state: translated
+# (4) text.cc:359,361,503,505
+msgid   "Filter: "
+msgstr  "过滤器："
+
+# state: translated
+# (1) text.cc:267
+msgid   "Filter: (none)"
+msgstr  "过滤器：(none)"
+
+# state: translated
+# (1) p2p.cc:199
+msgid   "Finish the current connection first."
+msgstr  "首先完成当前连接。"
+
+# state: untranslated
+# (1) proto_p2p.cc:123
+msgid   "Finish the current game first."
+msgstr  ""
+
+# state: translated
+# (1) dlg_prefs.cc:354
+msgid   "Fonts"
+msgstr  "字体"
+
+# state: translated
+# (1) dlg_gamelist.cc:527
+msgid   "From Elsewhere (%d %s)"
+msgstr  "来自其他 (%d %s)"
+
+# state: translated
+# (1) dlg_gamelist.cc:521
+msgid   "From Engines (%d %s)"
+msgstr  "来自引擎 (%d %s)"
+
+# state: untranslated
+# (1) board.cc:2464
+msgid   "From FEN"
+msgstr  ""
+
+# state: translated
+# (1) dlg_gamelist.cc:509
+msgid   "From ICS (%d %s)"
+msgstr  "来自 ICS (%d %s)"
+
+# state: translated
+# (1) dlg_gamelist.cc:515
+msgid   "From PGN Files (%d %s)"
+msgstr  "来自 PGN 文件 (%d %s)"
+
+# state: translated
+# (1) dlg_gamelist.cc:318
+msgid   "Game #"
+msgstr  "对局 #"
+
+# state: translated
+# (2) dlg_gamelist.cc:559; proto_fics.cc:1037
+msgid   "Game #%d"
+msgstr  "对局 #%d"
+
+# state: translated
+# (1) chess.cc:186
+msgid   "Game #%d - %s"
+msgstr  "对局 #%d - %s"
+
+# state: translated
+# (1) chess.cc:190
+msgid   "Game #%d - %s - %s"
+msgstr  "对局 #%d - %s - %s"
+
+# state: translated
+# (1) movelist.cc:47
+msgid   "Game #%d - %s vs. %s"
+msgstr  "对局 #%d - %s 对 %s"
+
+# state: translated
+# (1) board.cc:1091
+msgid   "Game #%d: %s"
+msgstr  "对局 #%d：%s"
+
+# state: translated
+# (2) proto_p2p.cc:289,515
+msgid   "Game Aborted"
+msgstr  "已中断对局"
+
+# state: translated
+# (1) dlg_gamelist.cc:93
+msgid   "Game Description"
+msgstr  "对局描述"
+
+# state: translated
+# (1) dlg_prefs.cc:374
+msgid   "Game Information Font"
+msgstr  "对局信息字体"
+
+# state: translated
+# (2) dlg_gamelist.cc:67,150
+msgid   "Game List"
+msgstr  "对局列表"
+
+# state: translated
+# (1) dlg_gamelist.cc:176
+msgid   "Game List (refreshing...)"
+msgstr  "对局列表 (正在刷新...)"
+
+# state: translated
+# (1) dlg_prefs.cc:76
+msgid   "Game Lost"
+msgstr  "对局失败"
+
+# state: translated
+# (1) dlg_prefs.cc:77
+msgid   "Game Started"
+msgstr  "对局开始"
+
+# state: translated
+# (1) dlg_prefs.cc:75
+msgid   "Game Won"
+msgstr  "对局胜利"
+
+# state: untranslated
+# (4) proto_fics.cc:1573; proto_p2p.cc:467; proto_xboard.cc:362,386
+msgid   "Game appended to %s"
+msgstr  ""
+
+# state: translated
+# (1) movelist.cc:157
+msgid   "Game in progress."
+msgstr  "进行中的对局。"
+
+# state: translated
+# (1) proto_p2p.cc:461
+msgid   "Game over: %s"
+msgstr  "游戏结束：%s"
+
+# state: translated
+# (1) proto_p2p.cc:108
+msgid   "Game proposal sent."
+msgstr  "已发出对局提议。"
+
+# state: translated
+# (2) proto_fics.cc:1003; proto_p2p.cc:357
+msgid   "Game started!"
+msgstr  "对局已开始！"
+
+# state: translated
+# (1) mainwindow.cc:502
+msgid   "Game/Board: "
+msgstr  "对局/棋盘："
+
+# state: translated
+# (1) dlg_gamelist.cc:120
+msgid   "Games"
+msgstr  "对局"
+
+# state: translated
+# (1) board.cc:2376
+msgid   "Generic XBoard Engine..."
+msgstr  "通用 XBoard 引擎..."
+
+# state: translated
+# (1) proto_xboard.cc:1202
+msgid   "Giveaway"
+msgstr  "赠品"
+
+# state: untranslated
+# (1) dlg_prefs.cc:165
+msgid   "Graphic representation of crazy/bughouse stock"
+msgstr  ""
+
+# state: translated
+# (1) help.cc:162
+msgid   "Help: Debug Info"
+msgstr  "帮助：调试信息"
+
+# state: translated
+# (1) help.cc:299
+msgid   "Help: Getting Started "
+msgstr  "帮助：新手上路"
+
+# state: translated
+# (1) help.cc:109
+msgid   "Help: Keys"
+msgstr  "帮助：按键"
+
+# state: translated
+# (1) network.cc:670
+msgid   "Helper program not found"
+msgstr  "找不到助手程序"
+
+# state: translated
+# (1) quickbar.cc:68
+msgid   "Hide!"
+msgstr  "隐藏！"
+
+# state: translated
+# (2) network.cc:332,685
+msgid   "Host not found: %s"
+msgstr  "找不到主机名：%s"
+
+# state: translated
+# (1) dlg_connect.cc:104
+msgid   "Hostname"
+msgstr  "主机名"
+
+# state: translated
+# (1) p2p.cc:71
+msgid   "Hostname or IP address:"
+msgstr  "主机名或者 IP 地址："
+
+# state: translated
+# (1) global.cc:1486
+msgid   "Human"
+msgstr  "人"
+
+# state: translated
+# (1) proto_xboard.cc:809
+msgid   "Human White vs. Computer Black"
+msgstr  "人执白对电脑执黑"
+
+# state: translated
+# (1) dlg_connect.cc:304
+msgid   "Human plays white"
+msgstr  "人使用白棋"
+
+# state: translated
+# (1) dlg_prefs.cc:73
+msgid   "ICS Challenge"
+msgstr  "ICS 挑战"
+
+# state: translated
+# (1) network.cc:709
+msgid   "IPC pipe creation failed."
+msgstr  "新建 IPC 管道失败。"
+
+# state: translated
+# (1) board.cc:2385
+msgid  ""
+"If you pick a bookmark, the engine\n"
+"will play the next move, ignoring\n"
+"the side setting in the bookmark."
+msgstr ""
+"如果您点击了书签，引擎就会\n"
+"走出下一步棋，而步考虑书签\n"
+"中关于轮到谁走棋的设置。"
+
+# state: untranslated
+# (1) board.cc:956
+msgid   "Illegal Drop on %c%d (Legality Checking On)"
+msgstr  ""
+
+# state: translated
+# (1) board.cc:762
+msgid   "Illegal Move %c%d%c%d (Legality Checking On)"
+msgstr  "无效着法 %c%d%c%d (有效性检查已开启)"
+
+# state: translated
+# (1) proto_p2p.cc:382
+msgid   "Illegal move, not sent."
+msgstr  "无效着法，未送出。"
+
+# state: translated
+# (1) proto_p2p.cc:548
+msgid   "Increment (secs):"
+msgstr  "增量 (秒):"
+
+# state: translated
+# (1) clock.cc:490
+msgid   "Increment:"
+msgstr  "增量"
+
+# state: translated
+# (1) dlg_prefs.cc:244
+msgid   "Inhibit seek lines on console when Seek Graph is active"
+msgstr  "当启用搜索图时不在控制台上显示搜索行"
+
+# state: translated
+# (1) board.cc:2459
+msgid   "Initial Position"
+msgstr  "原始位置"
+
+# state: translated
+# (1) proto_p2p.cc:547
+msgid   "Initial time ([mm:]ss):"
+msgstr  "起始时间 ([mm:]ss)："
+
+# state: translated
+# (1) proto_xboard.cc:471
+msgid   "Initializing engine"
+msgstr  "正在初始化引擎"
+
+# state: translated
+# (1) dlg_prefs.cc:515
+msgid   "Joystick"
+msgstr  "游戏杆"
+
+# state: translated
+# (1) chess.cc:1478
+msgid   "Key"
+msgstr  "键"
+
+# state: translated
+# (1) chess.cc:1495
+msgid   "Key:"
+msgstr  "键："
+
+# state: translated
+# (1) dlg_prefs.cc:315
+msgid   "Kibitzes/Whispers"
+msgstr  "胡乱插嘴者/耳语者"
+
+# state: translated
+# (1) script.cc:258
+msgid   "Kill"
+msgstr  "杀死"
+
+# state: translated
+# (1) board.cc:1005
+msgid   "Knight  %d"
+msgstr  "马      %d"
+
+# state: translated
+# (1) proto_p2p.cc:581
+msgid   "Last Proposal Received"
+msgstr  "最后收到的提议"
+
+# state: translated
+# (1) dlg_prefs.cc:130
+msgid   "Left"
+msgstr  "左侧"
+
+# state: translated
+# (1) seekgraph.cc:493
+msgid   "Left click to play, right click to refresh."
+msgstr  "点击鼠标左键开始对局，点击鼠标右键刷新。"
+
+# state: translated
+# (1) dlg_prefs.cc:147
+msgid   "Light Squares..."
+msgstr  "白格..."
+
+# state: translated
+# (1) dlg_gamelist.cc:700
+msgid   "Load PGN"
+msgstr  "装入 PGN"
+
+# state: translated
+# (1) dlg_gamelist.cc:274
+msgid   "Load PGN..."
+msgstr  "装入 PGN..."
+
+# state: translated
+# (1) dlg_gamelist.cc:355
+msgid   "Local"
+msgstr  "本地"
+
+# state: translated
+# (1) dlg_gamelist.cc:237
+msgid   "Local Game List"
+msgstr  "本地对局列表"
+
+# state: translated
+# (2) network.cc:327,680
+msgid   "Looking up host %s..."
+msgstr  "正在解析主机 %s..."
+
+# state: translated
+# (1) proto_xboard.cc:1200
+msgid   "Losers"
+msgstr  "失败者"
+
+# state: translated
+# (1) mainwindow.cc:274
+msgid   "Main Board"
+msgstr  "主棋盘"
+
+# state: translated
+# (1) dlg_prefs.cc:314
+msgid   "Mamer and TDs"
+msgstr  "哼哼唧唧"
+
+# state: translated
+# (1) text.cc:88
+msgid   "Match Found at Line %d."
+msgstr  "在第 %d 行发现匹配。"
+
+# state: translated
+# (1) text.cc:453
+msgid   "Match Pattern: "
+msgstr  "匹配模式："
+
+# state: translated
+# (1) position.cc:1087
+msgid   "Material: %d - %d"
+msgstr  "子力：%d - %d"
+
+# state: untranslated
+# (1) dlg_connect.cc:292
+msgid   "Max Ply:"
+msgstr  ""
+
+# state: translated
+# (1) dlg_prefs.cc:79
+msgid   "Move made (Obs'vd/Exm'd Games)"
+msgstr  "走棋 (旁观或查看的对局)"
+
+# state: untranslated
+# (1) dlg_prefs.cc:938
+msgid  ""
+"Move the axis to be used for moving back and forth\n"
+"through moves of a game."
+msgstr ""
+
+# state: translated
+# (1) dlg_prefs.cc:932
+msgid   "Move the axis to be used for selecting pieces."
+msgstr  "将移动坐标看作是选定棋子。"
+
+# state: translated
+# (1) movelist.cc:81
+msgid   "Moves"
+msgstr  "着法"
+
+# state: translated
+# (1) network.cc:372
+msgid   "Network is unreachable"
+msgstr  "网络不可达"
+
+# state: translated
+# (1) dlg_prefs.cc:313
+msgid   "News/Notifications"
+msgstr  "新闻/通告"
+
+# state: translated
+# (1) dlg_gamelist.cc:428
+msgid   "No"
+msgstr  "否"
+
+# state: translated
+# (3) network.cc:314,438,503
+msgid   "No error."
+msgstr  "无错误。"
+
+# state: translated
+# (2) proto_p2p.cc:280,442
+msgid   "No material to mate"
+msgstr  "没有将杀的足够子力"
+
+# state: translated
+# (1) network.cc:781
+msgid   "No output from program."
+msgstr  "程序没有输出。"
+
+# state: translated
+# (1) mainwindow.cc:1131
+msgid   "No peer."
+msgstr  "没有连接。"
+
+# state: translated
+# (1) text.cc:74
+msgid   "No previous search."
+msgstr  "没有前次搜索。"
+
+# state: translated
+# (1) proto_p2p.cc:650
+msgid   "No proposals left."
+msgstr  "没有剩余提议。"
+
+# state: translated
+# (1) proto_p2p.cc:589
+msgid   "No proposals received."
+msgstr  "没有接收到提议。"
+
+# state: translated
+# (1) dlg_prefs.cc:197
+msgid   "Non-ASCII Character Filtering"
+msgstr  "非 ASCII 字符过滤"
+
+# state: translated
+# (5) bugpane.cc:38,39,359,360; dlg_prefs.cc:224
+msgid   "None"
+msgstr  "无"
+
+# state: translated
+# (1) proto_xboard.cc:1194
+msgid   "Normal Chess"
+msgstr  "普通级别"
+
+# state: translated
+# (1) dlg_prefs.cc:310
+msgid   "Normal Text"
+msgstr  "普通文字"
+
+# state: translated
+# (1) network.cc:368
+msgid   "Not a socket ?!?"
+msgstr  "不是套接字 ?!?"
+
+# state: translated
+# (2) clock.cc:505; proto_xboard.cc:902
+msgid   "OK"
+msgstr  "确认"
+
+# state: translated
+# (1) dlg_prefs.cc:78
+msgid   "Obs'vd Game Ended"
+msgstr  "旁观的对局结束"
+
+# state: translated
+# (1) dlg_gamelist.cc:111
+msgid   "Observe"
+msgstr  "旁观"
+
+# state: translated
+# (5) board.cc:2539; dlg_prefs.cc:568; quickbar.cc:266; sound.cc:460; text.cc:477
+msgid   "Ok"
+msgstr  "确认"
+
+# state: translated
+# (1) dlg_connect.cc:129
+msgid  ""
+"Once you connect to a host from this dialog, it will be added to\n"
+"the Peer/ICS Bookmarks menu. Edit the ~/.eboard/eboard.conf file\n"
+"to modify or remove entries."
+msgstr ""
+"一旦你在此对话框中连接了某主机，它就会被\n"
+"添加到连接/ICS 书签菜单中。编辑文件\n"
+"~/.eboard/eboard.conf 以修改或删除书签条目。\n"
+
+# state: translated
+# (1) text.cc:454
+msgid  ""
+"Only lines that match the above pattern will be added\n"
+"to this text pane. Patterns can be OR'ed with the | (pipe)\n"
+"character. A * (star) can be used to match anything.\n"
+"Examples:\n"
+"'(20)|(22)' shows only lines from channels 20 and 22\n"
+"'blik * bored' shows lines containing 'blik '(...)' bored'."
+msgstr ""
+"只有匹配了上述模式的行才会被加入到本文本\n"
+"窗格。可以使用 | (管道) 字符来把模式或\n"
+"起来。* (星号) 可以用于匹配任意行。\n"
+"例如：\n"
+"'(20)|(22)' 只显示来自 20 频道和 22 频道的行\n"
+"'blik * bored' 显示含有 'blik '(...)' bored' 的行。"
+
+# state: translated
+# (1) dlg_prefs.cc:70
+msgid   "Opponent Moved"
+msgstr  "对手已走棋"
+
+# state: translated
+# (1) p2p.cc:149
+msgid   "Options"
+msgstr  "选项"
+
+# state: translated
+# (1) chess.cc:1459
+msgid   "PGN Headers"
+msgstr  "PGN 头"
+
+# state: translated
+# (1) dlg_prefs.cc:491
+msgid   "PGN filename:"
+msgstr  "PGN 文件名："
+
+# state: untranslated
+# (1) bugpane.cc:274
+msgid   "Partner Tells:"
+msgstr  ""
+
+# state: translated
+# (1) board.cc:997
+msgid   "Pawn    %d"
+msgstr  "兵      %d"
+
+# state: translated
+# (1) sound.cc:377
+msgid   "Pitch (Hz):"
+msgstr  "音调 (Hz)："
+
+# state: untranslated
+# (1) dlg_gamelist.cc:845
+msgid   "Play"
+msgstr  ""
+
+# state: translated
+# (1) proto_xboard.cc:1001
+msgid   "Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)"
+msgstr  "对局 %s 为 %s 对 %s (%s，最大深度 %d，总是思考：%s)"
+
+# state: translated
+# (1) sound.cc:361
+msgid   "Play WAV (need Device and Filename, sox must be installed)"
+msgstr  "播放 WAV (需要设备和文件名，必须安装 sox)"
+
+# state: translated
+# (1) proto_xboard.cc:1078
+msgid   "Play against Crafty"
+msgstr  "同 Crafty 对局"
+
+# state: translated
+# (1) proto_xboard.cc:769
+msgid   "Play against Engine"
+msgstr  "与引擎游戏"
+
+# state: translated
+# (1) proto_xboard.cc:1319
+msgid   "Play against GNU Chess 4"
+msgstr  "与 GNU Chess 4 对局"
+
+# state: translated
+# (1) proto_xboard.cc:1234
+msgid   "Play against Sjeng"
+msgstr  "与 Sjeng 对局"
+
+# state: translated
+# (2) proto_p2p.cc:286,489
+msgid   "Player resigns"
+msgstr  "棋手认输"
+
+# state: translated
+# (1) dlg_prefs.cc:370
+msgid   "Player/Color Name Font"
+msgstr  "棋手/颜色名称字体"
+
+# state: untranslated
+# (1) proto_fics.cc:926
+msgid   "Pos: %s vs. %s"
+msgstr  ""
+
+# state: translated
+# (1) dlg_prefs.cc:51
+msgid   "Preferences"
+msgstr  "首选项"
+
+# state: untranslated
+# (1) dlg_prefs.cc:944
+msgid   "Press the button to be used for going to the next tab."
+msgstr  ""
+
+# state: untranslated
+# (1) dlg_prefs.cc:941
+msgid   "Press the button to be used for going to the previous tab."
+msgstr  ""
+
+# state: translated
+# (1) dlg_prefs.cc:935
+msgid   "Press the button to be used for selecting a square."
+msgstr  "将按键看作是选定棋盘格。"
+
+# state: translated
+# (1) dlg_prefs.cc:72
+msgid   "Private Tell"
+msgstr  "私聊"
+
+# state: translated
+# (1) dlg_prefs.cc:312
+msgid   "Private Tells"
+msgstr  "私聊"
+
+# state: translated
+# (1) network.cc:798
+msgid   "Program exited too soon"
+msgstr  "程序过快地退出"
+
+# state: translated
+# (1) widgetproxy.cc:224
+msgid   "Progress"
+msgstr  "进度"
+
+# state: translated
+# (1) promote.cc:57
+msgid   "Promotion Piece  "
+msgstr  "升变为  "
+
+# state: translated
+# (1) proto_p2p.cc:572
+msgid   "Propose"
+msgstr  "提议"
+
+# state: translated
+# (1) proto_p2p.cc:539
+msgid   "Propose Game"
+msgstr  "提议对局"
+
+# state: translated
+# (1) dlg_connect.cc:106
+msgid   "Protocol"
+msgstr  "协议"
+
+# state: translated
+# (2) proto_p2p.cc:189,199
+msgid   "Protocol mismatch, disconnecting."
+msgstr  "协议不匹配，正在断开连接。"
+
+# state: translated
+# (1) board.cc:1013
+msgid   "Queen   %d"
+msgstr  "后      %d"
+
+# state: translated
+# (1) network.cc:788
+msgid   "Read error from program."
+msgstr  "从程序中读取时出错。"
+
+# state: translated
+# (1) proto_p2p.cc:242
+msgid   "Received a game proposal from %s."
+msgstr  "从 %s 接收到一个对局提议。"
+
+# state: translated
+# (1) dlg_connect.cc:80
+msgid   "Recent Hosts"
+msgstr  "近期主机"
+
+# state: translated
+# (4) dlg_gamelist.cc:110,277,844; script.cc:79
+msgid   "Refresh List"
+msgstr  "刷新列表"
+
+# state: translated
+# (1) seekgraph.cc:260
+msgid   "Replied to seek #%d"
+msgstr  "回应搜索 #%d"
+
+# state: translated
+# (2) proto_fics.cc:1608; proto_xboard.cc:382
+msgid   "Resigned."
+msgstr  "已认输。"
+
+# state: translated
+# (1) dlg_gamelist.cc:323
+msgid   "Result"
+msgstr  "结果"
+
+# state: translated
+# (1) proto_xboard.cc:426
+msgid   "Retracted last move."
+msgstr  "悔棋。"
+
+# state: translated
+# (1) dlg_prefs.cc:255
+msgid   "Retrieve ICS Channel Lists from eboard.sf.net"
+msgstr  "从 eboard.sf.net 获取 ICS 频道列表"
+
+# state: translated
+# (1) dlg_prefs.cc:342
+msgid   "Revert to Defaults"
+msgstr  "恢复默认值"
+
+# state: translated
+# (1) dlg_prefs.cc:393
+msgid   "Revert to defaults"
+msgstr  "恢复为默认值"
+
+# state: translated
+# (1) dlg_prefs.cc:128
+msgid   "Right"
+msgstr  "右侧"
+
+# state: translated
+# (1) board.cc:1001
+msgid   "Rook    %d"
+msgstr  "车      %d"
+
+# state: translated
+# (1) script.cc:80
+msgid   "Run"
+msgstr  "运行"
+
+# state: translated
+# (1) board.cc:2471
+msgid   "Run Engine..."
+msgstr  "运行引擎..."
+
+# state: translated
+# (1) sound.cc:363
+msgid   "Run Program (need Filename)"
+msgstr  "运行程序(需要文件名)"
+
+# state: translated
+# (1) dlg_prefs.cc:209
+msgid   "Run autofics.pl script after connecting to FICS"
+msgstr  "连接到 FICS 之后运行脚本 autofics.pl"
+
+# state: translated
+# (1) text.cc:104
+msgid   "Save Buffer As..."
+msgstr  "缓冲区另存为..."
+
+# state: translated
+# (1) dlg_gamelist.cc:286
+msgid   "Save Game..."
+msgstr  "保存对局..."
+
+# state: translated
+# (1) dlg_gamelist.cc:682
+msgid   "Save as PGN"
+msgstr  "另存为 PGN"
+
+# state: translated
+# (2) mainwindow.cc:1151,1176
+msgid   "Scratch %d"
+msgstr  "临时 %d"
+
+# state: translated
+# (1) script.cc:62
+msgid   "Script"
+msgstr  "脚本"
+
+# state: translated
+# (1) script.cc:44
+msgid   "Script List"
+msgstr  "脚本列表"
+
+# state: translated
+# (1) dlg_prefs.cc:260
+msgid   "Scrollback limit (0 = unlimited) :"
+msgstr  "回滚上限 (0 为无限)："
+
+# state: translated
+# (1) text.cc:96
+msgid   "Search text not found."
+msgstr  "未找到需搜索的文本。"
+
+# state: translated
+# (1) dlg_prefs.cc:318
+msgid   "Seek Ads"
+msgstr  "搜索广告"
+
+# state: translated
+# (2) dlg_prefs.cc:193; proto_fics.cc:1861
+msgid   "Seek Graph"
+msgstr  "搜索图"
+
+# state: translated
+# (1) dlg_prefs.cc:382
+msgid   "Seek Graph Font"
+msgstr  "搜索图字体"
+
+# state: translated
+# (1) dgtboard.cc:413
+msgid   "Serial :%s"
+msgstr  "串口 ：%s"
+
+# state: translated
+# (1) text.cc:442
+msgid   "Set Filter"
+msgstr  "设置过滤器"
+
+# state: translated
+# (1) text.cc:269
+msgid   "Set Filter..."
+msgstr  "设置过滤器..."
+
+# state: translated
+# (1) proto_xboard.cc:844
+msgid   "Set depth limit to 0 to use the engine's default."
+msgstr  "将深度限制设为零将使用引擎默认的深度。"
+
+# state: translated
+# (1) quickbar.cc:67
+msgid   "Setup Buttons"
+msgstr  "设置按钮"
+
+# state: translated
+# (1) quickbar.cc:207
+msgid   "Shortcut Button Setup"
+msgstr  "快捷按钮设置"
+
+# state: translated
+# (1) dlg_prefs.cc:317
+msgid   "Shouts"
+msgstr  "吵闹"
+
+# state: translated
+# (1) dlg_prefs.cc:249
+msgid   "Show channel tells in one pane per channel"
+msgstr  "在单独的面板上未所有频道显示频道对话。"
+
+# state: translated
+# (1) dlg_prefs.cc:252
+msgid   "Show channel tells on console too (when above option is active)"
+msgstr  "在控制台上显示频道对话(当上一选项启用时)"
+
+# state: translated
+# (1) dlg_prefs.cc:206
+msgid   "Show rating next to player name"
+msgstr  "在棋手姓名之后显示等级分"
+
+# state: translated
+# (1) dlg_prefs.cc:168
+msgid   "Show shortcut buttons below board"
+msgstr  "在棋盘下方显示快捷按钮"
+
+# state: translated
+# (1) dlg_prefs.cc:212
+msgid   "Show timestamps for text lines"
+msgstr  "显示文本行的时间"
+
+# state: translated
+# (1) proto_xboard.cc:802
+msgid   "Side & Time"
+msgstr  "颜色和时间"
+
+# state: translated
+# (1) proto_xboard.cc:804
+msgid   "Side Selection"
+msgstr  "选择颜色"
+
+# state: translated
+# (2) board.cc:2476,2481
+msgid   "Side to move: "
+msgstr  "走棋方："
+
+# state: translated
+# (1) dlg_prefs.cc:532
+msgid   "Smooth joystick cursor"
+msgstr  "平滑游戏杆光标"
+
+# state: translated
+# (1) dlg_prefs.cc:533
+msgid   "Smooth joystick cursor speed:"
+msgstr  "平滑游戏杆光标速度："
+
+# state: translated
+# (1) dlg_prefs.cc:162
+msgid   "Smoother animation (eats more CPU)"
+msgstr  "平滑的动画 (消耗较多 CPU)"
+
+# state: translated
+# (1) dlg_prefs.cc:230
+msgid   "Soft translate"
+msgstr  "软翻译"
+
+# state: translated
+# (1) protocol.cc:84
+msgid  ""
+"Sorry, this protocol does not allow to retract a move thru this menu option."
+msgstr ""
+"抱歉，本协议不允许通过该菜单项悔棋。"
+
+# state: translated
+# (1) sound.cc:337
+msgid   "Sound Event"
+msgstr  "音效事件"
+
+# state: translated
+# (1) dlg_prefs.cc:422
+msgid   "Sound Events"
+msgstr  "音效事件"
+
+# state: translated
+# (1) dlg_prefs.cc:420
+msgid   "Sounds"
+msgstr  "音效"
+
+# state: translated
+# (1) mainwindow.cc:796
+msgid   "Source code available at http://eboard.sourceforge.net"
+msgstr  "源码可以从 http://eboard.sourceforge.net 获得"
+
+# state: translated
+# (2) proto_p2p.cc:277,436
+msgid   "Stalemate"
+msgstr  "逼和"
+
+# state: translated
+# (1) p2p.cc:147
+msgid   "Start a connection"
+msgstr  "开始一个连接"
+
+# state: translated
+# (1) clock.cc:488
+msgid   "Starting Time:"
+msgstr  "起始时间："
+
+# state: translated
+# (1) proto_xboard.cc:1198
+msgid   "Suicide"
+msgstr  "自杀"
+
+# state: translated
+# (1) dlg_connect.cc:105
+msgid   "TCP Port"
+msgstr  "TCP 端口"
+
+# state: translated
+# (2) p2p.cc:72,96
+msgid   "TCP Port:"
+msgstr  "TCP 端口："
+
+# state: translated
+# (1) dlg_prefs.cc:123
+msgid   "Tab Position"
+msgstr  "标签位置"
+
+# state: translated
+# (1) sound.cc:462
+msgid   "Test"
+msgstr  "测试"
+
+# state: translated
+# (1) dlg_prefs.cc:436
+msgid   "The checkbox on the left enables/disables the sound."
+msgstr  "左侧复选框开启/关闭音效。"
+
+# state: translated
+# (1) proto_xboard.cc:884
+msgid   "The engine will be run with\n/bin/sh -c 'cd directory ; command line'"
+msgstr  "引擎将以如下命令行运行\n/bin/sh -c 'cd directory ; command line'"
+
+# state: translated
+# (1) dlg_connect.cc:305
+msgid   "Think Always"
+msgstr  "总是思考"
+
+# state: translated
+# (1) proto_xboard.cc:847
+msgid   "Think on opponent's time"
+msgstr  "在对手思考时也思考"
+
+# state: translated
+# (1) proto_xboard.cc:816
+msgid   "Time Control"
+msgstr  "时间控制"
+
+# state: translated
+# (1) proto_xboard.cc:829
+msgid   "Time Control..."
+msgstr  "时间控制..."
+
+# state: translated
+# (1) dlg_connect.cc:291
+msgid   "Time Control:"
+msgstr  "时间控制："
+
+# state: translated
+# (1) dlg_prefs.cc:74
+msgid   "Time Running Out"
+msgstr  "时间已用尽"
+
+# state: translated
+# (1) network.cc:371
+msgid   "Timeout"
+msgstr  "超时"
+
+# state: translated
+# (1) clock.cc:498
+msgid   "Times can be given as hh:mm:ss , mm:ss or ss"
+msgstr  "时间的格式可以是 hh:mm:ss、mm:ss 或 ss"
+
+# state: translated
+# (1) quickbar.cc:253
+msgid  ""
+"To run multiple commands with one shortcut, separate the commands with ; (semicolon).\n"
+"To run a script from a shortcut, set command to script.ScriptName, e.g.: script.myscript.pl ."
+msgstr ""
+"为了在一个快捷按钮中执行多个命令，用 ; (分号)隔开命令。\n"
+"为了在一个快捷按钮中执行脚本，把命令设置为 script.ScriptName，例如 script.myscript.pl。"
+
+# state: translated
+# (1) dlg_prefs.cc:132
+msgid   "Top"
+msgstr  "顶部"
+
+# state: translated
+# (1) dgtboard.cc:419
+msgid   "Trademark :%s"
+msgstr  "商标:%s"
+
+# state: translated
+# (1) dlg_prefs.cc:226
+msgid   "Truncate"
+msgstr  "截断"
+
+# state: translated
+# (1) clock.cc:446
+msgid   "Type: Fischer Clock (ICS-like)"
+msgstr  "类型：费歇尔时钟 (类似 ICS)"
+
+# state: translated
+# (1) clock.cc:444
+msgid   "Type: Fixed Time per Move"
+msgstr  "类型：每步棋固定时间"
+
+# state: translated
+# (1) clock.cc:447
+msgid   "Type: Use engine's default setting"
+msgstr  "类型：使用引擎的默认设置"
+
+# state: translated
+# (1) clock.cc:445
+msgid   "Type: X Moves per Time Period"
+msgstr  "类型：在规定时间内完成 X 步棋"
+
+# state: translated
+# (1) network.cc:467
+msgid   "Unable to bind on port %d."
+msgstr  "无法绑定端口 %d。"
+
+# state: translated
+# (1) network.cc:457
+msgid   "Unable to create socket."
+msgstr  "无法创建套接字"
+
+# state: translated
+# (1) dgtboard.cc:403
+msgid   "Unable to find the DGT board on port %s."
+msgstr  "无法在端口 %s 上找到 DGT 棋盘。"
+
+# state: translated
+# (1) dgtboard.cc:119
+msgid   "Unable to load dgtnix library symbol.\n"
+msgstr  "无法装入库 dgtnix 中的符号。\n"
+
+# state: translated
+# (1) dgtboard.cc:114
+msgid   "Unable to load dgtnix library.\n"
+msgstr  "无法装入 dgtnix 库。\n"
+
+# state: translated
+# (1) network.cc:376
+msgid   "Unknown error"
+msgstr  "未知的错误"
+
+# state: translated
+# (1) proto_p2p.cc:295
+msgid   "Unknown result"
+msgstr  "未知的结果"
+
+# state: translated
+# (1) dlg_prefs.cc:144
+msgid   "Use plain color squares"
+msgstr  "使用纯色棋盘格"
+
+# state: translated
+# (1) dlg_prefs.cc:228
+msgid   "Use underscores"
+msgstr  "使用下划线"
+
+# state: translated
+# (1) chess.cc:1479
+msgid   "Value"
+msgstr  "值"
+
+# state: translated
+# (1) chess.cc:1496
+msgid   "Value:"
+msgstr  "值："
+
+# state: translated
+# (3) dlg_gamelist.cc:322; proto_xboard.cc:1189,1211
+msgid   "Variant"
+msgstr  "变种"
+
+# state: translated
+# (2) dlg_connect.cc:307,472
+msgid   "Variant:"
+msgstr  "变种："
+
+# state: translated
+# (1) dlg_connect.cc:445
+msgid   "Variant: %s (uneditable)"
+msgstr  "变种：%s (不可编辑)"
+
+# state: translated
+# (1) p2p.cc:109
+msgid   "Wait"
+msgstr  "等待"
+
+# state: translated
+# (1) p2p.cc:148
+msgid   "Wait for a connection"
+msgstr  "等待连接"
+
+# state: translated
+# (1) p2p.cc:244
+msgid   "Waiting for connection on port %d."
+msgstr  "在端口 %d 上等待连接。"
+
+# state: translated
+# (1) dlg_prefs.cc:268
+msgid   "Warn when own clock is below: "
+msgstr  "当我方时间少于下限时发出警告："
+
+# state: translated
+# (1) status.cc:43
+msgid   "Welcome to eboard."
+msgstr  "欢迎使用 eboard。"
+
+# state: translated
+# (5) board.cc:430; dlg_gamelist.cc:320; movelist.cc:65; proto_p2p.cc:550; proto_xboard.cc:1003
+msgid   "White"
+msgstr  "白棋"
+
+# state: translated
+# (1) bugpane.cc:228
+msgid   "White: %s - %s"
+msgstr  "白棋：%s - %s"
+
+# state: translated
+# (1) widgetproxy.cc:238
+msgid   "Working..."
+msgstr  "工作中..."
+
+# state: translated
+# (1) help.cc:245
+msgid   "Write to Console"
+msgstr  "写入到控制台"
+
+# state: translated
+# (1) network.cc:367
+msgid   "Wrong address space"
+msgstr  "错误的地址空间"
+
+# state: untranslated
+# (1) chess.cc:890
+msgid   "Wrote"
+msgstr  ""
+
+# state: translated
+# (1) dlg_gamelist.cc:427
+msgid   "Yes"
+msgstr  "是"
+
+# state: translated
+# (1) proto_xboard.cc:414
+msgid   "You can only retract when it's your turn to move."
+msgstr  "您只能在轮到您走棋的时候才能悔棋。"
+
+# state: translated
+# (1) proto_p2p.cc:546
+msgid   "Your color:"
+msgstr  "您的颜色："
+
+# state: translated
+# (1) p2p.cc:135
+msgid   "Your name:"
+msgstr  "您的姓名："
+
+# state: translated
+# (1) mainwindow.cc:2015
+msgid   "[chat]"
+msgstr  "[聊天]"
+
+# state: translated
+# (2) mainwindow.cc:1973,2016
+msgid   "[cmd]"
+msgstr  "[命令]"
+
+# state: translated
+# (1) global.cc:385
+msgid   "[eboard] ** $HOME is too long"
+msgstr  "[eboard] ** $HOME 过长"
+
+# state: translated
+# (1) global.cc:412
+msgid   "[eboard] ** failed to create directory "
+msgstr  "[eboard] ** 新建目录失败 "
+
+# state: translated
+# (1) global.cc:382
+msgid   "[eboard] ** no $HOME"
+msgstr  "[eboard] ** 没有 $HOME"
+
+# state: untranslated
+# (1) sound.cc:149
+msgid   "[eboard] bad RC line\n"
+msgstr  ""
+
+# state: translated
+# (1) mainwindow.cc:2005
+msgid   "[find]"
+msgstr  "[查找]"
+
+# state: translated
+# (1) sound.cc:314
+msgid   "beep"
+msgstr  "鸣笛"
+
+# state: translated
+# (1) sound.cc:313
+msgid   "beeps"
+msgstr  "鸣笛"
+
+# state: translated
+# (1) proto_fics.cc:1914
+msgid   "black"
+msgstr  "黑棋"
+
+# state: translated
+# (1) chess.cc:1254
+msgid   "can't load PGN move text from %s (error opening file)"
+msgstr  "无法从 %s 中装入 PGN 着法 (打开文件出错)"
+
+# state: translated
+# (1) chess.cc:1260
+msgid   "can't seek to offset %lu of %s"
+msgstr  "无法跳转到偏移量 %lu (在 %s 中)"
+
+# state: translated
+# (1) dgtboard.cc:397
+msgid   "dgtnix driver version: %s"
+msgstr  "dgtnix 驱动版本：%s"
+
+# state: translated
+# (1) dgtboard.cc:146
+msgid   "dgtnix version too old: %f, must be >= %f"
+msgstr  "dgtnix 版本过于陈旧：%f，必须大于等于 >= %f"
+
+# state: translated
+# (1) mainwindow.cc:525
+msgid   "discards board"
+msgstr  "放弃棋盘"
+
+# state: translated
+# (1) p2p.cc:33
+msgid   "eboard Direct Connection Manager"
+msgstr  "eboard 直接连接管理器"
+
+# state: translated
+# (1) mainwindow.cc:790
+msgid   "eboard version %s (%s)"
+msgstr  "eboard 版本 %s (%s)"
+
+# state: translated
+# (1) help.cc:76
+msgid  ""
+"eboard version %s\n"
+"(c) 2000-%d Felipe Bergo\n"
+"<fbergo@gmail.com>\n"
+"http://eboard.sourceforge.net\n"
+"\nThis program is free software; you can redistribute\n"
+"it and/or modify it under the terms of the GNU General\n"
+"Public License as published by the Free Software\n"
+"Foundation; either version 2 of the License, or\n"
+"(at your option) any later version.\n"
+msgstr ""
+"eboard 版本 %s\n"
+"(c) 2000-%d Felipe Bergo\n"
+"<fbergo@gmail.com>\n"
+"http://eboard.sourceforge.net\n"
+"\n本程序是自由软件；您可以按照由\n"
+"自由软件基金会发布的 GNU 通用\n"
+"公共许可证第二版或任何后续版本\n"
+"(按照您的意愿)的条款对其进行\n"
+"再发布或者修改。\n"
+
+# state: translated
+# (1) text.cc:239
+msgid   "eboard: Console #%d"
+msgstr  "eboard：控制台 #%d"
+
+# state: translated
+# (1) proto_xboard.cc:161
+msgid   "engine claimed illegal move but we didn't move, ignoring it."
+msgstr  "引擎声称收到了非法着法但我们还没走，忽略。"
+
+# state: translated
+# (1) chess.cc:1267
+msgid   "error parsing PGN data"
+msgstr  "解析 PGN 数据出错"
+
+# state: translated
+# (1) mainwindow.cc:524
+msgid   "flips board"
+msgstr  "翻转棋盘"
+
+# state: translated
+# (5) dlg_gamelist.cc:499,510,516,522,528
+msgid   "game"
+msgstr  "对局"
+
+# state: translated
+# (5) dlg_gamelist.cc:500,511,517,523,529
+msgid   "games"
+msgstr  "对局"
+
+# state: translated
+# (1) dlg_connect.cc:450
+msgid   "generic xboard v2"
+msgstr  "通用 xboard v2"
+
+# state: translated
+# (1) mainwindow.cc:520
+msgid   "goes back 1 halfmove"
+msgstr  "退回一步棋"
+
+# state: translated
+# (1) mainwindow.cc:519
+msgid   "goes back to start of game"
+msgstr  "退回到对局开始"
+
+# state: translated
+# (1) mainwindow.cc:521
+msgid   "goes forward 1 halfmove"
+msgstr  "前进一步棋"
+
+# state: translated
+# (1) mainwindow.cc:522
+msgid   "goes forward to end of game"
+msgstr  "前进到对局结束"
+
+# state: translated
+# (1) proto_xboard.cc:177
+msgid   "illegal move!"
+msgstr  "无效着法！"
+
+# state: untranslated
+# (1) dlg_gamelist.cc:436
+msgid   "in progress"
+msgstr  ""
+
+# state: translated
+# (1) clock.cc:342
+msgid   "initial time %s, increment %s"
+msgstr  "起始时间 %s，增量 %s"
+
+# state: untranslated
+# (1) clock.cc:479
+msgid   "moves in"
+msgstr  ""
+
+# state: translated
+# (1) proto_xboard.cc:1009
+msgid   "no"
+msgstr  "否"
+
+# state: translated
+# (2) proto_fics.cc:1541,1728
+msgid   "no such game: "
+msgstr  "没有对局："
+
+# state: translated
+# (1) clock.cc:333
+msgid   "no time control set"
+msgstr  "未设置时间控制"
+
+# state: translated
+# (2) movelist.cc:127,128
+msgid   "none"
+msgstr  "无"
+
+# state: translated
+# (1) sound.cc:326
+msgid   "nothing"
+msgstr  "无"
+
+# state: translated
+# (1) mainwindow.cc:526
+msgid   "opens new scratch board with position"
+msgstr  "打开一个棋子在原始位置的临时棋盘"
+
+# state: translated
+# (1) clock.cc:473
+msgid   "per move"
+msgstr  "每步棋"
+
+# state: translated
+# (1) sound.cc:323
+msgid   "plain console beep"
+msgstr  "普通的控制台鸣笛"
+
+# state: translated
+# (1) sound.cc:317
+msgid   "play file %s"
+msgstr  "播放文件 %s"
+
+# state: translated
+# (1) mainwindow.cc:523
+msgid   "pops up the move list"
+msgstr  "弹出着法列表"
+
+# state: translated
+# (1) network.cc:716
+msgid   "process creation failed."
+msgstr  "新建进程失败。"
+
+# state: translated
+# (2) chess.cc:192; seekgraph.cc:549
+msgid   "rated"
+msgstr  "已评级"
+
+# state: translated
+# (1) sound.cc:320
+msgid   "run %s"
+msgstr  "运行 %s"
+
+# state: translated
+# (1) script.cc:256
+msgid   "running %s"
+msgstr  "正在运行 %s"
+
+# state: translated
+# (1) chess.cc:834
+msgid   "savePGN failed: %s"
+msgstr  "保存 PGN 失败：%s"
+
+# state: translated
+# (1) chess.cc:819
+msgid   "savePGN failed: Won't save game with less than 2 moves"
+msgstr  "保存 PGN 失败：不会保存少于两步的对局"
+
+# state: translated
+# (1) dlg_prefs.cc:272
+msgid   "seconds."
+msgstr  "秒"
+
+# state: translated
+# (2) chess.cc:193; seekgraph.cc:550
+msgid   "unrated"
+msgstr  "未评级"
+
+# state: translated
+# (1) clock.cc:313
+msgid   "untimed"
+msgstr  "未计时"
+
+# state: translated
+# (1) proto_fics.cc:1913
+msgid   "white"
+msgstr  "白棋"
+
+# state: translated
+# (1) proto_xboard.cc:1008
+msgid   "yes"
+msgstr  "是"
+
