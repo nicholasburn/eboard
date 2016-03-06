@@ -73,6 +73,10 @@ install-data:
 install-nls:
 	$(MAKE) -C multilang install-nls INSTALL=$(INSTALL) datadir=$(datadir)
 
+install-extras:
+	$(MAKE) -C extras/pack1 install INSTALL=$(INSTALL) DATADIR=$(datadir)
+	$(MAKE) -C extras/pack2 install INSTALL=$(INSTALL) DATADIR=$(datadir)
+
 uninstall:
 	rm -f $(bindir)/eboard 
 	rm -f $(bindir)/eboard-config
@@ -86,6 +90,8 @@ uninstall:
 	rm -f $(datadir)/eboard_themes.conf
 	rm -f $(datadir)/NAG.en.txt
 	$(MAKE) -C multilang uninstall-nls datadir=$(datadir)
+	$(MAKE) -C extras/pack1 uninstall datadir=$(datadir)
+	$(MAKE) -C extras/pack2 uninstall datadir=$(datadir)
 
 dist:
 	rm -rf $(DIST) $(DIST).tar.bz2 $(DIST).tar.gz
