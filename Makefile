@@ -5,7 +5,7 @@ prefix    = ${DESTDIR}/usr
 bindir    = ${DESTDIR}/usr/bin
 mandir    = ${DESTDIR}/usr/man
 datadir   = ${DESTDIR}/usr/share/eboard
-version   = 1.1.1
+version   = 1.1.2
 
 ### here starts the fixed Makefile section
 
@@ -46,7 +46,7 @@ clean:
 distclean:
 	rm -f $(OBJS) eboard *~ config.h config.make Makefile $(DIST).tar.gz $(DIST).tar.bz2 eboard.spec eboard-config
 
-install: install-bin install-man install-data install-nls
+install: install-bin install-man install-data install-extras install-nls
 
 install-bin: eboard
 	$(INSTALL) -d $(bindir)

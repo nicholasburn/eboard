@@ -1,0 +1,45 @@
+
+eboard-extras
+
+theme pack 2
+------------
+
+eboard-extras contains new piece sets and sounds meant to be used in
+the eboard chess board interface. But formats are standard (PGN for
+graphics and WAV for sounds) and you can use it anywhere you please.
+This pack 2 comes with 12 new piece sets and 10 sounds. The credits
+for each piece set are given in the CREDITS file.
+
+eboard 0.3.1 or newer is required.
+
+To install:
+./configure
+(become root)
+make install
+
+This will basically copy all .png and .wav files in this directory to
+the eboard data directory (detected with eboard-config --datadir ,
+usually /usr/local/share/eboard or /usr/share/eboard) and append
+the contents of the eboard_themes.conf in that directory with the
+contents of extras2.conf that comes with this package.
+
+The document Documentation/Themes.txt distributed with eboard
+explains how eboard searches for themes, feel free to install the
+files manually or only some of them if you want.
+
+Should you upgrade eboard, it's installation may overwrite the
+eboard_themes.conf file that lists the themes in this package.
+In that case just install eboard-extras again.
+
+In eboard, the piece sets will appear in the
+Settings | Bitmapped Piece Sets sub-menus. (On 0.3.x).
+
+The sound files will appear in the Settings -> Preferences -> Sound ->
+Edit (any of the 3) dialog boxes in a drop down menu at the bottom.
+This is valid for eboard 0.3.0 and later only.
+
+The copying policy is GNU GPL. See the file COPYING for details.
+The eboard web site is up at http://eboard.sourceforge.net.
+
+-- Felipe Bergo, <bergo@seul.org> August 6th, 2001
+

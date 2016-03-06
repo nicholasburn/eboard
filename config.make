@@ -5,4 +5,4 @@ prefix    = ${DESTDIR}/usr
 bindir    = ${DESTDIR}/usr/bin
 mandir    = ${DESTDIR}/usr/man
 datadir   = ${DESTDIR}/usr/share/eboard
-version   = 1.1.1
+version   = 1.1.2

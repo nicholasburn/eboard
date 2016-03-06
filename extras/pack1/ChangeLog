@@ -1,0 +1,15 @@
+
+pack 1 - patch level 2
+- fixed all remaining square colors on most of the sets contributed
+  by Gorgonian (Usual, Traveler, Chessbase and some others).
+
+pack 1 - patch level 1:
+ - fixed square colors in Jumbo.png (they were inverted)
+ - fixed bad transparent colors in WCN.png
+ - fixed installation to work with eboard 0.3.2. Unfortunately
+   it won't work with 0.2.5. Please upgrade to the 0.3.x series
+   of eboard.
+
+pack 1 -
+ - released
+

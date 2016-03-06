@@ -4,7 +4,7 @@ use IO::Handle;
 
 my $prefix      = "/usr/local";
 my $package     = "eboard";
-my $version     = "1.1.1";
+my $version     = "1.1.2";
 my $cxx         = "g++";
 my @cxxflags    = ("-O6");
 my @ldflags     = ("-lpthread -ldl");
@@ -701,6 +701,8 @@ if (!open(ECOUT,">eboard-config")) {
     print "FAILED, cannot create eboard-config.\n";
     exit 2;
 }
+
+chmod 0755, "eboard-config";
 
 while($_=<ECIN>) {
     chomp;

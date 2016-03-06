@@ -94,8 +94,8 @@ CImg::CImg(const char *filename) {
       ct == PNG_COLOR_TYPE_GRAY_ALPHA)
     png_set_gray_to_rgb(pngp);
 
-  w = png_get_image_width(pngp, NULL);
-  h = png_get_image_height(pngp, NULL);
+  w = png_get_image_width(pngp, infp);
+  h = png_get_image_height(pngp, infp);
 
   alloc(w,h);
   if (!ok) { fclose(f); return; }

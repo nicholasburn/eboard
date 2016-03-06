@@ -11,7 +11,14 @@ eboard ChangeLog
 [eng]     - applies to all engines
 [all]     - applies to all
 
-  
+
+  * [all] source repository changed to git
+
+  * [all] compatibility fixes with newer glib2 (2.30+ required now) and libpng 1.6
+
+(all the changes below date back to 2008 and the old CVS repository on sourceforce (may it burn in hell)
+but were never released in a new version)
+
   * [all]  Sound fix: Fixed calling syntax to call to external play command
 
   * [all]  Sound fix: Added ALSA support as default (supersedes OSS if available).

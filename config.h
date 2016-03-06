@@ -46,7 +46,7 @@
 #define HAVE_GDK_GDKKEYSYMS_H 1
 #define DATADIR "/usr/share"
 #define EBOARD_PREFIX "/usr"
-#define VERSION "1.1.1"
+#define VERSION "1.1.2"
 #define ENABLE_NLS 1
 
 #endif

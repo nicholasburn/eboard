@@ -132,15 +132,10 @@ eboard is developed by Felipe Bergo <fbergo at gmail.com>.
 
 The eboard web site is at
 
-  http://eboard.sourceforge.net
+  http://www.bergo.eng.br/eboard
 
-There is an alternative mirror for the source at
+Source code repository at
 
-  ftp://ftp.seul.org/pub/chess/eboard
-
-and the project page (for bug reports, mailing list, CVS
-access) is
-
-  http://sourceforge.net/projects/eboard
-
+  https://github.com/fbergo/eboard
+  
 Have fun!
