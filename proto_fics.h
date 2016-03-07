@@ -234,9 +234,10 @@ class FicsProtocol : public Protocol {
   // 2-position circular buffer to keep rating parsing state
   char xxplayer[2][64];
   char xxrating[2][64];
-  int xxnext;
+  int xxnext, xxwhen;
 
   int  PartnerGame;
+  int  LinesReceived;
   bool UserPlayingWithWhite; /* for won/lost sound event tracking */
 };
 

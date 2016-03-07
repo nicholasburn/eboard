@@ -11,6 +11,9 @@ eboard ChangeLog
 [eng]     - applies to all engines
 [all]     - applies to all
 
+  * [fics] Fixed weird behavior when gin=1
+
+  * [ics] Fixed freezing on disconnection
 
   * [all] source repository changed to git
 

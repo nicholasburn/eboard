@@ -61,6 +61,8 @@ FicsProtocol::FicsProtocol() {
 
   /* parsing state */
 
+  LinesReceived      = 0;
+  
   AuthGone           = false;
   InitSent           = false;
   LecBotSpecial      = false;
@@ -82,6 +84,7 @@ FicsProtocol::FicsProtocol() {
   UserPlayingWithWhite = true;
 
   xxnext=0;
+  xxwhen=0;
   xxplayer[0][0]=0;
   xxplayer[1][0]=0;
   xxrating[0][0]=0;
@@ -97,8 +100,8 @@ FicsProtocol::FicsProtocol() {
   WelcomeMessage.append(sp=new PercSSetPat());
   WelcomeMessage.append(new KleeneStarPat());
 
-  CreateGame.set("{Game %n (%S vs. %S) Creating %s %r *}*");
   CreateGame0.set("Creating: %S (*) %S (*)*");
+  CreateGame.set("{Game %n (%S vs. %S) Creating %s %r *}*");
   ContinueGame.set("{Game %n (%S vs. %S) Continuing %s %r *}*");
 
   BeginObserve.set("You are now observing game %n.");
@@ -244,6 +247,7 @@ void FicsProtocol::finalize() {
 }
 
 void FicsProtocol::receiveString(char *netstring) {
+  ++LinesReceived;
   parser1(netstring);
 }
 
@@ -483,6 +487,7 @@ bool FicsProtocol::parser4(char *T) {
       g_strlcpy(xxplayer[xxnext], MovesHeader.getSToken(1), 64);
       g_strlcpy(xxrating[xxnext], MovesHeader.getStarToken(1), 64);
       xxnext=(++xxnext)%2;
+      xxwhen = LinesReceived;
       return true;
     }
     break;
@@ -539,12 +544,14 @@ bool FicsProtocol::parser5(char *T) {
   Binder.prepare(T);
 
   if (CreateGame0.match()) {
+    //printf("c0 match\n");
     g_strlcpy(xxplayer[xxnext],CreateGame0.getSToken(0),64);
     g_strlcpy(xxrating[xxnext],CreateGame0.getStarToken(0),64);
     xxnext=(++xxnext)%2;
     g_strlcpy(xxplayer[xxnext],CreateGame0.getSToken(1),64);
     g_strlcpy(xxrating[xxnext],CreateGame0.getStarToken(1),64);
     xxnext=(++xxnext)%2;
+    xxwhen = LinesReceived;
     return(doOutput(T,-1,false,global.Colors.TextBright));
   }
 
@@ -936,6 +943,25 @@ void FicsProtocol::createGame(ExtPatternMatcher &pm) {
 
   global.debug("FicsProtocol","createGame");
 
+  // sanity check to ignore gin lines
+  {
+    char p1[64],p2[64];
+
+    if (LinesReceived - xxwhen > 4) {
+      //printf("gin ignore 1, LR=%d xxwhen=%d\n",LinesReceived,xxwhen);
+      return;
+    }
+    memset(p1,0,64);
+    memset(p2,0,64);
+    g_strlcpy(p1,pm.getSToken(0),63);
+    g_strlcpy(p2,pm.getSToken(1),63);
+
+    if (strcmp(p1,xxplayer[0])!=0 || strcmp(p2,xxplayer[1])!=0) {
+      //printf("gin ignore 2\n");
+      return;
+    }
+  }
+  
   cg=new ChessGame();
 
   cg->source=GS_ICS;
@@ -1537,10 +1563,7 @@ void FicsProtocol::gameOver(ExtPatternMatcher &pm, GameResult result) {
   g_strlcpy(reason,pm.getStarToken(0),64);
 
   refgame=global.getGame(game);
-  if (refgame==NULL) {
-    cerr << _("no such game: ") << game << endl;
-    return;
-  }
+  if (refgame==NULL) return;
 
   // allob timeout
   if (refgame->protodata[3]!=0) {
