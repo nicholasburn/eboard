@@ -39,6 +39,41 @@
 #include "config.h"
 #include "eboard.h"
 
+
+// pipewatch
+
+gint pw_toid = -1;
+#define PW_MAX 16
+static PipeConnection *pw_array[PW_MAX];
+static int pw_count = 0;
+
+gboolean pipewatch_handler(gpointer data) {
+  int i;
+  for(i=pw_count-1;i>=0;i--) {
+    PipeConnection *pc = pw_array[i];
+    if (pc!=NULL) {
+      pc->consume(pc->pin,1536);
+      // wait for data on the pipe before shutting down
+      pc->toid=gtk_timeout_add(750,sched_close,(gpointer)pc);
+      pw_array[i] = NULL;
+      pw_count--;
+    }
+  }
+  return TRUE;
+}
+
+void pipewatch_start() {
+  if (pw_toid < 0)
+    pw_toid = gtk_timeout_add(250,pipewatch_handler,NULL);
+}
+
+void pipewatch_end() {
+  if (pw_toid >= 0) {
+    gtk_timeout_remove(pw_toid);
+    pw_toid = -1;
+  }
+}
+
 // ===================================================================
 // PROCESS CONTROL
 // ===================================================================
@@ -267,12 +302,6 @@ int BufferedConnection::consume(int handle, int amount) {
       }
     }
     if (i<=0) {
-      printf("consume i=%d errno=%d\n",i,errno);
-      if (brokenpeer) {
-	printf("brokenpeer\n");
-	close();
-	return -1;
-      }
       break;
     }
     for(j=0;j<i;j++) {
@@ -903,14 +932,12 @@ char * PipeConnection::getError() {
 }
 
 void PipeConnection::farewellPid(int dpid) {
-  brokenpeer = true;
-  printf("farewell %d\n",dpid);
-  /*
-  consume(pin,1536);
-  netring.remove(this);
-  // wait for data on the pipe before shutting down
-  toid=gtk_timeout_add(2000,sched_close,(gpointer)this);
-  */
+  // queue read+close, cannot be done directly here (called from a signal handler)
+  // or we get deadlocks related to malloc/free
+  if (pw_count < PW_MAX) {
+    pw_array[pw_count] = this;
+    pw_count++;
+  }
 }
 
 int PipeConnection::getReadHandle() {

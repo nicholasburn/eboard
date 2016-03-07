@@ -36,6 +36,7 @@
 #include "help.h"
 #include "eboard.h"
 #include "dgtboard.h"
+#include "network.h"
 
 #ifdef HAVE_LINUX_JOYSTICK_H
 #include <linux/joystick.h>
@@ -100,6 +101,8 @@ int main(int argc,char **argv) {
     dgtInit(dgtport, z);
     dgtSetBoard(global.BoardList.front());
   }
+
+  pipewatch_start();
   
 #ifdef HAVE_LINUX_JOYSTICK_H
   openJoystick(z);
@@ -107,6 +110,8 @@ int main(int argc,char **argv) {
 
   gtk_main();
 
+  pipewatch_end();
+  
 #ifdef HAVE_LINUX_JOYSTICK_H
   closeJoystick();
 #endif

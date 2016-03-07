@@ -150,7 +150,7 @@ class RingBuffer {
 
 class BufferedConnection : public NetConnection {
  public:
- BufferedConnection() : buffer(64<<10) { brokenpeer = false; }
+ BufferedConnection() : buffer(64<<10) { }
   
   virtual int  readPartial(char *tbuffer,int limit);
   virtual bool bufferMatch(const char *match);
@@ -159,7 +159,6 @@ class BufferedConnection : public NetConnection {
   int  consume(int handle, int amount=128);
   int  produce(char *tbuffer,int limit,int handle);
   RingBuffer buffer;
-  bool brokenpeer;
 };
 
 class DirectConnection : public BufferedConnection {
@@ -243,6 +242,7 @@ class PipeConnection : public BufferedConnection,
   void init();
   void checkChildren();
   friend gboolean sched_close(gpointer data);
+  friend gboolean pipewatch_handler(gpointer data);
 
   int  opmode; // 0=engine with bare args, 1=timeseal with network host
   int  pout, pin;
@@ -255,6 +255,7 @@ class PipeConnection : public BufferedConnection,
   int  toid; // timeout
   string handshake;
   double MaxWaitTime; // msecs
+
 };
 
 gboolean sched_close(gpointer data);
@@ -283,5 +284,8 @@ class FallBackConnection : public NetConnection {
   list<NetConnection *> candidates;
   char errorMessage[128];
 };
+
+void pipewatch_start();
+void pipewatch_end();
 
 #endif
