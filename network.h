@@ -127,6 +127,7 @@ void netconn_read_notify(gpointer data, gint source,
 
 class BufferedConnection : public NetConnection {
  public:
+  BufferedConnection();
   virtual int readPartial(char *tbuffer,int limit);
   virtual int bufferMatch(const char *match);
  protected:
@@ -135,12 +136,7 @@ class BufferedConnection : public NetConnection {
   int produce(char *tbuffer,int limit,int handle);
   int bufferEmpty();
   list<char> buffer;
-};
-
-// select instead of NONBLOCK
-class AltBufferedConnection : public BufferedConnection {
- protected:
-  virtual int innerReadLine(char *tbuffer,int limit,int handle);
+  bool no_more_reads;
 };
 
 class DirectConnection : public BufferedConnection {

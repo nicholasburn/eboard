@@ -146,6 +146,11 @@ int  NetConnection::hasTimeGuard() {
 // BUFFERED
 // ===================================================================
 
+BufferedConnection::BufferedConnection() {
+  no_more_reads = false;
+}
+
+
 int BufferedConnection::readPartial(char *tbuffer,int limit) {
   if (buffer.empty()) return -1;
   int i;
@@ -177,6 +182,12 @@ int BufferedConnection::consume(int handle, int amount) {
   char sm[2048];
   if (amount>2048) amount=2048;
   //  global.debug("I/O","consume-in");
+
+  if (no_more_reads) {
+    close();
+    return -1;
+  }
+  
   while(1) {
     errno = 0;
     i=read(handle,sm,amount);
@@ -186,6 +197,7 @@ int BufferedConnection::consume(int handle, int amount) {
 	//	global.debug("I/O","consume-out");
 	return -1;
       } else {
+	no_more_reads = true;
 	if (buffer.back()!='\n')
 	  buffer.push_back('\n');
 	break;
@@ -239,68 +251,6 @@ int BufferedConnection::bufferEmpty() {
     if (*di=='\n')
       return 0;
   return 1;
-}
-
-// ===================================================================
-// ALTBUFFERED
-// ===================================================================
-
-int AltBufferedConnection::innerReadLine(char *tbuffer,int limit,int handle) {
-  int i,j;
-  char sm[128];
-  char c;
-  list<char>::iterator di;
-
-  fd_set mine,*mp;
-  struct timeval tv; 
-  mp=&mine;
-
-  while(1) {
-    // do the select thing...
-    FD_ZERO(mp);
-    FD_SET(handle,mp);
-    tv.tv_sec=0;
-    tv.tv_usec=20000;
-
-    if (select(handle+1,mp,0,0,&tv)<=0)
-      break;
-
-    i=read(handle,sm,128);
-    if (i<=0) {
-      if (buffer.empty()) {
-	close();
-	return -1;
-      } else {
-	if (buffer.back()!='\n')
-	  buffer.push_back('\n');
-	break;
-      }
-    }
-    for(j=0;j<i;j++) {
-      buffer.push_back(sm[j]);
-      // cerr << sm[j] << flush;
-    }
-  }
-
-  for(di=buffer.begin();di!=buffer.end();di++)
-    if (*di=='\n')
-      break;
-
-  if (di!=buffer.end()) {
-    memset(tbuffer,0,limit);
-    i=0;
-    while(di!=buffer.begin()) {
-      c=buffer.front();
-      buffer.pop_front();
-      if (c>=0x20)
-	tbuffer[i++]=c;
-    }
-    global.LogAppend(tbuffer);
-    buffer.pop_front();
-    return 0;
-  }
-
-  return -1;
 }
 
 // ===================================================================

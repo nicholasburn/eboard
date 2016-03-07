@@ -45,7 +45,7 @@ eboard.dbg: $(DBG_OBJS)
 dbg_%.o: %.cc $(HEADERS) $(XPMS)
 	$(CXX) $(CXXFLAGS_DBG) -c $< -o $@
 
-.cc.o: $< $(HEADERS) $(XPMS)
+%.o: %.cc $(HEADERS) $(XPMS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 nls-dicts:
