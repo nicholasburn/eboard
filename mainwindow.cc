@@ -1,10 +1,9 @@
-/* $Id: mainwindow.cc,v 1.142 2010/06/30 16:08:20 bergo Exp $ */
-
 /*
 
     eboard - chess client
-    http://eboard.sourceforge.net
-    Copyright (C) 2000-2010 Felipe Paulo Guazzi Bergo
+    http://www.bergo.eng.br/eboard
+    https://github.com/fbergo/eboard
+    Copyright (C) 2000-2016 Felipe Bergo
     fbergo/at/gmail/dot/com
 
     This program is free software; you can redistribute it and/or modify
@@ -789,11 +788,11 @@ void MainWindow::greet() {
   char z[128];
   snprintf (z,128,_("eboard version %s (%s)"),global.Version,global.SystemType);
   icsout->append(z,0xc0ff00,IM_IGNORE);
-  snprintf (z,128,_("(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)"), 2010);
+  snprintf (z,128,_("(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)"), 2016);
   icsout->append(z,0xc0ff00,IM_IGNORE);
   icsout->append(_("Distributed under the terms of the GNU General Public License, version 2 or later"),0xffc000,IM_IGNORE);
   icsout->append("http://www.gnu.org/copyleft/gpl.html",0xffc000,IM_IGNORE);
-  icsout->append(_("Source code available at http://eboard.sourceforge.net"),0xc0ff00,IM_IGNORE);
+  icsout->append(_("Source code available at https://github.com/fbergo/eboard"),0xc0ff00,IM_IGNORE);
   icsout->append("---",0xc0ff00,IM_IGNORE);
 
 }

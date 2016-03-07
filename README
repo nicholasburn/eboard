@@ -24,7 +24,7 @@ Currently it supports the following protocols / engines:
 - Crafty
   Full support.
   Tested with 18.9 thru 18.14, won't work with versions earlier
-  than 18.x Crafty is *NOT* distributed with eboard, see
+  than 18.x. Crafty is *NOT* distributed with eboard, see
   Documentation/Crafty.txt for information on installing Crafty and
   the game books.
 

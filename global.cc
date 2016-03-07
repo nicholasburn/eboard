@@ -1,10 +1,9 @@
-/* $Id: global.cc,v 1.100 2010/06/29 18:04:37 bergo Exp $ */
-
 /*
 
     eboard - chess client
-    http://eboard.sourceforge.net
-    Copyright (C) 2000-20010 Felipe Paulo Guazzi Bergo
+    http://www.bergo.eng.br/eboard
+    https://github.com/fbergo/eboard
+    Copyright (C) 2000-2016 Felipe Bergo
     fbergo/at/gmail/dot/com
 
     This program is free software; you can redistribute it and/or modify
@@ -1131,7 +1130,7 @@ void ChannelSplitter::getChannels(char *ipaddr) {
       goto cs_gc_use_current;
   }
 
-  snprintf(url,512,"http://eboard.sourceforge.net/ics/%s.txt",ipaddr);
+  snprintf(url,512,"http://www.bergo.eng.br/eboard/ics/%s.txt",ipaddr);
 
   kid=fork();
   if (kid==0) {

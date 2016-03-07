@@ -8,8 +8,8 @@ Version: %ver
 Release: %rel
 Copyright: GPL
 Group: X11/Games
-Source: ftp://ftp.seul.org/pub/chess/eboard/eboard-%{version}.tar.gz
-URL: http://eboard.sourceforge.net
+Source: https://github.com/fbergo/eboard/releases/tag/v%{version}
+URL: https://github.com/fbergo/eboard
 Buildroot: /var/tmp/%{name}-root
 
 %description
@@ -44,6 +44,8 @@ rm -rf $RPM_BUILD_ROOT
 %prefix/share/eboard/*
 
 %changelog
-* Fri May 25 2001 Felipe Bergo <bergo@seul.org>
+* Mon Mar 7 2016 Felipe Bergo <fbergo@gmail.com>
+- updated links to github
+* Fri May 25 2001 Felipe Bergo <fbergo@gmail.com>
 - built from the gPS spec
 

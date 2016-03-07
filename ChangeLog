@@ -19,7 +19,7 @@ eboard ChangeLog
 
   * [all] compatibility fixes with newer glib2 (2.30+ required now) and libpng 1.6
 
-(all the changes below date back to 2008 and the old CVS repository on sourceforce (may it burn in hell)
+(all the changes below date back to 2008 and the old CVS repository on sourceforge (may it burn in hell)
 but were never released in a new version)
 
   * [all]  Sound fix: Fixed calling syntax to call to external play command

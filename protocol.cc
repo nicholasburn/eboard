@@ -1,10 +1,9 @@
-/* $Id: protocol.cc,v 1.29 2010/06/30 14:23:54 bergo Exp $ */
-
 /*
 
     eboard - chess client
-    http://eboard.sourceforge.net
-    Copyright (C) 2000-2010 Felipe Paulo Guazzi Bergo
+    http://www.bergo.eng.br/eboard
+    https://github.com/fbergo/eboard
+    Copyright (C) 2000-2016 Felipe Bergo
     fbergo/at/gmail/dot/com
 
     This program is free software; you can redistribute it and/or modify

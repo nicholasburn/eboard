@@ -1,10 +1,9 @@
-/* $Id: help.cc,v 1.36 2010/06/29 18:04:37 bergo Exp $ */
-
 /*
 
     eboard - chess client
-    http://eboard.sourceforge.net
-    Copyright (C) 2000-2010 Felipe Paulo Guazzi Bergo
+    http://www.bergo.eng.br/eboard
+    https://github.com/fbergo/eboard
+    Copyright (C) 2000-2016 Felipe Bergo
     fbergo/at/gmail/dot/com
 
     This program is free software; you can redistribute it and/or modify
@@ -76,13 +75,13 @@ namespace Help {
 	    _("eboard version %s\n"\
 	      "(c) 2000-%d Felipe Bergo\n"\
 	      "<fbergo@gmail.com>\n"\
-	      "http://eboard.sourceforge.net\n\n"\
+	      "https://github.com/fbergo/eboard\n\n"\
 	      "This program is free software; you can redistribute\n"\
 	      "it and/or modify it under the terms of the GNU General\n"\
 	      "Public License as published by the Free Software\n"\
 	      "Foundation; either version 2 of the License, or\n"\
 	      "(at your option) any later version.\n"),
-	    global.Version, 2008);
+	    global.Version, 2016);
     
     label=gtk_label_new(z);
     gtk_label_set_justify(GTK_LABEL(label),GTK_JUSTIFY_LEFT);
