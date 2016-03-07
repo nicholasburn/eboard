@@ -150,7 +150,7 @@ class RingBuffer {
 
 class BufferedConnection : public NetConnection {
  public:
- BufferedConnection() : buffer(64<<10) { }
+ BufferedConnection() : buffer(64<<10) { brokenpeer = false; }
   
   virtual int  readPartial(char *tbuffer,int limit);
   virtual bool bufferMatch(const char *match);
@@ -159,6 +159,7 @@ class BufferedConnection : public NetConnection {
   int  consume(int handle, int amount=128);
   int  produce(char *tbuffer,int limit,int handle);
   RingBuffer buffer;
+  bool brokenpeer;
 };
 
 class DirectConnection : public BufferedConnection {
