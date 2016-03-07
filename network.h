@@ -95,8 +95,8 @@ class NetConnection {
 
   virtual void writeLine(const char *tbuffer)=0;
 
-  virtual int readPartial(char *tbuffer,int limit)=0;
-  virtual int bufferMatch(const char *match)=0;
+  virtual int  readPartial(char *tbuffer,int limit)=0;
+  virtual bool bufferMatch(const char *match)=0;
 
   virtual char *getError()=0;
 
@@ -125,18 +125,40 @@ class NetConnection {
 void netconn_read_notify(gpointer data, gint source, 
 			 GdkInputCondition cond);
 
+class RingBuffer {
+ public:
+  RingBuffer(int _size);
+  ~RingBuffer();
+
+  bool empty() const;
+  bool full() const;
+  
+  char pop();
+  bool push(char c);
+  char last() const;
+
+  string getLine();
+  
+  string toString(int maxlen=-1) const;
+
+  void status();
+  
+ private:
+  char *data;
+  int rp,wp,len,size;
+};
+
 class BufferedConnection : public NetConnection {
  public:
-  BufferedConnection();
-  virtual int readPartial(char *tbuffer,int limit);
-  virtual int bufferMatch(const char *match);
+ BufferedConnection() : buffer(64<<10) { }
+  
+  virtual int  readPartial(char *tbuffer,int limit);
+  virtual bool bufferMatch(const char *match);
  protected:
   virtual int innerReadLine(char *tbuffer,int limit,int handle);
-  int consume(int handle, int amount=128);
-  int produce(char *tbuffer,int limit,int handle);
-  int bufferEmpty();
-  list<char> buffer;
-  bool no_more_reads;
+  int  consume(int handle, int amount=128);
+  int  produce(char *tbuffer,int limit,int handle);
+  RingBuffer buffer;
 };
 
 class DirectConnection : public BufferedConnection {
@@ -247,8 +269,8 @@ class FallBackConnection : public NetConnection {
   virtual void close();
   virtual int  readLine(char *tbuffer,int limit);
   virtual void writeLine(const char *tbuffer);
-  virtual int readPartial(char *tbuffer,int limit);
-  virtual int bufferMatch(const char *match);
+  virtual int  readPartial(char *tbuffer,int limit);
+  virtual bool bufferMatch(const char *match);
   virtual char *getError();
   virtual int getReadHandle();
 

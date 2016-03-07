@@ -142,39 +142,106 @@ int  NetConnection::hasTimeGuard() {
   return TimeGuard;
 }
 
+
+RingBuffer::RingBuffer(int _size) {
+  size = _size;
+  rp=wp=len=0;
+  data = (char *) malloc(size);
+}
+
+RingBuffer::~RingBuffer() {
+  if (data!=NULL) free(data);
+}
+
+bool RingBuffer::empty() const { return(len==0); }
+
+bool RingBuffer::full() const { return(len==size); }
+
+char RingBuffer::pop() {
+  char c;
+  if (len==0) return -1;
+  c = data[rp];
+  rp = (rp+1)%size;
+  --len;
+  return c;
+}
+
+bool RingBuffer::push(char c) {
+  if (len==size) return false;
+  data[wp] = c;
+  wp = (wp+1)%size;
+  ++len;
+  return true;
+}
+
+char RingBuffer::last() const {
+  char c;
+  if (len==0) return -1;
+  c = data[(rp+len-1)%size];
+  return c;
+}
+
+string RingBuffer::toString(int maxlen) const {
+  string s;
+  int i;
+  if (maxlen < 0) maxlen = len;
+
+  for(i=0;i<maxlen;i++)
+    s.append(1,data[(rp+i)%size]);
+
+  return s;
+}
+
+string RingBuffer::getLine() {
+  string s;
+  int i,j;
+
+  for(i=0;i<len;i++)
+    if (data[(rp+i)%size]=='\n')
+      break;
+
+  if (i<len) {
+    ++i;
+    for(j=0;j<i;j++)
+      s.append(1,pop());
+  }
+  return s;
+}
+
+void RingBuffer::status() {
+  int i;
+  char c;
+  printf("size=%d len=%d rp=%d wp=%d\n[",size,len,rp,wp);
+  for(i=0;i<len;i++) {
+    c = data[(rp+i)%size];
+    if (isprint(c)) putchar(c); else printf("{%.2x}",c);
+  }
+  printf("]\n");
+}
+
 // ===================================================================
 // BUFFERED
 // ===================================================================
 
-BufferedConnection::BufferedConnection() {
-  no_more_reads = false;
-}
-
-
 int BufferedConnection::readPartial(char *tbuffer,int limit) {
   if (buffer.empty()) return -1;
+  char c;
   int i;
   memset(tbuffer,0,limit);
   for(i=0;!buffer.empty();) {
-    if (buffer.front()>=32)
-      tbuffer[i++]=buffer.front();
-    buffer.pop_front();
+    c = buffer.pop();
+    if (c>=32)
+      tbuffer[i++]=c;
   }
   return 0;  
 }
 
-int BufferedConnection::bufferMatch(const char *match) {
-  char dump[512];
-  list<char>::iterator li;
+bool BufferedConnection::bufferMatch(const char *match) {
+  string peek;
   int i;
-  if (buffer.empty()) return 0;  
-  memset(dump,0,512);
-  for(i=0,li=buffer.begin();li!=buffer.end();li++,i++) {
-    dump[i]=*li;
-    if (i>510)
-      return 0;
-  }
-  return(strstr(dump,match)!=0);
+  if (buffer.empty()) return false;
+  peek = buffer.toString(512);
+  return(peek.find(string(match))!=string::npos);
 }
 
 int BufferedConnection::consume(int handle, int amount) {
@@ -182,11 +249,6 @@ int BufferedConnection::consume(int handle, int amount) {
   char sm[2048];
   if (amount>2048) amount=2048;
   //  global.debug("I/O","consume-in");
-
-  if (no_more_reads) {
-    close();
-    return -1;
-  }
   
   while(1) {
     errno = 0;
@@ -197,16 +259,17 @@ int BufferedConnection::consume(int handle, int amount) {
 	//	global.debug("I/O","consume-out");
 	return -1;
       } else {
-	no_more_reads = true;
-	if (buffer.back()!='\n')
-	  buffer.push_back('\n');
+	if (buffer.last()!='\n') {
+	  //buffer.status();
+	  buffer.push('\n');
+	}
 	break;
       }
     }
     if (i<=0)
       break;
     for(j=0;j<i;j++) {
-      buffer.push_back(sm[j]);
+      buffer.push(sm[j]);
       // cerr << sm[j] << flush;
     }
   }
@@ -216,23 +279,20 @@ int BufferedConnection::consume(int handle, int amount) {
 
 int BufferedConnection::produce(char *tbuffer,int limit,int handle) {
   int i;
+  unsigned int j;
   char c;
-  list<char>::iterator di;
+  string s;
 
-  for(di=buffer.begin();di!=buffer.end();di++)
-    if (*di=='\n')
-      break;
+  s = buffer.getLine();
 
-  if (di!=buffer.end()) {
-    memset(tbuffer,0,limit);
+  if (!s.empty()) {
     i=0;
-    while(di!=buffer.begin()) {
-      c=buffer.front();
-      buffer.pop_front();
-      if (c>=0x20)
-	tbuffer[i++]=c;
+    memset(tbuffer,0,limit);
+    for(j=0;j<s.size();j++) {
+      if (i<limit-1 && s[j]>=32) {
+	tbuffer[i++] = s[j];
+      }
     }
-    buffer.pop_front();
     global.LogAppend(tbuffer);
     return 0;
   }
@@ -243,14 +303,6 @@ int BufferedConnection::innerReadLine(char *tbuffer,int limit,int handle) {
   if (consume(handle))
     return -1;
   return(produce(tbuffer,limit,handle));
-}
-
-int BufferedConnection::bufferEmpty() {
-  list<char>::iterator di;
-  for(di=buffer.begin();di!=buffer.end();di++)
-    if (*di=='\n')
-      return 0;
-  return 1;
 }
 
 // ===================================================================
@@ -935,11 +987,11 @@ int FallBackConnection::readPartial(char *tbuffer,int limit) {
     return -1;
 }
 
-int FallBackConnection::bufferMatch(const char *match) {
+bool FallBackConnection::bufferMatch(const char *match) {
   if (Connected)
     return( (*current)->bufferMatch(match) );
   else
-    return 0;
+    return false;
 }
 
 char * FallBackConnection::getError() {
