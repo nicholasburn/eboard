@@ -1,10 +1,11 @@
-CXX       = g++
-CXXFLAGS  = -O6 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/libpng16
-LDFLAGS   = -lpthread -ldl -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype -lpng16 -lasound
-prefix    = ${DESTDIR}/usr
-bindir    = ${DESTDIR}/usr/bin
-mandir    = ${DESTDIR}/usr/man
-datadir   = ${DESTDIR}/usr/share/eboard
+CXX           = g++
+CXXFLAGS      = -O6 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/libpng16
+CXXFLAGS_DBG  = -ggdb -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/pango-1.0 -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/gdk-pixbuf-2.0 -I/usr/include/libpng16 -I/usr/include/pango-1.0 -I/usr/include/harfbuzz -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng16 -I/usr/include/freetype2 -I/usr/include/libpng16
+LDFLAGS       = -lpthread -ldl -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0 -lgobject-2.0 -lglib-2.0 -lfontconfig -lfreetype -lpng16 -lasound
+prefix    = ${DESTDIR}/usr/local
+bindir    = ${DESTDIR}/usr/local/bin
+mandir    = ${DESTDIR}/usr/local/man
+datadir   = ${DESTDIR}/usr/local/share/eboard
 version   = 1.1.2
 
 ### here starts the fixed Makefile section
@@ -16,6 +17,8 @@ INSTALL = install
 SRCS = board.cc bugpane.cc chess.cc cimg.cc clock.cc dgtboard.cc dlg_connect.cc dlg_gamelist.cc dlg_prefs.cc global.cc help.cc history.cc main.cc mainwindow.cc movelist.cc network.cc notebook.cc ntext.cc p2p.cc pieces.cc position.cc promote.cc proto_fics.cc proto_p2p.cc proto_xboard.cc protocol.cc quickbar.cc script.cc seekgraph.cc sound.cc status.cc text.cc tstring.cc util.cc widgetproxy.cc langs.cc
 
 OBJS = board.o bugpane.o chess.o cimg.o clock.o dgtboard.o dlg_connect.o dlg_gamelist.o dlg_prefs.o global.o help.o history.o main.o mainwindow.o movelist.o network.o notebook.o ntext.o p2p.o pieces.o position.o promote.o proto_fics.o proto_p2p.o proto_xboard.o protocol.o quickbar.o script.o seekgraph.o sound.o status.o text.o tstring.o util.o widgetproxy.o langs.o
+
+DBG_OBJS = $(addprefix dbg_, $(OBJS))
 
 HEADERS = board.h bugpane.h chess.h cimg.h clock.h config.h dgtboard.h dlg_connect.h dlg_gamelist.h dlg_prefs.h eboard.h global.h help.h history.h mainwindow.h movelist.h network.h notebook.h ntext.h p2p.h pieces.h position.h promote.h proto_fics.h proto_p2p.h proto_xboard.h protocol.h quickbar.h script.h seekgraph.h sound.h status.h stl.h text.h tstring.h util.h widgetproxy.h langs.h
 
@@ -31,8 +34,16 @@ TEXT = ChangeLog README INSTALL AUTHORS COPYING TODO
 
 all: eboard nls-dicts
 
+debug: eboard.dbg
+
 eboard: $(OBJS)
 	$(CXX) $(LDFLAGS) -o eboard $(OBJS)
+
+eboard.dbg: $(DBG_OBJS)
+	$(CXX) $(LDFLAGS) -o eboard.dbg $(DBG_OBJS)
+
+dbg_%.o: %.cc $(HEADERS) $(XPMS)
+	$(CXX) $(CXXFLAGS_DBG) -c $< -o $@
 
 .cc.o: $< $(HEADERS) $(XPMS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -41,10 +52,10 @@ nls-dicts:
 	$(MAKE) -C multilang dicts
 
 clean:
-	rm -f $(OBJS) eboard *~
+	rm -f $(OBJS) $(DBG_OBJS) eboard eboard.dbg *~
 
 distclean:
-	rm -f $(OBJS) eboard *~ config.h config.make Makefile $(DIST).tar.gz $(DIST).tar.bz2 eboard.spec eboard-config
+	rm -f $(OBJS) $(DBG_OBJS) eboard eboard.dbg *~ config.h config.make Makefile $(DIST).tar.gz $(DIST).tar.bz2 eboard.spec eboard-config
 
 install: install-bin install-man install-data install-extras install-nls
 

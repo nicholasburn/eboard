@@ -9,6 +9,8 @@ SRCS = board.cc bugpane.cc chess.cc cimg.cc clock.cc dgtboard.cc dlg_connect.cc 
 
 OBJS = board.o bugpane.o chess.o cimg.o clock.o dgtboard.o dlg_connect.o dlg_gamelist.o dlg_prefs.o global.o help.o history.o main.o mainwindow.o movelist.o network.o notebook.o ntext.o p2p.o pieces.o position.o promote.o proto_fics.o proto_p2p.o proto_xboard.o protocol.o quickbar.o script.o seekgraph.o sound.o status.o text.o tstring.o util.o widgetproxy.o langs.o
 
+DBG_OBJS = $(addprefix dbg_, $(OBJS))
+
 HEADERS = board.h bugpane.h chess.h cimg.h clock.h config.h dgtboard.h dlg_connect.h dlg_gamelist.h dlg_prefs.h eboard.h global.h help.h history.h mainwindow.h movelist.h network.h notebook.h ntext.h p2p.h pieces.h position.h promote.h proto_fics.h proto_p2p.h proto_xboard.h protocol.h quickbar.h script.h seekgraph.h sound.h status.h stl.h text.h tstring.h util.h widgetproxy.h langs.h
 
 XPMS = addcons.xpm goc_open.xpm qb1.xpm spiral1.xpm b18.xpm goc_refresh.xpm qb2.xpm spiral2.xpm back1.xpm goc_save.xpm qb3.xpm spiral3.xpm backn.xpm hammer.xpm qb4.xpm toscratch.xpm dead.xpm icon-ads.xpm qb5.xpm trash.xpm fallback.xpm icon-console.xpm qb6.xpm trash2.xpm flip.xpm icon-eboard.xpm qbl.xpm treeeng.xpm forward1.xpm icon-games.xpm qbr.xpm treegam.xpm forwardn.xpm icon-local.xpm r18.xpm treeics.xpm gnupiece.xpm icon-moves.xpm sealoff.xpm treeoth.xpm goc_discard.xpm k18.xpm sealon.xpm treepgn.xpm goc_discardall.xpm movelist.xpm snd_edit.xpm treepgnf.xpm goc_display.xpm n18.xpm snd_test.xpm goc_edit.xpm q18.xpm spiral0.xpm
@@ -23,8 +25,16 @@ TEXT = ChangeLog README INSTALL AUTHORS COPYING TODO
 
 all: eboard nls-dicts
 
+debug: eboard.dbg
+
 eboard: $(OBJS)
 	$(CXX) $(LDFLAGS) -o eboard $(OBJS)
+
+eboard.dbg: $(DBG_OBJS)
+	$(CXX) $(LDFLAGS) -o eboard.dbg $(DBG_OBJS)
+
+dbg_%.o: %.cc $(HEADERS) $(XPMS)
+	$(CXX) $(CXXFLAGS_DBG) -c $< -o $@
 
 .cc.o: $< $(HEADERS) $(XPMS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
@@ -33,10 +43,10 @@ nls-dicts:
 	$(MAKE) -C multilang dicts
 
 clean:
-	rm -f $(OBJS) eboard *~
+	rm -f $(OBJS) $(DBG_OBJS) eboard eboard.dbg *~
 
 distclean:
-	rm -f $(OBJS) eboard *~ config.h config.make Makefile $(DIST).tar.gz $(DIST).tar.bz2 eboard.spec eboard-config
+	rm -f $(OBJS) $(DBG_OBJS) eboard eboard.dbg *~ config.h config.make Makefile $(DIST).tar.gz $(DIST).tar.bz2 eboard.spec eboard-config
 
 install: install-bin install-man install-data install-extras install-nls
 

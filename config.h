@@ -44,8 +44,8 @@
 #define USE_IPPROTO_TCP 1
 #define HAVE_GTK_GTK_H 1
 #define HAVE_GDK_GDKKEYSYMS_H 1
-#define DATADIR "/usr/share"
-#define EBOARD_PREFIX "/usr"
+#define DATADIR "/usr/local/share"
+#define EBOARD_PREFIX "/usr/local"
 #define VERSION "1.1.2"
 #define ENABLE_NLS 1
 

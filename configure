@@ -7,6 +7,7 @@ my $package     = "eboard";
 my $version     = "1.1.2";
 my $cxx         = "g++";
 my @cxxflags    = ("-O6");
+my @cxxflagsdbg = ("-ggdb");
 my @ldflags     = ("-lpthread -ldl");
 my @libs        = ();
 my $configh     = "config.h";
@@ -42,7 +43,6 @@ sub log_file;
 sub usage {
     print "configure options:\n";
     print "\t--prefix=path        install to given prefix instead of /usr/local\n";
-    print "\t--enable-debug       compile with gdb debugging info\n";
     print "\t--disable-nls        disable translation support\n";
 #    print "\t--disable-dgt        disable DGT board support\n";
     print "\t--compiler=prog      use alternative compiler (default: g++)\n";
@@ -209,6 +209,7 @@ sub append_inc {
     @y = split(/:/, $x);
     for (@y) {
 	push @cxxflags, "-I$_";
+	push @cxxflagsdbg, "-I$_";
     }
 }
 
@@ -239,6 +240,7 @@ sub append_flags {
     @y = split(/:/, $x);
     for (@y) {
 	push @cxxflags, "$_";
+	push @cxxflagsdbg, "$_";
     }
 }
 
@@ -420,10 +422,6 @@ unlink("config.log");
 for (@ARGV) {
     if (/--prefix=(.*)/) {
 	$prefix = $1;
-	next;
-    }
-    if ($_ eq '--enable-debug') {
-	push @cxxflags, "-ggdb";
 	next;
     }
     if ($_ eq '--enable-profile') {
@@ -612,6 +610,7 @@ chomp($x);
 @x = split(/ /,$x);
 for(@x) {
     push @cxxflags, $_;
+    push @cxxflagsdbg, $_;
 }
 
 $x = `$pkgconfig --libs gtk+-2.0 $pngmodule`;
@@ -670,9 +669,10 @@ print CONFIGH "\n#endif\n";
 close CONFIGH;
 print "wrote $configh\n";
 
-print CONFIGMAKE "CXX       = $cxx\n";
-print CONFIGMAKE "CXXFLAGS  = @cxxflags\n";
-print CONFIGMAKE "LDFLAGS   = @ldflags\n";
+print CONFIGMAKE "CXX           = $cxx\n";
+print CONFIGMAKE "CXXFLAGS      = @cxxflags\n";
+print CONFIGMAKE "CXXFLAGS_DBG  = @cxxflagsdbg\n";
+print CONFIGMAKE "LDFLAGS       = @ldflags\n";
 
 print CONFIGMAKE "prefix    = \${DESTDIR}$prefix\n";
 print CONFIGMAKE "bindir    = \${DESTDIR}$prefix/bin\n";
