@@ -1,5 +1,3 @@
-/* $Id: dgtboard.h,v 1.3 2010/06/30 14:26:06 bergo Exp $ */
-
 /*
 
     eboard - chess client

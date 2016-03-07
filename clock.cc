@@ -1,5 +1,3 @@
-/* $Id: clock.cc,v 1.21 2010/06/30 14:23:54 bergo Exp $ */
-
 /*
 
     eboard - chess client

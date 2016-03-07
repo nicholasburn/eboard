@@ -1,5 +1,3 @@
-/* $Id: clock.h,v 1.17 2010/06/29 18:04:37 bergo Exp $ */
-
 /*
 
     eboard - chess client

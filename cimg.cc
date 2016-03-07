@@ -1,5 +1,3 @@
-/* $Id: cimg.cc,v 1.5 2010/06/30 14:23:54 bergo Exp $ */
-
 /*
 
     eboard - chess client

@@ -1,5 +1,3 @@
-/* $Id: chess.cc,v 1.96 2010/06/30 14:23:54 bergo Exp $ */
-
 /*
 
     eboard - chess client

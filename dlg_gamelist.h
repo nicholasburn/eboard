@@ -1,5 +1,3 @@
-/* $Id: dlg_gamelist.h,v 1.14 2010/06/29 18:04:37 bergo Exp $ */
-
 /*
 
     eboard - chess client

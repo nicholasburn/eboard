@@ -1,5 +1,3 @@
-/* $Id: dlg_connect.h,v 1.6 2010/06/29 18:04:37 bergo Exp $ */
-
 /*
 
     eboard - chess client
