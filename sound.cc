@@ -25,6 +25,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h>
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
@@ -37,6 +38,7 @@
 #include <math.h>
 #include <limits.h>
 #include <gst/gst.h>
+#include <endian.h>
 
 #include "sound.h"
 #include "global.h"
@@ -145,11 +147,6 @@ ostream & operator<<(ostream &s,  SoundEvent e) {
 
 void SoundEvent::play() {
 
-  if (type==INT_WAVE) {
-    sine_beep();
-    return;
-  }
-
   if (type==PLAIN_BEEP) {
     printf("%c",7);
     fflush(stdout);
@@ -157,9 +154,13 @@ void SoundEvent::play() {
   }
 
   if (!fork()) {
+    if (type==INT_WAVE) {
+      gstBeep();
+      _exit(0);
+    }
 
     if (type==EXT_WAVE) {
-      gstPlay();
+      gstPlay(string(ExtraData));
       _exit(0);
     }
 
@@ -174,12 +175,12 @@ void SoundEvent::play() {
   }
 }
 
-void SoundEvent::gstPlay() {
+void SoundEvent::gstPlay(const string &_input) {
   char gst_string[512];
   GstElement *pipeline;
   GstBus     *bus;
   GstMessage *msg;
-  string input(ExtraData);
+  string input(_input);
 
   if (input.empty()) return;
   char tmp[512], *ptr;
@@ -207,35 +208,25 @@ void SoundEvent::gstPlay() {
   //printf("gstPlay done\n");
 }
 
-// TODO
-void SoundEvent::sine_beep() { }
-
-#ifdef BOGUS
-void SoundEvent::sine_beep() {
+void SoundEvent::gstBeep() { 
+  
   unsigned int rate=44100; // Hz
   int interval;
-  
   short int *wave;
   short int silence[128];
   int bl,i,ts,ec,sc;
   double r,s;
-
-  snd_pcm_t *ph;
-  snd_pcm_hw_params_t *hw;
-  int hwa=0;
-
+  
   interval=(120*rate)/1000; // 120 msec
   bl = (rate*Duration)/1000;
-
+  
   ts = bl*Count + interval*(Count-1); // total samples
   ts += 128- ts%128;
-
+  
   wave = (short int *)malloc(2 * ts);
-  if (!wave) return;
-
+  if (wave==NULL) return;
   for(i=0;i<ts;i++) wave[i] = 0;
   for(i=0;i<128;i++) silence[i] = 0;
-
   sc = ((120*rate)/1000) / 128; // silence frames
 
   for(i=0;i<bl;i++) {
@@ -248,50 +239,36 @@ void SoundEvent::sine_beep() {
   for(i=1;i<Count;i++)
     memcpy(&wave[i*(bl+interval)],wave,bl*2);
 
-  // open device if needed (one time)
-  ec = snd_pcm_open(&ph, "default", SND_PCM_STREAM_PLAYBACK, 0);
-  if (ec < 0) {
-    cerr << "[eboard] ALSA's snd_pcm_open failed: " << snd_strerror(ec) << endl;
-    goto leave2;
+
+  // http://www-mmsp.ece.mcgill.ca/documents/audioformats/wave/wave.html
+  FILE *wav;
+  uint16_t u16;
+  uint32_t u32;
+  string mybeep = "/tmp/eboard_beep.wav";
+
+  wav = fopen(mybeep.c_str(),"w");
+  if (wav == NULL) {
+    free(wave);
+    return;
   }
+  fwrite("RIFF",1,4,wav);
+  u32 = htole32( 36 + 2*ts ); fwrite(&u32,4,1,wav); // chunk size
+  fwrite("WAVEfmt ",1,8,wav);
+  u32 = htole32( 16 );        fwrite(&u32,4,1,wav); // chunk size
+  u16 = htole16( 0x0001 );    fwrite(&u16,2,1,wav); // WAVE_FORMAT_PCM
+  u16 = htole16( 1 );         fwrite(&u16,2,1,wav); // channels
+  u32 = htole32( rate );      fwrite(&u32,4,1,wav); // sampling rate
+  u32 = htole32( rate*2 );    fwrite(&u32,4,1,wav); // byterate
+  u16 = htole16( 2 );         fwrite(&u16,2,1,wav); // block align
+  u16 = htole16( 16 );        fwrite(&u16,2,1,wav); // bits/sample
+  fwrite("data",1,4,wav);
+  u32 = htole32( 2*ts );      fwrite(&u32,4,1,wav); // chunk size
+  fwrite(wave,2,ts,wav);
+  fclose(wav);
 
-  // set format or goto leave1
-  ec = snd_pcm_hw_params_malloc(&hw); 
-  if (ec < 0) goto leave1;
-  hwa = 1;
-  ec = snd_pcm_hw_params_any(ph, hw);
-  if (ec < 0) goto leave1;
-  ec = snd_pcm_hw_params_set_access(ph, hw, SND_PCM_ACCESS_RW_INTERLEAVED);
-  if (ec < 0) goto leave1;
-  ec = snd_pcm_hw_params_set_format(ph, hw, SND_PCM_FORMAT_S16_LE);
-  if (ec < 0) goto leave1;
-  ec = snd_pcm_hw_params_set_rate_near(ph, hw, &rate, 0);
-  if (ec < 0) goto leave1;
-  ec = snd_pcm_set_params(ph, SND_PCM_FORMAT_S16_LE, SND_PCM_ACCESS_RW_INTERLEAVED, 1, rate, 1, 500000);
-  if (ec < 0) goto leave1;
-  ec = snd_pcm_hw_params_set_channels(ph, hw, 1);
-  if (ec < 0) goto leave1;
-  ec = snd_pcm_hw_params (ph, hw);
-  if (ec < 0) goto leave1;
-  snd_pcm_hw_params_free(hw);
-  hwa = 0;
-
-  ec = snd_pcm_prepare(ph);
-  if (ec < 0) goto leave1;
-
-  snd_pcm_writei(ph,wave,ts);
-  snd_pcm_drain(ph);
-
- leave1:
-  if (ec < 0)
-    cerr << "[eboard] ALSA error: " << snd_strerror(ec) << endl;
-  if (hwa)
-    snd_pcm_hw_params_free(hw);
-  snd_pcm_close(ph);
- leave2:
-  free(wave);
+  gstPlay(mybeep);
+  //unlink(mybeep.c_str());
 }
-#endif // ALSA_DRIVER
 
 char *SoundEvent::getDescription() {
   switch(type) {

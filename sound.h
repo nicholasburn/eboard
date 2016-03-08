@@ -70,7 +70,8 @@ class SoundEvent {
  private:
   void sine_beep();
 
-  void gstPlay();
+  void gstPlay(const string &_input);
+  void gstBeep();
 
   char pvt[128];
 };
