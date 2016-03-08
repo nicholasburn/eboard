@@ -31,15 +31,15 @@
 #include "script.h"
 #include "eboard.h"
 
-#include "qb1.xpm"
-#include "qb2.xpm"
-#include "qb3.xpm"
-#include "qb4.xpm"
-#include "qb5.xpm"
-#include "qb6.xpm"
-#include "qbr.xpm"
-#include "qbl.xpm"
-#include "hammer.xpm"
+#include "xpm/qb1.xpm"
+#include "xpm/qb2.xpm"
+#include "xpm/qb3.xpm"
+#include "xpm/qb4.xpm"
+#include "xpm/qb5.xpm"
+#include "xpm/qb6.xpm"
+#include "xpm/qbr.xpm"
+#include "xpm/qbl.xpm"
+#include "xpm/hammer.xpm"
 
 void qbsetup(GtkWidget *w, gpointer data) {
   (new QuickBarSetupDialog())->show();

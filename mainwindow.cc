@@ -41,19 +41,19 @@
 #include <linux/joystick.h>
 #endif
 
-#include "icon-eboard.xpm"
+#include "xpm/icon-eboard.xpm"
 
-#include "back1.xpm"
-#include "backn.xpm"
-#include "forward1.xpm"
-#include "forwardn.xpm"
-#include "movelist.xpm"
-#include "flip.xpm"
-#include "trash.xpm"
-#include "toscratch.xpm"
+#include "xpm/back1.xpm"
+#include "xpm/backn.xpm"
+#include "xpm/forward1.xpm"
+#include "xpm/forwardn.xpm"
+#include "xpm/movelist.xpm"
+#include "xpm/flip.xpm"
+#include "xpm/trash.xpm"
+#include "xpm/toscratch.xpm"
 
-#include "sealoff.xpm"
-#include "sealon.xpm"
+#include "xpm/sealoff.xpm"
+#include "xpm/sealon.xpm"
 
 GdkWindow * MainWindow::RefWindow=0;
 

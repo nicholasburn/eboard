@@ -26,11 +26,11 @@
 #include "promote.h"
 #include "eboard.h"
 
-#include "q18.xpm"
-#include "r18.xpm"
-#include "b18.xpm"
-#include "n18.xpm"
-#include "k18.xpm"
+#include "xpm/q18.xpm"
+#include "xpm/r18.xpm"
+#include "xpm/b18.xpm"
+#include "xpm/n18.xpm"
+#include "xpm/k18.xpm"
 
 UglyHack::UglyHack(PromotionPicker *a,int b) {
   picker=a;

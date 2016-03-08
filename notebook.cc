@@ -27,8 +27,8 @@
 #include "global.h"
 #include "notebook.h"
 
-#include "dead.xpm"
-#include "trash2.xpm"
+#include "xpm/dead.xpm"
+#include "xpm/trash2.xpm"
 
 void page_trash(GtkWidget *w, gpointer data) {
   Page *p;

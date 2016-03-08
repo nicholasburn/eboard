@@ -35,7 +35,7 @@
 #include "tstring.h"
 #include "eboard.h"
 
-#include "fallback.xpm"
+#include "xpm/fallback.xpm"
 
 PReq::PReq(piece a, rgbptr b, int c, int d, int e, bool f) {
   p=a; dest=b; x=c; y=d; dwidth=e; onlytop=f;

@@ -31,7 +31,7 @@
 #include "stl.h"
 #include "eboard.h"
 
-#include "icon-moves.xpm"
+#include "xpm/icon-moves.xpm"
 
 MoveListWindow::MoveListWindow(char *p1,char *p2,
 			       int gid,list<Position> &moves,

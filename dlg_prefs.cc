@@ -32,8 +32,8 @@
 #include "tstring.h"
 #include "clock.h"
 
-#include "snd_test.xpm"
-#include "snd_edit.xpm"
+#include "xpm/snd_test.xpm"
+#include "xpm/snd_edit.xpm"
 
 // 3700 widgets for the price of 3699. Only today at dlg_prefs.cc, the
 // Widget Warehouse.

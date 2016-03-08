@@ -46,7 +46,7 @@
 #include "eboard.h"
 #include "widgetproxy.h"
 
-#include "gnupiece.xpm"
+#include "xpm/gnupiece.xpm"
 
 namespace Help {
 

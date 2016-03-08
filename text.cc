@@ -34,8 +34,8 @@
 #include "stl.h"
 #include "eboard.h"
 
-#include "icon-console.xpm"
-#include "addcons.xpm"
+#include "xpm/icon-console.xpm"
+#include "xpm/addcons.xpm"
 
 gboolean dc_entry_focus_out(GtkWidget *widget,GdkEventFocus *event,
 			    gpointer user_data);

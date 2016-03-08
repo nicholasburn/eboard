@@ -35,10 +35,10 @@
 #include "stl.h"
 #include "eboard.h"
 
-#include "spiral0.xpm"
-#include "spiral1.xpm"
-#include "spiral2.xpm"
-#include "spiral3.xpm"
+#include "xpm/spiral0.xpm"
+#include "xpm/spiral1.xpm"
+#include "xpm/spiral2.xpm"
+#include "xpm/spiral3.xpm"
 
 ScriptList::ScriptList() : ModalDialog(N_("Script List")) {
   GtkWidget *v,*sw,*bh;
