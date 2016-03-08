@@ -26,6 +26,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <gtk/gtk.h>
+#include <gst/gst.h>
 #include <sys/types.h>
 #include <signal.h>
 #include "config.h"
@@ -54,12 +55,6 @@ int main(int argc,char **argv) {
   MainWindow *z;
   char *dgtport = NULL;
 
-  if (strstr(argv[0],"beeper")) {
-    SoundSlave slave;
-    slave.waitForEvents();
-    return 0;
-  }
-
   g_strlcpy(global.argv0,argv[0],512);
 
   signal(SIGPIPE,SIG_IGN);
@@ -74,6 +69,7 @@ int main(int argc,char **argv) {
 
   gtk_init(&argc,&argv);
   gdk_rgb_init();
+  gst_init(&argc,&argv);
 
   for(i=1;i<argc;i++) {
     if (!strcmp(argv[i],"-log"))

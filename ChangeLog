@@ -11,6 +11,8 @@ eboard ChangeLog
 [eng]     - applies to all engines
 [all]     - applies to all
 
+  * [all] Updated sound subsystem to gstreamer
+
   * [fics] Fixed weird behavior when gin=1
 
   * [ics] Fixed freezing on disconnection
@@ -23,8 +25,6 @@ eboard ChangeLog
 but were never released in a new version)
 
   * [all]  Sound fix: Fixed calling syntax to call to external play command
-
-  * [all]  Sound fix: Added ALSA support as default (supersedes OSS if available).
 
   * [all]  Cleaned up the code to compile cleanly on gcc 4.4
 

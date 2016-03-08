@@ -54,7 +54,6 @@ class SoundEvent {
 
   void read(tstring &rcline);
 
-  void safePlay();
   void play();
   void playHere();
   void edit(SoundEventChangeListener *listener);
@@ -65,12 +64,14 @@ class SoundEvent {
   int  Duration;
   int  Pitch;
   int  Count;
-  char Device[64];
   char ExtraData[256];
   bool enabled;
 
  private:
   void sine_beep();
+
+  void gstPlay();
+
   char pvt[128];
 };
 
@@ -82,7 +83,7 @@ class SoundEventDialog : public ModalDialog {
  private:
   SoundEvent *obj;
   SoundEventChangeListener *hearer;
-  GtkWidget *en[5], *rd[4], *fdlg, *tme;
+  GtkWidget *en[4], *rd[4], *fdlg, *tme;
   vector<GtkWidget *> sthemes;
 
   void apply(SoundEvent *dest);
@@ -97,23 +98,6 @@ void snddlg_ok(GtkWidget *w,gpointer data);
 void snddlg_test(GtkWidget *w,gpointer data);
 void snddlg_browse(GtkWidget *w,gpointer data);
 void snddlg_picktheme(GtkMenuItem *w,gpointer data);
-
-class SoundSlave {
- public:
-  SoundSlave();
-  ~SoundSlave();
-  void play(SoundEvent &se);
-  void waitForEvents();
-
- private:
-  int sout[2];
-  int pid;
-
-  bool alive();
-  bool kicking();
-  void kill();
-  void run();
-};
 
 #endif
 

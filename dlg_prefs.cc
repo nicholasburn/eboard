@@ -939,7 +939,7 @@ void prefs_sndtest(GtkWidget *w,gpointer data) {
   PreferencesDialog *me = (PreferencesDialog *)data;
   for(int i=0;i<N_SOUND_EVENTS;i++)
     if (w == me->sndtest[i]) {
-      me->sndcopy[i].safePlay();
+      me->sndcopy[i].play();
       return;
     }
   cerr << "** eboard ** odd internal error 5B7X (email the author).\n"; 

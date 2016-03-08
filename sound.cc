@@ -35,56 +35,24 @@
 #include <signal.h>
 #include <fcntl.h>
 #include <math.h>
+#include <limits.h>
+#include <gst/gst.h>
+
 #include "sound.h"
 #include "global.h"
 #include "tstring.h"
 #include "util.h"
+#include "stl.h"
 
 #include "config.h"
-
 #include "eboard.h"
-
-#define SOME_DRIVER 1
-
-#ifdef HAVE_ALSA_ASOUNDLIB_H
-
- #include <alsa/asoundlib.h>
- #define ALSA_DRIVER 1
-
-#elif defined HAVE_SYS_SOUNDCARD_H
-
- #define OSS_DRIVER 1
- #include <sys/soundcard.h>
-
-#elif defined HAVE_SYS_AUDIOIO_H
-
- #define OPENBSD_DRIVER 1
- #include <sys/audioio.h>
-
-  // Solaris has sys/audio.h but is incompatible with OpenBSD
-  #ifndef AUMODE_PLAY
-  #undef SOME_DRIVER
-  #undef OPENBSD_DRIVER
-  #endif
-
-#else
-
-  #undef SOME_DRIVER
-
-#endif
-
-// note: as of 2010, I no longer have hardware where to test the Solaris/OpenBSD driver (audioio.h), 
-// and soon my last OSS-capable machine will be gone.
-// non-ALSA sound code is now legacy. If you find a bug on them, fix it yourself 
-// (and email me the patch) or be quiet. -- Felipe
 
 SoundEvent::SoundEvent() {
   type=INT_WAVE;
   Pitch=800;
   Duration=250;
   Count=1;
-  strcpy(Device,"/dev/dsp");
-  ExtraData[0]=0;
+  memset(ExtraData, 0, 256);
   enabled = true;
 }
 
@@ -94,7 +62,6 @@ SoundEvent SoundEvent::operator=(SoundEvent &se) {
   Duration=se.Duration;
   Count=se.Count;
   enabled = se.enabled;
-  strcpy(Device,se.Device);
   strcpy(ExtraData,se.ExtraData);
   return(*this);
 }
@@ -105,7 +72,6 @@ int SoundEvent::operator==(SoundEvent &se) {
   if (Pitch!=se.Pitch) return 0;
   if (Duration!=se.Duration) return 0;
   if (Count!=se.Count) return 0;
-  if (strcmp(Device,se.Device)) return 0;
   if (strcmp(ExtraData,se.ExtraData)) return 0;
   return 1;
 }
@@ -119,7 +85,6 @@ void SoundEvent::read(tstring &rcline) {
   static const char *sep=",\r\n";
   string *p;
 
-  memset(Device,0,64);
   memset(ExtraData,0,256);
 
   t=rcline.tokenvalue(sep);
@@ -129,8 +94,7 @@ void SoundEvent::read(tstring &rcline) {
     Count=1;
     Pitch=rcline.tokenvalue(sep);
     Duration=rcline.tokenvalue(sep);
-    p=rcline.token(sep);
-    p->copy(Device,63);
+    p=rcline.token(sep); // Device value, deprecated
     Count=rcline.tokenvalue(sep);
     if (!Count) Count=1;
     enabled = rcline.tokenbool(sep,true);
@@ -138,7 +102,7 @@ void SoundEvent::read(tstring &rcline) {
   case 1: // EXT_WAVE
     type=EXT_WAVE;
     Pitch=Duration=0;
-    p=rcline.token(sep); p->copy(Device,63);
+    p=rcline.token(sep); // Device value, deprecated
     p=rcline.token(sep); p->copy(ExtraData,255);
     enabled = rcline.tokenbool(sep,true);
     break;
@@ -163,11 +127,10 @@ ostream & operator<<(ostream &s,  SoundEvent e) {
   switch(e.type) {
   case INT_WAVE:
     s << "0," << e.Pitch << ',' << e.Duration << ',';
-    s << e.Device << ',' << e.Count << ',' << (e.enabled?1:0);
+    s << "default" << ',' << e.Count << ',' << (e.enabled?1:0);
     break;
   case EXT_WAVE:
-    if (e.Device[0] == 0) strcpy(e.Device,"/dev/dsp");
-    s << "1," << e.Device << ',' << e.ExtraData;
+    s << "1," << "default" << ',' << e.ExtraData;
     s << ',' << (e.enabled?1:0);
     break;
   case EXT_PROGRAM:
@@ -180,54 +143,74 @@ ostream & operator<<(ostream &s,  SoundEvent e) {
   return(s);
 }
 
-void SoundEvent::playHere() {
-  switch(type) {
-  case INT_WAVE:
-    sine_beep();
-    break;
-  case PLAIN_BEEP:
-    printf("%c",7);
-    fflush(stdout);
-    break;
-  default:
-    play();
-  }
-}
-
-void SoundEvent::safePlay() {
-  global.sndslave.play(*this);
-}
-
 void SoundEvent::play() {
 
-  if (type==INT_WAVE || type==PLAIN_BEEP) {
-    playHere();
+  if (type==INT_WAVE) {
+    sine_beep();
+    return;
+  }
+
+  if (type==PLAIN_BEEP) {
+    printf("%c",7);
+    fflush(stdout);
     return;
   }
 
   if (!fork()) {
 
-    close(1);
-    close(2);
-
-    switch(type) {
-    case EXT_WAVE:
-      execlp("play","play",ExtraData,0);
-      break;
-    case EXT_PROGRAM:
-      execlp("/bin/sh","/bin/sh","-c",ExtraData,0);
-      break;
-    default:
-      /* will never happen */
-      break;
+    if (type==EXT_WAVE) {
+      gstPlay();
+      _exit(0);
     }
+
+    if (type==EXT_PROGRAM) {
+      close(1);
+      close(2);
+      execlp("/bin/sh","/bin/sh","-c",ExtraData,0);
+      _exit(0);
+    }
+
     _exit(0);
-
   }
-
 }
 
-#ifdef ALSA_DRIVER
+void SoundEvent::gstPlay() {
+  char gst_string[512];
+  GstElement *pipeline;
+  GstBus     *bus;
+  GstMessage *msg;
+  string input(ExtraData);
+
+  if (input.empty()) return;
+  char tmp[512], *ptr;
+  ptr = realpath(input.c_str(), tmp);
+  if (ptr==NULL) return;
+  input = tmp;
+
+  //printf("gstPlay=[%s]\n",input.c_str());
+
+  memset(gst_string,0,512);
+  snprintf(gst_string,511,"playbin2 uri=file://%s",input.c_str());
+
+  pipeline = gst_parse_launch(gst_string, NULL);
+  gst_element_set_state(pipeline, GST_STATE_PLAYING);
+
+  bus = gst_element_get_bus(pipeline);
+  msg = gst_bus_timed_pop_filtered(bus,GST_CLOCK_TIME_NONE, (GstMessageType)(GST_MESSAGE_ERROR | GST_MESSAGE_EOS));
+
+  if (msg != NULL)
+    gst_message_unref(msg);
+  gst_object_unref(bus);
+  gst_element_set_state(pipeline, GST_STATE_NULL);
+  gst_object_unref(pipeline);
+  
+  //printf("gstPlay done\n");
+}
+
+// TODO
+void SoundEvent::sine_beep() { }
+
+#ifdef BOGUS
 void SoundEvent::sine_beep() {
   unsigned int rate=44100; // Hz
   int interval;
@@ -310,104 +293,12 @@ void SoundEvent::sine_beep() {
 }
 #endif // ALSA_DRIVER
 
-#ifndef ALSA_DRIVER
-void SoundEvent::sine_beep() {
-#ifdef SOME_DRIVER
-  int rate=11025; // Hz
-  int interval;
-
-  unsigned char *wave;
-  int bl,fd,i,ts;
-  double r,s;
-#endif // SOME
-
-#ifdef OSS_DRIVER
-  int format=AFMT_U8;
-  int channels=1;
-#endif
-
-#ifdef OPENBSD_DRIVER
-  audio_info_t ai;
-#endif // OPENBSD
-
-#ifdef SOME_DRIVER
-  interval=120*rate/1000; // 120 msec
-
-  wave=(unsigned char *)malloc(ts = (Count*(bl=(rate*Duration)/1000) + (Count-1)*interval) );
-
-  if (!wave)
-    return;
-  memset(wave,127,ts);
-
-  for(i=0;i<bl;i++) {
-    r=(double)Pitch;
-    r/=(double)rate;
-    r*=(double)i;
-    s=(double)i;
-    s/=(double)bl;
-    s=0.30+sin(M_PI*s)*0.70;
-    wave[i]=(unsigned char)(128.0+127.0*s*sin(M_PI*2.0*r));
-  }
-
-  for(i=1;i<Count;i++)
-    memcpy(wave+i*(bl+interval),wave,bl);
-
-  fd=open(Device,O_WRONLY);
-  if (fd<0)
-    goto leave2;
-#endif // SOME
-
-#ifdef OSS_DRIVER
-  if (ioctl(fd,SNDCTL_DSP_SETFMT,&format)==-1)
-    goto leave1;
-
-  if (ioctl(fd,SNDCTL_DSP_CHANNELS,&channels)==-1)
-    goto leave1;
-
-  if (ioctl(fd,SNDCTL_DSP_SPEED,&rate)==-1)
-    goto leave1;
-#endif // OSS
-
-#ifdef OPENBSD_DRIVER
-  AUDIO_INITINFO(&ai);
-  ai.mode             = AUMODE_PLAY;
-  ai.play.sample_rate = rate;
-  ai.play.channels    = 1;
-  ai.play.encoding    = AUDIO_ENCODING_ULINEAR;
-
-  if (ioctl(fd,AUDIO_SETINFO,&ai)==-1)
-    goto leave1;
-#endif // OPENBSD
-
-#ifdef SOME_DRIVER
-  for(i=0;i<ts;)
-    i+=::write(fd,&wave[i],ts-i);
-#endif // SOME
-
-#ifdef OSS_DRIVER
-  ioctl(fd,SNDCTL_DSP_POST,0);
-#endif // OSS
-
-#ifdef OPENBSD_DRIVER
-  ioctl(fd,AUDIO_DRAIN,0);
-#endif // OPENBSD
-
-#ifdef SOME_DRIVER
- leave1:
-  close(fd);
- leave2:
-  free(wave);
-#endif // SOME
-
-}
-#endif
-
 char *SoundEvent::getDescription() {
   switch(type) {
   case INT_WAVE:
-    snprintf(pvt,128,_("%d %s to %s, %d Hz for %d msec"),
+    snprintf(pvt,128,_("%d %s, %d Hz for %d msec"),
 	     Count,(Count>1)?_("beeps"):
-	                     _("beep"),Device,Pitch,Duration);
+	                     _("beep"),Pitch,Duration);
     break;
   case EXT_WAVE:
     snprintf(pvt,128,_("play file %s"),ExtraData);
@@ -431,7 +322,7 @@ void SoundEvent::edit(SoundEventChangeListener *listener) {
 // dialog
 
 SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *listener) : ModalDialog(N_("Sound Event")) {
-  GtkWidget *v,*tf,*rh,*mh[4],*ml[5],*hs,*bb,*ok,*cancel,*test,*brw;
+  GtkWidget *v,*tf,*rh,*mh[4],*ml[4],*hs,*bb,*ok,*cancel,*test,*brw;
   GSList *rg;
   int i,j;
   GtkObject *pitch,*dur,*cou;
@@ -452,9 +343,9 @@ SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *li
   rh=gtk_vbox_new(FALSE,4);
   gtk_container_add(GTK_CONTAINER(tf),rh);
 
-  rd[0]=gtk_radio_button_new_with_label( 0, _("Beep (need Pitch, Duration, Count and Device)") );
+  rd[0]=gtk_radio_button_new_with_label( 0, _("Beep (need Pitch, Duration and Count)") );
   rg=gtk_radio_button_group(GTK_RADIO_BUTTON(rd[0]));
-  rd[1]=gtk_radio_button_new_with_label(rg, _("Play WAV (need Device and Filename, sox must be installed)") );
+  rd[1]=gtk_radio_button_new_with_label(rg, _("Play Media File (need Filename)") );
   rg=gtk_radio_button_group(GTK_RADIO_BUTTON(rd[1]));
   rd[2]=gtk_radio_button_new_with_label(rg, _("Run Program (need Filename)") );
   rg=gtk_radio_button_group(GTK_RADIO_BUTTON(rd[2]));
@@ -472,14 +363,10 @@ SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *li
 
   ml[0]=gtk_label_new(_("Pitch (Hz):"));
   ml[1]=gtk_label_new(_("Duration (msec):"));
-  ml[2]=gtk_label_new(_("Device:"));
-  ml[3]=gtk_label_new(_("File to play / Program to run:"));
-  ml[4]=gtk_label_new(_("Count:"));
+  ml[2]=gtk_label_new(_("File to play / Program to run:"));
+  ml[3]=gtk_label_new(_("Count:"));
 
   brw=gtk_button_new_with_label(_(" Browse... "));
-
-  for(i=2;i<4;i++)
-    en[i]=gtk_entry_new();
 
   pitch=gtk_adjustment_new((gfloat)(src->Pitch),50.0,2000.0,1.0,10.0,0.0);
   en[0]=gtk_spin_button_new(GTK_ADJUSTMENT(pitch),0.5,0);
@@ -487,8 +374,10 @@ SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *li
   dur=gtk_adjustment_new((gfloat)(src->Duration),30.0,4000.0,10.0,100.0,0.0);
   en[1]=gtk_spin_button_new(GTK_ADJUSTMENT(dur),0.5,0);
 
+  en[2]=gtk_entry_new(); // file/program
+
   cou=gtk_adjustment_new((gfloat)(src->Count),1.0,5.0,1.0,1.0,0);
-  en[4]=gtk_spin_button_new(GTK_ADJUSTMENT(cou),0.5,0);
+  en[3]=gtk_spin_button_new(GTK_ADJUSTMENT(cou),0.5,0);
 
   j=global.SoundFiles.size();
 
@@ -511,20 +400,21 @@ SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *li
 
   gtk_box_pack_start(GTK_BOX(v),mh[0],TRUE,TRUE,4);
 
+  // row: pitch - duration - count 
   gtk_box_pack_start(GTK_BOX(mh[0]),ml[0],FALSE,FALSE,4);
   gtk_box_pack_start(GTK_BOX(mh[0]),en[0],TRUE,TRUE,4);
   gtk_box_pack_start(GTK_BOX(mh[0]),ml[1],FALSE,FALSE,4);
   gtk_box_pack_start(GTK_BOX(mh[0]),en[1],TRUE,TRUE,4);
-  gtk_box_pack_start(GTK_BOX(mh[0]),ml[4],FALSE,FALSE,4);
-  gtk_box_pack_start(GTK_BOX(mh[0]),en[4],TRUE,TRUE,4);
-  gtk_box_pack_start(GTK_BOX(v),mh[1],FALSE,FALSE,4);
-  gtk_box_pack_start(GTK_BOX(mh[1]),ml[2],FALSE,FALSE,4);
-  gtk_box_pack_start(GTK_BOX(mh[1]),en[2],TRUE,TRUE,4);
-  gtk_box_pack_start(GTK_BOX(v),mh[2],FALSE,FALSE,4);
-  gtk_box_pack_start(GTK_BOX(mh[2]),ml[3],FALSE,FALSE,4);
+  gtk_box_pack_start(GTK_BOX(mh[0]),ml[3],FALSE,FALSE,4);
+  gtk_box_pack_start(GTK_BOX(mh[0]),en[3],TRUE,TRUE,4);
 
+  // row: file to play label
+  gtk_box_pack_start(GTK_BOX(v),mh[2],FALSE,FALSE,4);
+  gtk_box_pack_start(GTK_BOX(mh[2]),ml[2],FALSE,FALSE,4);
+
+  // row: file entry + browse
   gtk_box_pack_start(GTK_BOX(v),mh[3],FALSE,FALSE,4);
-  gtk_box_pack_start(GTK_BOX(mh[3]),en[3],TRUE,TRUE,4);
+  gtk_box_pack_start(GTK_BOX(mh[3]),en[2],TRUE,TRUE,4);
   gtk_box_pack_start(GTK_BOX(mh[3]),brw,FALSE,FALSE,4);
 
   if (j) {
@@ -536,8 +426,6 @@ SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *li
   for(i=0;i<4;i++)
     Gtk::show(ml[i],en[i],mh[i],NULL);
   
-  Gtk::show(ml[4],en[4],NULL);
-
   if (j)
     Gtk::show(cbh,tl,om,NULL);
 
@@ -580,14 +468,7 @@ SoundEventDialog::SoundEventDialog(SoundEvent *src, SoundEventChangeListener *li
     break;
   }
 
-#ifdef ALSA_DRIVER
-  gtk_entry_set_text(GTK_ENTRY(en[2]),"default");
-  gtk_widget_set_sensitive(en[2],FALSE);
-#else
-  gtk_entry_set_text(GTK_ENTRY(en[2]),src->Device);
-#endif
-
-  gtk_entry_set_text(GTK_ENTRY(en[3]),src->ExtraData);
+  gtk_entry_set_text(GTK_ENTRY(en[2]),src->ExtraData);
 
   gtk_signal_connect(GTK_OBJECT(ok),"clicked",
 		     GTK_SIGNAL_FUNC(snddlg_ok),(gpointer)(this));
@@ -614,7 +495,7 @@ void snddlg_picktheme(GtkMenuItem *w,gpointer data) {
       if (strlen(z)) {
 	if (eff.find(z,zz))
 	  strcpy(z,zz);
-	gtk_entry_set_text(GTK_ENTRY(me->en[3]),z);
+	gtk_entry_set_text(GTK_ENTRY(me->en[2]),z);
 	gtset(GTK_TOGGLE_BUTTON(me->rd[1]),TRUE);
       }      
       return;
@@ -629,7 +510,7 @@ void snddlg_browse(GtkWidget *w,gpointer data) {
   fd=new FileDialog(_("Browse"));
   
   if (fd->run()) {
-    gtk_entry_set_text(GTK_ENTRY(me->en[3]), fd->FileName);
+    gtk_entry_set_text(GTK_ENTRY(me->en[2]), fd->FileName);
   }
   delete fd;
 }
@@ -648,7 +529,7 @@ void snddlg_test(GtkWidget *w,gpointer data) {
   SoundEvent foo;
   me=(SoundEventDialog *)data;
   me->apply(&foo);
-  foo.safePlay();
+  foo.play();
 }
 
 void SoundEventDialog::apply(SoundEvent *dest) {
@@ -662,91 +543,7 @@ void SoundEventDialog::apply(SoundEvent *dest) {
     dest->type=PLAIN_BEEP;
   dest->Pitch=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(en[0]));
   dest->Duration=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(en[1]));
-  dest->Count=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(en[4]));
-  g_strlcpy(dest->Device,gtk_entry_get_text(GTK_ENTRY(en[2])),64);
-  g_strlcpy(dest->ExtraData,gtk_entry_get_text(GTK_ENTRY(en[3])),256);
+  dest->Count=gtk_spin_button_get_value_as_int(GTK_SPIN_BUTTON(en[3]));
+  g_strlcpy(dest->ExtraData,gtk_entry_get_text(GTK_ENTRY(en[2])),256);
 }
 
-// --- sound daemon (slave)
-
-SoundSlave::SoundSlave() {
-  pid=0;
-  pipe(sout);
-}
-
-SoundSlave::~SoundSlave() {
-  if (alive())
-    kill();
-  close(sout[0]);
-  close(sout[1]);
-}
-
-void SoundSlave::play(SoundEvent &se) {
-  if ( ! ( alive() && kicking() ) ) {
-    kill();
-    run();
-    usleep(50000);
-  }
-  write(sout[1],&se,sizeof(se));
-}
-
-bool SoundSlave::alive() {
-  if (!pid) return false;
-  if (waitpid(pid,0,WNOHANG)<=0)
-    return true;
-  else
-    return false;
-}
-
-bool SoundSlave::kicking() {
-  fd_set wd;
-  struct timeval tv;
-
-  if (!pid) return false;
-  FD_ZERO(&wd);
-  FD_SET(sout[1],&wd);
-  tv.tv_sec=0;
-  tv.tv_usec=20000;
-  
-  if (select(sout[1]+1,0,&wd,0,&tv)<=0)
-    return false;
-  else
-    return true;
-}
-
-void SoundSlave::kill() {
-  global.debug("SoundSlave","kill");
-  if (!pid)
-    return;
-  ::kill((pid_t)pid,SIGKILL);
-  close(sout[0]);
-  close(sout[1]);
-  pipe(sout);
-  pid=0;
-}
-
-void SoundSlave::run() {
-  pid=fork();
-  if (!pid) {
-    close(0);
-    dup2(sout[0],0);
-    execlp(global.argv0,"(eboard beeper)",0);
-    waitForEvents(); // only if above method fails
-    _exit(0);
-  }
-  
-}
-
-void SoundSlave::waitForEvents() {
-  SoundEvent se;
-  int r;
-
-  for(;;) {
-    r=read(0,&se,sizeof(se));
-    if (r!=sizeof(se))
-      _exit(0);
-    se.playHere();
-    waitpid(0,0,WNOHANG); // release zombies
-  }
-  
-}

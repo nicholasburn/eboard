@@ -307,7 +307,6 @@ class Global : public ChannelSplitter
   JoystickListener   *joycapture;
 
   StringCollection   annotator;
-  SoundSlave         sndslave;
   ZombieHunter       zombies;
 
   int                SelfInputColor;

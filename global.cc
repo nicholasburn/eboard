@@ -729,7 +729,7 @@ void Global::opponentMoved() {
     if (AnimateMoves)
       SoundStack.push(0);
     else
-      sndevents[0].safePlay();
+      sndevents[0].play();
   }
 }
 
@@ -742,7 +742,7 @@ void Global::clearSoundStack() {
 
 void Global::flushSound() {
   if (!SoundStack.empty()) {
-    sndevents[SoundStack.top()].safePlay();
+    sndevents[SoundStack.top()].play();
     SoundStack.pop();
   }
 }
@@ -761,14 +761,14 @@ void Global::moveMade() {
     if (AnimateMoves)
       SoundStack.push(9);
     else
-      sndevents[9].safePlay();
+      sndevents[9].play();
   }
 }
 
 void Global::playOther(int i) {
   if (i>=N_SOUND_EVENTS) return;
   if (EnableSounds && sndevents[i].enabled)
-    sndevents[i].safePlay();
+    sndevents[i].play();
 }
 
 void Global::repaintAllBoards() {
@@ -961,9 +961,16 @@ const char * Global::filter(const char *s) {
 }
 
 void Global::unicodeNormalize(string &dest, gunichar src) {
-  gunichar tmp[16];
+  gunichar *tmp, tmpbuf[16];
   gsize i,len;
-  len = g_unichar_fully_decompose(src, FALSE, tmp, 16);
+
+#if (GLIB_MAJOR_VERSION==2 && GLIB_MINOR_VERSION >= 30)
+  len = g_unichar_fully_decompose(src, FALSE, tmpbuf, 16);
+  tmp = &tmpbuf[0];
+#else
+  tmp = g_unicode_canonical_decomposition(src, &len);
+#endif
+
   for(i=0;i<len;i++) {
     if (tmp[i] > 128) {
       switch(tmp[i]) {
@@ -983,7 +990,9 @@ void Global::unicodeNormalize(string &dest, gunichar src) {
     dest.append( 1, (char) (tmp[i]&0x7f) );
   }
 
-  g_free(tmp);  
+#if (!(GLIB_MAJOR_VERSION==2 && GLIB_MINOR_VERSION >= 30))
+  g_free(tmp);
+#endif
 }
 
 void Global::gatherConsoleState() {
