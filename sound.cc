@@ -153,6 +153,11 @@ void SoundEvent::play() {
     return;
   }
 
+  if (type==INT_WAVE) {
+    gstBeep();
+    return;
+  }
+
   if (!fork()) {
     if (type==INT_WAVE) {
       gstBeep();
@@ -208,66 +213,131 @@ void SoundEvent::gstPlay(const string &_input) {
   //printf("gstPlay done\n");
 }
 
+class PlaybackData {
+public:
+  PlaybackData() {
+    pipeline = src = NULL;
+    beep = NULL;
+    srcid = 0;
+    pos   = 0;
+  }
+
+  GstElement *pipeline, *src;
+  MultiBeep  *beep;
+  guint       srcid;
+  int         pos;
+};
+
+
+static void gstbeep_wait(PlaybackData *pd) {
+
+  GstBus *bus;
+  GstMessage *msg;
+
+  printf("beep::wait\n");
+
+  bus = gst_element_get_bus(pd->pipeline);
+
+  while(1) {
+    msg = gst_bus_timed_pop_filtered(bus, GST_CLOCK_TIME_NONE, (GstMessageType)(GST_MESSAGE_EOS | GST_MESSAGE_ERROR));
+    if (msg != NULL) {
+      gst_object_unref(msg);
+      gst_object_unref(bus);
+      gst_element_set_state(pd->pipeline, GST_STATE_NULL);
+      gst_object_unref(pd->pipeline);
+      delete pd->beep;
+      delete pd;
+      return;
+    }
+  }
+}
+
+static gboolean gstbeep_produce(PlaybackData *pd) {
+  GstBuffer *buffer;
+  GstFlowReturn ret;
+  int chunk;
+
+  chunk = pd->beep->samples - pd->pos;
+  if (chunk > 4096) chunk = 4096;
+
+  printf("beep::produce pos=%d samples=%d chunk=%d\n",pd->pos,pd->beep->samples,chunk);
+
+  buffer = gst_buffer_new_and_alloc(2*chunk);
+  
+  GST_BUFFER_TIMESTAMP(buffer) = gst_util_uint64_scale(pd->pos, GST_SECOND, pd->beep->SampleRate);
+  GST_BUFFER_DURATION(buffer)  = gst_util_uint64_scale(chunk, GST_SECOND, pd->beep->SampleRate);
+
+  memcpy( GST_BUFFER_DATA(buffer), &(pd->beep->data[pd->pos]), 2*chunk );
+  pd->pos += chunk;
+  g_signal_emit_by_name (pd->src, "push-buffer", buffer, &ret);
+
+  gst_buffer_unref(buffer);
+  if (ret != GST_FLOW_OK || pd->pos == pd->beep->samples) {
+    printf("beep::over\n");
+    gstbeep_wait(pd);
+    return FALSE;
+  }
+
+  return TRUE;
+}
+
+static void gstbeep_start(GstElement *source, guint size, PlaybackData *pd) {
+  printf("beep::start\n");
+  if (pd->srcid==0 && pd->pos==0)
+    pd->srcid = g_idle_add((GSourceFunc) gstbeep_produce, pd);
+
+}
+
+static void gstbeep_stop(GstElement *source, guint size, PlaybackData *pd) {
+  printf("beep::stop\n");
+  if (pd->srcid!=0) {
+    g_source_remove(pd->srcid);
+    pd->srcid=0;
+  }
+}
+
+static void gstbeep_error(GstBus *bus, GstMessage *msg, PlaybackData *pd) {
+  printf("beep::error\n");
+}
+
+static void gstbeep_setup(GstElement *pipeline, GstElement *source, PlaybackData *pd) {
+  gchar *audio_caps_text;
+  GstCaps *audio_caps;
+ 
+  printf("beep::setup\n");
+  
+  pd->src = source;
+   
+  audio_caps_text = g_strdup_printf("audio/x-raw-int,channels=1,rate=%d,signed=(boolean)true,width=16,depth=16,endianness=BYTE_ORDER",
+				    pd->beep->SampleRate);
+  audio_caps = gst_caps_from_string (audio_caps_text);
+  g_object_set (source, "caps", audio_caps, NULL);
+  g_signal_connect (source, "need-data", G_CALLBACK (gstbeep_start), pd);
+  g_signal_connect (source, "enough-data", G_CALLBACK (gstbeep_stop), pd);
+  gst_caps_unref (audio_caps);
+  g_free (audio_caps_text);
+}
+
 void SoundEvent::gstBeep() { 
-  
-  unsigned int rate=44100; // Hz
-  int interval;
-  short int *wave;
-  short int silence[128];
-  int bl,i,ts,ec,sc;
-  double r,s;
-  
-  interval=(120*rate)/1000; // 120 msec
-  bl = (rate*Duration)/1000;
-  
-  ts = bl*Count + interval*(Count-1); // total samples
-  ts += 128- ts%128;
-  
-  wave = (short int *)malloc(2 * ts);
-  if (wave==NULL) return;
-  for(i=0;i<ts;i++) wave[i] = 0;
-  for(i=0;i<128;i++) silence[i] = 0;
-  sc = ((120*rate)/1000) / 128; // silence frames
+  MultiBeep *mb;
+  PlaybackData *pd;
+  GstBus *bus;
+  GstMessage *msg;
 
-  for(i=0;i<bl;i++) {
-    r= i * ((double)Pitch / (double)rate);
-    s= ((double)i / (double)bl);
-    s= sin(M_PI*s)*0.80;
-    wave[i]=(short int)(32000.0*s*sin(M_PI*2.0*r));
-  }
+  printf("beep::go\n");
 
-  for(i=1;i<Count;i++)
-    memcpy(&wave[i*(bl+interval)],wave,bl*2);
+  mb = new MultiBeep(44100,Duration,Pitch,Count);
+  pd = new PlaybackData();
+  pd->beep = mb;
 
+  pd->pipeline = gst_parse_launch("playbin2 uri=appsrc://", NULL);
+  g_signal_connect(pd->pipeline, "source-setup", G_CALLBACK(gstbeep_setup), pd);
+  bus = gst_element_get_bus(pd->pipeline);
+  gst_bus_add_signal_watch(bus);
+  g_signal_connect(G_OBJECT(bus), "message::error", (GCallback) gstbeep_error, pd);
+  gst_object_unref(bus);
 
-  // http://www-mmsp.ece.mcgill.ca/documents/audioformats/wave/wave.html
-  FILE *wav;
-  uint16_t u16;
-  uint32_t u32;
-  string mybeep = "/tmp/eboard_beep.wav";
-
-  wav = fopen(mybeep.c_str(),"w");
-  if (wav == NULL) {
-    free(wave);
-    return;
-  }
-  fwrite("RIFF",1,4,wav);
-  u32 = htole32( 36 + 2*ts ); fwrite(&u32,4,1,wav); // chunk size
-  fwrite("WAVEfmt ",1,8,wav);
-  u32 = htole32( 16 );        fwrite(&u32,4,1,wav); // chunk size
-  u16 = htole16( 0x0001 );    fwrite(&u16,2,1,wav); // WAVE_FORMAT_PCM
-  u16 = htole16( 1 );         fwrite(&u16,2,1,wav); // channels
-  u32 = htole32( rate );      fwrite(&u32,4,1,wav); // sampling rate
-  u32 = htole32( rate*2 );    fwrite(&u32,4,1,wav); // byterate
-  u16 = htole16( 2 );         fwrite(&u16,2,1,wav); // block align
-  u16 = htole16( 16 );        fwrite(&u16,2,1,wav); // bits/sample
-  fwrite("data",1,4,wav);
-  u32 = htole32( 2*ts );      fwrite(&u32,4,1,wav); // chunk size
-  fwrite(wave,2,ts,wav);
-  fclose(wav);
-
-  gstPlay(mybeep);
-  unlink(mybeep.c_str());
+  gst_element_set_state(pd->pipeline, GST_STATE_PLAYING);
 }
 
 char *SoundEvent::getDescription() {
@@ -524,3 +594,42 @@ void SoundEventDialog::apply(SoundEvent *dest) {
   g_strlcpy(dest->ExtraData,gtk_entry_get_text(GTK_ENTRY(en[2])),256);
 }
 
+MultiBeep::MultiBeep(int _samplerate, int _duration, int _pitch, int _count) {
+  SampleRate = _samplerate;
+  Duration   = _duration;
+  Pitch      = _pitch;
+  Count      = _count;
+
+  int interval;
+  short int silence[128];
+  int bl,i,ts,ec,sc;
+  double r,s;
+  
+  interval=(120*SampleRate)/1000; // 120 msec
+  bl = (SampleRate*Duration)/1000;
+  
+  ts = bl*Count + interval*(Count-1); // total samples
+  ts += 128- ts%128;
+  samples = ts;
+
+  data = (short int *) malloc(2 * ts);
+  if (data==NULL) return;
+
+  memset(data,0,2*ts);
+  memset(silence,0,2*128);
+  sc = ((120*SampleRate)/1000) / 128; // silence frames
+
+  for(i=0;i<bl;i++) {
+    r= i * ((double)Pitch / (double)SampleRate);
+    s= ((double)i / (double)bl);
+    s= sin(M_PI*s)*0.80;
+    data[i]=(short int)(32000.0*s*sin(M_PI*2.0*r));
+  }
+
+  for(i=1;i<Count;i++)
+    memcpy(&data[i*(bl+interval)],data,bl*2);
+}
+
+MultiBeep::~MultiBeep() {
+  if (data!=NULL) free(data);
+}

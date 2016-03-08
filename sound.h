@@ -44,6 +44,20 @@ class SoundEventChangeListener {
   virtual void SoundEventChanged()=0;
 };
 
+class MultiBeep {
+ public:
+  MultiBeep(int _samplerate=44100, int _duration=100, int _pitch = 440, int _count = 1);
+  ~MultiBeep();
+
+  int SampleRate;
+  int Duration;
+  int Pitch;
+  int Count;
+
+  short int *data;
+  int samples;
+};
+
 class SoundEvent {
  public:
   SoundEvent();
