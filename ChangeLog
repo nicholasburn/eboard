@@ -39,8 +39,6 @@ but were never released in a new version)
 
   * [all]  Added chinese translation (contributed by Charles May)
 
-  * [ics]  Fixed freezing bug when closing ICS connection (SF#1966332)
-
   * [ics]  Fixed lightning/blitz/standard divisions in the seek graph
 
   * [all]  New keybinding: Ctrl+T toggles text timestamps
