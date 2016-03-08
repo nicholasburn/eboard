@@ -267,7 +267,7 @@ void SoundEvent::gstBeep() {
   fclose(wav);
 
   gstPlay(mybeep);
-  //unlink(mybeep.c_str());
+  unlink(mybeep.c_str());
 }
 
 char *SoundEvent::getDescription() {
