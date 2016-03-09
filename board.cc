@@ -71,12 +71,6 @@ Board::Board() : WidgetProxy() {
   FlipInvert=false;
   EditMode=false;
   UpdateClockAfterConfigure = false;
-  jx=jy=-1;
-  jpxv = 0; jpyv = 0;
-
-  jsx=jsy=-1;
-  jsvx=jsvy=0;
-  jstid=-1;
 
   AnimationTimeout = -1;
 
@@ -889,31 +883,6 @@ void Board::walkForwardAll() {
   thaw();
 }
 
-void Board::drawJoystickCursor(GdkGC *gc) {
-  double arrow[7][2] =
-    { { 0, 0}, {0,90}, {18,68}, {40,108}, 
-      { 52,100 }, {30, 63}, {63, 63} };
-  GdkPoint myarrow[7];
-  int i;
-
-  if (jsx >= 0) {
-
-    for(i=0;i<7;i++) {
-      myarrow[i].x = (gint) (4 + jsx + arrow[i][0] * sqside / 128.0);
-      myarrow[i].y = (gint) (4 + jsy + arrow[i][1] * sqside / 128.0);
-    }
-
-    gdk_rgb_gc_set_foreground(gc,0x000000);
-    gdk_draw_polygon(yidget->window,gc,TRUE,myarrow,7);
-    for(i=0;i<7;i++) { myarrow[i].x -= 4; myarrow[i].y -= 4; }
-    gdk_rgb_gc_set_foreground(gc,0x00ff00);
-    gdk_draw_polygon(yidget->window,gc,TRUE,myarrow,7);
-    gdk_rgb_gc_set_foreground(gc,0x000000);
-    gdk_draw_polygon(yidget->window,gc,FALSE,myarrow,7);
-
-  }
-}
-
 void Board::outlineRectangle(GdkGC *gc, int x,int y,int color,int pen) {
   int i,j,k,X,Y,S;
   gdk_rgb_gc_set_foreground(gc,color);
@@ -1115,131 +1084,6 @@ void Board::popupProtocolMenu(int x,int y, guint32 etime) {
 #else   
   gtk_menu_popup(GTK_MENU(popmenu),0,0,0,0,3,etime);
 #endif
-}
-
-gboolean board_joycursor(gpointer data) {
-  Board *me;
-  static double accel[5] = { 0.2, 0.4, 0.8, 1.2, 1.5 };
-  static int acc = 0;
-  static Timestamp prev;
-  Timestamp cur;
-  double elapsed;
-
-  me = (Board *) data;
-  cur = Timestamp::now();
-
-  if (me->jsx < 0) {
-    me->jsx = me->sqw / 2;
-    me->jsy = me->sqh / 2;
-    acc = 0;
-  } else {
-    elapsed = cur-prev;
-    if (elapsed < 0.50 && me->jsnt==0) {
-      me->jsx += (int) (accel[acc] * global.JSSpeed * 5.0 * (me->jsvx / 32768.0) * (elapsed/0.060));
-      me->jsy += (int) (accel[acc] * global.JSSpeed * 5.0 * (me->jsvy / 32768.0) * (elapsed/0.060));
-      if (me->jsx < 0)       me->jsx = 0;
-      if (me->jsx > me->sqw) me->jsx = me->sqw;
-      if (me->jsy < 0)       me->jsy = 0;
-      if (me->jsy > me->sqh) me->jsy = me->sqh;
-      ++acc;
-      if (acc>4) acc=4;
-      me->queueRepaint();
-    }
-  }
-
-  if (me->jsnt!=0) acc=0; 
-  me->jsnt = 0;
-  prev = cur;
-  if (global.JSMode!=1) {
-    me->jstid = -1;
-    return FALSE;
-  } else return TRUE;
-}
-
-void Board::joystickCursor(int axis, int value) {
-
-  // continuous cursor
-  if (global.JSMode == 1) {
-    if (axis==0) jsvx = value;
-    if (axis==1) jsvy = value;
-    if (jstid<0 && (jsvx!=0 || jsvy!=0)) {
-      jsnt = 1;
-      jstid = gtk_timeout_add(60,board_joycursor,(gpointer) this);
-    } else if (jstid>=0 && (jsvx==0 && jsvy==0)) {
-      gtk_timeout_remove(jstid);
-      jstid = -1;
-    }
-  }
-
-  if (effectiveFlip()) value = -value;   
-  if (value < 0) value = -1;
-  if (value > 0) value = 1;
-  
-
-  if (jx < 0) {
-    jx = 3; jy = 3; queueRepaint();
-  } else {
-
-    switch(axis) {
-    case 0: // X
-      if (jpxv != value) {
-	if (value < 0) jx--; if (jx<0) jx=0;
-	if (value > 0) jx++; if (jx>7) jx=7;
-	jpxv = value;
-      }
-      break;
-    case 1: // Y
-      if (jpyv != value) {
-	if (value < 0) jy++; if (jy>7) jy=7;
-	if (value > 0) jy--; if (jy<0) jy=0;
-	jpyv = value;
-      }
-      break;
-    }
-    queueRepaint();
-  }
-
-}
-
-void Board::joystickSelect() {
-
-  int x,y;
-
-  if (global.JSMode == 0) {
-    x = jx;
-    y = jy;
-    
-    if (sp > 1) sp=0;
-    if ( (sp == 1) && (x==ax[0]) && (y==ay[0]) )
-      sp=0;
-    else {
-      
-      if ((sp == 1) &&
-	  ( (position.getPiece(ax[0],ay[0])&COLOR_MASK) ==
-	    (position.getPiece(x,y)&COLOR_MASK)) &&
-	  (position.getPiece(x,y)!=EMPTY) && (allowMove) )
-	sp=0;
-      
-      ax[sp]=x; ay[sp]=y;
-      ++sp;
-    }
-    
-    if ((sp==2)&&(mygame)) {
-      sendMove();
-    } else {
-      premoveq=0;
-      hilite_ch=1;
-      repaint();
-    }
-  } else {
-    GdkEventButton be;
-    be.x = jsx;
-    be.y = jsy;
-    be.button = 1;
-    be.state = GDK_MOD5_MASK;
-    board_button_press_event(widget,&be,this);
-    board_button_release_event(widget,&be,this);
-  }
 }
 
 void Board::dump() {
@@ -1476,7 +1320,7 @@ gboolean board_expose_event(GtkWidget *widget,GdkEventExpose *ee,
   // draw highlighted squares
 
   if (!me->gotAnimationLoop)
-    if ((me->sp)||(!me->LastMove.empty())||(me->premoveq)||(me->jx>=0)) {
+    if ((me->sp)||(!me->LastMove.empty())||(me->premoveq)) {
     
       if (!me->EditMode)
 	if ((global.HilightLastMove)&&(!me->LastMove.empty()))
@@ -1499,12 +1343,6 @@ gboolean board_expose_event(GtkWidget *widget,GdkEventExpose *ee,
 	  me->drawBall(gc,me->pmx[0],me->pmy[0],0xff0000,5);
 	}
       }
-
-      if (global.JSMode==0 && me->jx >= 0)
-	me->outlineRectangle(gc,me->jx,me->jy,0x00ff00,8);
-
-      if (global.JSMode==1)
-	me->drawJoystickCursor(gc);
     }
   
   /* if dragging... */
@@ -2070,15 +1908,6 @@ gboolean board_button_press_event(GtkWidget *widget,GdkEventButton *be,
   if (me->effectiveFlip()) x=7-x; else y=7-y;  
 
   if (be->button == 1) {
-
-    if (be->state != GDK_MOD5_MASK) {
-      me->jx = -1;
-      me->jy = -1;
-      me->jpxv = 0;
-      me->jpyv = 0;
-      me->jsx = -1;
-      me->jsy = -1;
-    }
 
     me->dr_active=true;
     me->dr_fto=true;

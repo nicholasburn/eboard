@@ -11,6 +11,8 @@ eboard ChangeLog
 [eng]     - applies to all engines
 [all]     - applies to all
 
+  * [all] Removed joystick support
+
   * [all] Updated sound subsystem to gstreamer
 
   * [fics] Fixed weird behavior when gin=1

@@ -161,15 +161,6 @@ typedef enum {
 #define IS_NOT_WILD(v) (((v)!=WILD)&&((v)!=WILDFR)&&((v)!=WILDCASTLE)&&((v)!=WILDNOCASTLE))
 
 typedef enum {
-  JOY_AXIS, JOY_BUTTON
-} JoystickEventType;
-
-class JoystickListener {
- public:
-  virtual void joystickEvent(JoystickEventType jet, int number, int value)=0;
-};
-
-typedef enum {
   WHITE_WIN,
   BLACK_WIN,
   DRAW,

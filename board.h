@@ -103,8 +103,6 @@ class RootBoard {
   void clockString(int val,char *z,int maxlen);
 };
 
-// I just can't work out the correct syntax to put the
-// bodies of methods in the .cc file, if you know, email me
 template<class T> 
 class mblock {
  public:
@@ -191,9 +189,6 @@ class Board : public WidgetProxy,
 
   virtual void renderClock();
 
-  void joystickCursor(int axis, int value);
-  void joystickSelect();
-
  protected:
   GdkPixmap *clkbar;
   GdkGC *clkgc;
@@ -244,8 +239,6 @@ class Board : public WidgetProxy,
 
   // selection/highlight
   int ax[2],ay[2],sp;
-  int jx,jy,jpxv,jpyv; // discrete joystick cursor
-  int jsx,jsy,jsvx,jsvy,jstid,jsnt; // smooth joystick cursor
 
   // premove
   int premoveq;
@@ -280,7 +273,6 @@ class Board : public WidgetProxy,
   void popupProtocolMenu(int x,int y, guint32 etime);
   void sendMove();
   void outlineRectangle(GdkGC *gc, int x,int y,int color,int pen);
-  void drawJoystickCursor(GdkGC *gc);
   void drawBall(GdkGC *gc, int x,int y,int color,int radius);
   void drop(piece p);
   void drawCoordinates(GdkPixmap *dest,GdkGC *gc,int side);
@@ -291,7 +283,6 @@ class Board : public WidgetProxy,
   void shadyText(int x,int y, int f, char *z);
 
   friend gboolean board_animate(gpointer data);
-  friend gboolean board_joycursor(gpointer data);
   friend gboolean vec_board_animate(gpointer data);
 
   friend gboolean board_expose_event(GtkWidget *widget,GdkEventExpose *ee,
@@ -375,7 +366,6 @@ void menu_gamep(GtkMenuItem *item, gpointer data);
 void eb_runengine_bm(GtkMenuItem *item,gpointer data);
 void eb_runengine_nobm(GtkMenuItem *item,gpointer data);
 void getfen_ok(GtkWidget *w, gpointer data);
-gboolean board_joycursor(gpointer data);
 
 #endif
 

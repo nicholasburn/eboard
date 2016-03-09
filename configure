@@ -508,7 +508,7 @@ if (!header_check("stdio.h","stdlib.h","string.h","unistd.h",
 }
 
 #optional headers
-header_check("strings.h","linux/joystick.h");
+header_check("strings.h");
 
 $t1=macro_check("netinet/in.h","IPPROTO_TCP","HAVE_IPPROTO_TCP_ON_IN_H");
 $t2=macro_check("netinet/in.h","TCP_NODELAY","HAVE_TCP_NODELAY_ON_IN_H");

@@ -52,7 +52,7 @@ PreferencesDialog::PreferencesDialog() : ModalDialog(N_("Preferences")) {
   GtkWidget *v,*hs,*ok,*apply,*cancel,*bhb,*nb;
 
   // scroll containers for tabs
-  GtkWidget *scr[7]; // ui, ics, colors, fonts, sounds, autosave, joystick
+  GtkWidget *scr[6]; // ui, ics, colors, fonts, sounds, autosave
 
   // gui
   GtkWidget *uil,*uiv,*uih,*tfr,*tr[4],*tv,*uih3,*uih4,*uih5;
@@ -87,9 +87,6 @@ PreferencesDialog::PreferencesDialog() : ModalDialog(N_("Preferences")) {
   // -- autosave
   GtkWidget *gv, *gl, *gll, *gh;
 
-  // -- joystick
-  GtkWidget *jv, *jl, *jf, *jv2, *jh1, *jh2, *jh3, *jh4, *jl2;
-
   // -- colors
   GtkWidget *tcl, *tcv, *tch, *tcv2, *tcdef;
   int i;
@@ -97,13 +94,6 @@ PreferencesDialog::PreferencesDialog() : ModalDialog(N_("Preferences")) {
 
   for(i=0;i< N_SOUND_EVENTS;i++)
     sndcopy[i]=global.sndevents[i];
-
-  jsval[0] = global.JSCursorAxis;
-  jsval[1] = global.JSMoveButton;
-  jsval[2] = global.JSBrowseAxis;
-  jsval[3] = global.JSPrevTabButton;
-  jsval[4] = global.JSNextTabButton;
-  jstate = -1;
 
   gtk_window_set_default_size(GTK_WINDOW(widget),600,550);
 
@@ -535,54 +525,6 @@ PreferencesDialog::PreferencesDialog() : ModalDialog(N_("Preferences")) {
   Gtk::show(gv,gh,gl,gll,asp,aso,afn,NULL);
   gtk_notebook_append_page(GTK_NOTEBOOK(nb),scr[5],gl);
 
-  // joystick ===========================================================
-
-  jl = gtk_label_new(_("Joystick"));
-  jv2 = gtk_vbox_new(FALSE,4);
-  jv  = gtk_vbox_new(FALSE,4);
-  jh1 = gtk_hbox_new(FALSE,4);
-  jh2 = gtk_hbox_new(FALSE,4);
-  jh3 = gtk_hbox_new(FALSE,4);
-  jh4 = gtk_hbox_new(FALSE,4);
-  gtk_container_set_border_width(GTK_CONTAINER(jv),6);
-  gtk_container_set_border_width(GTK_CONTAINER(jv2),6);
-
-  jf = gtk_frame_new(_("Axis & Buttons"));
-  gtk_container_set_border_width(GTK_CONTAINER(jf),6);
-  gtk_frame_set_shadow_type(GTK_FRAME(jf),GTK_SHADOW_ETCHED_IN);
-  
-  jcl = gtk_label_new(NULL);
-  jctl = gtk_button_new_with_label(_("Configure Axis & Buttons"));
-  
-  jmode = gtk_check_button_new_with_label(_("Smooth joystick cursor"));
-  jl2 = gtk_label_new(_("Smooth joystick cursor speed:"));
-  jspeed = gtk_hscale_new_with_range(1.0,10.0,1.0);
-
-  gtk_box_pack_start(GTK_BOX(jv2),jh3,FALSE,TRUE,4);
-  gtk_box_pack_start(GTK_BOX(jv2),jh4,FALSE,TRUE,4);
-  gtk_box_pack_start(GTK_BOX(jh3),jmode,FALSE,FALSE,0);
-  gtk_box_pack_start(GTK_BOX(jh4),jl2,FALSE,TRUE,0);
-  gtk_box_pack_start(GTK_BOX(jh4),jspeed,TRUE,TRUE,4);
-
-  gtk_box_pack_start(GTK_BOX(jv2),jf,FALSE,TRUE,4);
-  gtk_box_pack_start(GTK_BOX(jv),jh1,FALSE,TRUE,0);
-  gtk_box_pack_start(GTK_BOX(jh1),jcl,FALSE,FALSE,0);
-  gtk_box_pack_start(GTK_BOX(jv),jh2,FALSE,FALSE,4);
-  gtk_box_pack_start(GTK_BOX(jh2),jctl,FALSE,FALSE,4);
-  gtk_container_add(GTK_CONTAINER(jf),jv);
-
-  scr[6] = scrollBox(jv2);
-  
-  Gtk::show(jv,jl,jcl,jctl,jh1,jh2,jf,jv2,jh3,jh4,jl2,jmode,jspeed,NULL);
-  gtk_notebook_append_page(GTK_NOTEBOOK(nb),scr[6],jl);
-  formatJoystickDescription();
-
-  gtset(GTK_TOGGLE_BUTTON(jmode), global.JSMode?1:0);
-  gtk_range_set_value(GTK_RANGE(jspeed), (gdouble) (global.JSSpeed));
-
-  gtk_signal_connect(GTK_OBJECT(jctl),"clicked",
-		     GTK_SIGNAL_FUNC(prefs_joyctl),(gpointer) this);
-
   // bottom
   hs=gtk_hseparator_new();
   gtk_box_pack_start(GTK_BOX(v),hs,FALSE,FALSE,4);
@@ -619,7 +561,6 @@ PreferencesDialog::~PreferencesDialog() {
   delete lsq;
   delete dsq;
   delete preview;
-  global.joycapture = NULL;
 }
 
 void PreferencesDialog::ApplyCheckBox(GtkWidget *cb,int *curval,int *ch1, int *ch2) {
@@ -707,15 +648,6 @@ void PreferencesDialog::Apply() {
   ApplyCheckBox(wget, &global.RetrieveChannelNames, &changed, NULL);
   ApplyCheckBox(asp, &global.AppendPlayed, &changed, NULL);
   ApplyCheckBox(aso, &global.AppendObserved, &changed, NULL);
-  ApplyCheckBox(jmode, &global.JSMode, &changed, NULL);
-
-  {
-    int spd = (int) gtk_range_get_value(GTK_RANGE(jspeed));
-    if (global.JSSpeed != spd) {
-      global.JSSpeed = spd;
-      changed = 1;
-    }
-  }
 
   ApplyEntry(afn,global.AppendFile,128,&changed,NULL);
 
@@ -779,19 +711,6 @@ void PreferencesDialog::Apply() {
       changed=1;
     }
   }
-
-  if (global.JSCursorAxis != jsval[0] ||
-      global.JSMoveButton != jsval[1] ||
-      global.JSBrowseAxis != jsval[2] ||
-      global.JSPrevTabButton != jsval[3] ||
-      global.JSNextTabButton != jsval[4])
-    changed = 1;
-
-  global.JSCursorAxis =    jsval[0];
-  global.JSMoveButton =    jsval[1];
-  global.JSBrowseAxis =    jsval[2];
-  global.JSPrevTabButton = jsval[3];
-  global.JSNextTabButton = jsval[4];
 
   if (changed)
     for(global.BLi=global.BoardList.begin();
@@ -963,74 +882,3 @@ void PreferencesDialog::SoundEventChanged() {
   }
 }
 
-void PreferencesDialog::formatJoystickDescription() {
-  char s[256];
-  
-  switch(jstate) {
-  case 0:
-    g_strlcpy(s,_("Move the axis to be used for selecting pieces."),256);
-    break;
-  case 1:
-    g_strlcpy(s,_("Press the button to be used for selecting a square."),256);
-    break;
-  case 2:
-    g_strlcpy(s,_("Move the axis to be used for moving back and forth\nthrough moves of a game."),256);
-    break;
-  case 3:
-    g_strlcpy(s,_("Press the button to be used for going to the previous tab."),256);
-    break;
-  case 4:
-    g_strlcpy(s,_("Press the button to be used for going to the next tab."),256);
-    break;
-  default:
-    snprintf(s,256,_("Board Cursor Axis: %d\nBoard Select Button: %d\nBoard Browsing Axis: %d\nPrevious Tab Button: %d\nNext Tab Button: %d\n"),
-	    jsval[0],jsval[1],jsval[2],jsval[3],jsval[4]);
-  }
-  gtk_label_set_text(GTK_LABEL(jcl), s);
-  gtk_widget_queue_resize(jcl);
-}
-
-void PreferencesDialog::joystickEvent(JoystickEventType jet, int number, int value) {
-  switch(jstate) {
-  case 0:
-  case 2:
-    if (jet==JOY_AXIS) { 
-      jsval[jstate] = number & 0xfffe;
-      jstate++;
-      formatJoystickDescription();
-    }
-    break;
-  case 1: 
-  case 3: 
-  case 4: 
-    if (jet==JOY_BUTTON && value==1) { 
-      jsval[jstate] = number;
-      jstate++;
-      if (jstate == 5) {
-	gtk_button_set_label(GTK_BUTTON(jctl),_("Configure Axis & Buttons"));
-	jstate=-1;
-	global.joycapture = NULL;
-      }
-      formatJoystickDescription();
-    }
-    break;
-  }
-}
-
-void prefs_joyctl(GtkWidget *w,gpointer data) {
-  PreferencesDialog *me;
-  me = (PreferencesDialog *) data;
-
-  if (me->jstate < 0) {
-    me->jstate = 0;
-    gtk_button_set_label(GTK_BUTTON(me->jctl),_("Cancel Joystick Configuration"));
-    global.joycapture = (JoystickListener *) me;
-    me->formatJoystickDescription();
-  } else {
-    me->jstate = -1;
-    gtk_button_set_label(GTK_BUTTON(me->jctl),_("Configure Axis & Buttons"));
-    global.joycapture = NULL;
-    me->formatJoystickDescription();
-  }
-
-}

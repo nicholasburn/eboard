@@ -37,10 +37,6 @@
 
 #include "config.h"
 
-#ifdef HAVE_LINUX_JOYSTICK_H
-#include <linux/joystick.h>
-#endif
-
 #include "xpm/icon-eboard.xpm"
 
 #include "xpm/back1.xpm"
@@ -153,7 +149,6 @@ MainWindow::MainWindow() {
   consolecopy=0;
   scriptlist=0;
   ims=0;
-  jpd = 0;
 
   io_tag = -1;
 
@@ -1273,53 +1268,6 @@ gboolean do_smart_remove(gpointer data) {
   return FALSE;
 }
 
-void MainWindow::joystickEvent(JoystickEventType jet, int number, int value) {
-  int id, anum;
-  ChessGame *cg = NULL;
-  Board *b = NULL;
-
-  if (global.joycapture != NULL) {
-    global.joycapture->joystickEvent(jet,number,value);
-    return;
-  }
-  
-  id=notebook->getCurrentPageId();
-
-  if (id==-1) 
-    b=global.BoardList.front();
-  else {
-    cg=global.getGame(id);
-    if (cg!=NULL)
-      b=cg->getBoard();
-  }
-
-  anum = number & 0xfffe;
-
-  if (jet == JOY_AXIS) {
-    if (anum == global.JSCursorAxis && b!=NULL && 
-	(global.JSMode==1 || value<-16000 || value>16000 || value==0) )
-      b->joystickCursor(number%2, value);
-    if (number == global.JSBrowseAxis && b!=NULL && (value<-16000 || value>16000 || value==0) ) {
-      if (value < 0) value = -1;
-      if (value > 0) value =  1;
-
-      if (value < 0 && jpd!=value) b->walkBack1();
-      if (value > 0 && jpd!=value) b->walkForward1();
-      jpd = value;
-    }
-  }
-
-  if (jet == JOY_BUTTON && value==1) {
-    if (number == global.JSMoveButton && b!=NULL)
-      b->joystickSelect();
-    if (number == global.JSPrevTabButton)
-      global.ebook->goToPrevious();
-    if (number == global.JSNextTabButton)
-      global.ebook->goToNext();
-  }
-
-}
-
 // changes enabling of buttons upon pane change
 // also schedules 'smart removes' for finished boards
 void MainWindow::paneChanged(int pgseq,int pgid) {
@@ -2111,16 +2059,3 @@ void PrefixCache::setIfNotSet(int id, string &val) {
   ids.push_back(id);
   text.push_back( new string(val) );
 }
-
-#ifdef HAVE_LINUX_JOYSTICK_H
-void mainwindow_joystick(gpointer data,gint source,GdkInputCondition cond) {
-  struct js_event jse;
-  MainWindow *me = (MainWindow *) data;
-  if (read(global.JoystickFD,&jse,sizeof(struct js_event)) == sizeof(struct js_event)) {
-    switch(jse.type) {
-    case JS_EVENT_BUTTON: me->joystickEvent(JOY_BUTTON, (int) (jse.number), (int) (jse.value)); break;
-    case JS_EVENT_AXIS:   me->joystickEvent(JOY_AXIS, (int) (jse.number), (int) (jse.value)); break;      
-    }
-  }
-}
-#endif

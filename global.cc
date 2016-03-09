@@ -198,18 +198,6 @@ Global::Global() {
   IcsAllObPlayed   = 0;
   IcsAllObObserved = 0;
 
-  JoystickFD = -1;
-
-  JSCursorAxis = 0;
-  JSBrowseAxis = 2;
-  JSMoveButton = 0;
-  JSNextTabButton = 5;
-  JSPrevTabButton = 4;  
-  JSMode  = 1;
-  JSSpeed = 4;
-
-  joycapture = NULL;
-
   ShowQuickbar=1;
   LowTimeWarningLimit=5;
   RetrieveChannelNames=1;
@@ -291,13 +279,13 @@ Global::Global() {
   RCKeys.push_back("P2PName");         // 46
   RCKeys.push_back("ShowTimestamp");
   RCKeys.push_back("SpecialChars");// 48
-  RCKeys.push_back("JSCAxis");
-  RCKeys.push_back("JSBAxis"); // 50
-  RCKeys.push_back("JSMButton");
-  RCKeys.push_back("JSNTButton"); // 52
-  RCKeys.push_back("JSPTButton");
-  RCKeys.push_back("JSMode"); // 54
-  RCKeys.push_back("JSSpeed");
+  RCKeys.push_back("JSCAxis"); //          [deprecated]
+  RCKeys.push_back("JSBAxis"); // 50       [deprecated]
+  RCKeys.push_back("JSMButton"); //        [deprecated]
+  RCKeys.push_back("JSNTButton"); // 52 // [deprecated]
+  RCKeys.push_back("JSPTButton"); //       [deprecated]
+  RCKeys.push_back("JSMode"); // 54 //     [deprecated]
+  RCKeys.push_back("JSSpeed"); //          [deprecated]
   RCKeys.push_back("MsecThreshold"); // 56
   RCKeys.push_back("MsecDigits");
 
@@ -533,13 +521,15 @@ void Global::readRC() {
                  p->copy(P2PName,63); break;
 	case 47: ShowTimestamp       =t.tokenvalue(sep); break;
 	case 48: SpecialChars        =t.tokenvalue(sep); break;
-	case 49: JSCursorAxis = t.tokenvalue(sep); break;
-	case 50: JSBrowseAxis = t.tokenvalue(sep); break;
-	case 51: JSMoveButton = t.tokenvalue(sep); break;
-	case 52: JSNextTabButton = t.tokenvalue(sep); break;
-	case 53: JSPrevTabButton = t.tokenvalue(sep); break;
-	case 54: JSMode  = t.tokenvalue(sep); break;
-	case 55: JSSpeed = t.tokenvalue(sep); break;
+	case 49:
+	case 50:
+	case 51:
+	case 52:
+	case 53:
+	case 54:
+	case 55:
+	  // 49-55: deprecated joystick-related keys
+	  break;
 	case 56: MsecThreshold = t.tokenvalue(sep); break;
 	case 57: MsecDigits = t.tokenvalue(sep); break;
 	} // switch
@@ -638,13 +628,9 @@ void Global::writeRC() {
   rc << RCKeys[46] << div << P2PName << endl;
   rc << RCKeys[47] << div << ShowTimestamp << endl;
   rc << RCKeys[48] << div << SpecialChars << endl;
-  rc << RCKeys[49] << div << JSCursorAxis << endl;
-  rc << RCKeys[50] << div << JSBrowseAxis << endl;
-  rc << RCKeys[51] << div << JSMoveButton << endl;
-  rc << RCKeys[52] << div << JSNextTabButton << endl;
-  rc << RCKeys[53] << div << JSPrevTabButton << endl;
-  rc << RCKeys[54] << div << JSMode << endl;
-  rc << RCKeys[55] << div << JSSpeed << endl;
+
+  // 49-55: deprecated (joystick)
+  
   rc << RCKeys[56] << div << MsecThreshold << endl;
   rc << RCKeys[57] << div << MsecDigits << endl;
 

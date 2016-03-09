@@ -30,16 +30,13 @@
 #include "widgetproxy.h"
 
 class PreferencesDialog : public ModalDialog,
-                          public SoundEventChangeListener,
-                          public JoystickListener
+                          public SoundEventChangeListener
 {
  public:
   PreferencesDialog();
   virtual ~PreferencesDialog();
 
   void SoundEventChanged();
-
-  virtual void joystickEvent(JoystickEventType jet, int number, int value);
 
  private:
   GtkWidget *tabposb[4],*efont[NFONTS],*fontdlg,*plainb,
@@ -62,8 +59,6 @@ class PreferencesDialog : public ModalDialog,
   void ApplyEntry(GtkWidget *entry,char *curval,int sz, int *ch1, int *ch2);
   void ApplyColorButton(ColorButton *cb,int *curval,int *ch1, int *ch2);
 
-  void formatJoystickDescription();
-
   friend void prefs_ok(GtkWidget *w,gpointer data);
   friend void prefs_apply(GtkWidget *w,gpointer data);
 
@@ -76,8 +71,6 @@ class PreferencesDialog : public ModalDialog,
   friend void prefs_sndedit(GtkWidget *w,gpointer data);
 
   friend void prefs_defcolor(GtkWidget *w,gpointer data);
-
-  friend void prefs_joyctl(GtkWidget *w,gpointer data);
 };
 
 void prefs_ok(GtkWidget *w,gpointer data);
@@ -92,6 +85,5 @@ void prefs_sndtest(GtkWidget *w,gpointer data);
 void prefs_sndedit(GtkWidget *w,gpointer data);
 
 void prefs_defcolor(GtkWidget *w,gpointer data);
-void prefs_joyctl(GtkWidget *w,gpointer data);
 
 #endif

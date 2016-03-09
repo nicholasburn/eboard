@@ -38,16 +38,7 @@
 #include "dgtboard.h"
 #include "network.h"
 
-#ifdef HAVE_LINUX_JOYSTICK_H
-#include <linux/joystick.h>
-#endif
-
 void sigint_handler(int par);
-
-#ifdef HAVE_LINUX_JOYSTICK_H
-void openJoystick(MainWindow *mw);
-void closeJoystick();
-#endif
 
 int main(int argc,char **argv) {
   list<int>::iterator zomb;
@@ -99,18 +90,10 @@ int main(int argc,char **argv) {
 
   pipewatch_start();
   
-#ifdef HAVE_LINUX_JOYSTICK_H
-  openJoystick(z);
-#endif
-
   gtk_main();
 
   pipewatch_end();
-  
-#ifdef HAVE_LINUX_JOYSTICK_H
-  closeJoystick();
-#endif
-  
+    
   for(zomb=global.TheOffspring.begin();zomb!=global.TheOffspring.end();
       zomb++)
     kill(*zomb,SIGKILL);
@@ -132,31 +115,3 @@ void sigint_handler(int par) {
   }
 }
 
-#ifdef HAVE_LINUX_JOYSTICK_H
-
-void openJoystick(MainWindow *mw) {
-  int i,fd;
-  char devname[64];
-
-  for(i=0;i<10;i++) {
-    snprintf(devname,64,"/dev/js%d",i);
-    fd = open(devname,O_RDONLY);
-    if (fd >= 0) break;
-  }
-
-  if (fd < 0) return;
-    
-  global.JoystickFD = fd;
-  gdk_input_add(fd, GDK_INPUT_READ,(GdkInputFunction) mainwindow_joystick,
-		(gpointer) mw);
-}
-
-void closeJoystick() {
-  if (global.JoystickFD > 0) {
-    gdk_input_remove(global.JoystickFD);
-    close(global.JoystickFD);
-    global.JoystickFD = -1;
-  }
-}
-
-#endif

@@ -145,8 +145,6 @@ class MainWindow : public WidgetProxy,
   void readAvailable(int handle);
   void writeAvailable(int handle);
 
-  void joystickEvent(JoystickEventType jet, int number, int value);
-
  private:
   int HideMode; // password
   GtkItemFactory  *gif;
@@ -182,8 +180,6 @@ class MainWindow : public WidgetProxy,
   GtkWidget *vector_checkbox;
 
   History   *InputHistory;
-
-  int jpd; // joystick previous direction
 
   void createNavbar(GtkWidget *box);
   void createSealPix(GtkWidget *box);
@@ -284,14 +280,8 @@ class MainWindow : public WidgetProxy,
 
   friend void windows_find(GtkWidget *w, gpointer data);
   friend void windows_findp(GtkWidget *w, gpointer data);
-
   
   friend gboolean gtkDgtnixEvent(GIOChannel* channel, GIOCondition cond, gpointer data);
-  
-
-  #ifdef HAVE_LINUX_JOYSTICK_H
-  friend void mainwindow_joystick(gpointer data,gint source,GdkInputCondition cond);
-  #endif
 };
 
 void sett_prefs(gpointer data);
@@ -394,9 +384,5 @@ void windows_savebuffer(GtkWidget *w, gpointer data);
 
 void windows_find(GtkWidget *w, gpointer data);
 void windows_findp(GtkWidget *w, gpointer data);
-
-#ifdef HAVE_LINUX_JOYSTICK_H
-void mainwindow_joystick(gpointer data,gint source,GdkInputCondition cond);
-#endif
 
 #endif

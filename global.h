@@ -304,7 +304,6 @@ class Global : public ChannelSplitter
   GtkWidget          *toplevelwidget;
   BugPane            *bugpane;
   IONotificationInterface *iowatcher;
-  JoystickListener   *joycapture;
 
   StringCollection   annotator;
   ZombieHunter       zombies;
@@ -364,14 +363,6 @@ class Global : public ChannelSplitter
   int IcsAllObPlayed;
   int IcsAllObObserved;
 
-  int JSCursorAxis;
-  int JSBrowseAxis;
-  int JSMoveButton;
-  int JSNextTabButton;
-  int JSPrevTabButton;
-  int JSMode;
-  int JSSpeed;
-
   char P2PName[64];
 
   TerminalColor Colors;
@@ -403,8 +394,6 @@ class Global : public ChannelSplitter
   Environment env;
 
   string ConsoleReply;
-
-  int JoystickFD;
 
  private:
   int createDir(char *z);
