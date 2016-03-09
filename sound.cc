@@ -152,12 +152,7 @@ void SoundEvent::play() {
     fflush(stdout);
     return;
   }
-
-  if (type==INT_WAVE) {
-    gstBeep();
-    return;
-  }
-
+  
   if (!fork()) {
     if (type==INT_WAVE) {
       gstBeep();
@@ -218,93 +213,49 @@ public:
   PlaybackData() {
     pipeline = src = NULL;
     beep = NULL;
-    srcid = 0;
     pos   = 0;
   }
 
   GstElement *pipeline, *src;
   MultiBeep  *beep;
-  guint       srcid;
   int         pos;
 };
 
-
-static void gstbeep_wait(PlaybackData *pd) {
-
-  GstBus *bus;
-  GstMessage *msg;
-
-  printf("beep::wait\n");
-
-  bus = gst_element_get_bus(pd->pipeline);
-
-  while(1) {
-    msg = gst_bus_timed_pop_filtered(bus, GST_CLOCK_TIME_NONE, (GstMessageType)(GST_MESSAGE_EOS | GST_MESSAGE_ERROR));
-    if (msg != NULL) {
-      gst_object_unref(msg);
-      gst_object_unref(bus);
-      gst_element_set_state(pd->pipeline, GST_STATE_NULL);
-      gst_object_unref(pd->pipeline);
-      delete pd->beep;
-      delete pd;
-      return;
-    }
-  }
-}
-
-static gboolean gstbeep_produce(PlaybackData *pd) {
+static void gstbeep_produce(GstElement *src, guint size, PlaybackData *pd) {
   GstBuffer *buffer;
   GstFlowReturn ret;
   int chunk;
 
-  chunk = pd->beep->samples - pd->pos;
-  if (chunk > 4096) chunk = 4096;
+  chunk = 2 * (pd->beep->samples - pd->pos);
+  if (chunk > size) chunk = (int) size;
 
-  printf("beep::produce pos=%d samples=%d chunk=%d\n",pd->pos,pd->beep->samples,chunk);
+  //printf("beep::produce pos=%d samples=%d chunk=%d B\n",pd->pos,pd->beep->samples,chunk);
 
-  buffer = gst_buffer_new_and_alloc(2*chunk);
+  if (chunk>0) {
+    buffer = gst_buffer_new_and_alloc(chunk);
   
-  GST_BUFFER_TIMESTAMP(buffer) = gst_util_uint64_scale(pd->pos, GST_SECOND, pd->beep->SampleRate);
-  GST_BUFFER_DURATION(buffer)  = gst_util_uint64_scale(chunk, GST_SECOND, pd->beep->SampleRate);
+    GST_BUFFER_TIMESTAMP(buffer) = gst_util_uint64_scale(pd->pos, GST_SECOND, pd->beep->SampleRate);
+    GST_BUFFER_DURATION(buffer)  = gst_util_uint64_scale(chunk, GST_SECOND, pd->beep->SampleRate);
 
-  memcpy( GST_BUFFER_DATA(buffer), &(pd->beep->data[pd->pos]), 2*chunk );
-  pd->pos += chunk;
-  g_signal_emit_by_name (pd->src, "push-buffer", buffer, &ret);
+    memcpy( GST_BUFFER_DATA(buffer), &(pd->beep->data[pd->pos]), chunk );
+    GST_BUFFER_SIZE(buffer) = chunk;
+    pd->pos += chunk/2;
 
-  gst_buffer_unref(buffer);
-  if (ret != GST_FLOW_OK || pd->pos == pd->beep->samples) {
-    printf("beep::over\n");
-    gstbeep_wait(pd);
-    return FALSE;
+    g_signal_emit_by_name (src, "push-buffer", buffer, &ret);
+    gst_buffer_unref(buffer);
+
+    // if (ret != GST_FLOW_OK) printf("ret = %d\n", (int)ret);
   }
+  if (pd->pos == pd->beep->samples)
+    g_signal_emit_by_name(src, "end-of-stream", &ret);
 
-  return TRUE;
-}
-
-static void gstbeep_start(GstElement *source, guint size, PlaybackData *pd) {
-  printf("beep::start\n");
-  if (pd->srcid==0 && pd->pos==0)
-    pd->srcid = g_idle_add((GSourceFunc) gstbeep_produce, pd);
-
-}
-
-static void gstbeep_stop(GstElement *source, guint size, PlaybackData *pd) {
-  printf("beep::stop\n");
-  if (pd->srcid!=0) {
-    g_source_remove(pd->srcid);
-    pd->srcid=0;
-  }
-}
-
-static void gstbeep_error(GstBus *bus, GstMessage *msg, PlaybackData *pd) {
-  printf("beep::error\n");
 }
 
 static void gstbeep_setup(GstElement *pipeline, GstElement *source, PlaybackData *pd) {
   gchar *audio_caps_text;
   GstCaps *audio_caps;
  
-  printf("beep::setup\n");
+  //printf("beep::setup\n");
   
   pd->src = source;
    
@@ -312,8 +263,7 @@ static void gstbeep_setup(GstElement *pipeline, GstElement *source, PlaybackData
 				    pd->beep->SampleRate);
   audio_caps = gst_caps_from_string (audio_caps_text);
   g_object_set (source, "caps", audio_caps, NULL);
-  g_signal_connect (source, "need-data", G_CALLBACK (gstbeep_start), pd);
-  g_signal_connect (source, "enough-data", G_CALLBACK (gstbeep_stop), pd);
+  g_signal_connect (source, "need-data", G_CALLBACK (gstbeep_produce), pd);
   gst_caps_unref (audio_caps);
   g_free (audio_caps_text);
 }
@@ -324,7 +274,7 @@ void SoundEvent::gstBeep() {
   GstBus *bus;
   GstMessage *msg;
 
-  printf("beep::go\n");
+  //printf("beep::go\n");
 
   mb = new MultiBeep(44100,Duration,Pitch,Count);
   pd = new PlaybackData();
@@ -333,11 +283,33 @@ void SoundEvent::gstBeep() {
   pd->pipeline = gst_parse_launch("playbin2 uri=appsrc://", NULL);
   g_signal_connect(pd->pipeline, "source-setup", G_CALLBACK(gstbeep_setup), pd);
   bus = gst_element_get_bus(pd->pipeline);
-  gst_bus_add_signal_watch(bus);
-  g_signal_connect(G_OBJECT(bus), "message::error", (GCallback) gstbeep_error, pd);
-  gst_object_unref(bus);
-
   gst_element_set_state(pd->pipeline, GST_STATE_PLAYING);
+
+  //printf("beep::waiting\n");
+
+  msg = gst_bus_timed_pop_filtered(bus, GST_CLOCK_TIME_NONE, (GstMessageType)(GST_MESSAGE_EOS | GST_MESSAGE_ERROR));
+  if (msg != NULL) {
+
+    /*
+    if (GST_MESSAGE_TYPE(msg) == GST_MESSAGE_ERROR) {
+      GError *err;
+      gchar *debug_info;
+      gst_message_parse_error (msg, &err, &debug_info);
+      g_printerr ("Error received from element %s: %s\n", GST_OBJECT_NAME (msg->src), err->message);
+      g_printerr ("Debugging information: %s\n", debug_info ? debug_info : "none");
+      g_clear_error (&err);
+      g_free (debug_info);
+    }
+    */
+
+    gst_message_unref(msg);
+  }
+
+  gst_object_unref(bus);
+  gst_element_set_state(pd->pipeline, GST_STATE_NULL);
+  gst_object_unref(pd->pipeline);
+  delete pd->beep;
+  delete pd;
 }
 
 char *SoundEvent::getDescription() {
