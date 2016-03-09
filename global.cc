@@ -189,8 +189,6 @@ Global::Global() {
 
   // chess machine had this and FICS admins didn't like it
   // if you turn it on, you may be committing abuse.
-  // this is DAV's fault for not implementing a decent
-  // way of tracking game observers.
   // I'm not going to delete the code. I'm just removing the
   // user-friendly controls from the config dialog and setting
   // the defaults to safe values.
@@ -229,7 +227,7 @@ Global::Global() {
 
   memset(P2PName,0,64);
   env.User.copy(P2PName,63);
-
+  
   RCKeys.push_back("HilightLastMove"); //0
   RCKeys.push_back("AnimateMoves");
   RCKeys.push_back("Premove");         //2
