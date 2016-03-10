@@ -80,15 +80,10 @@ msgstr ""
 "Per vedere una partita sulla scacchiera, selezionarla dalla lista e cliccare su #B#Mostra Partita#K#.\n"
 "Verrà creata una nuova scheda con la partita nella finestra principale.#L#"
 
-# state: lost (deprecated key)
-# (1) sound.cc:312
-msgid   "%d %s to %s, %d Hz for %d msec"
-msgstr  "%d %s per %s, %d Hz per %d msec"
-
-# state: untranslated
+# state: translated
 # (1) sound.cc:318
 msgid   "%d %s, %d Hz for %d msec"
-msgstr  ""
+msgstr  "%d %s, %d Hz per %d msec"
 
 # state: translated
 # (1) chess.cc:1291
@@ -135,10 +130,10 @@ msgstr  "%s per mossa"
 msgid   "%s/move"
 msgstr  "%s/mossa"
 
-# state: untranslated
+# state: translated
 # (1) dlg_prefs.cc:265
 msgid   "(HH:MM:SS)"
-msgstr  ""
+msgstr  "(HH:MM:SS)"
 
 # state: translated
 # (1) text.cc:89
@@ -689,10 +684,10 @@ msgstr  "Richieste"
 msgid   "Already connected ?!?"
 msgstr  "Già connesso?!?"
 
-# state: untranslated
+# state: translated
 # (1) help.cc:121
 msgid   "Anywhere:"
-msgstr  ""
+msgstr  "Dovunque:"
 
 # state: lost (deprecated key)
 # (1) help.cc:117
@@ -789,15 +784,10 @@ msgstr  "Sfondo"
 msgid   "Bad descriptor"
 msgstr  "Descrittore errato"
 
-# state: untranslated
+# state: translated
 # (1) sound.cc:365
 msgid   "Beep (need Pitch, Duration and Count)"
-msgstr  ""
-
-# state: lost (deprecated key)
-# (1) sound.cc:359
-msgid   "Beep (need Pitch, Duration, Count and Device)"
-msgstr  "Beep (richiede frequenza, durata, numero e device)"
+msgstr  "Beep (richiede frequenza, durata e numero)"
 
 # state: translated
 # (1) board.cc:989
@@ -1985,15 +1975,10 @@ msgstr  "Gioca"
 msgid   "Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)"
 msgstr  "Gioca %s come %s contro %s (%s, prof. max. %d, pensa sempre: %s)"
 
-# state: untranslated
+# state: translated
 # (1) sound.cc:367
 msgid   "Play Media File (need Filename)"
-msgstr  ""
-
-# state: lost (deprecated key)
-# (1) sound.cc:361
-msgid   "Play WAV (need Device and Filename, sox must be installed)"
-msgstr  "Suona WAV (richiede device e file, sox deve essere installato)"
+msgstr  "Suona file multimediale (richiede file)"
 
 # state: translated
 # (1) proto_xboard.cc:1077
@@ -2271,11 +2256,6 @@ msgid   "Seek Graph Font"
 msgstr  ""
 
 # state: lost (deprecated key)
-# (2) dlg_prefs.cc:187; proto_fics.cc:1848
-msgid   "Seek Table"
-msgstr  "Lista richieste"
-
-# state: lost (deprecated key)
 # (1) dlg_prefs.cc:348
 msgid   "Seek Table Font"
 msgstr  "Tipo di carattere per la lista richieste"
@@ -2402,15 +2382,10 @@ msgstr  "Eventi sonori"
 msgid   "Sounds"
 msgstr  "Suoni"
 
-# state: lost (deprecated key)
-# (1) mainwindow.cc:796
-msgid   "Source code available at http://eboard.sourceforge.net"
-msgstr  "Sorgenti disponibili su http://eboard.sourceforge.net"
-
-# state: untranslated
+# state: translated
 # (1) mainwindow.cc:790
 msgid   "Source code available at https://github.com/fbergo/eboard"
-msgstr  ""
+msgstr  "Sorgenti disponibili su https://github.com/fbergo/eboard"
 
 # state: translated
 # (2) proto_p2p.cc:276,435
@@ -2571,15 +2546,10 @@ msgstr  "Impossibile collegarsi alla porta %d."
 msgid   "Unable to create socket."
 msgstr  "Impossibile creare il socket."
 
-# state: untranslated
+# state: translated
 # (1) dgtboard.cc:402
 msgid   "Unable to find the DGT board on port %s."
-msgstr  ""
-
-# state: lost (deprecated key)
-# (1) dgtboard.cc:215
-msgid   "Unable to find the DGT board on port %s: %s."
-msgstr  "Impossibile trovare la scacchiera DGT sulla porta %s: %s."
+msgstr  "Impossibile trovare la scacchiera DGT sulla porta %s."
 
 # state: untranslated
 # (1) dgtboard.cc:118
@@ -2806,30 +2776,7 @@ msgstr  "Gestore di connessione diretta di eboard"
 msgid   "eboard version %s (%s)"
 msgstr  "eboard versione %s (%s)"
 
-# state: lost (deprecated key)
-# (1) help.cc:76
-msgid  ""
-"eboard version %s\n"
-"(c) 2000-%d Felipe Bergo\n"
-"<fbergo@gmail.com>\n"
-"http://eboard.sourceforge.net\n"
-"\nThis program is free software; you can redistribute\n"
-"it and/or modify it under the terms of the GNU General\n"
-"Public License as published by the Free Software\n"
-"Foundation; either version 2 of the License, or\n"
-"(at your option) any later version.\n"
-msgstr ""
-"eboard versione %s\n"
-"(c) 2000-%d Felipe Bergo\n"
-"<fbergo@gmail.com>\n"
-"http://eboard.sourceforge.net\n"
-"\nQuesto programma è software libero; è possibile ridistribuirlo\n"
-"e/o modificarlo nei termini della GNU General Public\n"
-"License come pubblicata dalla Free Software Foundation;\n"
-"versione 2 della licenza o (a scelta) qualsiasi versione\n"
-"più recente.\n"
-
-# state: untranslated
+# state: translated
 # (1) help.cc:75
 msgid  ""
 "eboard version %s\n"
@@ -2842,6 +2789,15 @@ msgid  ""
 "Foundation; either version 2 of the License, or\n"
 "(at your option) any later version.\n"
 msgstr ""
+"eboard versione %s\n"
+"(c) 2000-%d Felipe Bergo\n"
+"<fbergo@gmail.com>\n"
+"https://github.com/fbergo/eboard\n"
+"\nQuesto programma è software libero; è possibile ridistribuirlo\n"
+"e/o modificarlo nei termini della GNU General Public\n"
+"License come pubblicata dalla Free Software Foundation;\n"
+"versione 2 della licenza o (a scelta) qualsiasi versione\n"
+"più recente.\n"
 
 # state: translated
 # (1) text.cc:238
