@@ -42,7 +42,7 @@ msgid  ""
 msgstr ""
 
 # (1) 
-msgid  "%d %s to %s, %d Hz for %d msec"
+msgid  "%d %s, %d Hz for %d msec"
 msgstr ""
 
 # (1) 
@@ -532,10 +532,6 @@ msgid  "Autosave"
 msgstr ""
 
 # (1) 
-msgid  "Axis & Buttons"
-msgstr ""
-
-# (1) 
 msgid  "Background"
 msgstr ""
 
@@ -544,7 +540,7 @@ msgid  "Bad descriptor"
 msgstr ""
 
 # (1) 
-msgid  "Beep (need Pitch, Duration, Count and Device)"
+msgid  "Beep (need Pitch, Duration and Count)"
 msgstr ""
 
 # (1) 
@@ -557,15 +553,6 @@ msgstr ""
 
 # (1) 
 msgid  "Black: %s - %s"
-msgstr ""
-
-# (1) 
-msgid  ""
-"Board Cursor Axis: %d\n"
-"Board Select Button: %d\n"
-"Board Browsing Axis: %d\n"
-"Previous Tab Button: %d\n"
-"Next Tab Button: %d\n"
 msgstr ""
 
 # (1) 
@@ -614,10 +601,6 @@ msgstr ""
 
 # (9) 
 msgid  "Cancel"
-msgstr ""
-
-# (1) 
-msgid  "Cancel Joystick Configuration"
 msgstr ""
 
 # (1) 
@@ -678,10 +661,6 @@ msgstr ""
 
 # (1) 
 msgid  "Computer White vs. Human Black"
-msgstr ""
-
-# (3) 
-msgid  "Configure Axis & Buttons"
 msgstr ""
 
 # (1) 
@@ -790,10 +769,6 @@ msgstr ""
 
 # (1) 
 msgid  "Description"
-msgstr ""
-
-# (1) 
-msgid  "Device:"
 msgstr ""
 
 # (1) 
@@ -1205,10 +1180,6 @@ msgid  "Input Box:"
 msgstr ""
 
 # (1) 
-msgid  "Joystick"
-msgstr ""
-
-# (1) 
 msgid  "Key"
 msgstr ""
 
@@ -1294,16 +1265,6 @@ msgstr ""
 
 # (1) 
 msgid  "Move made (Obs'vd/Exm'd Games)"
-msgstr ""
-
-# (1) 
-msgid  ""
-"Move the axis to be used for moving back and forth\n"
-"through moves of a game."
-msgstr ""
-
-# (1) 
-msgid  "Move the axis to be used for selecting pieces."
 msgstr ""
 
 # (1) 
@@ -1444,7 +1405,7 @@ msgid  "Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)"
 msgstr ""
 
 # (1) 
-msgid  "Play WAV (need Device and Filename, sox must be installed)"
+msgid  "Play Media File (need Filename)"
 msgstr ""
 
 # (1) 
@@ -1477,18 +1438,6 @@ msgstr ""
 
 # (1) 
 msgid  "Preferences"
-msgstr ""
-
-# (1) 
-msgid  "Press the button to be used for going to the next tab."
-msgstr ""
-
-# (1) 
-msgid  "Press the button to be used for going to the previous tab."
-msgstr ""
-
-# (1) 
-msgid  "Press the button to be used for selecting a square."
 msgstr ""
 
 # (1) 
@@ -1708,14 +1657,6 @@ msgid  "Side to move: "
 msgstr ""
 
 # (1) 
-msgid  "Smooth joystick cursor"
-msgstr ""
-
-# (1) 
-msgid  "Smooth joystick cursor speed:"
-msgstr ""
-
-# (1) 
 msgid  "Smoother animation (eats more CPU)"
 msgstr ""
 
@@ -1741,7 +1682,7 @@ msgid  "Sounds"
 msgstr ""
 
 # (1) 
-msgid  "Source code available at http://eboard.sourceforge.net"
+msgid  "Source code available at https://github.com/fbergo/eboard"
 msgstr ""
 
 # (2) 
@@ -2051,7 +1992,7 @@ msgid  ""
 "eboard version %s\n"
 "(c) 2000-%d Felipe Bergo\n"
 "<fbergo@gmail.com>\n"
-"http://eboard.sourceforge.net\n"
+"https://github.com/fbergo/eboard\n"
 "\nThis program is free software; you can redistribute\n"
 "it and/or modify it under the terms of the GNU General\n"
 "Public License as published by the Free Software\n"
@@ -2123,7 +2064,7 @@ msgstr ""
 msgid  "no"
 msgstr ""
 
-# (2) 
+# (1) 
 msgid  "no such game: "
 msgstr ""
 

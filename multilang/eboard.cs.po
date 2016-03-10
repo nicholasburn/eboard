@@ -1,10 +1,10 @@
 # state: translated
-# (2) pieces.cc:70,157
+# (2) pieces.cc:69,156
 msgid   " ** PNG LOAD FAILED: using internal low-res pieceset. It'll look ugly.\n"
 msgstr  " ** NPODAŘILO SE NAHRÁT PNG: použity interní figury s nízkým rozlišením. Výsledek bude ošklivý.\n"
 
 # state: translated
-# (1) sound.cc:383
+# (1) sound.cc:388
 msgid   " Browse... "
 msgstr  " Procházet... "
 
@@ -19,17 +19,17 @@ msgid   " Refresh "
 msgstr  " Obnovit "
 
 # state: translated
-# (1) chess.cc:1490
+# (1) chess.cc:1489
 msgid   " Remove Field "
 msgstr  " Odstranit položku "
 
 # state: translated
-# (1) chess.cc:1500
+# (1) chess.cc:1499
 msgid   " Set "
 msgstr  " Nastavit "
 
 # state: translated
-# (1) help.cc:364
+# (1) help.cc:363
 msgid  ""
 "#L#Getting Started\n"
 "#M#Common Tasks in eboard\n"
@@ -80,438 +80,443 @@ msgstr ""
 "#B#vyberte ji#K# a klikněte na #B#Zobrazit partii#K#. Zvolená partie bude zobrazena na\n"
 "nově vytvořené šachovnici v hlavním okně aplikace.#L#"
 
-# state: translated
+# state: lost (deprecated key)
 # (1) sound.cc:312
 msgid   "%d %s to %s, %d Hz for %d msec"
 msgstr  "%d %s na %s, %d Hz na %d ms"
 
+# state: untranslated
+# (1) sound.cc:318
+msgid   "%d %s, %d Hz for %d msec"
+msgstr  ""
+
 # state: translated
-# (1) chess.cc:1292
+# (1) chess.cc:1291
 msgid   "%d games read"
 msgstr  "Přečteno %d partií"
 
 # state: translated
-# (2) clock.cc:324,346
+# (2) clock.cc:323,345
 msgid   "%d moves in %s"
 msgstr  "%d tahů za %s"
 
 # state: translated
-# (1) mainwindow.cc:647
+# (1) mainwindow.cc:641
 msgid   "%d. Connect to %s:%d (%s)"
 msgstr  "%d. Připojit k %s:%d (%s)"
 
 # state: translated
-# (1) proto_p2p.cc:619
+# (1) proto_p2p.cc:618
 msgid   "%s (white) vs. %s (black)\n%s\n%d:%.2d %d"
 msgstr  "%s (bílý) x %s (černý)\n%s\n%d:%.2d %d"
 
 # state: translated
-# (1) proto_p2p.cc:248
+# (1) proto_p2p.cc:247
 msgid   "%s accepted your game proposal."
 msgstr  "%s přijal vaši nabídku na partii."
 
 # state: translated
-# (1) proto_xboard.cc:548
+# (1) proto_xboard.cc:547
 msgid   "%s engine started."
 msgstr  "Motor %s spuštěn."
 
 # state: translated
-# (2) proto_p2p.cc:261,635
+# (2) proto_p2p.cc:260,634
 msgid   "%s offers a draw."
 msgstr  "%s nabízí remízu."
 
 # state: translated
-# (1) clock.cc:337
+# (1) clock.cc:336
 msgid   "%s per move"
 msgstr  "%s na tah"
 
 # state: untranslated
-# (1) clock.cc:317
+# (1) clock.cc:316
 msgid   "%s/move"
 msgstr  ""
 
 # state: untranslated
-# (1) dlg_prefs.cc:276
+# (1) dlg_prefs.cc:265
 msgid   "(HH:MM:SS)"
 msgstr  ""
 
 # state: translated
-# (1) text.cc:90
+# (1) text.cc:89
 msgid   "(Wrapped) Match Found at Line %d."
 msgstr  "Shoda nalezena na řádku %d. (hledáno znovu od konce)"
 
 # state: translated
-# (1) mainwindow.cc:792
+# (1) mainwindow.cc:786
 msgid   "(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)"
 msgstr  "(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS přezdívka: Pulga)"
 
 # state: translated
-# (1) global.cc:834
+# (1) global.cc:818
 msgid   "(message obfuscated -- password mode ?)"
 msgstr  "(zpráva nezobrazena -- režim hesla ?)"
 
 # state: translated
-# (2) mainwindow.cc:659,704
+# (2) mainwindow.cc:653,698
 msgid   "(no bookmarks)"
 msgstr  "(prázdné)"
 
 # state: translated
-# (2) text.cc:362,506
+# (2) text.cc:361,505
 msgid   "(none)"
 msgstr  "(nic)"
 
 # state: translated
-# (1) clock.cc:481
+# (1) clock.cc:480
 msgid   "(time period)"
 msgstr  "(časový úsek)"
 
 # state: translated
-# (1) proto_xboard.cc:436
+# (1) proto_xboard.cc:435
 msgid   "* game not found: "
 msgstr  "* partie nenalezena: "
 
 # state: translated
-# (1) mainwindow.cc:1031
+# (1) mainwindow.cc:1025
 msgid   "** [eboard] bad engine protocol # in bookmark: "
 msgstr  "** [eboard] špatné číslo protokolu motoru v záložce: "
 
 # state: translated
-# (1) global.cc:1487
+# (1) global.cc:1480
 msgid   "** eboard ** warning: HOME environment variable not set\n"
 msgstr  "** eboard ** varování: Proměnná prstředí HOME není nastavena\n"
 
 # state: translated
-# (1) chess.cc:888
+# (1) chess.cc:887
 msgid   "--- %s game to PGN file %s"
 msgstr  "--- Partie byla %s do PGN souboru %s"
 
 # state: translated
-# (1) mainwindow.cc:1124
+# (1) mainwindow.cc:1118
 msgid   "--- Disconnected"
 msgstr  "--- Odpojeno"
 
 # state: untranslated
-# (1) help.cc:146
+# (1) help.cc:145
 msgid   ".. entering %do scriptname runs scriptname."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:145
+# (1) help.cc:144
 msgid   ".. entering %prefix text will set a chat prefix."
 msgstr  ""
 
 # state: translated
-# (1) mainwindow.cc:86
+# (1) mainwindow.cc:81
 msgid   "/Game/Ad_journ"
 msgstr  "/Partie/_Přerušit"
 
 # state: translated
-# (1) mainwindow.cc:87
+# (1) mainwindow.cc:82
 msgid   "/Game/Retract _Move"
 msgstr  "/Partie/Vrátit _tah"
 
 # state: translated
-# (1) mainwindow.cc:85
+# (1) mainwindow.cc:80
 msgid   "/Game/_Abort"
 msgstr  "/Partie/_Opustit"
 
 # state: translated
-# (1) mainwindow.cc:84
+# (1) mainwindow.cc:79
 msgid   "/Game/_Offer Draw"
 msgstr  "/Game/Nabídnout _remízu"
 
 # state: translated
-# (1) mainwindow.cc:83
+# (1) mainwindow.cc:78
 msgid   "/Game/_Resign"
 msgstr  "/Partie/_Vzdát"
 
 # state: translated
-# (1) mainwindow.cc:130
+# (1) mainwindow.cc:125
 msgid   "/Help/_About eboard..."
 msgstr  "/Nápověda/_O programu..."
 
 # state: translated
-# (1) mainwindow.cc:128
+# (1) mainwindow.cc:123
 msgid   "/Help/_Debug Info"
 msgstr  "/Nápověda/_Ladicí informace"
 
 # state: translated
-# (1) mainwindow.cc:126
+# (1) mainwindow.cc:121
 msgid   "/Help/_Getting Started"
 msgstr  "/Nápověda/_Stručný úvod"
 
 # state: translated
-# (1) mainwindow.cc:127
+# (1) mainwindow.cc:122
 msgid   "/Help/_Keys"
 msgstr  "/Nápověda/_Klávesy"
 
 # state: translated
-# (1) mainwindow.cc:129
+# (1) mainwindow.cc:124
 msgid   "/Help/sep4"
 msgstr  "/Nápověda/sep4"
 
 # state: translated
-# (1) mainwindow.cc:63
+# (1) mainwindow.cc:58
 msgid   "/Peer/Connect to _FICS"
 msgstr  "/Oponent/Připojit k _FICS"
 
 # state: translated
-# (1) mainwindow.cc:66
+# (1) mainwindow.cc:61
 msgid   "/Peer/Direct connect with _Remote eboard..."
 msgstr  "/Oponent/Přímé spojení na vzdálený _eboard..."
 
 # state: translated
-# (1) mainwindow.cc:74
+# (1) mainwindow.cc:69
 msgid   "/Peer/Engine B_ookmarks"
 msgstr  "/Oponent/Záložky _motorů"
 
 # state: translated
-# (1) mainwindow.cc:64
+# (1) mainwindow.cc:59
 msgid   "/Peer/ICS _Bookmarks"
 msgstr  "/Oponent/Záložky _ICS"
 
 # state: translated
-# (1) mainwindow.cc:71
+# (1) mainwindow.cc:66
 msgid   "/Peer/Play against Engine/Cr_afty..."
 msgstr  "/Oponent/Hrát proti motoru/_Crafty..."
 
 # state: translated
-# (1) mainwindow.cc:69
+# (1) mainwindow.cc:64
 msgid   "/Peer/Play against Engine/GNU Chess _4..."
 msgstr  "/Oponent/Hrát proti motoru/_GNU Chess 4..."
 
 # state: translated
-# (1) mainwindow.cc:73
+# (1) mainwindow.cc:68
 msgid   "/Peer/Play against Engine/_Generic Engine..."
 msgstr  "/Oponent/Hrát proti motoru/_Obecný motor..."
 
 # state: translated
-# (1) mainwindow.cc:70
+# (1) mainwindow.cc:65
 msgid   "/Peer/Play against Engine/_Sjeng..."
 msgstr  "/Oponent/Hrát proti motoru/_Sjeng..."
 
 # state: translated
-# (1) mainwindow.cc:72
+# (1) mainwindow.cc:67
 msgid   "/Peer/Play against Engine/sep1"
 msgstr  "/Oponent/Hrát proti motoru/sep1"
 
 # state: translated
-# (1) mainwindow.cc:68
+# (1) mainwindow.cc:63
 msgid   "/Peer/Play against _Engine"
 msgstr  "/Oponent/Hrát proti _motoru"
 
 # state: translated
-# (1) mainwindow.cc:65
+# (1) mainwindow.cc:60
 msgid   "/Peer/_Connect to Other Server..."
 msgstr  "/Oponent/_Připojit k jinému serveru..."
 
 # state: translated
-# (1) mainwindow.cc:79
+# (1) mainwindow.cc:74
 msgid   "/Peer/_Disconnect"
 msgstr  "/Oponent/_Odpojit"
 
 # state: translated
-# (1) mainwindow.cc:76
+# (1) mainwindow.cc:71
 msgid   "/Peer/_Empty Scratch Board"
 msgstr  "/Oponent/_Prázdná šachovnice"
 
 # state: translated
-# (1) mainwindow.cc:81
+# (1) mainwindow.cc:76
 msgid   "/Peer/_Quit"
 msgstr  "/Oponent/_Konec"
 
 # state: translated
-# (1) mainwindow.cc:77
+# (1) mainwindow.cc:72
 msgid   "/Peer/_Scratch Board with Initial Position"
 msgstr  "/Oponent/Šachovnice s _výchozím postavním"
 
 # state: translated
-# (1) mainwindow.cc:80
+# (1) mainwindow.cc:75
 msgid   "/Peer/sep2"
 msgstr  "/Oponent/sep2"
 
 # state: translated
-# (2) mainwindow.cc:75,78
+# (2) mainwindow.cc:70,73
 msgid   "/Peer/sep3"
 msgstr  "/Oponent/sep3"
 
 # state: translated
-# (1) mainwindow.cc:67
+# (1) mainwindow.cc:62
 msgid   "/Peer/sep4"
 msgstr  "/Oponent/sep4"
 
 # state: translated
-# (1) mainwindow.cc:106
+# (1) mainwindow.cc:101
 msgid   "/Settings/Bitmapped Piece Sets/Load _Pieces Only"
 msgstr  "/Nastavení/Obrázkové sady figurek/Nahrát pouze _figurky"
 
 # state: translated
-# (1) mainwindow.cc:107
+# (1) mainwindow.cc:102
 msgid   "/Settings/Bitmapped Piece Sets/Load _Squares Only"
 msgstr  "/Nastavení/Obrázkové sady figurek/Nahrát pouze _šachovnici"
 
 # state: translated
-# (1) mainwindow.cc:105
+# (1) mainwindow.cc:100
 msgid   "/Settings/Bitmapped Piece Sets/Load _Theme"
 msgstr  "/Nastavení/Obrázkové sady figurek/Nahrát _téma"
 
 # state: translated
-# (1) mainwindow.cc:104
+# (1) mainwindow.cc:99
 msgid   "/Settings/Bitmapped Piece _Sets"
 msgstr  "/Nastavení/_Obrázkové sady figurek"
 
 # state: translated
-# (1) mainwindow.cc:101
+# (1) mainwindow.cc:96
 msgid   "/Settings/Enable Legality _Checking"
 msgstr  "/Nastavení/Povolit _kontrolu platnosti tahů"
 
 # state: translated
-# (1) mainwindow.cc:98
+# (1) mainwindow.cc:93
 msgid   "/Settings/ICS Behavior/Popup Board Panes _Upon Creation"
 msgstr  "/Nastavení/Chování ICS/Při _zahájení sledování partie zobrazit šachovnici"
 
 # state: translated
-# (1) mainwindow.cc:99
+# (1) mainwindow.cc:94
 msgid   "/Settings/ICS Behavior/Smart _Discard Observed Boards After Game Ends"
 msgstr  "/Nastavení/Chování ICS/Při _ukončení sledováné partie zrušit šachovnici"
 
 # state: translated
-# (1) mainwindow.cc:91
+# (1) mainwindow.cc:86
 msgid   "/Settings/Pre_move"
 msgstr  "/Nastavení/_Předvolba tahu"
 
 # state: translated
-# (1) mainwindow.cc:92
+# (1) mainwindow.cc:87
 msgid   "/Settings/Sho_w Coordinates"
 msgstr  "/Nastavení/Zobrazit _souřadnice"
 
 # state: translated
-# (1) mainwindow.cc:90
+# (1) mainwindow.cc:85
 msgid   "/Settings/_Animate Moves"
 msgstr  "/Nastavení/_Animovat tahy"
 
 # state: translated
-# (1) mainwindow.cc:94
+# (1) mainwindow.cc:89
 msgid   "/Settings/_Beep on Opponent Moves"
 msgstr  "/Nastavení/Pípnout po _tahu protihráče"
 
 # state: translated
-# (1) mainwindow.cc:95
+# (1) mainwindow.cc:90
 msgid   "/Settings/_Enable Other Sounds"
 msgstr  "/Nastavení/_Zapnout ostatní zvuky"
 
 # state: translated
-# (1) mainwindow.cc:89
+# (1) mainwindow.cc:84
 msgid   "/Settings/_Highlight Last Move"
 msgstr  "/Nastavení/_Zvýraznit poslední tah"
 
 # state: translated
-# (1) mainwindow.cc:97
+# (1) mainwindow.cc:92
 msgid   "/Settings/_ICS Behavior"
 msgstr  "/Nastavení/Chování _ICS"
 
 # state: translated
-# (1) mainwindow.cc:109
+# (1) mainwindow.cc:104
 msgid   "/Settings/_Preferences..."
 msgstr  "/Nastavení/_Možnosti..."
 
 # state: translated
-# (1) mainwindow.cc:103
+# (1) mainwindow.cc:98
 msgid   "/Settings/_Vectorized Pieces (Faster Rendering)"
 msgstr  "/Nastavení/_Vektorové figurky (Rychlejší vykreslování)"
 
 # state: translated
-# (5) mainwindow.cc:93,96,100,102,108
+# (5) mainwindow.cc:88,91,95,97,103
 msgid   "/Settings/sep3"
 msgstr  "/Nastavení/sep3"
 
 # state: translated
-# (1) mainwindow.cc:121
+# (1) mainwindow.cc:116
 msgid   "/Windows/Find _Previous"
 msgstr  "/Okna/Zopakovat h_ledání"
 
 # state: translated
-# (1) mainwindow.cc:114
+# (1) mainwindow.cc:109
 msgid   "/Windows/Games on _Client..."
 msgstr  "/Okna/Partie na _klientovi..."
 
 # state: translated
-# (1) mainwindow.cc:124
+# (1) mainwindow.cc:119
 msgid   "/Windows/Save Desktop _Geometry"
 msgstr  "/Okna/Uložit nastavení _plochy"
 
 # state: translated
-# (1) mainwindow.cc:122
+# (1) mainwindow.cc:117
 msgid   "/Windows/Save _Text Buffer..."
 msgstr  "/Okna/_Uložit text..."
 
 # state: translated
-# (1) mainwindow.cc:112
+# (1) mainwindow.cc:107
 msgid   "/Windows/_Ads on Server..."
 msgstr  "/Okna/_Nabídky na serveru ..."
 
 # state: translated
-# (1) mainwindow.cc:118
+# (1) mainwindow.cc:113
 msgid   "/Windows/_Detached Console"
 msgstr  "/Okna/Samostatná kon_zole"
 
 # state: translated
-# (1) mainwindow.cc:120
+# (1) mainwindow.cc:115
 msgid   "/Windows/_Find Text (upwards)..."
 msgstr  "/Okna/_Hledat text (odzadu)..."
 
 # state: translated
-# (1) mainwindow.cc:111
+# (1) mainwindow.cc:106
 msgid   "/Windows/_Games on Server..."
 msgstr  "/Okna/_Partie na serveru..."
 
 # state: translated
-# (1) mainwindow.cc:116
+# (1) mainwindow.cc:111
 msgid   "/Windows/_Run Script..."
 msgstr  "/Okna/_Spustit skript..."
 
 # state: translated
-# (1) mainwindow.cc:113
+# (1) mainwindow.cc:108
 msgid   "/Windows/sep1"
 msgstr  "/Okna/sep1"
 
 # state: translated
-# (1) mainwindow.cc:115
+# (1) mainwindow.cc:110
 msgid   "/Windows/sep2"
 msgstr  "/Okna/sep2"
 
 # state: translated
-# (3) mainwindow.cc:117,119,123
+# (3) mainwindow.cc:112,114,118
 msgid   "/Windows/sep3"
 msgstr  "/Okna/sep3"
 
 # state: translated
-# (1) mainwindow.cc:82
+# (1) mainwindow.cc:77
 msgid   "/_Game"
 msgstr  "/_Partie"
 
 # state: translated
-# (1) mainwindow.cc:125
+# (1) mainwindow.cc:120
 msgid   "/_Help"
 msgstr  "/_Nápověda"
 
 # state: translated
-# (1) mainwindow.cc:62
+# (1) mainwindow.cc:57
 msgid   "/_Peer"
 msgstr  "/_Oponent"
 
 # state: translated
-# (1) mainwindow.cc:88
+# (1) mainwindow.cc:83
 msgid   "/_Settings"
 msgstr  "/_Nastavení"
 
 # state: translated
-# (1) mainwindow.cc:110
+# (1) mainwindow.cc:105
 msgid   "/_Windows"
 msgstr  "/_Okna"
 
 # state: translated
-# (1) dlg_gamelist.cc:820
+# (1) dlg_gamelist.cc:819
 msgid  ""
 "<AdListDialog::AdListDialog> Warning: couldn't load fixed font, this dialog's content will look awful.\n"
 "\n"
@@ -537,22 +542,22 @@ msgid   "<Board::Board> ** failed to load one or more board fonts\n"
 msgstr  "<Board::Board> ** nepodařilo se nahrát jeden či více fontů\n"
 
 # state: translated
-# (1) proto_fics.cc:1623
+# (1) proto_fics.cc:1645
 msgid   "<Fics Protocol> abort request sent"
 msgstr  "<Fics Protokol> návrh na zrušení odeslán"
 
 # state: translated
-# (1) proto_fics.cc:1618
+# (1) proto_fics.cc:1640
 msgid   "<Fics Protocol> adjourn request sent"
 msgstr  "<Fics Protokol> návrh na odložení odeslán"
 
 # state: translated
-# (1) proto_fics.cc:1613
+# (1) proto_fics.cc:1635
 msgid   "<Fics Protocol> draw request sent"
 msgstr  "<Fics Protokol> návrh na remízu odeslán"
 
 # state: translated
-# (1) dlg_gamelist.cc:86
+# (1) dlg_gamelist.cc:85
 msgid  ""
 "<GameListDialog::GameListDialog> Warning: couldn't load fixed font, this dialog's content will look awful.\n"
 "\n"
@@ -561,12 +566,12 @@ msgstr ""
 "\n"
 
 # state: translated
-# (2) util.cc:575,627
+# (2) util.cc:574,626
 msgid   "<PatternMatcher::set> ** bad pattern string: "
 msgstr  "<PatternMatcher::set> ** špatný text vzoru: "
 
 # state: translated
-# (2) pieces.cc:60,77
+# (2) pieces.cc:59,76
 msgid   "<PieceSet::PieceSet> ** file not found: "
 msgstr  "<PieceSet::PieceSet> ** soubor nenalezen: "
 
@@ -576,7 +581,7 @@ msgid   "<SeekGraph::updatefont> failed to load "
 msgstr  "<SeekGraph::updatefont> nepodařilo se nahrát "
 
 # state: translated
-# (1) dlg_gamelist.cc:310
+# (1) dlg_gamelist.cc:309
 msgid  ""
 "<StockListDialog::StockListDialog> Warning: couldn't load fixed font, this dialog's content will look awful.\n"
 "\n"
@@ -590,102 +595,102 @@ msgid   "<Text::updateFont> failed to load "
 msgstr  "<Text::updateFont> nepodařilo se nahrát "
 
 # state: translated
-# (1) proto_xboard.cc:400
+# (1) proto_xboard.cc:399
 msgid   "<XBoard Protocol> Adjourning not supported"
 msgstr  "<XBoard Protokol> Odložení není podporováno"
 
 # state: untranslated
-# (1) proto_xboard.cc:151
+# (1) proto_xboard.cc:150
 msgid   "<XBoard Protocol> Incompatible Engine Protocol"
 msgstr  ""
 
 # state: translated
-# (1) proto_xboard.cc:405
+# (1) proto_xboard.cc:404
 msgid   "<XBoard Protocol> Session Aborted"
 msgstr  "<XBoard Protokol> Zrušeno"
 
 # state: translated
-# (1) proto_xboard.cc:396
+# (1) proto_xboard.cc:395
 msgid   "<XBoard Protocol> draw request sent"
 msgstr  "<XBoard Protokol> návrh na remízu odeslán"
 
 # state: translated
-# (1) mainwindow.cc:1186
+# (1) mainwindow.cc:1180
 msgid   "<editing>"
 msgstr  "<upravuji>"
 
 # state: translated
-# (1) mainwindow.cc:890
+# (1) mainwindow.cc:884
 msgid   "> (password sent)"
 msgstr  "> (heslo odesláno)"
 
 # state: translated
-# (2) proto_fics.cc:1969,1986
+# (2) proto_fics.cc:1991,2008
 msgid   "> [issued from menu] %s"
 msgstr  "> [zvoleno z menu] %s"
 
 # state: translated
-# (1) quickbar.cc:127
+# (1) quickbar.cc:126
 msgid   "> [issued from shortcut] "
 msgstr  "> [zadáno pomocí zkratky] "
 
 # state: translated
-# (1) quickbar.cc:117
+# (1) quickbar.cc:116
 msgid   "> [script run from shortcut] %s"
 msgstr  "> [skript spuštěný pomocí zkratky] %s"
 
 # state: translated
-# (1) help.cc:54
+# (1) help.cc:53
 msgid   "About eboard"
 msgstr  "O programu"
 
 # state: translated
-# (1) proto_p2p.cc:598
+# (1) proto_p2p.cc:597
 msgid   "Accept"
 msgstr  "Přijmout"
 
 # state: translated
-# (1) network.cc:508
+# (1) network.cc:545
 msgid   "Accepted incoming connection from %s"
 msgstr  "Přijímám příchozí spojení od %s"
 
 # state: translated
-# (1) dlg_gamelist.cc:827
+# (1) dlg_gamelist.cc:826
 msgid   "Ad Description"
 msgstr  "Detaily o nabízené parii"
 
 # state: translated
-# (2) dlg_gamelist.cc:801,884
+# (2) dlg_gamelist.cc:800,883
 msgid   "Ad List"
 msgstr  "Nabídky partií"
 
 # state: translated
-# (1) dlg_gamelist.cc:897
+# (1) dlg_gamelist.cc:896
 msgid   "Ad List (refreshing...)"
 msgstr  "Nabídky partií (obnovuji...)"
 
 # state: translated
-# (1) proto_xboard.cc:851
+# (1) proto_xboard.cc:850
 msgid   "Add to Peer/Engine Bookmarks menu"
 msgstr  "Přidat do menu Oponent/Záložky motorů"
 
 # state: translated
-# (1) network.cc:374
+# (1) network.cc:411
 msgid   "Address already in use"
 msgstr  "Adresa je již používána"
 
 # state: translated
-# (1) dlg_gamelist.cc:854
+# (1) dlg_gamelist.cc:853
 msgid   "Ads"
 msgstr  "Nabídky"
 
 # state: translated
-# (1) network.cc:370
+# (1) network.cc:407
 msgid   "Already connected ?!?"
 msgstr  "Již spojeno ?!?"
 
 # state: untranslated
-# (1) help.cc:122
+# (1) help.cc:121
 msgid   "Anywhere:"
 msgstr  ""
 
@@ -735,102 +740,92 @@ msgstr ""
 ".. zadání \"%do scriptname\" spustí \"scriptname\"."
 
 # state: translated
-# (1) dlg_prefs.cc:121
+# (1) dlg_prefs.cc:110
 msgid   "Appearance"
 msgstr  "Vzhled"
 
 # state: translated
-# (1) chess.cc:889
+# (1) chess.cc:888
 msgid   "Appended"
 msgstr  "přidána"
 
 # state: translated
-# (1) dlg_prefs.cc:596
+# (1) dlg_prefs.cc:537
 msgid   "Apply"
 msgstr  "Použít"
 
 # state: translated
-# (1) dlg_connect.cc:329
+# (1) dlg_connect.cc:328
 msgid   "Apply Changes"
 msgstr  "Použít"
 
 # state: translated
-# (1) dlg_prefs.cc:521
+# (1) dlg_prefs.cc:510
 msgid   "Auto-save observed games"
 msgstr  "Automaticky ukládat sledované partie"
 
 # state: translated
-# (1) dlg_prefs.cc:520
+# (1) dlg_prefs.cc:509
 msgid   "Auto-save played games"
 msgstr  "Automaticky ukládat hrané partie"
 
 # state: translated
-# (1) dlg_prefs.cc:514
+# (1) dlg_prefs.cc:503
 msgid   "Autosave"
 msgstr  "Automatické ukládání"
 
-# state: untranslated
-# (1) dlg_prefs.cc:551
-msgid   "Axis & Buttons"
-msgstr  ""
-
 # state: translated
-# (1) dlg_prefs.cc:347
+# (1) dlg_prefs.cc:336
 msgid   "Background"
 msgstr  "Pozadí"
 
 # state: translated
-# (1) network.cc:367
+# (1) network.cc:404
 msgid   "Bad descriptor"
 msgstr  "Chybný deskriptor"
 
-# state: translated
+# state: untranslated
+# (1) sound.cc:365
+msgid   "Beep (need Pitch, Duration and Count)"
+msgstr  ""
+
+# state: lost (deprecated key)
 # (1) sound.cc:359
 msgid   "Beep (need Pitch, Duration, Count and Device)"
 msgstr  "Pípnout (je třeba Výška, Délka, Počet a Zařízení)"
 
 # state: translated
-# (1) board.cc:1021
+# (1) board.cc:989
 msgid   "Bishop  %d"
 msgstr  "Střelec %d"
 
 # state: translated
-# (5) board.cc:432; dlg_gamelist.cc:321; movelist.cc:66; proto_p2p.cc:551; proto_xboard.cc:1004
+# (5) board.cc:425; dlg_gamelist.cc:320; movelist.cc:65; proto_p2p.cc:550; proto_xboard.cc:1003
 msgid   "Black"
 msgstr  "Černý"
 
 # state: translated
-# (1) bugpane.cc:241
+# (1) bugpane.cc:240
 msgid   "Black: %s - %s"
 msgstr  "Černý: %s - %s"
 
 # state: untranslated
-# (1) dlg_prefs.cc:987
-msgid  ""
-"Board Cursor Axis: %d\n"
-"Board Select Button: %d\n"
-"Board Browsing Axis: %d\n"
-"Previous Tab Button: %d\n"
-"Next Tab Button: %d\n"
-msgstr ""
-
-# state: untranslated
-# (1) dgtboard.cc:417
+# (1) dgtboard.cc:416
 msgid   "Board version :%s"
 msgstr  ""
 
 # state: translated
-# (1) dlg_connect.cc:288
+# (1) dlg_connect.cc:287
 msgid   "Bookmark Caption:"
 msgstr  "Název programu:"
 
 # state: translated
-# (1) dlg_prefs.cc:135
+# (1) dlg_prefs.cc:124
 msgid   "Bottom"
 msgstr  "Dole"
 
 # state: translated
-# (1) dlg_prefs.cc:337
+# (1) dlg_prefs.cc:326
 msgid   "Bright Text"
 msgstr  "Světlý text"
 
@@ -840,87 +835,82 @@ msgid   "Browse"
 msgstr  "Procházet"
 
 # state: translated
-# (1) text.cc:110
+# (1) text.cc:109
 msgid   "Buffer Save failed."
 msgstr  "Uložení textu selhalo."
 
 # state: translated
-# (1) mainwindow.cc:265
+# (1) mainwindow.cc:259
 msgid   "Bughouse"
 msgstr  "Bughouse"
 
 # state: translated
-# (2) bugpane.cc:217,218
+# (2) bugpane.cc:216,217
 msgid   "Bughouse: Partner Game"
 msgstr  "Bughouse: Partie partnera"
 
 # state: untranslated
-# (1) dgtboard.cc:415
+# (1) dgtboard.cc:414
 msgid   "Bus address :%s"
 msgstr  ""
 
 # state: translated
-# (1) quickbar.cc:220
+# (1) quickbar.cc:219
 msgid   "Button Caption"
 msgstr  "Text tlačítka"
 
 # state: translated
-# (1) quickbar.cc:219
+# (1) quickbar.cc:218
 msgid   "Button Icon"
 msgstr  "Ikona tlačítka"
 
 # state: translated
-# (9) board.cc:2553; clock.cc:507; dlg_connect.cc:145; dlg_prefs.cc:598; p2p.cc:110; proto_xboard.cc:904; quickbar.cc:268; sound.cc:464; text.cc:479
+# (9) board.cc:2381; clock.cc:506; dlg_connect.cc:144; dlg_prefs.cc:539; p2p.cc:109; proto_xboard.cc:903; quickbar.cc:267; sound.cc:465; text.cc:478
 msgid   "Cancel"
 msgstr  "Zrušit"
 
-# state: untranslated
-# (1) dlg_prefs.cc:1027
-msgid   "Cancel Joystick Configuration"
-msgstr  ""
-
 # state: translated
-# (1) p2p.cc:262
+# (1) p2p.cc:261
 msgid   "Cancelled connection wait."
 msgstr  "Čekání na spojení zrušeno."
 
 # state: translated
-# (1) dlg_connect.cc:302
+# (1) dlg_connect.cc:301
 msgid   "Change..."
 msgstr  "Změnit..."
 
 # state: translated
-# (2) dlg_prefs.cc:196,345
+# (2) dlg_prefs.cc:185,334
 msgid   "Channel Tells"
 msgstr  "Sdělení v kanálech"
 
 # state: translated
-# (2) proto_p2p.cc:283,448
+# (2) proto_p2p.cc:282,447
 msgid   "Checkmate"
 msgstr  "Mat"
 
 # state: translated
-# (1) dlg_prefs.cc:346
+# (1) dlg_prefs.cc:335
 msgid   "Chess Programs"
 msgstr  "Šachové programy"
 
 # state: translated
-# (1) dlg_prefs.cc:910
+# (1) dlg_prefs.cc:828
 msgid   "Choose Font"
 msgstr  "Zvolte font"
 
 # state: translated
-# (5) dlg_prefs.cc:394,398,402,406,410
+# (5) dlg_prefs.cc:383,387,391,395,399
 msgid   "Choose..."
 msgstr  "Vybrat..."
 
 # state: translated
-# (1) dlg_prefs.cc:392
+# (1) dlg_prefs.cc:381
 msgid   "Clock Font"
 msgstr  "Font hodin"
 
 # state: translated
-# (7) chess.cc:1517; dlg_connect.cc:349; help.cc:100,173,265,343; p2p.cc:159
+# (7) chess.cc:1516; dlg_connect.cc:348; help.cc:99,172,264,342; p2p.cc:158
 msgid   "Close"
 msgstr  " Zavřít "
 
@@ -930,249 +920,244 @@ msgid   "Color"
 msgstr  "Barva"
 
 # state: translated
-# (1) widgetproxy.cc:343
+# (1) widgetproxy.cc:342
 msgid   "Color Selection"
 msgstr  "Výběr barvy"
 
 # state: translated
-# (1) dlg_prefs.cc:330
+# (1) dlg_prefs.cc:319
 msgid   "Colors"
 msgstr  "Barvy"
 
 # state: translated
-# (1) quickbar.cc:221
+# (1) quickbar.cc:220
 msgid   "Command"
 msgstr  "Příkaz"
 
 # state: translated
-# (1) dlg_connect.cc:290
+# (1) dlg_connect.cc:289
 msgid   "Command Line:"
 msgstr  "Příkazová řádky:"
 
 # state: translated
-# (1) proto_xboard.cc:66
+# (1) proto_xboard.cc:65
 msgid   "Computer"
 msgstr  "Počítač"
 
 # state: translated
-# (1) proto_xboard.cc:811
+# (1) proto_xboard.cc:810
 msgid   "Computer White vs. Human Black"
 msgstr  "Počítač bílými x Člověk černými"
 
-# state: untranslated
-# (3) dlg_prefs.cc:556,1011,1032
-msgid   "Configure Axis & Buttons"
-msgstr  ""
-
 # state: translated
-# (1) sound.cc:413
+# (1) sound.cc:417
 msgid   "Configured Sound Files:"
 msgstr  "Konfigurované zvukové soubory:"
 
 # state: translated
-# (2) dlg_connect.cc:143; p2p.cc:85
+# (2) dlg_connect.cc:142; p2p.cc:84
 msgid   "Connect"
 msgstr  "Spojit"
 
 # state: translated
-# (1) dlg_connect.cc:60
+# (1) dlg_connect.cc:59
 msgid   "Connect to ICS Server"
 msgstr  "Připojit k ICS serveru"
 
 # state: translated
-# (2) network.cc:384,825
+# (2) network.cc:421,864
 msgid   "Connected to %s (%s)"
 msgstr  "Připojeno k %s (%s)"
 
 # state: translated
-# (2) network.cc:359,696
+# (2) network.cc:396,735
 msgid   "Connecting to %s..."
 msgstr  "Připojování k %s..."
 
 # state: translated
-# (1) network.cc:371
+# (1) network.cc:408
 msgid   "Connection refused"
 msgstr  "Spojení odmítnuto"
 
 # state: translated
-# (1) network.cc:365
+# (1) network.cc:402
 msgid   "Connection to %s:%d failed: "
 msgstr  "Spojení s %s:%d selhalo: "
 
 # state: translated
-# (3) mainwindow.cc:250,288; text.cc:290
+# (3) mainwindow.cc:244,282; text.cc:289
 msgid   "Console"
 msgstr  "Konzole"
 
 # state: translated
-# (1) sound.cc:365
+# (1) sound.cc:371
 msgid   "Console Beep"
 msgstr  "Pípnout na konzoli"
 
 # state: translated
-# (1) dlg_prefs.cc:404
+# (1) dlg_prefs.cc:393
 msgid   "Console Font"
 msgstr  "Font konzole"
 
 # state: translated
-# (1) text.cc:108
+# (1) text.cc:107
 msgid   "Console buffer saved."
 msgstr  "Text v konzoli uložen."
 
 # state: translated
-# (1) sound.cc:381
+# (1) sound.cc:386
 msgid   "Count:"
 msgstr  "Počet:"
 
 # state: translated
-# (1) proto_xboard.cc:1196
+# (1) proto_xboard.cc:1195
 msgid   "Crazyhouse"
 msgstr  "Crazyhouse"
 
 # state: untranslated
-# (1) help.cc:133
+# (1) help.cc:132
 msgid   "Ctrl+F: Find upwards (main console buffer)."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:134
+# (1) help.cc:133
 msgid   "Ctrl+G: Find previous."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:131
+# (1) help.cc:130
 msgid   "Ctrl+Left: Backward 1 halfmove."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:132
+# (1) help.cc:131
 msgid   "Ctrl+Right: Forward 1 halfmove."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:135
+# (1) help.cc:134
 msgid   "Ctrl+T: Toggle timestamps."
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:411
+# (1) dgtboard.cc:410
 msgid   "DGT board found on port %s."
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:250
+# (1) dgtboard.cc:249
 msgid   "DGT support error: wrong page"
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:350
+# (1) dgtboard.cc:349
 msgid   "DGT warning: position mismatch between eboard and DGT board."
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:383
+# (1) dgtboard.cc:382
 msgid   "DGT: unrecognized code: %c (%d)"
 msgstr  ""
 
 # state: translated
-# (1) dlg_prefs.cc:149
+# (1) dlg_prefs.cc:138
 msgid   "Dark Squares..."
 msgstr  "Tmavá pole..."
 
 # state: translated
-# (1) dlg_connect.cc:331
+# (1) dlg_connect.cc:330
 msgid   "Delete All Entries"
 msgstr  "Smazat všechny položky"
 
 # state: translated
-# (1) dlg_connect.cc:330
+# (1) dlg_connect.cc:329
 msgid   "Delete This Entry"
 msgstr  "Smazat tuto položku"
 
 # state: translated
-# (1) proto_xboard.cc:838
+# (1) proto_xboard.cc:837
 msgid   "Depth Limit:"
 msgstr  "Maximální hloubka:"
 
 # state: translated
-# (1) script.cc:63
+# (1) script.cc:62
 msgid   "Description"
 msgstr  "Popis"
 
-# state: translated
+# state: lost (deprecated key)
 # (1) sound.cc:379
 msgid   "Device:"
 msgstr  "Zařízení:"
 
 # state: translated
-# (1) proto_xboard.cc:875
+# (1) proto_xboard.cc:874
 msgid   "Directory to run from (e.g., where book files are)"
 msgstr  "Adresář motoru (např. kde jsou knihovny zahájení)"
 
 # state: translated
-# (1) dlg_connect.cc:289
+# (1) dlg_connect.cc:288
 msgid   "Directory:"
 msgstr  "Adresář:"
 
 # state: translated
-# (1) dlg_gamelist.cc:280
+# (1) dlg_gamelist.cc:279
 msgid   "Discard All"
 msgstr  "Odstranit vše"
 
 # state: translated
-# (1) dlg_gamelist.cc:289
+# (1) dlg_gamelist.cc:288
 msgid   "Discard Game"
 msgstr  "Odstranit partii"
 
 # state: translated
-# (1) script.cc:81
+# (1) script.cc:80
 msgid   "Dismiss"
 msgstr  "Zavřít"
 
 # state: translated
-# (1) dlg_gamelist.cc:283
+# (1) dlg_gamelist.cc:282
 msgid   "Display Game"
 msgstr  "Zobrazit partii"
 
 # state: translated
-# (1) dlg_gamelist.cc:319
+# (1) dlg_gamelist.cc:318
 msgid   "Displayed"
 msgstr  "Zobrazená"
 
 # state: translated
-# (1) mainwindow.cc:794
+# (1) mainwindow.cc:788
 msgid  ""
 "Distributed under the terms of the GNU General Public License, version 2 or later"
 msgstr ""
 "Distribuováno za podmínek GNU General Public License, verze 2 nebo pozdější"
 
 # state: translated
-# (1) dlg_prefs.cc:72
+# (1) dlg_prefs.cc:71
 msgid   "Draw Offered"
 msgstr  "Nabídka remízi"
 
 # state: translated
-# (1) proto_p2p.cc:501
+# (1) proto_p2p.cc:500
 msgid   "Draw offer sent."
 msgstr  "Nabídka na remízu odeslána"
 
 # state: translated
-# (2) proto_p2p.cc:292,496
+# (2) proto_p2p.cc:291,495
 msgid   "Drawn by agreement"
 msgstr  "Remíza dohodou"
 
 # state: translated
-# (1) board.cc:1005
+# (1) board.cc:973
 msgid   "Drop Piece:"
 msgstr  "Umístit kámen:"
 
 # state: translated
-# (1) sound.cc:378
+# (1) sound.cc:384
 msgid   "Duration (msec):"
 msgstr  "Délka (ms):"
 
 # state: untranslated
-# (1) dlg_prefs.cc:242
+# (1) dlg_prefs.cc:231
 msgid   "Dynamic Seek Graph"
 msgstr  ""
 
@@ -1182,167 +1167,167 @@ msgid   "Dynamic Seek Table"
 msgstr  "Dynamická tabulka nabídek"
 
 # state: untranslated
-# (1) help.cc:141
+# (1) help.cc:140
 msgid   "ESC: switch chat/command mode."
 msgstr  ""
 
 # state: translated
-# (1) mainwindow.cc:675
+# (1) mainwindow.cc:669
 msgid   "Edit Bookmarks..."
 msgstr  "Upravit záložky..."
 
 # state: translated
-# (1) dlg_connect.cc:254
+# (1) dlg_connect.cc:253
 msgid   "Edit Engine Bookmarks"
 msgstr  "Upravit seznam motorů"
 
 # state: translated
-# (1) dlg_gamelist.cc:292
+# (1) dlg_gamelist.cc:291
 msgid   "Edit Game Info"
 msgstr  "Upravit Info"
 
 # state: translated
-# (1) clock.cc:421
+# (1) clock.cc:420
 msgid   "Edit Time Control"
 msgstr  "Upravit nastavení hodin"
 
 # state: translated
-# (1) board.cc:2467
+# (1) board.cc:2295
 msgid   "Empty"
 msgstr  "Prázdná"
 
 # state: translated
-# (1) dlg_connect.cc:276
+# (1) dlg_connect.cc:275
 msgid   "Engine Bookmarks"
 msgstr  "Použité motory"
 
 # state: translated
-# (1) proto_xboard.cc:863
+# (1) proto_xboard.cc:862
 msgid   "Engine Command"
 msgstr  "Spuštění motoru"
 
 # state: translated
-# (2) dlg_connect.cc:308,473
+# (2) dlg_connect.cc:307,472
 msgid   "Engine Type:"
 msgstr  "Typ motoru:"
 
 # state: translated
-# (1) dlg_connect.cc:456
+# (1) dlg_connect.cc:455
 msgid   "Engine Type: %s (uneditable)"
 msgstr  "Typ motoru: %s (neměnné)"
 
 # state: translated
-# (1) proto_xboard.cc:743
+# (1) proto_xboard.cc:742
 msgid   "Engine asked more time to startup, waiting."
 msgstr  "Motor požádal o více času na spuštění, čekáme."
 
 # state: translated
-# (1) proto_xboard.cc:866
+# (1) proto_xboard.cc:865
 msgid   "Engine command line"
 msgstr  "Příkaz pro spuštění motoru"
 
 # state: translated
-# (1) proto_xboard.cc:763
+# (1) proto_xboard.cc:762
 msgid   "Engine loaded."
 msgstr  "Motor připraven."
 
 # state: translated
-# (1) network.cc:823
+# (1) network.cc:862
 msgid   "Engine running"
 msgstr  "Motor běží"
 
 # state: translated
-# (1) proto_xboard.cc:494
+# (1) proto_xboard.cc:493
 msgid   "Engine started (2 sec timeout)"
 msgstr  "Motor spuštěn (2 vteřiny zpoždění)"
 
 # state: translated
-# (1) board.cc:2528
+# (1) board.cc:2356
 msgid   "Enter FEN Position"
 msgstr  "Zadejte FEN Pozice"
 
 # state: untranslated
-# (1) help.cc:140
+# (1) help.cc:139
 msgid   "Enter: send text line."
 msgstr  ""
 
 # state: translated
-# (1) sound.cc:352
+# (1) sound.cc:358
 msgid   "Event Type"
 msgstr  "Typ události"
 
 # state: translated
-# (1) proto_fics.cc:863
+# (1) proto_fics.cc:869
 msgid   "Exam.Game #%d"
 msgstr  "Prohlížení partie #%d"
 
 # state: untranslated
-# (1) help.cc:124
+# (1) help.cc:123
 msgid   "F3: Go to previous pane."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:125
+# (1) help.cc:124
 msgid   "F4: Go to next pane."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:126
+# (1) help.cc:125
 msgid   "F5: Go to the main board pane."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:127
+# (1) help.cc:126
 msgid   "F6: Go to the console pane."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:128
+# (1) help.cc:127
 msgid   "F7: Go to the seek graph pane (if available)."
 msgstr  ""
 
 # state: untranslated
-# (1) help.cc:129
+# (1) help.cc:128
 msgid   "F8: Toggle shortcut bar visibility."
 msgstr  ""
 
 # state: untranslated
-# (1) proto_xboard.cc:512
+# (1) proto_xboard.cc:511
 msgid   "Failed command line:"
 msgstr  ""
 
 # state: translated
-# (2) proto_xboard.cc:508,510
+# (2) proto_xboard.cc:507,509
 msgid   "Failed to run engine."
 msgstr  "Nepodařilo se spustit motor."
 
 # state: translated
-# (1) network.cc:807
+# (1) network.cc:846
 msgid   "Failed to run helper program"
 msgstr  "Nepodařilo se spustit podpůrný program"
 
 # state: translated
-# (1) sound.cc:380
+# (1) sound.cc:385
 msgid   "File to play / Program to run:"
 msgstr  "Soubor k přehrání/spuštění:"
 
 # state: translated
-# (4) text.cc:359,361,503,505
+# (4) text.cc:358,360,502,504
 msgid   "Filter: "
 msgstr  "Filtr:"
 
 # state: translated
-# (1) text.cc:267
+# (1) text.cc:266
 msgid   "Filter: (none)"
 msgstr  "Filtr: (žádný)"
 
 # state: translated
-# (1) p2p.cc:199
+# (1) p2p.cc:198
 msgid   "Finish the current connection first."
 msgstr  "Nejdříve ukončete stávající spojení."
 
 # state: translated
-# (1) proto_p2p.cc:123
+# (1) proto_p2p.cc:122
 msgid   "Finish the current game first."
 msgstr  "Nejdříve ukončete stavající partii."
 
@@ -1352,42 +1337,42 @@ msgid   "Flags"
 msgstr  "Značky"
 
 # state: translated
-# (1) dlg_prefs.cc:380
+# (1) dlg_prefs.cc:369
 msgid   "Fonts"
 msgstr  "Fonty"
 
 # state: translated
-# (1) dlg_gamelist.cc:527
+# (1) dlg_gamelist.cc:526
 msgid   "From Elsewhere (%d %s)"
 msgstr  "Odjinud (%d %s)"
 
 # state: translated
-# (1) dlg_gamelist.cc:521
+# (1) dlg_gamelist.cc:520
 msgid   "From Engines (%d %s)"
 msgstr  "Z motorů (%d %s)"
 
 # state: translated
-# (1) board.cc:2476
+# (1) board.cc:2304
 msgid   "From FEN"
 msgstr  "Podle FEN"
 
 # state: translated
-# (1) dlg_gamelist.cc:509
+# (1) dlg_gamelist.cc:508
 msgid   "From ICS (%d %s)"
 msgstr  "Z ICS (%d %s)"
 
 # state: translated
-# (1) dlg_gamelist.cc:515
+# (1) dlg_gamelist.cc:514
 msgid   "From PGN Files (%d %s)"
 msgstr  "Z PGN souborů (%d %s)"
 
 # state: translated
-# (1) dlg_gamelist.cc:318
+# (1) dlg_gamelist.cc:317
 msgid   "Game #"
 msgstr  "Partie #"
 
 # state: translated
-# (2) dlg_gamelist.cc:559; proto_fics.cc:1037
+# (2) dlg_gamelist.cc:558; proto_fics.cc:1062
 msgid   "Game #%d"
 msgstr  "Partie #%d"
 
@@ -1397,17 +1382,17 @@ msgid   "Game #%d - %d %d %s"
 msgstr  "Partie #%d - %d %d %s"
 
 # state: untranslated
-# (1) chess.cc:186
+# (1) chess.cc:185
 msgid   "Game #%d - %s"
 msgstr  ""
 
 # state: untranslated
-# (1) chess.cc:190
+# (1) chess.cc:189
 msgid   "Game #%d - %s - %s"
 msgstr  ""
 
 # state: translated
-# (1) movelist.cc:47
+# (1) movelist.cc:46
 msgid   "Game #%d - %s vs. %s"
 msgstr  "Partie #%d - %s vs. %s"
 
@@ -1417,162 +1402,162 @@ msgid   "Game #%d - untimed %s"
 msgstr  "Partie #%d - bez hodin %s"
 
 # state: translated
-# (1) board.cc:1103
+# (1) board.cc:1071
 msgid   "Game #%d: %s"
 msgstr  "Hra #%d: %s"
 
 # state: translated
-# (2) proto_p2p.cc:289,515
+# (2) proto_p2p.cc:288,514
 msgid   "Game Aborted"
 msgstr  "Partie zrušena"
 
 # state: translated
-# (1) dlg_gamelist.cc:93
+# (1) dlg_gamelist.cc:92
 msgid   "Game Description"
 msgstr  "Popis partie"
 
 # state: translated
-# (1) dlg_prefs.cc:400
+# (1) dlg_prefs.cc:389
 msgid   "Game Information Font"
 msgstr  "Font pro informace o partii"
 
 # state: translated
-# (2) dlg_gamelist.cc:67,150
+# (2) dlg_gamelist.cc:66,149
 msgid   "Game List"
 msgstr  "Seznam partií"
 
 # state: translated
-# (1) dlg_gamelist.cc:176
+# (1) dlg_gamelist.cc:175
 msgid   "Game List (refreshing...)"
 msgstr  "Seznam partií (obnovuji...)"
 
 # state: translated
-# (1) dlg_prefs.cc:77
+# (1) dlg_prefs.cc:76
 msgid   "Game Lost"
 msgstr  "Prohraná partie"
 
 # state: translated
-# (1) dlg_prefs.cc:78
+# (1) dlg_prefs.cc:77
 msgid   "Game Started"
 msgstr  "Začátek partie"
 
 # state: translated
-# (1) dlg_prefs.cc:76
+# (1) dlg_prefs.cc:75
 msgid   "Game Won"
 msgstr  "Vyhraná partie"
 
 # state: translated
-# (4) proto_fics.cc:1573; proto_p2p.cc:467; proto_xboard.cc:362,386
+# (4) proto_fics.cc:1595; proto_p2p.cc:466; proto_xboard.cc:361,385
 msgid   "Game appended to %s"
 msgstr  "Partie připojena k %s"
 
 # state: translated
-# (1) movelist.cc:157
+# (1) movelist.cc:156
 msgid   "Game in progress."
 msgstr  "Partie se hraje."
 
 # state: translated
-# (1) proto_p2p.cc:461
+# (1) proto_p2p.cc:460
 msgid   "Game over: %s"
 msgstr  "Partie skončila: %s"
 
 # state: translated
-# (1) proto_p2p.cc:108
+# (1) proto_p2p.cc:107
 msgid   "Game proposal sent."
 msgstr  "Nabídka na partii odeslána."
 
 # state: translated
-# (2) proto_fics.cc:1003; proto_p2p.cc:357
+# (2) proto_fics.cc:1028; proto_p2p.cc:356
 msgid   "Game started!"
 msgstr  "Partie začala!"
 
 # state: translated
-# (1) mainwindow.cc:502
+# (1) mainwindow.cc:496
 msgid   "Game/Board: "
 msgstr  "Partie/Šachovnice: "
 
 # state: translated
-# (1) dlg_gamelist.cc:120
+# (1) dlg_gamelist.cc:119
 msgid   "Games"
 msgstr  "Partie"
 
 # state: translated
-# (1) board.cc:2388
+# (1) board.cc:2216
 msgid   "Generic XBoard Engine..."
 msgstr  "Obecný motor pro XBoard..."
 
 # state: translated
-# (1) proto_xboard.cc:1202
+# (1) proto_xboard.cc:1201
 msgid   "Giveaway"
 msgstr  "Giveaway"
 
 # state: translated
-# (1) dlg_prefs.cc:166
+# (1) dlg_prefs.cc:155
 msgid   "Graphic representation of crazy/bughouse stock"
 msgstr  "Grafické zobrazení záložních crazy/bughouse figur"
 
 # state: translated
-# (1) help.cc:183
+# (1) help.cc:182
 msgid   "Help: Debug Info"
 msgstr  "Nápověda: Ladicí informace"
 
 # state: translated
-# (1) help.cc:320
+# (1) help.cc:319
 msgid   "Help: Getting Started "
 msgstr  "Nápověda: Stručný úvod"
 
 # state: translated
-# (1) help.cc:109
+# (1) help.cc:108
 msgid   "Help: Keys"
 msgstr  "Nápověda: Klávesy"
 
 # state: untranslated
-# (1) network.cc:671
+# (1) network.cc:710
 msgid   "Helper program not found"
 msgstr  ""
 
 # state: translated
-# (1) quickbar.cc:68
+# (1) quickbar.cc:67
 msgid   "Hide!"
 msgstr  "Skrýt!"
 
 # state: translated
-# (2) network.cc:333,686
+# (2) network.cc:370,725
 msgid   "Host not found: %s"
 msgstr  "Server nenalezen: %s"
 
 # state: translated
-# (1) dlg_connect.cc:104
+# (1) dlg_connect.cc:103
 msgid   "Hostname"
 msgstr  "Jméno serveru"
 
 # state: translated
-# (1) p2p.cc:71
+# (1) p2p.cc:70
 msgid   "Hostname or IP address:"
 msgstr  "Jméno nebo IP adressa:"
 
 # state: translated
-# (1) global.cc:1494
+# (1) global.cc:1487
 msgid   "Human"
 msgstr  "Člověk"
 
 # state: translated
-# (1) proto_xboard.cc:809
+# (1) proto_xboard.cc:808
 msgid   "Human White vs. Computer Black"
 msgstr  "Člověk bílými x Počítač černými"
 
 # state: translated
-# (1) dlg_connect.cc:304
+# (1) dlg_connect.cc:303
 msgid   "Human plays white"
 msgstr  "Člověk hraje bílými"
 
 # state: translated
-# (1) dlg_prefs.cc:74
+# (1) dlg_prefs.cc:73
 msgid   "ICS Challenge"
 msgstr  "Výzva k partii (ICS)"
 
 # state: translated
-# (1) network.cc:710
+# (1) network.cc:749
 msgid   "IPC pipe creation failed."
 msgstr  "Nepodařilo se vytvořit spojení mezi procesy."
 
@@ -1582,7 +1567,7 @@ msgid   "Id"
 msgstr  "Id"
 
 # state: translated
-# (1) board.cc:2397
+# (1) board.cc:2225
 msgid  ""
 "If you pick a bookmark, the engine\n"
 "will play the next move, ignoring\n"
@@ -1593,32 +1578,32 @@ msgstr ""
 "strana je uvedena v nastavení záložky."
 
 # state: translated
-# (1) board.cc:968
+# (1) board.cc:936
 msgid   "Illegal Drop on %c%d (Legality Checking On)"
 msgstr  "Nepovolené umístění %c%d (Kontrola platnosti zapnuta)"
 
 # state: translated
-# (1) board.cc:774
+# (1) board.cc:767
 msgid   "Illegal Move %c%d%c%d (Legality Checking On)"
 msgstr  "Nepovolený tah %c%d%c%d (Kontrola platnosti zapnuta)"
 
 # state: translated
-# (1) proto_p2p.cc:382
+# (1) proto_p2p.cc:381
 msgid   "Illegal move, not sent."
 msgstr  "Neplatný tah - neodesláno."
 
 # state: translated
-# (1) proto_p2p.cc:548
+# (1) proto_p2p.cc:547
 msgid   "Increment (secs):"
 msgstr  "Přírůstek (s):"
 
 # state: translated
-# (1) clock.cc:490
+# (1) clock.cc:489
 msgid   "Increment:"
 msgstr  "Přírůstek:"
 
 # state: untranslated
-# (1) dlg_prefs.cc:245
+# (1) dlg_prefs.cc:234
 msgid   "Inhibit seek lines on console when Seek Graph is active"
 msgstr  ""
 
@@ -1628,112 +1613,107 @@ msgid   "Inhibit seek lines on console when Seek Table is active"
 msgstr  "Nezobrazovat nabídky v konzoli, pokud je tabulka nabídek aktivní"
 
 # state: translated
-# (1) board.cc:2471
+# (1) board.cc:2299
 msgid   "Initial Position"
 msgstr  "Výchozí"
 
 # state: translated
-# (1) proto_p2p.cc:547
+# (1) proto_p2p.cc:546
 msgid   "Initial time ([mm:]ss):"
 msgstr  "Počáteční čas ([mm:]ss):"
 
 # state: translated
-# (1) proto_xboard.cc:471
+# (1) proto_xboard.cc:470
 msgid   "Initializing engine"
 msgstr  "Inicializuji motor"
 
 # state: untranslated
-# (1) help.cc:137
+# (1) help.cc:136
 msgid   "Input Box:"
 msgstr  ""
 
-# state: untranslated
-# (1) dlg_prefs.cc:541
-msgid   "Joystick"
-msgstr  ""
-
 # state: translated
-# (1) chess.cc:1478
+# (1) chess.cc:1477
 msgid   "Key"
 msgstr  "Klíč"
 
 # state: translated
-# (1) chess.cc:1495
+# (1) chess.cc:1494
 msgid   "Key:"
 msgstr  "Klíč:"
 
 # state: translated
-# (1) dlg_prefs.cc:341
+# (1) dlg_prefs.cc:330
 msgid   "Kibitzes/Whispers"
 msgstr  "Kibicování/Šeptání"
 
 # state: translated
-# (1) script.cc:258
+# (1) script.cc:257
 msgid   "Kill"
 msgstr  "Ukončit"
 
 # state: translated
-# (1) board.cc:1017
+# (1) board.cc:985
 msgid   "Knight  %d"
 msgstr  "Jezdec  %d"
 
 # state: translated
-# (1) proto_p2p.cc:581
+# (1) proto_p2p.cc:580
 msgid   "Last Proposal Received"
 msgstr  "Poslední přijatá nabídka"
 
 # state: translated
-# (1) dlg_prefs.cc:131
+# (1) dlg_prefs.cc:120
 msgid   "Left"
 msgstr  "Vlevo"
 
 # state: untranslated
-# (1) seekgraph.cc:493
+# (1) seekgraph.cc:492
 msgid   "Left click to play, right click to refresh."
 msgstr  ""
 
 # state: translated
-# (1) dlg_prefs.cc:148
+# (1) dlg_prefs.cc:137
 msgid   "Light Squares..."
 msgstr  "Světlá pole..."
 
 # state: translated
-# (1) dlg_gamelist.cc:700
+# (1) dlg_gamelist.cc:699
 msgid   "Load PGN"
 msgstr  "Nahrát PGN"
 
 # state: translated
-# (1) dlg_gamelist.cc:274
+# (1) dlg_gamelist.cc:273
 msgid   "Load PGN..."
 msgstr  "Nahrát PGN..."
 
 # state: translated
-# (1) dlg_gamelist.cc:355
+# (1) dlg_gamelist.cc:354
 msgid   "Local"
 msgstr  "Místní"
 
 # state: translated
-# (1) dlg_gamelist.cc:237
+# (1) dlg_gamelist.cc:236
 msgid   "Local Game List"
 msgstr  "Seznam lokálních partií"
 
 # state: translated
-# (2) network.cc:328,681
+# (2) network.cc:365,720
 msgid   "Looking up host %s..."
 msgstr  "Hledání serveru %s..."
 
 # state: translated
-# (1) proto_xboard.cc:1200
+# (1) proto_xboard.cc:1199
 msgid   "Losers"
 msgstr  "Losers"
 
 # state: translated
-# (1) mainwindow.cc:274
+# (1) mainwindow.cc:268
 msgid   "Main Board"
 msgstr  "Hl. šachovnice"
 
 # state: translated
-# (1) dlg_prefs.cc:340
+# (1) dlg_prefs.cc:329
 msgid   "Mamer and TDs"
 msgstr  "Mamer a TD"
 
@@ -1743,144 +1723,132 @@ msgid   "Manual/Formula"
 msgstr  "Manuální/Vzorec"
 
 # state: translated
-# (1) text.cc:88
+# (1) text.cc:87
 msgid   "Match Found at Line %d."
 msgstr  "Shoda nalezena na řádku %d."
 
 # state: translated
-# (1) text.cc:453
+# (1) text.cc:452
 msgid   "Match Pattern: "
 msgstr  "Hledaný vzor: "
 
 # state: translated
-# (1) position.cc:1089
+# (1) position.cc:1088
 msgid   "Material: %d - %d"
 msgstr  "Materiál: %d - %d"
 
 # state: translated
-# (1) dlg_connect.cc:292
+# (1) dlg_connect.cc:291
 msgid   "Max Ply:"
 msgstr  "Max. hloubka:"
 
 # state: translated
-# (1) dlg_prefs.cc:80
+# (1) dlg_prefs.cc:79
 msgid   "Move made (Obs'vd/Exm'd Games)"
 msgstr  "Tah (Sledovaná/Prohlížená partie)"
 
-# state: untranslated
-# (1) dlg_prefs.cc:978
-msgid  ""
-"Move the axis to be used for moving back and forth\n"
-"through moves of a game."
-msgstr ""
-
-# state: untranslated
-# (1) dlg_prefs.cc:972
-msgid   "Move the axis to be used for selecting pieces."
-msgstr  ""
-
 # state: translated
-# (1) movelist.cc:81
+# (1) movelist.cc:80
 msgid   "Moves"
 msgstr  "Tahy"
 
 # state: translated
-# (1) network.cc:373
+# (1) network.cc:410
 msgid   "Network is unreachable"
 msgstr  "Síť je nedostupná"
 
 # state: translated
-# (1) dlg_prefs.cc:339
+# (1) dlg_prefs.cc:328
 msgid   "News/Notifications"
 msgstr  "Novinky/Oznámení"
 
 # state: translated
-# (1) dlg_gamelist.cc:428
+# (1) dlg_gamelist.cc:427
 msgid   "No"
 msgstr  "Ne"
 
 # state: translated
-# (3) network.cc:315,439,504
+# (3) network.cc:352,476,541
 msgid   "No error."
 msgstr  "Bez chyby."
 
 # state: translated
-# (2) proto_p2p.cc:280,442
+# (2) proto_p2p.cc:279,441
 msgid   "No material to mate"
 msgstr  "Nedostatek materiálu k výhře"
 
 # state: untranslated
-# (1) network.cc:782
+# (1) network.cc:821
 msgid   "No output from program."
 msgstr  ""
 
 # state: translated
-# (1) mainwindow.cc:1131
+# (1) mainwindow.cc:1125
 msgid   "No peer."
 msgstr  "Bez oponenta."
 
 # state: translated
-# (1) text.cc:74
+# (1) text.cc:73
 msgid   "No previous search."
 msgstr  "Neexistuje předchozí hledání"
 
 # state: translated
-# (1) proto_p2p.cc:650
+# (1) proto_p2p.cc:649
 msgid   "No proposals left."
 msgstr  "Nezbývá žádná nabídka."
 
 # state: translated
-# (1) proto_p2p.cc:589
+# (1) proto_p2p.cc:588
 msgid   "No proposals received."
 msgstr  "Nepřijata žádná nabídka."
 
 # state: untranslated
-# (1) dlg_prefs.cc:198
+# (1) dlg_prefs.cc:187
 msgid   "Non-ASCII Character Filtering"
 msgstr  ""
 
 # state: translated
-# (5) bugpane.cc:38,39,359,360; dlg_prefs.cc:225
+# (5) bugpane.cc:37,38,358,359; dlg_prefs.cc:214
 msgid   "None"
 msgstr  "Nic"
 
 # state: translated
-# (1) proto_xboard.cc:1194
+# (1) proto_xboard.cc:1193
 msgid   "Normal Chess"
 msgstr  "Normální šachy"
 
 # state: translated
-# (1) dlg_prefs.cc:336
+# (1) dlg_prefs.cc:325
 msgid   "Normal Text"
 msgstr  "Normální text"
 
 # state: translated
-# (1) network.cc:369
+# (1) network.cc:406
 msgid   "Not a socket ?!?"
 msgstr  "Není socket ?!?"
 
 # state: translated
-# (2) clock.cc:505; proto_xboard.cc:902
+# (2) clock.cc:504; proto_xboard.cc:901
 msgid   "OK"
 msgstr  "OK"
 
 # state: translated
-# (1) dlg_prefs.cc:79
+# (1) dlg_prefs.cc:78
 msgid   "Obs'vd Game Ended"
 msgstr  "Konec sledované partie"
 
 # state: translated
-# (1) dlg_gamelist.cc:111
+# (1) dlg_gamelist.cc:110
 msgid   "Observe"
 msgstr  "Sledovat"
 
 # state: translated
-# (5) board.cc:2551; dlg_prefs.cc:594; quickbar.cc:266; sound.cc:460; text.cc:477
+# (5) board.cc:2379; dlg_prefs.cc:535; quickbar.cc:265; sound.cc:461; text.cc:476
 msgid   "Ok"
 msgstr  "OK"
 
 # state: translated
-# (1) dlg_connect.cc:129
+# (1) dlg_connect.cc:128
 msgid  ""
 "Once you connect to a host from this dialog, it will be added to\n"
 "the Peer/ICS Bookmarks menu. Edit the ~/.eboard/eboard.conf file\n"
@@ -1891,7 +1859,7 @@ msgstr ""
 "z tohoto menu, upravte soubor ~/.eboard/eboard.conf."
 
 # state: translated
-# (1) text.cc:454
+# (1) text.cc:453
 msgid  ""
 "Only lines that match the above pattern will be added\n"
 "to this text pane. Patterns can be OR'ed with the | (pipe)\n"
@@ -1908,77 +1876,82 @@ msgstr ""
 "'blik * bored' ukáže řádky obsahující 'blik '(...)' bored'."
 
 # state: translated
-# (1) dlg_prefs.cc:71
+# (1) dlg_prefs.cc:70
 msgid   "Opponent Moved"
 msgstr  "Oponent táhl"
 
 # state: translated
-# (1) p2p.cc:149
+# (1) p2p.cc:148
 msgid   "Options"
 msgstr  "Volby"
 
 # state: translated
-# (1) chess.cc:1459
+# (1) chess.cc:1458
 msgid   "PGN Headers"
 msgstr  "PGN Hlavička"
 
 # state: translated
-# (1) dlg_prefs.cc:517
+# (1) dlg_prefs.cc:506
 msgid   "PGN filename:"
 msgstr  "Jméno PNG souboru:"
 
 # state: untranslated
-# (1) help.cc:130
+# (1) help.cc:129
 msgid   "Page Up/Page Down: Scroll the text console."
 msgstr  ""
 
 # state: translated
-# (1) bugpane.cc:274
+# (1) bugpane.cc:273
 msgid   "Partner Tells:"
 msgstr  "Zprávy od partnera:"
 
 # state: translated
-# (1) board.cc:1009
+# (1) board.cc:977
 msgid   "Pawn    %d"
 msgstr  "Pěšec   %d"
 
 # state: translated
-# (1) sound.cc:377
+# (1) sound.cc:383
 msgid   "Pitch (Hz):"
 msgstr  "Výška (Hz):"
 
 # state: translated
-# (1) dlg_gamelist.cc:845
+# (1) dlg_gamelist.cc:844
 msgid   "Play"
 msgstr  "Přijmout nabídku"
 
 # state: translated
-# (1) proto_xboard.cc:1001
+# (1) proto_xboard.cc:1000
 msgid   "Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)"
 msgstr  "Hrát %s jako %s x %s (%s, maxhloubka %d, stále přemýšlet: %s)"
 
-# state: translated
+# state: untranslated
+# (1) sound.cc:367
+msgid   "Play Media File (need Filename)"
+msgstr  ""
+
+# state: lost (deprecated key)
 # (1) sound.cc:361
 msgid   "Play WAV (need Device and Filename, sox must be installed)"
 msgstr  "Přehrát WAV (je třeba Zařízení a Soubor; musí být nainstalován sox)"
 
 # state: translated
-# (1) proto_xboard.cc:1078
+# (1) proto_xboard.cc:1077
 msgid   "Play against Crafty"
 msgstr  "Hrát proti Crafty"
 
 # state: translated
-# (1) proto_xboard.cc:769
+# (1) proto_xboard.cc:768
 msgid   "Play against Engine"
 msgstr  "Hrát proti motoru"
 
 # state: translated
-# (1) proto_xboard.cc:1319
+# (1) proto_xboard.cc:1318
 msgid   "Play against GNU Chess 4"
 msgstr  "Hrát proti GNU Chess 4"
 
 # state: translated
-# (1) proto_xboard.cc:1234
+# (1) proto_xboard.cc:1233
 msgid   "Play against Sjeng"
 msgstr  "Hrát proti Sjeng"
 
@@ -1988,87 +1961,72 @@ msgid   "Player"
 msgstr  "Hráč"
 
 # state: translated
-# (2) proto_p2p.cc:286,489
+# (2) proto_p2p.cc:285,488
 msgid   "Player resigns"
 msgstr  "Hráč vzdal"
 
 # state: translated
-# (1) dlg_prefs.cc:396
+# (1) dlg_prefs.cc:385
 msgid   "Player/Color Name Font"
 msgstr  "Font jména hráče/barvy"
 
 # state: translated
-# (1) proto_fics.cc:926
+# (1) proto_fics.cc:932
 msgid   "Pos: %s vs. %s"
 msgstr  "Pozice: %s vs %s"
 
 # state: translated
-# (1) dlg_prefs.cc:52
+# (1) dlg_prefs.cc:51
 msgid   "Preferences"
 msgstr  "Nastavení"
 
-# state: untranslated
-# (1) dlg_prefs.cc:984
-msgid   "Press the button to be used for going to the next tab."
-msgstr  ""
-
-# state: untranslated
-# (1) dlg_prefs.cc:981
-msgid   "Press the button to be used for going to the previous tab."
-msgstr  ""
-
-# state: untranslated
-# (1) dlg_prefs.cc:975
-msgid   "Press the button to be used for selecting a square."
-msgstr  ""
-
 # state: translated
-# (1) dlg_prefs.cc:73
+# (1) dlg_prefs.cc:72
 msgid   "Private Tell"
 msgstr  "Soukromé sdělení"
 
 # state: translated
-# (1) dlg_prefs.cc:338
+# (1) dlg_prefs.cc:327
 msgid   "Private Tells"
 msgstr  "Soukromá sdělení"
 
 # state: translated
-# (1) network.cc:799
+# (1) network.cc:838
 msgid   "Program exited too soon"
 msgstr  "Program skončil příliš brzy"
 
 # state: translated
-# (1) widgetproxy.cc:224
+# (1) widgetproxy.cc:223
 msgid   "Progress"
 msgstr  "Postup"
 
 # state: translated
-# (1) promote.cc:57
+# (1) promote.cc:55
 msgid   "Promotion Piece  "
 msgstr  "Proměnit na figuru  "
 
 # state: translated
-# (1) proto_p2p.cc:572
+# (1) proto_p2p.cc:571
 msgid   "Propose"
 msgstr  "Nabídnout"
 
 # state: translated
-# (1) proto_p2p.cc:539
+# (1) proto_p2p.cc:538
 msgid   "Propose Game"
 msgstr  "Nabídnout partii"
 
 # state: translated
-# (1) dlg_connect.cc:106
+# (1) dlg_connect.cc:105
 msgid   "Protocol"
 msgstr  "Protokol"
 
 # state: translated
-# (2) proto_p2p.cc:189,199
+# (2) proto_p2p.cc:188,198
 msgid   "Protocol mismatch, disconnecting."
 msgstr  "Chybný protokol - ukončuji spojení."
 
 # state: translated
-# (1) board.cc:1025
+# (1) board.cc:993
 msgid   "Queen   %d"
 msgstr  "Dáma    %d"
 
@@ -2088,122 +2046,122 @@ msgid   "Rating Range"
 msgstr  "Rozsah ratingu"
 
 # state: untranslated
-# (1) network.cc:789
+# (1) network.cc:828
 msgid   "Read error from program."
 msgstr  ""
 
 # state: translated
-# (1) proto_p2p.cc:242
+# (1) proto_p2p.cc:241
 msgid   "Received a game proposal from %s."
 msgstr  "%s vám nabízí parii."
 
 # state: translated
-# (1) dlg_connect.cc:80
+# (1) dlg_connect.cc:79
 msgid   "Recent Hosts"
 msgstr  "Poslední servery"
 
 # state: translated
-# (4) dlg_gamelist.cc:110,277,844; script.cc:79
+# (4) dlg_gamelist.cc:109,276,843; script.cc:78
 msgid   "Refresh List"
 msgstr  "Obnovit seznam"
 
 # state: translated
-# (1) seekgraph.cc:260
+# (1) seekgraph.cc:259
 msgid   "Replied to seek #%d"
 msgstr  "Odpověď na nabídku č. %d"
 
 # state: translated
-# (2) proto_fics.cc:1608; proto_xboard.cc:382
+# (2) proto_fics.cc:1630; proto_xboard.cc:381
 msgid   "Resigned."
 msgstr  "Vzdal."
 
 # state: translated
-# (1) dlg_gamelist.cc:323
+# (1) dlg_gamelist.cc:322
 msgid   "Result"
 msgstr  "Výsledek"
 
 # state: translated
-# (1) proto_xboard.cc:426
+# (1) proto_xboard.cc:425
 msgid   "Retracted last move."
 msgstr  "Poslední tah byl vrácen."
 
 # state: translated
-# (1) dlg_prefs.cc:256
+# (1) dlg_prefs.cc:245
 msgid   "Retrieve ICS Channel Lists from eboard.sf.net"
 msgstr  "Stáhnout seznam ICS kanálů z eboard.sf.net"
 
 # state: translated
-# (1) dlg_prefs.cc:368
+# (1) dlg_prefs.cc:357
 msgid   "Revert to Defaults"
 msgstr  "Zpět na výchozí"
 
 # state: translated
-# (1) dlg_prefs.cc:419
+# (1) dlg_prefs.cc:408
 msgid   "Revert to defaults"
 msgstr  "Zpět na výchozí"
 
 # state: translated
-# (1) dlg_prefs.cc:129
+# (1) dlg_prefs.cc:118
 msgid   "Right"
 msgstr  "Vpravo"
 
 # state: translated
-# (1) board.cc:1013
+# (1) board.cc:981
 msgid   "Rook    %d"
 msgstr  "Věž     %d"
 
 # state: translated
-# (1) script.cc:80
+# (1) script.cc:79
 msgid   "Run"
 msgstr  "Spustit"
 
 # state: translated
-# (1) board.cc:2483
+# (1) board.cc:2311
 msgid   "Run Engine..."
 msgstr  "Spustit motor..."
 
 # state: translated
-# (1) sound.cc:363
+# (1) sound.cc:369
 msgid   "Run Program (need Filename)"
 msgstr  "Spustit program (je třeba Soubor)"
 
 # state: translated
-# (1) dlg_prefs.cc:210
+# (1) dlg_prefs.cc:199
 msgid   "Run autofics.pl script after connecting to FICS"
 msgstr  "Spustit autofics.pl skript po přihlášení k FICS"
 
 # state: translated
-# (1) text.cc:104
+# (1) text.cc:103
 msgid   "Save Buffer As..."
 msgstr  "Uložit text jako..."
 
 # state: translated
-# (1) dlg_gamelist.cc:286
+# (1) dlg_gamelist.cc:285
 msgid   "Save Game..."
 msgstr  "Uložit partii..."
 
 # state: translated
-# (1) dlg_gamelist.cc:682
+# (1) dlg_gamelist.cc:681
 msgid   "Save as PGN"
 msgstr  "Uložit jako PGN"
 
 # state: translated
-# (2) mainwindow.cc:1151,1176
+# (2) mainwindow.cc:1145,1170
 msgid   "Scratch %d"
 msgstr  "Nová %d"
 
 # state: translated
-# (1) script.cc:62
+# (1) script.cc:61
 msgid   "Script"
 msgstr  "Skript"
 
 # state: translated
-# (1) script.cc:44
+# (1) script.cc:43
 msgid   "Script List"
 msgstr  "Seznam skriptů"
 
 # state: translated
-# (1) dlg_prefs.cc:261
+# (1) dlg_prefs.cc:250
 msgid   "Scrollback limit (0 = unlimited) :"
 msgstr  "Historie konzole (0 = neomezená) :"
 
@@ -2218,22 +2176,22 @@ msgid   "Search for: "
 msgstr  "Hledaný text:"
 
 # state: translated
-# (1) text.cc:96
+# (1) text.cc:95
 msgid   "Search text not found."
 msgstr  "Hledaný text nenalezen."
 
 # state: translated
-# (1) dlg_prefs.cc:344
+# (1) dlg_prefs.cc:333
 msgid   "Seek Ads"
 msgstr  "Nabídky partií"
 
 # state: untranslated
-# (2) dlg_prefs.cc:194; proto_fics.cc:1861
+# (2) dlg_prefs.cc:183; proto_fics.cc:1883
 msgid   "Seek Graph"
 msgstr  ""
 
 # state: untranslated
-# (1) dlg_prefs.cc:408
+# (1) dlg_prefs.cc:397
 msgid   "Seek Graph Font"
 msgstr  ""
 
@@ -2248,199 +2206,194 @@ msgid   "Seek Table Font"
 msgstr  "Font tabulky nabídek"
 
 # state: untranslated
-# (1) dgtboard.cc:413
+# (1) dgtboard.cc:412
 msgid   "Serial :%s"
 msgstr  ""
 
 # state: translated
-# (1) text.cc:442
+# (1) text.cc:441
 msgid   "Set Filter"
 msgstr  "Nastavení filtru"
 
 # state: translated
-# (1) text.cc:269
+# (1) text.cc:268
 msgid   "Set Filter..."
 msgstr  "Nastavit filtr..."
 
 # state: translated
-# (1) proto_xboard.cc:844
+# (1) proto_xboard.cc:843
 msgid   "Set depth limit to 0 to use the engine's default."
 msgstr  "Hloubka 0 znamená použít výchozí nastavení motoru."
 
 # state: translated
-# (1) quickbar.cc:67
+# (1) quickbar.cc:66
 msgid   "Setup Buttons"
 msgstr  "Nastavit tlačítka"
 
 # state: translated
-# (1) quickbar.cc:207
+# (1) quickbar.cc:206
 msgid   "Shortcut Button Setup"
 msgstr  "Nastavení tlačítek"
 
 # state: translated
-# (1) dlg_prefs.cc:343
+# (1) dlg_prefs.cc:332
 msgid   "Shouts"
 msgstr  "Výkřiky"
 
 # state: translated
-# (1) dlg_prefs.cc:250
+# (1) dlg_prefs.cc:239
 msgid   "Show channel tells in one pane per channel"
 msgstr  "Samostatná okna pro jednotlivé kanály"
 
 # state: translated
-# (1) dlg_prefs.cc:253
+# (1) dlg_prefs.cc:242
 msgid   "Show channel tells on console too (when above option is active)"
 msgstr  "Zobrazovat sdělení z kanálů také na konzoli (je-li předchozí volba aktivní)"
 
 # state: untranslated
-# (1) dlg_prefs.cc:275
+# (1) dlg_prefs.cc:264
 msgid   "Show milliseconds when below: "
 msgstr  ""
 
 # state: translated
-# (1) dlg_prefs.cc:207
+# (1) dlg_prefs.cc:196
 msgid   "Show rating next to player name"
 msgstr  "Zobrazovat rating vedle jména hráče"
 
 # state: translated
-# (1) dlg_prefs.cc:169
+# (1) dlg_prefs.cc:158
 msgid   "Show shortcut buttons below board"
 msgstr  "Zobrazovat tlačítka pod šachovnicí"
 
 # state: untranslated
-# (1) dlg_prefs.cc:213
+# (1) dlg_prefs.cc:202
 msgid   "Show timestamps for text lines"
 msgstr  ""
 
 # state: translated
-# (1) proto_xboard.cc:802
+# (1) proto_xboard.cc:801
 msgid   "Side & Time"
 msgstr  "Strana a čas"
 
 # state: translated
-# (1) proto_xboard.cc:804
+# (1) proto_xboard.cc:803
 msgid   "Side Selection"
 msgstr  "Výběr strany"
 
 # state: translated
-# (2) board.cc:2488,2493
+# (2) board.cc:2316,2321
 msgid   "Side to move: "
 msgstr  "Hráč na tahu: "
 
-# state: untranslated
-# (1) dlg_prefs.cc:558
-msgid   "Smooth joystick cursor"
-msgstr  ""
-
-# state: untranslated
-# (1) dlg_prefs.cc:559
-msgid   "Smooth joystick cursor speed:"
-msgstr  ""
-
 # state: translated
-# (1) dlg_prefs.cc:163
+# (1) dlg_prefs.cc:152
 msgid   "Smoother animation (eats more CPU)"
 msgstr  "Plynulá animace (větší zátěž procesoru)"
 
 # state: untranslated
-# (1) dlg_prefs.cc:231
+# (1) dlg_prefs.cc:220
 msgid   "Soft translate"
 msgstr  ""
 
 # state: translated
-# (1) protocol.cc:84
+# (1) protocol.cc:82
 msgid  ""
 "Sorry, this protocol does not allow to retract a move thru this menu option."
 msgstr ""
 "Lituji, ale tento protokol nedovoluje vracet tahy."
 
 # state: translated
-# (1) sound.cc:337
+# (1) sound.cc:343
 msgid   "Sound Event"
 msgstr  "Zvuková událost"
 
 # state: translated
-# (1) dlg_prefs.cc:448
+# (1) dlg_prefs.cc:437
 msgid   "Sound Events"
 msgstr  "Ozvučené události"
 
 # state: translated
-# (1) dlg_prefs.cc:446
+# (1) dlg_prefs.cc:435
 msgid   "Sounds"
 msgstr  "Zvuky"
 
-# state: translated
+# state: lost (deprecated key)
 # (1) mainwindow.cc:796
 msgid   "Source code available at http://eboard.sourceforge.net"
 msgstr  "Zdrojový kód je dostupný na http://eboard.sourceforge.net"
 
+# state: untranslated
+# (1) mainwindow.cc:790
+msgid   "Source code available at https://github.com/fbergo/eboard"
+msgstr  ""
+
 # state: translated
-# (2) proto_p2p.cc:277,436
+# (2) proto_p2p.cc:276,435
 msgid   "Stalemate"
 msgstr  "Pat"
 
 # state: translated
-# (1) p2p.cc:147
+# (1) p2p.cc:146
 msgid   "Start a connection"
 msgstr  "Navázat spojení"
 
 # state: translated
-# (1) clock.cc:488
+# (1) clock.cc:487
 msgid   "Starting Time:"
 msgstr  "Počáteční čas:"
 
 # state: untranslated
-# (1) dlg_prefs.cc:287
+# (1) dlg_prefs.cc:276
 msgid   "Subsecond precision digits: "
 msgstr  ""
 
 # state: translated
-# (1) proto_xboard.cc:1198
+# (1) proto_xboard.cc:1197
 msgid   "Suicide"
 msgstr  "Suicide"
 
 # state: untranslated
-# (1) help.cc:143
+# (1) help.cc:142
 msgid   "Syntaxisms:"
 msgstr  ""
 
 # state: translated
-# (1) dlg_connect.cc:105
+# (1) dlg_connect.cc:104
 msgid   "TCP Port"
 msgstr  "TCP port"
 
 # state: translated
-# (2) p2p.cc:72,96
+# (2) p2p.cc:71,95
 msgid   "TCP Port:"
 msgstr  "TCP port:"
 
 # state: translated
-# (1) dlg_prefs.cc:124
+# (1) dlg_prefs.cc:113
 msgid   "Tab Position"
 msgstr  "Umístění záložek"
 
 # state: translated
-# (1) sound.cc:462
+# (1) sound.cc:463
 msgid   "Test"
 msgstr  "Test"
 
 # state: translated
-# (1) dlg_prefs.cc:462
+# (1) dlg_prefs.cc:451
 msgid   "The checkbox on the left enables/disables the sound."
 msgstr  "Zaškrtnutí políčka nalevo povoluje/zakazuje zvuk."
 
 # state: translated
-# (1) proto_xboard.cc:884
+# (1) proto_xboard.cc:883
 msgid   "The engine will be run with\n/bin/sh -c 'cd directory ; command line'"
 msgstr  "Motor bude spuštěn pomocí\n/bin/sh -c 'cd adresář; příkaz pro spuštění'"
 
 # state: translated
-# (1) dlg_connect.cc:305
+# (1) dlg_connect.cc:304
 msgid   "Think Always"
 msgstr  "Přemýšlí neustále"
 
 # state: translated
-# (1) proto_xboard.cc:847
+# (1) proto_xboard.cc:846
 msgid   "Think on opponent's time"
 msgstr  "Přemýšlet v čase protihráče."
 
@@ -2450,37 +2403,37 @@ msgid   "Time"
 msgstr  "Čas"
 
 # state: translated
-# (1) proto_xboard.cc:816
+# (1) proto_xboard.cc:815
 msgid   "Time Control"
 msgstr  "Nastavení času"
 
 # state: translated
-# (1) proto_xboard.cc:829
+# (1) proto_xboard.cc:828
 msgid   "Time Control..."
 msgstr  "Časové kontroly..."
 
 # state: translated
-# (1) dlg_connect.cc:291
+# (1) dlg_connect.cc:290
 msgid   "Time Control:"
 msgstr  "Časová kontrola:"
 
 # state: translated
-# (1) dlg_prefs.cc:75
+# (1) dlg_prefs.cc:74
 msgid   "Time Running Out"
 msgstr  "Časová tíseň"
 
 # state: translated
-# (1) network.cc:372
+# (1) network.cc:409
 msgid   "Timeout"
 msgstr  "Vypršel čas"
 
 # state: translated
-# (1) clock.cc:498
+# (1) clock.cc:497
 msgid   "Times can be given as hh:mm:ss , mm:ss or ss"
 msgstr  "Čas může být uveden jako hh:mm:ss , mm:ss nebo ss"
 
 # state: translated
-# (1) quickbar.cc:253
+# (1) quickbar.cc:252
 msgid  ""
 "To run multiple commands with one shortcut, separate the commands with ; (semicolon).\n"
 "To run a script from a shortcut, set command to script.ScriptName, e.g.: script.myscript.pl ."
@@ -2489,276 +2442,276 @@ msgstr ""
 "Pokud chcete spustit skript, nastavte příkaz na script.JménoSkriptu, např.: script.MujSkript.pl ."
 
 # state: translated
-# (1) dlg_prefs.cc:133
+# (1) dlg_prefs.cc:122
 msgid   "Top"
 msgstr  "Nahoře"
 
 # state: untranslated
-# (1) dgtboard.cc:419
+# (1) dgtboard.cc:418
 msgid   "Trademark :%s"
 msgstr  ""
 
 # state: untranslated
-# (1) dlg_prefs.cc:227
+# (1) dlg_prefs.cc:216
 msgid   "Truncate"
 msgstr  ""
 
 # state: translated
-# (1) clock.cc:446
+# (1) clock.cc:445
 msgid   "Type: Fischer Clock (ICS-like)"
 msgstr  "Typ: Fischerovi hodiny (styl ICS)"
 
 # state: translated
-# (1) clock.cc:444
+# (1) clock.cc:443
 msgid   "Type: Fixed Time per Move"
 msgstr  "Typ: Čas na jeden tah"
 
 # state: translated
-# (1) clock.cc:447
+# (1) clock.cc:446
 msgid   "Type: Use engine's default setting"
 msgstr  "Typ: Použít výchozí nastavení motoru"
 
 # state: translated
-# (1) clock.cc:445
+# (1) clock.cc:444
 msgid   "Type: X Moves per Time Period"
 msgstr  "Typ: X tahů v určité době"
 
 # state: translated
-# (1) network.cc:468
+# (1) network.cc:505
 msgid   "Unable to bind on port %d."
 msgstr  "Nemohu obsadit port %d."
 
 # state: translated
-# (1) network.cc:458
+# (1) network.cc:495
 msgid   "Unable to create socket."
 msgstr  "Nemohu vytvořit socket."
 
 # state: untranslated
-# (1) dgtboard.cc:403
+# (1) dgtboard.cc:402
 msgid   "Unable to find the DGT board on port %s."
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:119
+# (1) dgtboard.cc:118
 msgid   "Unable to load dgtnix library symbol.\n"
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:114
+# (1) dgtboard.cc:113
 msgid   "Unable to load dgtnix library.\n"
 msgstr  ""
 
 # state: translated
-# (1) network.cc:377
+# (1) network.cc:414
 msgid   "Unknown error"
 msgstr  "Neznámá chyba"
 
 # state: translated
-# (1) proto_p2p.cc:295
+# (1) proto_p2p.cc:294
 msgid   "Unknown result"
 msgstr  "Neznámý výsledek"
 
 # state: untranslated
-# (1) help.cc:139
+# (1) help.cc:138
 msgid   "Up/Down: move thru input history."
 msgstr  ""
 
 # state: translated
-# (1) dlg_prefs.cc:145
+# (1) dlg_prefs.cc:134
 msgid   "Use plain color squares"
 msgstr  "Jednobarevná pole"
 
 # state: untranslated
-# (1) dlg_prefs.cc:229
+# (1) dlg_prefs.cc:218
 msgid   "Use underscores"
 msgstr  ""
 
 # state: translated
-# (1) chess.cc:1479
+# (1) chess.cc:1478
 msgid   "Value"
 msgstr  "Hodnota"
 
 # state: translated
-# (1) chess.cc:1496
+# (1) chess.cc:1495
 msgid   "Value:"
 msgstr  "Hodnota:"
 
 # state: translated
-# (3) dlg_gamelist.cc:322; proto_xboard.cc:1189,1211
+# (3) dlg_gamelist.cc:321; proto_xboard.cc:1188,1210
 msgid   "Variant"
 msgstr  "Varianta"
 
 # state: translated
-# (2) dlg_connect.cc:307,472
+# (2) dlg_connect.cc:306,471
 msgid   "Variant:"
 msgstr  "Varianta:"
 
 # state: translated
-# (1) dlg_connect.cc:445
+# (1) dlg_connect.cc:444
 msgid   "Variant: %s (uneditable)"
 msgstr  "Varianta: %s (neměnné)"
 
 # state: translated
-# (1) p2p.cc:109
+# (1) p2p.cc:108
 msgid   "Wait"
 msgstr  "Čekej"
 
 # state: translated
-# (1) p2p.cc:148
+# (1) p2p.cc:147
 msgid   "Wait for a connection"
 msgstr  "Čekat na spojení"
 
 # state: translated
-# (1) p2p.cc:244
+# (1) p2p.cc:243
 msgid   "Waiting for connection on port %d."
 msgstr  "Čekám na spojení na portu %d."
 
 # state: translated
-# (1) dlg_prefs.cc:269
+# (1) dlg_prefs.cc:258
 msgid   "Warn when own clock is below: "
 msgstr  "Upozornění pokud zbývá méně než: "
 
 # state: translated
-# (1) status.cc:43
+# (1) status.cc:42
 msgid   "Welcome to eboard."
 msgstr  "Vítejte v programu eboard"
 
 # state: translated
-# (5) board.cc:444; dlg_gamelist.cc:320; movelist.cc:65; proto_p2p.cc:550; proto_xboard.cc:1003
+# (5) board.cc:437; dlg_gamelist.cc:319; movelist.cc:64; proto_p2p.cc:549; proto_xboard.cc:1002
 msgid   "White"
 msgstr  "Bílý"
 
 # state: translated
-# (1) bugpane.cc:228
+# (1) bugpane.cc:227
 msgid   "White: %s - %s"
 msgstr  "Bílý: %s - %s"
 
 # state: translated
-# (1) widgetproxy.cc:238
+# (1) widgetproxy.cc:237
 msgid   "Working..."
 msgstr  "Pracuji..."
 
 # state: translated
-# (1) help.cc:266
+# (1) help.cc:265
 msgid   "Write to Console"
 msgstr  "Zapsat do konzole"
 
 # state: translated
-# (1) network.cc:368
+# (1) network.cc:405
 msgid   "Wrong address space"
 msgstr  "Chybný prostor adres"
 
 # state: translated
-# (1) chess.cc:890
+# (1) chess.cc:889
 msgid   "Wrote"
 msgstr  "zapsána"
 
 # state: translated
-# (1) dlg_gamelist.cc:427
+# (1) dlg_gamelist.cc:426
 msgid   "Yes"
 msgstr  "Ano"
 
 # state: translated
-# (1) proto_xboard.cc:414
+# (1) proto_xboard.cc:413
 msgid   "You can only retract when it's your turn to move."
 msgstr  "Vracet tahy můžete pouze pokud jste na tahu."
 
 # state: translated
-# (1) proto_p2p.cc:546
+# (1) proto_p2p.cc:545
 msgid   "Your color:"
 msgstr  "Vaše barva:"
 
 # state: translated
-# (1) p2p.cc:135
+# (1) p2p.cc:134
 msgid   "Your name:"
 msgstr  "Vaše jméno:"
 
 # state: translated
-# (1) mainwindow.cc:2022
+# (1) mainwindow.cc:1969
 msgid   "[chat]"
 msgstr  "[kom]"
 
 # state: translated
-# (2) mainwindow.cc:1980,2023
+# (2) mainwindow.cc:1927,1970
 msgid   "[cmd]"
 msgstr  "[přík]"
 
 # state: untranslated
-# (1) global.cc:389
+# (1) global.cc:374
 msgid   "[eboard] ** $HOME is too long"
 msgstr  ""
 
 # state: translated
-# (1) global.cc:416
+# (1) global.cc:401
 msgid   "[eboard] ** failed to create directory "
 msgstr  "[eboard] ** nepodařilo se vytvořit adresář"
 
 # state: translated
-# (1) global.cc:386
+# (1) global.cc:371
 msgid   "[eboard] ** no $HOME"
 msgstr  "[eboard] ** nenastaveno $HOME"
 
 # state: translated
-# (1) sound.cc:149
+# (1) sound.cc:124
 msgid   "[eboard] bad RC line\n"
 msgstr  "[eboard] chybná řádka v konfiguračním souboru\n"
 
 # state: untranslated
-# (1) mainwindow.cc:2012
+# (1) mainwindow.cc:1959
 msgid   "[find]"
 msgstr  ""
 
 # state: translated
-# (1) sound.cc:314
+# (1) sound.cc:320
 msgid   "beep"
 msgstr  "pípnutí"
 
 # state: translated
-# (1) sound.cc:313
+# (1) sound.cc:319
 msgid   "beeps"
 msgstr  "pípnutí"
 
 # state: translated
-# (1) proto_fics.cc:1914
+# (1) proto_fics.cc:1936
 msgid   "black"
 msgstr  "černý"
 
 # state: translated
-# (1) chess.cc:1254
+# (1) chess.cc:1253
 msgid   "can't load PGN move text from %s (error opening file)"
 msgstr  "nemohu nahrát PGN z %s (chyba při otevírání souboru)"
 
 # state: translated
-# (1) chess.cc:1260
+# (1) chess.cc:1259
 msgid   "can't seek to offset %lu of %s"
 msgstr  "nemohu přejít na offset %lu v %s"
 
 # state: untranslated
-# (1) dgtboard.cc:397
+# (1) dgtboard.cc:396
 msgid   "dgtnix driver version: %s"
 msgstr  ""
 
 # state: untranslated
-# (1) dgtboard.cc:146
+# (1) dgtboard.cc:145
 msgid   "dgtnix version too old: %f, must be >= %f"
 msgstr  ""
 
 # state: translated
-# (1) mainwindow.cc:525
+# (1) mainwindow.cc:519
 msgid   "discards board"
 msgstr  "zruší šachovnici"
 
 # state: translated
-# (1) p2p.cc:33
+# (1) p2p.cc:32
 msgid   "eboard Direct Connection Manager"
 msgstr  "eboard - Správce přímého spojení"
 
 # state: translated
-# (1) mainwindow.cc:790
+# (1) mainwindow.cc:784
 msgid   "eboard version %s (%s)"
 msgstr  "eboard verze %s (%s)"
 
-# state: translated
+# state: lost (deprecated key)
 # (1) help.cc:76
 msgid  ""
 "eboard version %s\n"
@@ -2781,183 +2734,197 @@ msgstr ""
 "Software Foundation; a to verze 2 nebo (dle\n"
 "vašeho uvážení) kterékoliv pozdější.\n"
 
+# state: untranslated
+# (1) help.cc:75
+msgid  ""
+"eboard version %s\n"
+"(c) 2000-%d Felipe Bergo\n"
+"<fbergo@gmail.com>\n"
+"https://github.com/fbergo/eboard\n"
+"\nThis program is free software; you can redistribute\n"
+"it and/or modify it under the terms of the GNU General\n"
+"Public License as published by the Free Software\n"
+"Foundation; either version 2 of the License, or\n"
+"(at your option) any later version.\n"
+msgstr ""
+
 # state: translated
-# (1) text.cc:239
+# (1) text.cc:238
 msgid   "eboard: Console #%d"
 msgstr  "eboard: Konzole #%d"
 
 # state: translated
-# (1) proto_xboard.cc:161
+# (1) proto_xboard.cc:160
 msgid   "engine claimed illegal move but we didn't move, ignoring it."
 msgstr  "motor hlásí neplatný tah, ale my jsme netáhli - ignorujeme ho."
 
 # state: translated
-# (1) chess.cc:1267
+# (1) chess.cc:1266
 msgid   "error parsing PGN data"
 msgstr  "chyba při rozkladu PGN dat"
 
 # state: translated
-# (1) mainwindow.cc:524
+# (1) mainwindow.cc:518
 msgid   "flips board"
 msgstr  "obrátí šachovnici"
 
 # state: translated
-# (5) dlg_gamelist.cc:499,510,516,522,528
+# (5) dlg_gamelist.cc:498,509,515,521,527
 msgid   "game"
 msgstr  "partie"
 
 # state: translated
-# (5) dlg_gamelist.cc:500,511,517,523,529
+# (5) dlg_gamelist.cc:499,510,516,522,528
 msgid   "games"
 msgstr  "partií"
 
 # state: translated
-# (1) dlg_connect.cc:450
+# (1) dlg_connect.cc:449
 msgid   "generic xboard v2"
 msgstr  "obecný xboard v2"
 
 # state: translated
-# (1) mainwindow.cc:520
+# (1) mainwindow.cc:514
 msgid   "goes back 1 halfmove"
 msgstr  "jde zpět 1 půltah"
 
 # state: translated
-# (1) mainwindow.cc:519
+# (1) mainwindow.cc:513
 msgid   "goes back to start of game"
 msgstr  "jde zpět na začátek partie"
 
 # state: translated
-# (1) mainwindow.cc:521
+# (1) mainwindow.cc:515
 msgid   "goes forward 1 halfmove"
 msgstr  "jde vpřed 1 půltah"
 
 # state: translated
-# (1) mainwindow.cc:522
+# (1) mainwindow.cc:516
 msgid   "goes forward to end of game"
 msgstr  "jde vpřed na konec partie"
 
 # state: translated
-# (1) proto_xboard.cc:177
+# (1) proto_xboard.cc:176
 msgid   "illegal move!"
 msgstr  "neplatný tah!"
 
 # state: translated
-# (1) dlg_gamelist.cc:436
+# (1) dlg_gamelist.cc:435
 msgid   "in progress"
 msgstr  "hraje se"
 
 # state: translated
-# (1) clock.cc:342
+# (1) clock.cc:341
 msgid   "initial time %s, increment %s"
 msgstr  "výchozí čas %s, přírůstek %s"
 
 # state: translated
-# (1) clock.cc:479
+# (1) clock.cc:478
 msgid   "moves in"
 msgstr  "tahů za"
 
 # state: translated
-# (1) proto_xboard.cc:1009
+# (1) proto_xboard.cc:1008
 msgid   "no"
 msgstr  "ne"
 
 # state: translated
-# (2) proto_fics.cc:1541,1728
+# (1) proto_fics.cc:1750
 msgid   "no such game: "
 msgstr  "neexistující partie: "
 
 # state: translated
-# (1) clock.cc:333
+# (1) clock.cc:332
 msgid   "no time control set"
 msgstr  "bez časové kontroly"
 
 # state: translated
-# (2) movelist.cc:127,128
+# (2) movelist.cc:126,127
 msgid   "none"
 msgstr  "není"
 
 # state: translated
-# (1) sound.cc:326
+# (1) sound.cc:332
 msgid   "nothing"
 msgstr  "nic"
 
 # state: translated
-# (1) mainwindow.cc:526
+# (1) mainwindow.cc:520
 msgid   "opens new scratch board with position"
 msgstr  "vytvoří novou šachovnici s výchozí pozicí"
 
 # state: translated
-# (1) clock.cc:473
+# (1) clock.cc:472
 msgid   "per move"
 msgstr  "na tah"
 
 # state: translated
-# (1) sound.cc:323
+# (1) sound.cc:329
 msgid   "plain console beep"
 msgstr  "prosté pípnutí konzole"
 
 # state: translated
-# (1) sound.cc:317
+# (1) sound.cc:323
 msgid   "play file %s"
 msgstr  "přehrát soubor %s"
 
 # state: translated
-# (1) mainwindow.cc:523
+# (1) mainwindow.cc:517
 msgid   "pops up the move list"
 msgstr  "zobrazí seznam tahů"
 
 # state: translated
-# (1) network.cc:717
+# (1) network.cc:756
 msgid   "process creation failed."
 msgstr  "Nepodařilo se vytvořit proces."
 
 # state: translated
-# (2) chess.cc:192; seekgraph.cc:549
+# (2) chess.cc:191; seekgraph.cc:548
 msgid   "rated"
 msgstr  "hodnocená"
 
 # state: translated
-# (1) sound.cc:320
+# (1) sound.cc:326
 msgid   "run %s"
 msgstr  "spustit %s"
 
 # state: translated
-# (1) script.cc:256
+# (1) script.cc:255
 msgid   "running %s"
 msgstr  "provádím %s"
 
 # state: translated
-# (1) chess.cc:834
+# (1) chess.cc:833
 msgid   "savePGN failed: %s"
 msgstr  "savePGN neuspělo: %s"
 
 # state: translated
-# (1) chess.cc:819
+# (1) chess.cc:818
 msgid   "savePGN failed: Won't save game with less than 2 moves"
 msgstr  "savePGN neuspělo: Nelze uložit partii s méně než dvěma tahy"
 
 # state: translated
-# (1) dlg_prefs.cc:273
+# (1) dlg_prefs.cc:262
 msgid   "seconds."
 msgstr  "sekund."
 
 # state: translated
-# (2) chess.cc:193; seekgraph.cc:550
+# (2) chess.cc:192; seekgraph.cc:549
 msgid   "unrated"
 msgstr  "volná"
 
 # state: untranslated
-# (1) clock.cc:313
+# (1) clock.cc:312
 msgid   "untimed"
 msgstr  ""
 
 # state: translated
-# (1) proto_fics.cc:1913
+# (1) proto_fics.cc:1935
 msgid   "white"
 msgstr  "bílý"
 
 # state: translated
-# (1) proto_xboard.cc:1008
+# (1) proto_xboard.cc:1007
 msgid   "yes"
 msgstr  "ano"
 
