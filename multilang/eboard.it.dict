@@ -19,9 +19,9 @@ L5 9
 L1543 1674
 #L#Getting Started\n#M#Common Tasks in eboard\n\nPlaying against the computer\n#S#eboard does not "play chess" itself, but rather is works as interface to programs that do,\ncalled "engines", which don't have a graphical interface themselves. You need an engine to\nplay against the computer. GNU Chess, Crafty and Sjeng are chess engines that are available at\nno cost.\nOnce you have one of them installed, open the #B#Peer#K# menu, then the #B#Play against\nengine#K# submenu, and select the appropriate option depending on which engine you have\ninstalled.\n\n#M#Playing Chess on the Internet\n#S#Eboard supports the FICS protocol. FICS runs at freechess.org, but other servers, such as\nUS Chess Live, use FICS's software and should work with eboard too. ICC is not supported.\nTo connect to FICS, open the #B#Peer#K# menu, click #B#Connect to FICS#K#. To connect to\nother servers, open the #B#Peer#K# menu, click #B#Connect to Other Server...#K#.\nWhile you can login as guest on FICS, you'll enjoy it better as a registered user. Registration\nis done through FICS's site at #B#http://www.freechess.org#K#, and it's free.\n\n#M#Browsing PGN Games\n#S#PGN is the most common file format to store chess games. It can store moves and comments\n(annotations). To open this kind of file within eboard, open the #B#Windows#K# menu, click\n#B#Games on Client#K#. In the Local Game List dialog, click #B#Load PGN...#K#. To browse a\ngame, #B#select it#K# and click #B#Display#K#. A new tab will be created in the main window\nwith the game.#L#
 #L#Introduzione\n#M#Usi tipici di eboard\n\nGiocare contro il computer\n#S#Eboard non gioca a scacchi di per sé, ma serve da interfaccia a programmi che lo fanno, chiamati\nmotori, che non possiedono una propria interfaccia grafica.\nPer giocare contro il computer, è necessario scegliere un motore. GNU Chess, Crafty e\nSjeng sono motori gratuiti per giocare a scacchi. Una volta installati, aprire il menu \n#B#Connessioni#K# e il sottomenu #B#Gioca contro un motore#K# e scegliere le opzioni appropriate per\nil motore installato.\n\n#M#Giocare a scacchi su Internet\n#S#Eboard supporta il protocollo FICS. Il servizio FICS gira su freechess.org,\nma anche altri server che usano il software di FICS, come US Chess Live dovrebbero funzionare\ncon eboard. Il protocollo ICC non è supportato.\nPer connettersi a FICS, aprire il menu #B#Connessioni#K# e cliccare su #B#Connetti a FICS#K#.\nPer connettersi a un altro server, usare #B#Connetti a un altro server...#K# nel menu #B#Connessioni#K#.\nAnche se si può entrare in FICS come ospite, si potrà usufruire appieno del servizio\nregistrandosi. La registrazione viene fatta al sito #B#http://www.freechess.org#K#,\ned è totalmente gratuita.\n\n#M#Vedere partite in formato PGN\n#S#PGN è il formato più comune per archiviare partite di scacchi. Può archiviare\nsia mosse che commenti (annotazioni). Per aprire questo tipo di file in eboard,\ncliccare su #B#Partite sul client#K# nel menu #B#Finestre#K#, quindi su #B#Carica PGN...#K#.\nPer vedere una partita sulla scacchiera, selezionarla dalla lista e cliccare su #B#Mostra Partita#K#.\nVerrà creata una nuova scheda con la partita nella finestra principale.#L#
-L30 31
-%d %s to %s, %d Hz for %d msec
-%d %s per %s, %d Hz per %d msec
+L24 24
+%d %s, %d Hz for %d msec
+%d %s, %d Hz per %d msec
 L13 16
 %d games read
 %d partite lette
@@ -49,6 +49,9 @@ L11 12
 L7 8
 %s/move
 %s/mossa
+L10 10
+(HH:MM:SS)
+(HH:MM:SS)
 L33 50
 (Wrapped) Match Found at Line %d.
 (Dall'inizio) Corrispondenza trovata alla riga %d.
@@ -364,6 +367,9 @@ Richieste
 L21 16
 Already connected ?!?
 Già connesso?!?
+L9 9
+Anywhere:
+Dovunque:
 L675 753
 Anywhere:\nF3: Go to previous pane.\nF4: Go to next pane.\nF5: Go to the main board pane.\nF6: Go to the console pane.\nF7: Go to the seek graph pane (if available).\nF8: Toggle Shortcut Bar visilibity.\nPage Up/Page Down: scrolls the text console (must be visible)\nCtrl+(Left Arrow): Backward 1 halfmove\nCtrl+(Right Arrow): Forward 1 halfmove\nCtrl+F: Find Upwards(main console buffer)\nCtrl+G: Find Previous\n\nInput box:\nUp/Down (arrows): move thru input history\nEnter: send text line\nEsc: switch Chat/Command Mode\n\nSyntaxisms:\nIn main window's input box:\n.. entering %prefix text will set the chat prefix to text.\n.. entering %do scriptname will run scriptname.
 Ovunque:\nF3: finestra precedente.\nF4: finestra successiva.\nF5: scacchiera principale.\nF6: finestra della console.\nF7: finestra delle richieste (se disponibile).\nF8: mostra/nasconde la barra dei pulsanti.\nPagSu/PagGiù: scorre la console (deve essere visibile).\nCtrl+FrecciaSx: indietro di una semimossa.\nCtrl+FrecciaDx: avanti di una semimossa.\nCtrl+F: ricerca il testo verso l'alto nella console principale.\nCtrl+G: cerca precedente.\n\nRiga di comando:\nSu/Giù (frecce): scorre la cronologia dei comandi.\nInvio: invia testo.\nEsc: alterna modalità chat/modalità comandi.\n\nSintassi:\nNella riga di comando principale:\n... %prefix testo imposta il prefisso della modalità chat a testo.\n... %do nomescript esegue lo script nomescript.
@@ -397,9 +403,9 @@ Sfondo
 L14 18
 Bad descriptor
 Descrittore errato
-L45 50
-Beep (need Pitch, Duration, Count and Device)
-Beep (richiede frequenza, durata, numero e device)
+L37 42
+Beep (need Pitch, Duration and Count)
+Beep (richiede frequenza, durata e numero)
 L10 11
 Bishop  %d
 Alfiere  %d
@@ -1024,9 +1030,9 @@ Gioca
 L56 64
 Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)
 Gioca %s come %s contro %s (%s, prof. max. %d, pensa sempre: %s)
-L58 62
-Play WAV (need Device and Filename, sox must be installed)
-Suona WAV (richiede device e file, sox deve essere installato)
+L31 39
+Play Media File (need Filename)
+Suona file multimediale (richiede file)
 L19 19
 Play against Crafty
 Gioca contro Crafty
@@ -1186,9 +1192,6 @@ Testo non trovato.
 L8 9
 Seek Ads
 Richieste
-L10 15
-Seek Table
-Lista richieste
 L15 40
 Seek Table Font
 Tipo di carattere per la lista richieste
@@ -1255,9 +1258,9 @@ Eventi sonori
 L6 5
 Sounds
 Suoni
-L54 53
-Source code available at http://eboard.sourceforge.net
-Sorgenti disponibili su http://eboard.sourceforge.net
+L57 56
+Source code available at https://github.com/fbergo/eboard
+Sorgenti disponibili su https://github.com/fbergo/eboard
 L9 6
 Stalemate
 Stallo
@@ -1342,9 +1345,9 @@ Impossibile collegarsi alla porta %d.
 L24 29
 Unable to create socket.
 Impossibile creare il socket.
-L44 57
-Unable to find the DGT board on port %s: %s.
-Impossibile trovare la scacchiera DGT sulla porta %s: %s.
+L40 53
+Unable to find the DGT board on port %s.
+Impossibile trovare la scacchiera DGT sulla porta %s.
 L13 18
 Unknown error
 Errore sconosciuto
@@ -1459,9 +1462,9 @@ Gestore di connessione diretta di eboard
 L22 23
 eboard version %s (%s)
 eboard versione %s (%s)
-L343 349
-eboard version %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttp://eboard.sourceforge.net\n\nThis program is free software; you can redistribute\nit and/or modify it under the terms of the GNU General\nPublic License as published by the Free Software\nFoundation; either version 2 of the License, or\n(at your option) any later version.\n
-eboard versione %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttp://eboard.sourceforge.net\n\nQuesto programma è software libero; è possibile ridistribuirlo\ne/o modificarlo nei termini della GNU General Public\nLicense come pubblicata dalla Free Software Foundation;\nversione 2 della licenza o (a scelta) qualsiasi versione\npiù recente.\n
+L346 352
+eboard version %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttps://github.com/fbergo/eboard\n\nThis program is free software; you can redistribute\nit and/or modify it under the terms of the GNU General\nPublic License as published by the Free Software\nFoundation; either version 2 of the License, or\n(at your option) any later version.\n
+eboard versione %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttps://github.com/fbergo/eboard\n\nQuesto programma è software libero; è possibile ridistribuirlo\ne/o modificarlo nei termini della GNU General Public\nLicense come pubblicata dalla Free Software Foundation;\nversione 2 della licenza o (a scelta) qualsiasi versione\npiù recente.\n
 L19 22
 eboard: Console #%d
 eboard: console num.%d
@@ -1570,4 +1573,4 @@ bianco
 L3 3
 yes
 sì
-E 524
+E 525

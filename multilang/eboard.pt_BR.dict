@@ -13,9 +13,9 @@ L5 9
 L1543 1603
 #L#Getting Started\n#M#Common Tasks in eboard\n\nPlaying against the computer\n#S#eboard does not "play chess" itself, but rather is works as interface to programs that do,\ncalled "engines", which don't have a graphical interface themselves. You need an engine to\nplay against the computer. GNU Chess, Crafty and Sjeng are chess engines that are available at\nno cost.\nOnce you have one of them installed, open the #B#Peer#K# menu, then the #B#Play against\nengine#K# submenu, and select the appropriate option depending on which engine you have\ninstalled.\n\n#M#Playing Chess on the Internet\n#S#Eboard supports the FICS protocol. FICS runs at freechess.org, but other servers, such as\nUS Chess Live, use FICS's software and should work with eboard too. ICC is not supported.\nTo connect to FICS, open the #B#Peer#K# menu, click #B#Connect to FICS#K#. To connect to\nother servers, open the #B#Peer#K# menu, click #B#Connect to Other Server...#K#.\nWhile you can login as guest on FICS, you'll enjoy it better as a registered user. Registration\nis done through FICS's site at #B#http://www.freechess.org#K#, and it's free.\n\n#M#Browsing PGN Games\n#S#PGN is the most common file format to store chess games. It can store moves and comments\n(annotations). To open this kind of file within eboard, open the #B#Windows#K# menu, click\n#B#Games on Client#K#. In the Local Game List dialog, click #B#Load PGN...#K#. To browse a\ngame, #B#select it#K# and click #B#Display#K#. A new tab will be created in the main window\nwith the game.#L#
 #L#Introdução\n#M#Tarefas Comuns no eboard\n\nJogando contra o Computador\n#S#eboard não joga xadrez, mas serve de interface para programas que jogam, chamados de\nengines ou simplesmente programas de xadrez, que não possuem interface gráfica.\nVocê precisa de um programa de xadrez para jogar com o computador. GNU Chess, Crafty e\nSjeng são programas gratuitos que jogam xadrez. Uma vez instalados, abra o menu\n#B#Parceiro#K# e o submenu em #B#Jogar contra um Programa#K#, e escolha a opção apropriada ao\nprograma que você instalou.\n\n#M#Jogando Xadrez na Internet\n#S#Eboard suporta o protocolo FICS. O serviço FICS funciona no endereço freechess.org,\nmas outros servidores que usam o software do FICS, como o US Chess Live devem funcionar\ncom o eboard também. O ICC não é suportado.\nPara conectar ao FICS, abra o menu #B#Parceiro#K# e clique em #B#Conectar ao FICS#K#.\nPara conectar a outro servidor, use a opção #B#Conectar a Outro Servidor...#K# do menu #B#Parceiro#K#.\nEmbora você possa entrar no FICS como convidado (guest), você aproveitará melhor o servidor\ncomo usuário registrado. O registro é feito no site #B#http://www.freechess.org#K#,\ne é totalmente gratuito.\n\n#M#Abrindo Jogos no Formato PGN\n#S#PGN é o formato mais comum para armazenar jogos de xadrez. Ele pode armazenar\nas jogadas e comentários (anotações). Para abrir este tipo de arquivo no eboard,\nclique a opção #B#Jogos no Cliente#K# do menu #B#Janelas#K#, e então clique em #B#Ler PGN...#K#\nPara mostrar um jogo em um tabuleiro, selecione-o na lista e clique em #B#Exibir Jogo#K#.
-L30 32
-%d %s to %s, %d Hz for %d msec
-%d %s para %s, %d Hz por %d mseg
+L24 24
+%d %s, %d Hz for %d msec
+%d %s, %d Hz por %d mseg
 L13 14
 %d games read
 %d jogos lidos
@@ -376,18 +376,15 @@ Auto-gravar jogos jogados
 L8 14
 Autosave
 Autogravação
-L14 15
-Axis & Buttons
-Eixos & Botões
 L10 5
 Background
 Fundo
 L14 19
 Bad descriptor
 Descritor inválido
-L45 52
-Beep (need Pitch, Duration, Count and Device)
-Bipe (requer Tom, Duração, Contagem e Dispositivo)
+L37 39
+Beep (need Pitch, Duration and Count)
+Bipe (requer Tom, Duração e Contagem)
 L10 10
 Bishop  %d
 Bispo   %d
@@ -397,9 +394,6 @@ Pretas
 L14 15
 Black: %s - %s
 Pretas: %s - %s
-L119 167
-Board Cursor Axis: %d\nBoard Select Button: %d\nBoard Browsing Axis: %d\nPrevious Tab Button: %d\nNext Tab Button: %d\n
-Eixo do Cursor do Tabuleiro: %d\nBotão de Seleção do Tabuleiro: %d\nEixo de Navegação de Jogadas: %d\nBotão para Aba Anterior: %d\nBotão para Próxima Aba: %d\n
 L17 24
 Board version :%s
 Versão do Tabuleiro: %s
@@ -436,9 +430,6 @@ Button Icon
 L6 8
 Cancel
 Cancelar
-L29 35
-Cancel Joystick Configuration
-Cancelar Configuração do Joystick
 L26 30
 Cancelled connection wait.
 Espera por conexão cancelada.
@@ -484,9 +475,6 @@ Computador
 L30 44
 Computer White vs. Human Black
 Computador com Brancas vs. Humano com Pretas
-L24 26
-Configure Axis & Buttons
-Configurar Eixos & Botões
 L23 29
 Configured Sound Files:
 Arquivos de Som Configurados:
@@ -568,9 +556,6 @@ Limite de Profundidade:
 L11 11
 Description
 Descrição
-L7 12
-Device:
-Dispositivo:
 L50 27
 Directory to run from (e.g., where book files are)
 Diretório de onde executar
@@ -874,9 +859,6 @@ Preparando programa
 L10 17
 Input Box:
 Caixa de Entrada:
-L8 8
-Joystick
-Joystick
 L3 5
 Key
 Chave
@@ -943,12 +925,6 @@ Profundidade Máxima:
 L30 31
 Move made (Obs'vd/Exm'd Games)
 Movimento (Jogos Observ./Exam.)
-L76 66
-Move the axis to be used for moving back and forth\nthrough moves of a game.
-Mova o eixo a ser usado para navegar pelos movimentos\nde um jogo.
-L46 47
-Move the axis to be used for selecting pieces.
-Mova o eixo a ser usado para selecionar peças.
 L5 7
 Moves
 Jogadas
@@ -1045,9 +1021,9 @@ Jogar
 L56 55
 Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)
 Jogar %s de %s vs. %s (%s, prof. %d, pensar sempre: %s)
-L58 60
-Play WAV (need Device and Filename, sox must be installed)
-Tocar WAV (requer Dispositivo e Nome de arquivo, requer sox)
+L31 50
+Play Media File (need Filename)
+Tocar Arquivo Multimídia (requer Nome de arquivo)
 L19 21
 Play against Crafty
 Jogar contra o Crafty
@@ -1072,15 +1048,6 @@ Pos: %s vs. %s
 L11 13
 Preferences
 Preferências
-L54 55
-Press the button to be used for going to the next tab.
-Pressione o botão a ser usado para ir à próxima aba.
-L58 59
-Press the button to be used for going to the previous tab.
-Pressione o botão a ser usado para voltar à aba anterior.
-L51 54
-Press the button to be used for selecting a square.
-Pressione o botão a ser usado para selecionar peças.
 L12 16
 Private Tell
 Mensagem Pessoal
@@ -1243,12 +1210,6 @@ Escolha de Lado
 L14 14
 Side to move: 
 Lado a jogar: 
-L22 28
-Smooth joystick cursor
-Cursor suave para o joystick
-L29 39
-Smooth joystick cursor speed:
-Velocidade do cursor suave do joystick:
 L34 38
 Smoother animation (eats more CPU)
 Animação mais suave (gasta mais CPU)
@@ -1267,9 +1228,9 @@ Eventos Sonoros
 L6 4
 Sounds
 Sons
-L54 58
-Source code available at http://eboard.sourceforge.net
-Código-fonte disponível em http://eboard.sourceforge.net
+L57 61
+Source code available at https://github.com/fbergo/eboard
+Código-fonte disponível em https://github.com/fbergo/eboard
 L9 11
 Stalemate
 Rei afogado
@@ -1495,9 +1456,9 @@ Gerenciador de Conexão Direta do eboard
 L22 22
 eboard version %s (%s)
 eboard versão %s (%s)
-L343 344
-eboard version %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttp://eboard.sourceforge.net\n\nThis program is free software; you can redistribute\nit and/or modify it under the terms of the GNU General\nPublic License as published by the Free Software\nFoundation; either version 2 of the License, or\n(at your option) any later version.\n
-eboard versão %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttp://eboard.sourceforge.net\n\nEste programa é software livre; você pode redistribui-lo\ne/ou modificá-lo sob os termos da GNU General Public\nLicense tal como publicada pela Free Software Foundation;\nversão 2 da licença ou (sua opção) qualquer versão\nmais recente.\n
+L346 347
+eboard version %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttps://github.com/fbergo/eboard\n\nThis program is free software; you can redistribute\nit and/or modify it under the terms of the GNU General\nPublic License as published by the Free Software\nFoundation; either version 2 of the License, or\n(at your option) any later version.\n
+eboard versão %s\n(c) 2000-%d Felipe Bergo\n<fbergo@gmail.com>\nhttps://github.com/fbergo/eboard\n\nEste programa é software livre; você pode redistribui-lo\ne/ou modificá-lo sob os termos da GNU General Public\nLicense tal como publicada pela Free Software Foundation;\nversão 2 da licença ou (sua opção) qualquer versão\nmais recente.\n
 L19 19
 eboard: Console #%d
 eboard: Console #%d
@@ -1606,4 +1567,4 @@ brancas
 L3 3
 yes
 sim
-E 536
+E 523

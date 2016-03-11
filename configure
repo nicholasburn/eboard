@@ -16,6 +16,7 @@ my $configmake  = "config.make";
 my $nls         = 1;
 my $dataprefix  = '';
 my $manprefix   = '';
+my $osname      = '';
 #my $dgt         = 1;
 
 # ------------
@@ -657,6 +658,8 @@ if (!header_check("gtk/gtk.h","gdk/gdkkeysyms.h"))
 
 # end
 
+$osname = `uname -s`;
+
 if ($dataprefix eq '') {
   $dataprefix = "$prefix/share";
 }
@@ -689,6 +692,7 @@ print CONFIGMAKE "bindir    = \${DESTDIR}$prefix/bin\n";
 print CONFIGMAKE "mandir    = \${DESTDIR}$manprefix\n";
 print CONFIGMAKE "datadir   = \${DESTDIR}$dataprefix/$package\n";
 print CONFIGMAKE "version   = $version\n";
+print CONFIGMAKE "osname    = $osname\n";
 
 close CONFIGMAKE;
 print "wrote $configmake\n";

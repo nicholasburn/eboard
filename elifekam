@@ -1,5 +1,6 @@
 
 ### here starts the fixed Makefile section
+### -*- makefile -*-
 
 DIST = eboard-$(version)
 
@@ -25,7 +26,7 @@ BUILDTOOLS = configure elifekam eboard-config.in eboard.spec.in eboard-addtheme
 
 TEXT = ChangeLog README INSTALL AUTHORS COPYING TODO
 
-all: eboard nls-dicts
+all: eboard zseal nls-dicts
 
 debug: eboard.dbg
 
@@ -41,6 +42,9 @@ dbg_%.o: %.cc $(HEADERS) $(XPMS)
 %.o: %.cc $(HEADERS) $(XPMS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+zseal: zseal.c
+	$(CC) -Wall -O2 zseal.c -o zseal
+
 nls-dicts:
 	$(MAKE) -C multilang dicts
 
@@ -52,11 +56,12 @@ distclean:
 
 install: install-bin install-man install-data install-extras install-nls
 
-install-bin: eboard
+install-bin: eboard zseal
 	$(INSTALL) -d $(bindir)
 	$(INSTALL) -m 0755 eboard $(bindir)/eboard
 	$(INSTALL) -m 0755 eboard-config   $(bindir)/eboard-config
 	$(INSTALL) -m 0755 eboard-addtheme $(bindir)/eboard-addtheme
+	$(INSTALL) -m 0755 zseal $(datadir)/timeseal.$(osname)
 
 install-man:
 	$(INSTALL) -d $(mandir)/man1
