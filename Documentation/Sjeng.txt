@@ -4,7 +4,7 @@ Sjeng
 This document describes the issues related to running the
 Sjeng chess engine together with eboard.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. What is Sjeng ?
 2. Getting Sjeng

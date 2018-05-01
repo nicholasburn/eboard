@@ -4,7 +4,7 @@ Crafty
 This document describes the issues related to running the
 Crafty chess engine together with eboard.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. What is Crafty ?
 2. Getting Crafty

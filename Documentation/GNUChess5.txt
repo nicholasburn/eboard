@@ -4,7 +4,7 @@ GNU Chess 5
 This document discusses the issues related to running the
 GNU Chess 5.0 (or newer) engine together with eboard.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. What is GNU Chess 5 ?
 2. Getting GNU Chess 5

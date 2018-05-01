@@ -4,7 +4,7 @@ GNU Chess 4
 This document discusses the issues related to running the
 GNU Chess 4.x engine together with eboard.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. What is GNU Chess 4 ?
 2. Getting GNU Chess 4
@@ -26,10 +26,7 @@ versions.
 
 You may be able to find GNU Chess 4.x in some GNU FTP
 mirrors or in old source code CDs of operating system
-distributions. I'm keeping the last GNU Chess 4 version,
-4.0pl80 in eboard's anonymous FTP directory at
-
-ftp://ftp.seul.org/pub/chess
+distributions.
 
 Note that GNU Chess 4 and 5 may conflict with each other
 (you can have only one of them installed, or eboard

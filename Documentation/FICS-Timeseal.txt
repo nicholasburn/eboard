@@ -1,10 +1,9 @@
-
 FICS-Timeseal
 
 This document describes the configuration of FICS's timeseal
 program to work with eboard.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. What is FICS timeseal ?
 2. Getting timeseal
@@ -27,10 +26,9 @@ timeseal is foolish.
 
 2. Getting timeseal
 
-The Linux Timeseal is available from the FICS Download page
-(http://www.freechess.org => Download)
-
-People on X86_64 can use the 32-bit timeseal without problems.
+This version of eboard has an open source implementation of the FICS
+timeseal client. It is compiled as zseal (from zseal.c), and installed as
+timeseal.SYSTEM (SYSTEM=Linux on Linux distros).
 
 3. Naming and Location
 

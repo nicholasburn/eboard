@@ -4,7 +4,7 @@ Themes
 This document describes the format for piece sets and sounds
 and how eboard searches for them.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. File format
 2. Location

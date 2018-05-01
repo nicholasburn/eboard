@@ -4,7 +4,7 @@ Scripts
 This documents describes how to use scripts to
 automate tasks within eboard.
 
-Felipe Bergo <bergo@seul.org>
+Felipe Bergo <fbergo at gmail dot com>
 
 1. Language and Location
 2. Requirements and I/O
