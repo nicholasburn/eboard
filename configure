@@ -607,10 +607,10 @@ chomp($gstversion);
 
 $gstversion = "NOT FOUND" if ($gstversion eq "");
 
-if (version_cmp($gstversion,"1.0.0","99.0.0")!=0) {
+if (version_cmp($gstversion,"1.6.0","99.0.0")!=0) {
     print "$gstversion, ok\n";
 } else {
-    print "$gstversion, WILL NOT DO (must be >= 1.0.0)\n";
+    print "$gstversion, WILL NOT DO (must be >= 1.6.0)\n";
     print "** See INSTALL file for directions.\n";
     exit 2;
 }

@@ -191,7 +191,7 @@ void SoundEvent::gstPlay(const string &_input) {
   //printf("gstPlay=[%s]\n",input.c_str());
 
   memset(gst_string,0,512);
-  snprintf(gst_string,511,"playbin2 uri=file://%s",input.c_str());
+  snprintf(gst_string,511,"playbin uri=file://%s",input.c_str());
 
   pipeline = gst_parse_launch(gst_string, NULL);
   gst_element_set_state(pipeline, GST_STATE_PLAYING);
@@ -281,14 +281,10 @@ void SoundEvent::gstBeep() {
   pd->beep = mb;
 
   pd->pipeline = gst_parse_launch("playbin uri=appsrc://", NULL);
-  //printf("pipeline ok ?\n");
 
   g_signal_connect(pd->pipeline, "source-setup", G_CALLBACK(gstbeep_setup), pd);
-  //printf("A\n");
   bus = gst_element_get_bus(pd->pipeline);
-  //printf("B\n");
   gst_element_set_state(pd->pipeline, GST_STATE_PLAYING);
-  //printf("C\n");
   
   //printf("beep::waiting\n");
 
