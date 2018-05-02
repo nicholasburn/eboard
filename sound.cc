@@ -228,7 +228,7 @@ static void gstbeep_push(GstElement *src, PlaybackData *pd) {
 
   int chunk = 2 * pd->beep->samples;
 
-  printf("gstbeep_push chunk=%d B samples=%d\n",chunk, chunk/2);
+  //printf("gstbeep_push chunk=%d B samples=%d\n",chunk, chunk/2);
   buffer = gst_buffer_new_and_alloc(chunk);
     
   if (buffer != NULL) {
@@ -243,7 +243,7 @@ static void gstbeep_push(GstElement *src, PlaybackData *pd) {
     g_signal_emit_by_name (src, "push-buffer", buffer, &ret);
     gst_buffer_unref(buffer);
 
-    if (ret != GST_FLOW_OK) printf("oops ret = %d\n", (int)ret);
+    //if (ret != GST_FLOW_OK) printf("oops ret = %d\n", (int)ret);
   }
   g_signal_emit_by_name(src, "end-of-stream", &ret);
   
@@ -254,7 +254,7 @@ static void gstbeep_setup(GstElement *pipeline, GstElement *source, PlaybackData
   GstCaps *audio_caps;
   GstFlowReturn ret;
   
-  printf("beep::setup\n");
+  //printf("beep::setup\n");
   
   pd->src = source;
 
@@ -274,28 +274,28 @@ void SoundEvent::gstBeep() {
   GstBus *bus;
   GstMessage *msg;
 
-  printf("beep::go\n");
+  //printf("beep::go\n");
 
   mb = new MultiBeep(44100,Duration,Pitch,Count);
   pd = new PlaybackData();
   pd->beep = mb;
 
   pd->pipeline = gst_parse_launch("playbin uri=appsrc://", NULL);
-  printf("pipeline ok ?\n");
+  //printf("pipeline ok ?\n");
 
   g_signal_connect(pd->pipeline, "source-setup", G_CALLBACK(gstbeep_setup), pd);
-  printf("A\n");
+  //printf("A\n");
   bus = gst_element_get_bus(pd->pipeline);
-  printf("B\n");
+  //printf("B\n");
   gst_element_set_state(pd->pipeline, GST_STATE_PLAYING);
-  printf("C\n");
+  //printf("C\n");
   
-  printf("beep::waiting\n");
+  //printf("beep::waiting\n");
 
   msg = gst_bus_timed_pop_filtered(bus, GST_CLOCK_TIME_NONE, (GstMessageType)(GST_MESSAGE_EOS | GST_MESSAGE_ERROR));
   if (msg != NULL) {
 
-
+    /*
     if (GST_MESSAGE_TYPE(msg) == GST_MESSAGE_ERROR) {
       GError *err;
       gchar *debug_info;
@@ -305,7 +305,7 @@ void SoundEvent::gstBeep() {
       g_clear_error (&err);
       g_free (debug_info);
     }
-
+    */
 
     gst_message_unref(msg);
   }
