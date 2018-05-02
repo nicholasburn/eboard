@@ -563,16 +563,31 @@ if ($pkgconfig eq '') {
 }
 
 print "$pkgconfig\n";
+print "looking for GLib2 version... ";
+$glibversion = `$pkgconfig --modversion glib-2.0`;
+chomp($glibversion);
+
+$glibversion = "NOT FOUND" if ($glibversion eq "");
+
+if (version_cmp($glibversion,"2.30.0","2.99.9")!=0) {
+    print "$glibversion, ok\n";
+} else {
+    print "$glibversion, WILL NOT DO (must be >= 2.30.0 and < 2.99.9)\n";
+    print "** See INSTALL file for directions.\n";
+    exit 2;
+}
+
+print "$pkgconfig\n";
 print "looking for GTK+ version... ";
 $gtkversion = `$pkgconfig --modversion gtk+-2.0`;
 chomp($gtkversion);
 
 $gtkversion = "NOT FOUND" if ($gtkversion eq "");
 
-if (version_cmp($gtkversion,"2.0.0","2.99.9")!=0) {
+if (version_cmp($gtkversion,"2.4.0","2.99.9")!=0) {
     print "$gtkversion, ok\n";
 } else {
-    print "$gtkversion, WILL NOT DO (must be >= 2.0.0 and < 2.99.9)\n";
+    print "$gtkversion, WILL NOT DO (must be >= 2.4.0 and < 2.99.9)\n";
     print "** See INSTALL file for directions.\n";
     exit 2;
 }
