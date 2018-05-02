@@ -62,6 +62,15 @@ int main(int argc,char **argv) {
   gdk_rgb_init();
   gst_init(&argc,&argv);
 
+  {
+    SoundEvent beep;
+    beep.Pitch=444;
+    beep.Duration=40;
+    beep.Count=3;
+    beep.play();
+  }
+
+  
   for(i=1;i<argc;i++) {
     if (!strcmp(argv[i],"-log"))
       global.CommLog=1;
