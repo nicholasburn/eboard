@@ -124,9 +124,17 @@ make install
 
 For further instructions see the INSTALL file. You'll need:
 
-- the GTK+ library, version 2.2.0
+- the GTK+ library, version >= 2.4.0
 
-- 
+- Glib2 version >= 2.30
+
+- Gstreamer library, version >= 1.6.0
+  (note that gstreamer 0.x and 1.x are independent libraries; this
+  version of eboard requires 1.x >= 1.6.0, on RedHat/Fedora, the
+  packages you need are gstreamer1, gstreamer1-devel, and
+  gstreamer1-plugins* )
+
+- libpng, >= 1.2.0
 
 - the C++ standard library (libstdc++)
 
