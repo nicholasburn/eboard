@@ -221,47 +221,32 @@ public:
   int         pos;
 };
 
-static void gstbeep_produce(GstElement *src, guint size, PlaybackData *pd) {
+static void gstbeep_push(GstElement *src, PlaybackData *pd) {
   GstBuffer *buffer;
   GstFlowReturn ret;
   GstMapInfo info;
-  int chunk;
-  int silence = 0;
-  
-  if (pd->pos >= pd->beep->samples) {
-    g_signal_emit_by_name(src, "end-of-stream", &ret);
-    silence = 1;
-  }
 
-  chunk = silence ? (int) size : (2 * pd->beep->samples);
-  
-  if (chunk>0) {
+  int chunk = 2 * pd->beep->samples;
 
-    printf("beep::produce pos =%d (%d) samples=%d chunk=%d B\n",pd->pos, chunk/2, pd->beep->samples,chunk,chunk/2);
-    buffer = gst_buffer_new_and_alloc(chunk);
+  printf("gstbeep_push chunk=%d B samples=%d\n",chunk, chunk/2);
+  buffer = gst_buffer_new_and_alloc(chunk);
     
-    if (buffer != NULL) {
-      GST_BUFFER_TIMESTAMP(buffer) = gst_util_uint64_scale(pd->pos, GST_SECOND, pd->beep->SampleRate);
-      GST_BUFFER_DURATION(buffer)  = gst_util_uint64_scale(chunk/2, GST_SECOND, pd->beep->SampleRate);
+  if (buffer != NULL) {
+    GST_BUFFER_TIMESTAMP(buffer) = gst_util_uint64_scale(0, GST_SECOND, pd->beep->SampleRate);
+    GST_BUFFER_DURATION(buffer)  = gst_util_uint64_scale(chunk/2, GST_SECOND, pd->beep->SampleRate);
 
-      gst_buffer_map(buffer, &info, GST_MAP_WRITE);
+    gst_buffer_map(buffer, &info, GST_MAP_WRITE);
 
-      if (silence) {
-	printf("silence mode chunk=%d\n",chunk);
-	memset( info.data, 0, chunk);
-      } else {
-	memcpy( info.data, &(pd->beep->data[pd->pos]), chunk );
-      }
-      pd->pos += chunk/2;
-      gst_buffer_unmap(buffer, &info);
+    memcpy( info.data, pd->beep->data, chunk );
+    gst_buffer_unmap(buffer, &info);
       
-      g_signal_emit_by_name (src, "push-buffer", buffer, &ret);
-      gst_buffer_unref(buffer);
+    g_signal_emit_by_name (src, "push-buffer", buffer, &ret);
+    gst_buffer_unref(buffer);
 
-      if (ret != GST_FLOW_OK) printf("oops ret = %d\n", (int)ret);
-    }
+    if (ret != GST_FLOW_OK) printf("oops ret = %d\n", (int)ret);
   }
-
+  g_signal_emit_by_name(src, "end-of-stream", &ret);
+  
 }
 
 static void gstbeep_setup(GstElement *pipeline, GstElement *source, PlaybackData *pd) {
@@ -278,12 +263,8 @@ static void gstbeep_setup(GstElement *pipeline, GstElement *source, PlaybackData
 
   audio_caps = gst_caps_from_string (audio_caps_text);
   g_object_set (source, "caps", audio_caps, "format", GST_FORMAT_TIME, NULL);
-  //g_signal_connect (source, "need-data", G_CALLBACK (gstbeep_produce), pd);
-
-  gstbeep_produce(source, 4096, pd);
-  g_signal_emit_by_name(source, "end-of-stream", &ret);
-  
   gst_caps_unref (audio_caps);
+  gstbeep_push(source, pd);
   g_free (audio_caps_text);
 }
 
