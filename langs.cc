@@ -95,7 +95,6 @@ void Translator::setContext(const char *language,
 			    const char *searchpath)
 {
   tstring t;
-  string *s;
   FILE *f;
   char fname[64], fname2[64], dicfile[512];
 
@@ -116,11 +115,12 @@ void Translator::setContext(const char *language,
 
   t.set(searchpath);
 
-  while((s=t.token(":"))!=0) {
-    snprintf(dicfile,512,"%s/%s",s->c_str(), fname);
+  std::string s;
+  while(!(s=t.token(":")).empty()) {
+    snprintf(dicfile,512,"%s/%s",s.c_str(), fname);
     f = fopen(dicfile,"r");
     if (f==0) {
-      snprintf(dicfile,512,"%s/%s",s->c_str(), fname2);
+      snprintf(dicfile,512,"%s/%s",s.c_str(), fname2);
       f = fopen(dicfile,"r");
     }
     if (f!=0) {

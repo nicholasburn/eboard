@@ -406,7 +406,6 @@ int Global::createDir(char *z) {
 
 void Global::readRC() {
   tstring t;
-  string  *p;
   char    line[512],rev[128];
 
   static const char *sep=" \n\t,:\r^";
@@ -441,31 +440,31 @@ void Global::readRC() {
     t.set(line);
     memset(line,0,512);
 
-    p=t.token(sep);
-    if (!p) continue;
-    if (p->at(0)=='#') continue;
+    auto &p=t.token(sep);
+    if (t.done()) continue;
+    if (p[0]=='#') continue;
 
     for(j=0;j<=57;j++) {
-      if (! p->compare(RCKeys[j]) ) {
+      if (! p.compare(RCKeys[j]) ) {
 	switch(j) {
 	case  0: HilightLastMove =t.tokenvalue(sep); break;
 	case  1: AnimateMoves    =t.tokenvalue(sep); break;
 	case  2: Premove         =t.tokenvalue(sep); break;
-	case  3: setPieceSet(*(t.token(sep3)),true,true); break;
-	case  4: p=t.token(sep); TabPos=rev[p->at(0)]; break;
+	case  3: setPieceSet(t.token(sep3),true,true); break;
+	case  4: p=t.token(sep); TabPos=rev[p[0]]; break;
 	case  5: p=t.token(sep2);        memset(ClockFont,0,96);
-	         p->copy(ClockFont,95);  break;
+	         p.copy(ClockFont,95);  break;
 	case  6: p=t.token(sep2);        memset(PlayerFont,0,96);
-	         p->copy(PlayerFont,95); break;
+	         p.copy(PlayerFont,95); break;
 	case  7: p=t.token(sep2);        memset(InfoFont,0,96);
-	         p->copy(InfoFont,95);   break;
+	         p.copy(InfoFont,95);   break;
 	case  8: PlainSquares    =t.tokenvalue(sep); break;
 	case  9: LightSqColor    =t.tokenvalue(sep,16); break;
 	case 10: DarkSqColor     =t.tokenvalue(sep,16); break;
 	case 11: hbm=new HostBookmark(); 
-	         p=t.token(sep4); p->copy(hbm->host,128);
+	         p=t.token(sep4); p.copy(hbm->host,128);
 	         hbm->port=t.tokenvalue(sep4);
-	         p=t.token(sep4); p->copy(hbm->protocol,64);
+	         p=t.token(sep4); p.copy(hbm->protocol,64);
 	         HostHistory.push_back(hbm);
 	         break;
 	case 12: break; // deprecated (antialias)
@@ -482,17 +481,17 @@ void Global::readRC() {
 	case 21: AppendPlayed    =t.tokenvalue(sep); break;
 	case 22: AppendObserved  =t.tokenvalue(sep); break;
 	case 23: p=t.token(sep);          memset(AppendFile,0,128);
- 	         p->copy(AppendFile,127); break;
+ 	         p.copy(AppendFile,127); break;
 	case 24: p=t.token(sep2);         memset(ConsoleFont,0,96);
-	         p->copy(ConsoleFont,95); break;
+	         p.copy(ConsoleFont,95); break;
 	case 25: IcsSeekGraph        =t.tokenvalue(sep); break;
 	case 26: HideSeeks           =t.tokenvalue(sep); break;
 	case 27: SplitChannels       =t.tokenvalue(sep); break;
 	case 28: ChannelsToConsoleToo=t.tokenvalue(sep); break;
 	case 29: DrawHouseStock      =t.tokenvalue(sep); break;
 	case 30: p=t.token(sep3);
-	         if (p->compare(pieceset->getSquareName()))
-		   setPieceSet(*p,false,true);
+	         if (p.compare(pieceset->getSquareName()))
+		   setPieceSet(p,false,true);
 		 break;
 	case 31: PopupSecondaryGames =t.tokenvalue(sep); break;
 	case 32: SmartDiscard        =t.tokenvalue(sep); break;
@@ -502,7 +501,7 @@ void Global::readRC() {
 	case 36: Desk.readConsole(t); break;
 	case 37: ShowQuickbar        =t.tokenvalue(sep); break;
 	case 38: qb=new QButton(); qb->icon=t.tokenvalue(sep5);
-       	         qb->caption=*(t.token(sep5)); qb->command=*(t.token(sep5));
+       	         qb->caption=t.token(sep5); qb->command=t.token(sep5);
 		 QuickbarButtons.push_back(qb);
 		 break;
 	case 39: LowTimeWarningLimit =t.tokenvalue(sep); break;
@@ -511,12 +510,12 @@ void Global::readRC() {
 	case 42: ebm=new EngineBookmark(); ebm->read(t);
 	         EnginePresets.push_back(ebm); break;
 	case 43: p=t.token(sep2); memset(SeekFont,0,96);
-	         p->copy(SeekFont,95); break;
+	         p.copy(SeekFont,95); break;
 		 //	default: cerr << "ignored [" << (*p) << "]\n";
 	case 44: IcsAllObPlayed      =t.tokenvalue(sep); break;
 	case 45: IcsAllObObserved    =t.tokenvalue(sep); break;
 	case 46: p=t.token(sep2); memset(P2PName,0,64);
-                 p->copy(P2PName,63); break;
+                 p.copy(P2PName,63); break;
 	case 47: ShowTimestamp       =t.tokenvalue(sep); break;
 	case 48: SpecialChars        =t.tokenvalue(sep); break;
 	case 49:
@@ -759,12 +758,8 @@ void Global::repaintAllBoards() {
   respawnPieceSet();
 }
 
-bool Global::hasSoundFile(string &p) {
-  int i,j;
-  j=SoundFiles.size();
-  for(i=0;i<j;i++)
-    if ( ! SoundFiles[i].compare(p) )
-      return true;
+bool Global::hasSoundFile(const string &p) const {
+  for(const auto &sf : SoundFiles) if (sf.compare(p)==0) return true;
   return false;
 }
 
@@ -1070,16 +1065,15 @@ int EngineBookmark::operator==(EngineBookmark *ebm) {
 
 void EngineBookmark::read(tstring &t) {
   static const char *sep="^\n\r";
-  string *p;
 
-  caption     = *(t.token(sep));
-  directory   = *(t.token(sep));
-  cmdline     = *(t.token(sep));
+  caption     = t.token(sep);
+  directory   = t.token(sep);
+  cmdline     = t.token(sep);
   humanwhite  = t.tokenvalue(sep);
 
-  p = t.token(sep);
-  if (p)
-    timecontrol.fromSerialization(p->c_str());
+  auto &p = t.token(sep);
+  if (!p.empty())
+    timecontrol.fromSerialization(p.c_str());
 
   maxply      = t.tokenvalue(sep);
   think       = t.tokenvalue(sep);
@@ -1097,7 +1091,7 @@ IcsChannel::IcsChannel(char *s) {
   tstring t;
   t.set(s);
   number = t.tokenvalue(sep);
-  name   = * (t.token(sep));
+  name   = t.token(sep);
 }
 
 void ChannelSplitter::getChannels(char *ipaddr) {
@@ -1365,9 +1359,6 @@ void Desktop::clear() {
   for(i=consoles.begin();i!=consoles.end();i++)
     delete(*i);
 
-  for(j=cfilters.begin();j!=cfilters.end();j++)
-    delete(*j);
-
   consoles.clear();
   cfilters.clear();
   PanePosition = 0;
@@ -1387,24 +1378,21 @@ void Desktop::writeConsoles(ostream &s, const char *key) {
   j=consoles.size();
   for(i=0;i<j;i++) {
     s << key << "::" << (*consoles[i]);
-    s << (*(cfilters[i])) << endl;
+    s << cfilters[i] << endl;
   }
 }
 
 void Desktop::readConsole(tstring &t) {
   WindowGeometry *wg;
-  string *p,*s;
   static const char *sep="\n\r";
   
   wg=new WindowGeometry();
   wg->read(t);
 
-  p=t.token(sep);
-  s=new string();
-  if (p) (*s)=(*p);
+  std::string p=t.token(sep);
 
   consoles.push_back(wg);
-  cfilters.push_back(s);
+  cfilters.push_back(p);
 }
 
 void Desktop::addConsole(DetachedConsole *dc) {
@@ -1412,7 +1400,7 @@ void Desktop::addConsole(DetachedConsole *dc) {
   wg=new WindowGeometry();
   wg->retrieve(dc->widget);
   consoles.push_back(wg);
-  cfilters.push_back(new string(dc->getFilter()));
+  cfilters.push_back(std::string(dc->getFilter()));
 }
 
 void Desktop::spawnConsoles(TextSet *ts) {
@@ -1425,8 +1413,8 @@ void Desktop::spawnConsoles(TextSet *ts) {
     dc=new DetachedConsole(ts,0);
     dc->show();
     dc->restorePosition(consoles[i]);
-    if (cfilters[i]->size()) {
-      g_strlcpy(tmp,cfilters[i]->c_str(),512);
+    if (cfilters[i].size()) {
+      g_strlcpy(tmp,cfilters[i].c_str(),512);
       dc->setFilter(tmp);
     }
   }

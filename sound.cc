@@ -85,7 +85,6 @@ int SoundEvent::operator!=(SoundEvent &se) {
 void SoundEvent::read(tstring &rcline) {
   int t;
   static const char *sep=",\r\n";
-  string *p;
 
   memset(ExtraData,0,256);
 
@@ -96,7 +95,7 @@ void SoundEvent::read(tstring &rcline) {
     Count=1;
     Pitch=rcline.tokenvalue(sep);
     Duration=rcline.tokenvalue(sep);
-    p=rcline.token(sep); // Device value, deprecated
+    rcline.token(sep); // Device value, deprecated
     Count=rcline.tokenvalue(sep);
     if (!Count) Count=1;
     enabled = rcline.tokenbool(sep,true);
@@ -104,14 +103,14 @@ void SoundEvent::read(tstring &rcline) {
   case 1: // EXT_WAVE
     type=EXT_WAVE;
     Pitch=Duration=0;
-    p=rcline.token(sep); // Device value, deprecated
-    p=rcline.token(sep); p->copy(ExtraData,255);
+    rcline.token(sep); // Device value, deprecated
+    rcline.token(sep).copy(ExtraData,255);
     enabled = rcline.tokenbool(sep,true);
     break;
   case 2: // EXT_PROGRAM
     type=EXT_PROGRAM;
     Pitch=Duration=0;
-    p=rcline.token(sep); p->copy(ExtraData,255);
+    rcline.token(sep).copy(ExtraData,255);
     enabled = rcline.tokenbool(sep,true);
     break;
   case 3: // PLAIN_BEEP

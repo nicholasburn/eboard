@@ -812,7 +812,7 @@ bool ChessGame::savePGN(char *filename, bool append) {
   list<Position>::iterator li;
   int xp,lm,mn;
   tstring t;
-  string sp, path, *p;
+  std::string sp, path, p;
 
   if (moves.size() < 4) {
     global.status->setText(_("savePGN failed: Won't save game with less than 2 moves"),5);
@@ -858,9 +858,9 @@ bool ChessGame::savePGN(char *filename, bool append) {
       lm=mn;
       xp+=(lm>9)?4:3; // MINOR BUG FOR GAMES WITH 100+ MOVES
     }
-    p=t.token("(). \t");
-    f << (*p) << ' ';
-    xp+=1+p->length();
+    const auto &p = t.token("(). \t");
+    f << p << ' ';
+    xp+=1+p.size();
 
     if (xp>70) {
       xp=0;

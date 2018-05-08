@@ -100,7 +100,7 @@ void qb_shortcut(GtkWidget *w, gpointer data) {
   int *v;
   char z[2048],y[2048],a[2048];
   tstring t;
-  string *p;
+  std::string p;
 
   v=(int *) data;
 
@@ -120,11 +120,11 @@ void qb_shortcut(GtkWidget *w, gpointer data) {
     }
 
     t.set(z);
-    while((p=t.token(";"))!=0) {
-      g_strlcpy(y,p->c_str(),2048);
+    while(!(p=t.token(";")).empty()) {
+      g_strlcpy(y,p.c_str(),2048);
       global.protocol->sendUserInput(y);
       g_strlcpy(y,_("> [issued from shortcut] "),2048);
-      g_strlcat(y,p->c_str(),2048);
+      g_strlcat(y,p.c_str(),2048);
       global.output->append(y, global.SelfInputColor);   
     }    
    

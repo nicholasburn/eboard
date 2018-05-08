@@ -181,7 +181,7 @@ void dlg_connect_ok(GtkWidget *w,gpointer data) {
 	    gtk_entry_get_text(GTK_ENTRY(GTK_COMBO(cd->protocol)->entry)),64);  
 
   t.set(cd->Host);
-  if (! t.token(" \n\t\r"))
+  if (t.token(" \n\t\r").empty())
     return;
 
   hbm=new HostBookmark();

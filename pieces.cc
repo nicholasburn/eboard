@@ -668,7 +668,6 @@ CImg * PieceSet::FallbackLoad() {
   int w,h,c,i,j;
   rgbptr data, p;
   CImg *img;
-  string *s;
 
   int cmap[256];
   int rgb;
@@ -683,9 +682,9 @@ CImg * PieceSet::FallbackLoad() {
     t.set(fallback_xpm[i+1]);
     t.token("\t");
     t.token(" ");
-    s=t.token("# \t");
-    if (s)
-      rgb=strtol(s->c_str(),0,16);
+    auto &s=t.token("# \t");
+    if (!s.empty())
+      rgb=strtol(s.c_str(),0,16);
     else
       rgb=0;
     cmap[fallback_xpm[i+1][0]]=rgb;

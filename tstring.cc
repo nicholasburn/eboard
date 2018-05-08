@@ -29,64 +29,79 @@
 tstring::tstring() {
   chomp=false;
   fail=0;
+  pos=0;
 }
 
-void tstring::set(string &s) {
+void tstring::set(const std::string &s) {
   pos=0;
   src=s;
-  ptoken.erase();
+  ptoken.clear();
 }
 
-void tstring::set(const char *s) {
-  pos=0;
-  src=s;
-  ptoken.erase();
-}
+std::string &tstring::token(const std::string &sep) {
+  if (sep != lastsep) lastsep = sep;
+  auto j=src.size();
 
-string * tstring::token(const char *t) {
-  int j;
-  j=src.length();
-  
-  if (pos>=j) return 0;
-
-  ptoken.erase();
+  ptoken.clear();
+  if (pos>=j) return ptoken;
   
   // skip to first position of token
-  while ( strchr(t, src[pos]) ) {
+  while ( sep.find_first_of(src[pos]) != std::string::npos ) {
     pos++;
-    if (pos>=j)
-      return 0;
+    if (pos>=j)return ptoken;
   }
 
-  while ( ! strchr(t, src[pos]) ) {
-    ptoken+=src[pos];
+  while ( sep.find_first_of(src[pos]) == std::string::npos ) {
+    ptoken += src[pos];
     pos++;
-    if (pos>=j)
-      break;
+    if (pos>=j) break;
   }
 
-  if ( chomp && pos<j )
-    ++pos;
+  if ( chomp && pos<j ) ++pos;
 
-  return(&ptoken);
+  //printf("src=[%s] pos=%d token=[%s]\n",src.c_str(),(int)pos,ptoken.c_str());
+  return(ptoken);
 }
 
-int tstring::tokenvalue(const char *t, int base) {
-  string *v;
-  int n;
-  v=token(t);
-  if (!v) return fail;
-  n=(int) strtol(v->c_str(),0,base);
-  return n;
+std::string & tstring::next() {
+  auto j=src.size();
+
+  ptoken.clear();  
+  if (pos>=j) return ptoken;
+  
+  // skip to first position of token
+  while ( lastsep.find_first_of(src[pos]) != std::string::npos ) {
+    pos++;
+    if (pos>=j) return ptoken;
+  }
+
+  while ( lastsep.find_first_of(src[pos]) == std::string::npos ) {
+    ptoken += src[pos];
+    pos++;
+    if (pos>=j) break;
+  }
+
+  if ( chomp && pos<j ) ++pos;
+
+  return(ptoken);
 }
 
-bool tstring::tokenbool(const char *t, bool defval) {
-  string *v;
-  int n;
-  v=token(t);
-  if (!v) return defval;
-  n=(int) atoi(v->c_str());
-  return(n!=0);
+bool tstring::done() const {
+  return(pos>=src.size());
+}
+
+int tstring::tokenvalue(const std::string &sep, int base) {
+  if (sep != lastsep) lastsep = sep;
+  std::string v=token(sep);
+  if (v.empty()) return fail;
+  return(std::stoi(v,0,base));
+}
+
+bool tstring::tokenbool(const std::string &sep, bool defval) {
+  if (sep != lastsep) lastsep = sep;
+  std::string v=token(sep);
+  if (v.empty()) return defval;
+  return(std::stoi(v,0)!=0);
 }
 
 void tstring::setChomp(bool v) {
@@ -99,5 +114,18 @@ void tstring::setFail(int v) {
 
 void tstring::reset() {
   pos=0;
-  ptoken.erase();
+  ptoken.clear();
+}
+
+std::string & tstring::curToken() {
+  return(ptoken);
+}
+
+std::string file::basename(const std::string &path) {
+  auto p = path.find_last_of('/');
+  if (p == std::string::npos) p=0; else ++p;
+  auto q = path.size()-1;
+  while(path[q] < 32 && q>0) --q;
+  std::string out = path.substr(p,q-p+1);
+  return out;
 }

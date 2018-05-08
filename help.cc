@@ -307,14 +307,16 @@ namespace Help {
     me = (DebugDialog *) data;
     t.set(me->pipedata);
     global.output->append("=== START DEBUG INFO ===",0xc0ff00);
-    while( (c=t.token("\n")) != 0) {
-      memset(z,0,512);
-      c->copy(z,511);
-      global.output->append(z, global.Colors.TextBright);
+    for(auto &c = t.token("\n");!t.done();c=t.next()) {
+      if (!c.empty()) {
+	memset(z,0,512);
+	c.copy(z,511);
+	global.output->append(z, global.Colors.TextBright);
+
+      }
     }
     global.output->append("=== END DEBUG INFO ===",0xc0ff00);
   }
-
 
   GettingStarted::GettingStarted() : NonModalDialog(N_("Help: Getting Started ")) {
     GtkWidget *v, *ts, *bhb, *ok, *fr;

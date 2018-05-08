@@ -130,15 +130,15 @@ void MoveListWindow::populate_clist(list<Position> &moves, int over,
       cm=tm;
     }
 
-    p=t.token(" \n");
-    if (p)
-      if (!p->compare("..."))
-	gtk_clist_set_text(GTK_CLIST(clist),i,2,t.token("\n")->c_str());
+    auto &p=t.token(" \n");
+    if (!p.empty())
+      if (!p.compare("..."))
+	gtk_clist_set_text(GTK_CLIST(clist),i,2,t.token("\n").c_str());
       else {
 	t.reset();
 	t.token(".");
 	p=t.token("\n");
-	gtk_clist_set_text(GTK_CLIST(clist),i,1,p->c_str());
+	gtk_clist_set_text(GTK_CLIST(clist),i,1,p.c_str());
       }
   }
 

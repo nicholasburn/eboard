@@ -667,12 +667,13 @@ void p2ppad_propose(GtkWidget *w, gpointer data) {
   char z[64];
   int T,a,b;
   tstring t;
-  string *p;
-
+  std::string p;
+  
   t.set(gtk_entry_get_text(GTK_ENTRY(me->wtime)));
   a = 0;
-  while((p=t.token(":"))!=0)
-    a = (60*a) + atoi(p->c_str());
+  
+  while(!(p=t.token(":")).empty())
+    a = (60*a) + atoi(p.c_str());
   
   b = atoi(gtk_entry_get_text(GTK_ENTRY(me->winc)));  
   g.timecontrol.setIcs(a,b);

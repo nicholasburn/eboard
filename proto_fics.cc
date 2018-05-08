@@ -1246,7 +1246,6 @@ void FicsProtocol::parseStyle12(char *data) {
   static const char *sep=" \t\n";
   tstring t;
   int i,j;
-  string *sp;
   Position pos;
   int blacktomove;
   int game;
@@ -1270,13 +1269,13 @@ void FicsProtocol::parseStyle12(char *data) {
   
   // the position itself
   for(i=7;i>=0;i--) {
-    sp=t.token(sep);
+    auto &sp=t.token(sep);
     for(j=0;j<8;j++)
-      pos.setPiece(j,i,style12table[sp->at(j)]);
+      pos.setPiece(j,i,style12table[sp[j]]);
   }
 
-  sp=t.token(sep); // B / W (color to move)
-  blacktomove=(sp->at(0)=='B');
+  auto &sp=t.token(sep); // B / W (color to move)
+  blacktomove=(sp[0]=='B');
 
   pos.ep[0]=t.tokenvalue(sep); // double pawn push
   if (blacktomove)
@@ -1302,8 +1301,8 @@ void FicsProtocol::parseStyle12(char *data) {
 
   memset(plyr[0],0,64);
   memset(plyr[1],0,64);
-  t.token(sep)->copy(plyr[0],63); // white's name
-  t.token(sep)->copy(plyr[1],63); // black's name
+  t.token(sep).copy(plyr[0],63); // white's name
+  t.token(sep).copy(plyr[1],63); // black's name
 
   rel=t.tokenvalue(sep); // relationship
 
@@ -1356,8 +1355,8 @@ void FicsProtocol::parseStyle12(char *data) {
 
   memset(stra,0,64);
   memset(strb,0,64);
-  t.token(sep)->copy(stra,63); // time taken for previous move
-  t.token(sep)->copy(strb,63); // pretty print for previous move
+  t.token(sep).copy(stra,63); // time taken for previous move
+  t.token(sep).copy(strb,63); // pretty print for previous move
 
   flip=t.tokenvalue(sep);    // flip board ?
 
@@ -2055,7 +2054,6 @@ gboolean fics_allob(gpointer data) {
 bool FicsProtocol::doAllOb1() {
   int n,i;
   tstring t;
-  string *p;
   bool islast = false;
 
   //  cerr << "allob2\n";
@@ -2071,19 +2069,20 @@ bool FicsProtocol::doAllOb1() {
  
   snprintf(AllObAcc,1024,"Observing game %d: ",n);
   i=0;
-  while((p=t.token(" "))!=0) {
-
-    if ( (*p)[0] == '(' ) {
+  for(auto &p=t.token(" ");!t.done();p=t.next()) {
+    if (p.empty()) break;
+    
+    if ( p[0] == '(' ) {
       islast = true;
       break;
     }
 
     if(i!=0) strcat(AllObAcc,", ");
-    g_strlcat(AllObAcc,p->c_str(),1024);
+    g_strlcat(AllObAcc,p.c_str(),1024);
     ++i;
 
     //    cerr << "partial: [" << AllObAcc << "]\n";
-
+    
     if (strlen(AllObAcc) > 128) {
       g_strlcat(AllObAcc,"...",1024);
       break;
@@ -2105,13 +2104,13 @@ void FicsProtocol::doAllOb2() {
   int i;
   bool islast = false;
   tstring t;
-  string *p;
 
   t.set(AllObFirstLine.getStarToken(0));
- 
-  while((p=t.token(" "))!=0) {
 
-    if ( (*p)[0] == '(' ) {
+  for(auto &p=t.token(" ");!t.done();p=t.next()) {
+    if (p.empty()) break;
+
+    if ( p[0] == '(' ) {
       islast = true;
       break;
     }
@@ -2119,14 +2118,14 @@ void FicsProtocol::doAllOb2() {
       continue;
 
     g_strlcat(AllObAcc,", ",1024);
-    g_strlcat(AllObAcc,p->c_str(),1024);
+    g_strlcat(AllObAcc,p.c_str(),1024);
     ++i;
     if (strlen(AllObAcc) > 128) {
       g_strlcat(AllObAcc,"...",1024);
       break;
     }
   }
-
+  
   if (islast) {
     AllObState = 2;
     global.status->setText(AllObAcc,28);

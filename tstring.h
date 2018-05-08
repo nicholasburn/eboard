@@ -25,12 +25,9 @@
 #ifndef TSTRING_H
 #define TSTRING_H
 
-#include "stl.h"
+#include <string>
 
 // string tokenizer
-// differs from the one in gps (http://gps.seul.org) and eboard 0.4.3
-// since it only matches strtok behavior after setChomp(true).
-// it's cleaner too.
 
 class tstring {
  public:
@@ -47,29 +44,44 @@ class tstring {
   void setFail(int v);
 
   /* sets the working string and resets position to its start */
-  void set(string &s);
-  void set(const char *s);
+  void set(const std::string &s);
 
   /* keeps working string but resets position to the start */
   void reset();
 
   /* returns a pointer to the next token, t is string of delimiter
      characters */
-  string *token(const char *t);
+  std::string &token(const std::string &sep);
 
   /* returns the integer value of the next token, delimited by
      characters of t and assumed to be in the given base */
-  int    tokenvalue(const char *t, int base=10);
+  int tokenvalue(const std::string &sep, int base=10);
 
   /* returns false if number is zero, true if not, defval if no
      more tokens */
-  bool   tokenbool(const char *t, bool defval);
+  bool tokenbool(const std::string &sep, bool defval);
 
+  /* returns current token */
+  std::string &curToken();
+
+  /* advances to next token using last separator string */
+  std::string &next();
+
+  /* true if end of input string was reached */
+  bool done() const;
+  
  private:
-  string ptoken, src;
-  int    pos;
+  std::string ptoken, src, lastsep;
+  size_t pos;
   bool   chomp;
   int    fail;
+};
+
+// file name manipulation
+class file {
+ public:
+  static std::string basename(const std::string &path);
+
 };
 
 #endif

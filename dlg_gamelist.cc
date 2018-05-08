@@ -390,7 +390,6 @@ void StockListDialog::refresh() {
   int j;
 
   char ka[256], kb[256];
-  string *kp;
   int kids[4];
 
   vector<GtkCTreeNode *> filenodes;
@@ -398,7 +397,6 @@ void StockListDialog::refresh() {
   vector<int>    count;
 
   GtkCTreeNode *myfile;
-  tstring t;
 
   SelectedRow=-1;
   gtk_clist_freeze(GTK_CLIST(clist));
@@ -484,16 +482,11 @@ void StockListDialog::refresh() {
   for(i=0;i<count.size();i++) {
     memset(ka,0,256);
     filenames[i].copy(ka,255);
-    t.set( filenames[i] );
 
-    do {
-      kp=t.token("/\n\r");
-      if (kp) { 
-	memset(ka,0,256);
-	kp->copy(ka,255);
-      }
-    } while(kp);
-
+    auto base = file::basename(filenames[i]);
+    memset(ka,0,256);
+    base.copy(ka,255);
+      
     snprintf(kb,256,"%s (%d %s)", ka, count[i], 
 	     count[i]==1?_("game"):
                          _("games"));

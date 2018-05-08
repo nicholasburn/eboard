@@ -185,8 +185,8 @@ class Desktop {
   int PanePosition;
 
  private:
-  vector<WindowGeometry *> consoles;
-  vector<string *> cfilters;
+  std::vector<WindowGeometry *> consoles;
+  std::vector<std::string> cfilters;
 };
 
 class Environment {
@@ -258,7 +258,7 @@ class Global : public ChannelSplitter
   void updateScrollBacks();
   void dropQuickbarButtons();
 
-  bool hasSoundFile(string &p);
+  bool hasSoundFile(const string &p) const;
 
   Notebook * getNotebook();
 

@@ -568,7 +568,6 @@ void MainWindow::parseThemeFile(char *name) {
   ThemeEntry *te;
   list<ThemeEntry *>::iterator it;
   tstring t;
-  string *p;
   int ndc=0;
 
   if (name==0) return;
@@ -584,19 +583,19 @@ void MainWindow::parseThemeFile(char *name) {
     // sound file
     if (s[0]=='+') {
       t.set(&s[1]);
-      p=t.token(comma);
-      if ( p && !global.hasSoundFile(*p) )
-	global.SoundFiles.push_back( * (new string(*p)) );
+      auto &p=t.token(comma);
+      if ( !p.empty() && !global.hasSoundFile(p) )
+	global.SoundFiles.push_back(p);
       continue;
     }
 
     t.set(s);
-    p=t.token(comma);
-    if (!p) continue;
+    auto &p=t.token(comma);
+    if (p.empty()) continue;
     te=new ThemeEntry();
-    te->Filename=*p;
+    te->Filename=p;
     p=t.token(comma);
-    if (p) te->Text=*p;
+    if (!p.empty()) te->Text=p;
     
     // avoid dupes      
     for(it=Themes.begin();it!=Themes.end();it++) {

@@ -979,7 +979,7 @@ void XBoardProtocol::readDialog() {
 
 void XBoardProtocol::makeBookmarkCaption() {
   tstring t,u;
-  string x, *p;
+  string x;
   char caption[1024], z[128];
 
   if (!ebm) return;
@@ -988,11 +988,11 @@ void XBoardProtocol::makeBookmarkCaption() {
   x=EngineCommandLine;
   if (x.empty()) x="<blank?>";
   
-  p=t.token(" ");
-  if (p != 0) {
-    u.set(*p);
-    while( (p=u.token("/")) != 0 )
-      x=*p;
+  auto &p=t.token(" ");
+  if (!p.empty()) {
+    u.set(p);
+    while( !(p=u.token("/")).empty() )
+      x=p;
   }
   
   ebm->timecontrol.toString(z,128);

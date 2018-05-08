@@ -527,7 +527,6 @@ void TextFilter::set(const char *t) {
   char local[1024],single[512];
   const char *p;
   char *q;
-  string *P;
 
   cleanUp();
   if (!strlen(t))
@@ -544,14 +543,14 @@ void TextFilter::set(const char *t) {
 
   T.set(local);
 
-  while( ( P=T.token("|\n\r") ) != 0 ) {
-    if (! P->empty() ) {
+  for(auto &P=T.token("|\n\r");!T.done();P=T.next()) {
+    if (! P.empty() ) {
       epm=new ExtPatternMatcher();
       single[0]=0;
-      if (P->at(0) != '*')
+      if (P.at(0) != '*')
 	g_strlcat(single,"*",512);
-      g_strlcat(single,P->c_str(),512);
-      if (P->at(P->length()-1) != '*')
+      g_strlcat(single,P.c_str(),512);
+      if (P.at(P.size()-1) != '*')
 	g_strlcat(single,"*",512);
       epm->set(single);
       thefilter.push_back(epm);
