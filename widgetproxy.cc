@@ -3,7 +3,7 @@
     eboard - chess client
     http://www.bergo.eng.br/eboard
     https://github.com/fbergo/eboard
-    Copyright (C) 2000-2016 Felipe Bergo
+    Copyright (C) 2000-2018 Felipe Bergo
     fbergo/at/gmail/dot/com
 
     This program is free software; you can redistribute it and/or modify
@@ -335,7 +335,7 @@ void ColorButton::updateButtonFace() {
 void colorb_click(GtkWidget *b,gpointer data) {
   ColorButton *me;
   GtkWidget *dlg;
-  gdouble c[3];
+  gdouble c[4];
 
   me=(ColorButton *)data;
 
@@ -344,6 +344,7 @@ void colorb_click(GtkWidget *b,gpointer data) {
   c[0]=( (gdouble) ((me->ColorValue>>16)) )/256.0;
   c[1]=( (gdouble) ((me->ColorValue>>8)&0xff) ) / 256.0;
   c[2]=( (gdouble) ((me->ColorValue&0xff)) )/256.0;
+  c[3]=1.0;
   gtk_color_selection_set_color(GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dlg)->colorsel),c);
   gtk_signal_connect (GTK_OBJECT (GTK_COLOR_SELECTION_DIALOG (dlg)->ok_button),
 		      "clicked", GTK_SIGNAL_FUNC(colorb_csok),data);
@@ -358,7 +359,7 @@ void colorb_click(GtkWidget *b,gpointer data) {
 void colorb_csok(GtkWidget *b,gpointer data) {
   ColorButton *me;
   me=(ColorButton *)data;
-  gdouble c[3];
+  gdouble c[4];
   int v[3];
   gtk_color_selection_get_color(GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(me->colordlg)->colorsel),c);
   v[0]=(int)(c[0]*255.0);

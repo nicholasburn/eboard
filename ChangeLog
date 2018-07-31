@@ -13,6 +13,9 @@ eboard ChangeLog
 
 1.1.3
   * [all] Upgraded from gstreamer 0.10 to 1.0
+ 
+  * [all] fixed stack smashing bug related to gtk color selection dialog 
+          ( https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=893167 )
 
 1.1.2
   * [all] Removed joystick support
