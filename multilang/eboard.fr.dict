@@ -1,6 +1,6 @@
-L72 83
+L72 84
  ** PNG LOAD FAILED: using internal low-res pieceset. It'll look ugly.\n
- ** PNG NON CHARGÉ: utilisation du jeu de pièce interne. Ça va pas être beau.\n
+ ** PNG NON CHARGÉ: utilisation du jeu de pièces interne. Ça va pas être beau.\n
 L11 14
  Browse... 
  Parcourir... 
@@ -16,9 +16,9 @@ L14 20
 L5 11
  Set 
  Appliquer 
-L1543 1524
+L1543 1535
 #L#Getting Started\n#M#Common Tasks in eboard\n\nPlaying against the computer\n#S#eboard does not "play chess" itself, but rather is works as interface to programs that do,\ncalled "engines", which don't have a graphical interface themselves. You need an engine to\nplay against the computer. GNU Chess, Crafty and Sjeng are chess engines that are available at\nno cost.\nOnce you have one of them installed, open the #B#Peer#K# menu, then the #B#Play against\nengine#K# submenu, and select the appropriate option depending on which engine you have\ninstalled.\n\n#M#Playing Chess on the Internet\n#S#Eboard supports the FICS protocol. FICS runs at freechess.org, but other servers, such as\nUS Chess Live, use FICS's software and should work with eboard too. ICC is not supported.\nTo connect to FICS, open the #B#Peer#K# menu, click #B#Connect to FICS#K#. To connect to\nother servers, open the #B#Peer#K# menu, click #B#Connect to Other Server...#K#.\nWhile you can login as guest on FICS, you'll enjoy it better as a registered user. Registration\nis done through FICS's site at #B#http://www.freechess.org#K#, and it's free.\n\n#M#Browsing PGN Games\n#S#PGN is the most common file format to store chess games. It can store moves and comments\n(annotations). To open this kind of file within eboard, open the #B#Windows#K# menu, click\n#B#Games on Client#K#. In the Local Game List dialog, click #B#Load PGN...#K#. To browse a\ngame, #B#select it#K# and click #B#Display#K#. A new tab will be created in the main window\nwith the game.#L#
-#L#Premiers pas\n#M#Tâches courantes\n\nJouer contre l'ordinateur\n#S#eboard ne "joue" pas a proprement parlé aux échecs mais est une interface pour des "moteurs" tels que GNU Chess, Crafty ou Sjeng (qui sont disponibles gratuitement). Une fois un moteur installé, ouvrez le menu #B#Jeu#K#, puis le sous-menu #B#Jouer contre un moteur#K# et sélectionnez les options appropriées pour ce moteur.\n\n#M#Jouer sur Internet\n#S#eboard supporte le protocole FICS utilisé sur freechess.org. D'autres serveurs, comme US Chess Live, utilisent FICS et devraient fonctionner avec eboard. Pour se connecter au FICS, dans le menu #B#Jeu#K#, cliquez sur #B#Se connecter au FICS#K#. Pour se connecter à d'autres serveurs, dans le menu #B#Jeu#K#, cliquez sur #B#Se connecter à d'autres serveurs#K#. Vous pouvez jouer en tant qu'invité sur FICS mais il est plus plaisant d'être inscrit. L'inscription est gratuite sur le site #B#http://www.freechess.org#K#.\nLe protocole ICC n'est pas supporté\n\n#M#Parcourir des parties PGN\n#S#PGN (Portable Game Notation) est le format le plus répandu pour sauvegarder des parties d'échecs. Les coups et des commentaires peuvent être enregistrés. Pour ouvrir un fichier PGN, dans le menu #B#Fenêtres#K#, choisissez #B#Parties sur le client#K#. Dans la boîte de dialogue, cliquez sur #B#Charger un fichier PGN#K#. Pour afficher une partie, sélectionnez-la et cliquez sur #B#Afficher cette partie#K#. Un nouvel onglet est alors ajouté contenant la partie qui vient d'être chargée.#L#
+#L#Premiers pas\n#M#Tâches courantes\n\nJouer contre l'ordinateur\n#S#eboard ne "joue" pas à proprement parler aux échecs, mais est plutôt une interface pour des "moteurs" tels que GNU Chess, Crafty ou Sjeng (qui sont disponibles gratuitement). Une fois un moteur installé, ouvrez le menu #B#Jeu#K#, puis le sous-menu #B#Jouer contre un moteur#K# et sélectionnez les options appropriées pour ce moteur.\n\n#M#Jouer sur Internet\n#S#eboard supporte le protocole FICS utilisé sur freechess.org. D'autres serveurs, comme US Chess Live, utilisent FICS et devraient fonctionner avec eboard. Pour se connecter au FICS, dans le menu #B#Jeu#K#, cliquez sur #B#Se connecter au FICS#K#. Pour se connecter à d'autres serveurs, dans le menu #B#Jeu#K#, cliquez sur #B#Se connecter à d'autres serveurs#K#. Vous pouvez jouer en tant qu'invité sur FICS mais il est plus plaisant d'être inscrit. L'inscription est gratuite sur le site #B#http://www.freechess.org#K#.\nLe protocole ICC n'est pas supporté.\n\n#M#Parcourir des parties PGN\n#S#PGN (Portable Game Notation) est le format le plus répandu pour sauvegarder des parties d'échecs. Les coups et des commentaires peuvent être enregistrés. Pour ouvrir un fichier PGN, dans le menu #B#Fenêtres#K#, choisissez #B#Parties sur le client#K#. Dans la boîte de dialogue, cliquez sur #B#Charger un fichier PGN#K#. Pour afficher une partie, sélectionnez-la et cliquez sur #B#Afficher cette partie#K#. Un nouvel onglet est alors ajouté contenant la partie qui vient d'être chargée.#L#
 L30 34
 %d %s to %s, %d Hz for %d msec
 %d %s vers %s, %d Hz pendant %d ms
@@ -34,33 +34,33 @@ L25 28
 L41 45
 %s (white) vs. %s (black)\n%s\n%d:%.2d %d
 %s (Blancs) contre %s (Noirs)\n%s\n%d:%.2d %d
-L31 35
+L31 36
 %s accepted your game proposal.
-%s a accepté votre demande de jeu.
+%s a accepté votre offre de partie.
 L18 13
 %s engine started.
 %s démarré.
-L17 18
+L17 20
 %s offers a draw.
-%s propose le nul.
+%s propose la nulle.
 L11 11
 %s per move
 %s par coup
 L7 7
 %s/move
 %s/coup
-L33 33
+L33 42
 (Wrapped) Match Found at Line %d.
-(Wrapped) Trouvé à la ligne %d 
+(Enroulé) Partie trouvée à la ligne %d.
 L64 64
 (c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)
 (c) 2000-%d Felipe Bergo <fbergo@gmail.com> (pseudo FICS: Pulga)
-L39 40
+L39 46
 (message obfuscated -- password mode ?)
-(message refusé -- mode mot de passe ?)
-L14 16
+(message dissimulé -- en mode mot de passe ?)
+L14 15
 (no bookmarks)
-(pas de signets)
+(pas de signet)
 L6 7
 (none)
 (aucun)
@@ -73,12 +73,12 @@ L18 23
 L47 48
 ** [eboard] bad engine protocol # in bookmark: 
 ** [eboard] mauvais protocole # dans le signet: 
-L57 53
+L57 72
 ** eboard ** warning: HOME environment variable not set\n
-** eboard ** attention: variable HOME non assignée\n
-L26 49
+** eboard ** avertissement: variable d'environnement HOME non définie\n
+L26 28
 --- %s game to PGN file %s
---- partie %s enregistrée dans le fichier PGN %s
+--- partie %s fichier PGN %s
 L16 16
 --- Disconnected
 --- Déconnecté
@@ -91,24 +91,24 @@ L19 32
 L12 26
 /Game/_Abort
 /Partie/Arrêter la partie
-L17 24
+L17 26
 /Game/_Offer Draw
-/Partie/Proposer le _Nul
+/Partie/Proposer la _Nulle
 L13 19
 /Game/_Resign
 /Partie/A_bandonner
-L22 28
+L22 27
 /Help/_About eboard...
-/Hilfe/À propos d'eboard...
+/Aide/À propos d'eboard...
 L17 31
 /Help/_Debug Info
 /Aide/Informations de débogage
 L22 18
 /Help/_Getting Started
 /Aide/Premiers pas
-L11 25
+L11 24
 /Help/_Keys
-/Aides/Raccourcis clavier
+/Aide/Raccourcis clavier
 L10 10
 /Help/sep4
 /Aide/sep4
@@ -154,9 +154,9 @@ L26 20
 L11 19
 /Peer/_Quit
 /Jeu/Quitter eboard
-L42 40
+L42 38
 /Peer/_Scratch Board with Initial Position
-/Jeu/Échiquier avec positions initiales
+/Jeu/Échiquier avec position initiale
 L10 9
 /Peer/sep2
 /Jeu/sep2
@@ -166,45 +166,45 @@ L10 9
 L10 9
 /Peer/sep4
 /Jeu/sep4
-L48 63
+L48 64
 /Settings/Bitmapped Piece Sets/Load _Pieces Only
-/Paramètres/Jeu de pièce bitmap/Charger les pièces seulement
-L49 61
+/Paramètres/Jeu de pièces bitmap/Charger les pièces seulement
+L49 62
 /Settings/Bitmapped Piece Sets/Load _Squares Only
-/Paramètres/Jeu de pièce bitmap/Charger les cases seulement
-L42 51
+/Paramètres/Jeu de pièces bitmap/Charger les cases seulement
+L42 52
 /Settings/Bitmapped Piece Sets/Load _Theme
-/Paramètres/Jeu de pièce bitmap/Charger un thème
-L31 33
+/Paramètres/Jeu de pièces bitmap/Charger un thème
+L31 34
 /Settings/Bitmapped Piece _Sets
-/Paramètres/Jeu de pièce bitmap
+/Paramètres/Jeu de pièces bitmap
 L35 46
 /Settings/Enable Legality _Checking
 /Paramètres/Vérifier la légalité des coups
 L55 61
 /Settings/ICS Behavior/Popup Board Panes _Upon Creation
 /Paramètres/Paramètres ICS/Popup Board Panes _Upon Creation
-L69 70
+L69 78
 /Settings/ICS Behavior/Smart _Discard Observed Boards After Game Ends
-/Paramètres/Paramètres ICS/Supprimer l'échiquier d'une partie finie
-L18 33
+/Paramètres/Paramètres ICS/Supprimer l'échiquier après la fin de la partie
+L18 32
 /Settings/Pre_move
-/Paramètres/Coup joué en avance
+/Paramètres/Coup joué d'avance
 L27 37
 /Settings/Sho_w Coordinates
 /Paramètres/Montrer les coordonnées
 L24 29
 /Settings/_Animate Moves
 /Paramètres/Animer les coups
-L33 47
+L33 50
 /Settings/_Beep on Opponent Moves
-/Paramètres/Bipper après coup de l'adversaire
+/Paramètres/Bipper après le coup de l'adversaire
 L30 34
 /Settings/_Enable Other Sounds
 /Paramètres/Jouer les autres sons
-L30 38
+L30 48
 /Settings/_Highlight Last Move
-/Paramètres/Surligner le dernier coup
+/Paramètres/Mettre en évidence le dernier coup
 L23 28
 /Settings/_ICS Behavior
 /Paramètres/Paramètres ICS
@@ -223,21 +223,21 @@ L23 33
 L28 35
 /Windows/Games on _Client...
 /Fenêtres/Parties sur le client...
-L31 56
+L31 52
 /Windows/Save Desktop _Geometry
-/Fenêtres/Sauvegarder position et taille de la fenêtre
+/Fenêtres/Sauvegarder la disposition de la fenêtre
 L29 41
 /Windows/Save _Text Buffer...
-/Fenêtres/Sauvegarder le buffer texte...
+/Fenêtres/Sauvegarder le tampon texte...
 L26 37
 /Windows/_Ads on Server...
 /Fenêtres/Annonces sur le serveur...
 L26 31
 /Windows/_Detached Console
 /Fenêtres/Détacher la console
-L32 38
+L32 41
 /Windows/_Find Text (upwards)...
-/Fenêtres/Rechercher texte suivant...
+/Fenêtres/Rechercher le texte suivant...
 L28 36
 /Windows/_Games on Server...
 /Fenêtres/Parties sur le serveur...
@@ -315,7 +315,7 @@ L46 56
 <Protocole XBoard> Moteur incompatible avec ce protocole
 L33 36
 <XBoard Protocol> Session Aborted
-<Protocole XBoard> Session Arrêtée
+<Protocole XBoard> Session abrégée
 L35 55
 <XBoard Protocol> draw request sent
 <Protocole XBoard> Proposition de partie nulle envoyée
@@ -324,7 +324,7 @@ L9 10
 <édition>
 L17 24
 > (password sent)
-> (mot de passe envoyé)
+> (Mot de passe envoyé)
 L23 21
 > [issued from menu] %s
 > [depuis le menu] %s
@@ -351,7 +351,7 @@ Ad List
 Liste des annonces
 L23 36
 Ad List (refreshing...)
-Liste des annonces (lise à jour...)
+Liste des annonces (mise à jour...)
 L33 30
 Add to Peer/Engine Bookmarks menu
 Ajouter aux signets de moteurs
@@ -370,9 +370,9 @@ Anywhere:\nF3: Go to previous pane.\nF4: Go to next pane.\nF5: Go to the main bo
 L10 9
 Appearance
 Apparence
-L8 8
+L8 11
 Appended
-Ajoutée
+ajoutée au
 L5 9
 Apply
 Appliquer
@@ -394,9 +394,9 @@ Axes & Boutons
 L10 4
 Background
 Fond
-L14 18
+L14 30
 Bad descriptor
-Mauvais descriptor
+Mauvais descripteur de fichier
 L45 56
 Beep (need Pitch, Duration, Count and Device)
 Bip (fréquence, durée, répétition et périphérique)
@@ -405,13 +405,13 @@ Bishop  %d
 Fou      %d
 L5 5
 Black
-Noirs
+noirs
 L14 14
 Black: %s - %s
 Noirs: %s - %s
-L119 169
+L119 168
 Board Cursor Axis: %d\nBoard Select Button: %d\nBoard Browsing Axis: %d\nPrevious Tab Button: %d\nNext Tab Button: %d\n
-1Axe du curseur de l'échiquier: %d\nBouton de sélection d'échiquier: %d\nAxe de navigation d'échiquier: %d\nBouton onglet précédent: %d\nBouton ongle suivant: %d\n
+Axe du curseur de l'échiquier: %d\nBouton de sélection d'échiquier: %d\nAxe de navigation d'échiquier: %d\nBouton onglet précédent: %d\nBouton ongle suivant: %d\n
 L17 27
 Board version :%s
 Version de l'échiquier :%s
@@ -430,15 +430,15 @@ Texte surligné
 L6 9
 Browse
 Parcourir
-L19 31
+L19 39
 Buffer Save failed.
-Sauvegarde du buffer échouée.
+Échec lors de la sauvegarde du tampon.
 L8 8
 Bughouse
 Bughouse
-L22 22
+L22 30
 Bughouse: Partner Game
-Bughouse: Partner Game
+Bughouse: partie du partenaire
 L15 17
 Bus address :%s
 Adresse de bus:%s
@@ -454,9 +454,9 @@ Icone
 L6 7
 Cancel
 Annuler
-L29 36
+L29 38
 Cancel Joystick Configuration
-Annuler la configuration du joystick
+Annuler la configuration de la manette
 L26 40
 Cancelled connection wait.
 Attente de l'annulation de la connection
@@ -472,9 +472,9 @@ Annonce du canal
 L9 3
 Checkmate
 Mat
-L14 19
+L14 20
 Chess Programs
-Programmes d'échec
+Programmes d'échecs
 L11 17
 Choose Font
 Choisir la police
@@ -543,7 +543,7 @@ Console Font
 Police de la console
 L21 33
 Console buffer saved.
-Buffer de la console sauvegardé.
+Tampon de la console sauvegardé.
 L6 7
 Count:
 Nombre:
@@ -568,9 +568,9 @@ Message DGT: erreur de position entre eboard et l'échiquier DGT
 L31 30
 DGT: unrecognized code: %c (%d)
 DGT: code non reconnu: %c (%d)
-L15 14
+L15 17
 Dark Squares...
-Cases foncées
+Cases foncées...
 L18 29
 Delete All Entries
 Supprimer toutes les entrées
@@ -610,24 +610,27 @@ Affiché
 L81 54
 Distributed under the terms of the GNU General Public License, version 2 or later
 Distribué selon la GNU GPL, version 2 ou postérieure
-L12 12
+L12 15
 Draw Offered
-Nul proposé
-L16 27
+Nulle proposée
+L16 37
 Draw offer sent.
-Proposition de nul envoyée
-L18 22
+Proposition de partie nulle envoyée.
+L18 23
 Drawn by agreement
-Nul accepté (NdT: ??)
+Nulle par accord mutuel
 L11 20
 Drop Piece:
-Prise de la pièce: 
+Déposer la pièce: 
 L16 11
 Duration (msec):
 Durée (ms)
+L18 27
+Dynamic Seek Graph
+Graphique dynamique activé
 L18 41
 Dynamic Seek Table
-Tableau de recherche de parties dynamique
+Tableau dynamique de recherche de parties
 L17 23
 Edit Bookmarks...
 Édition des signets...
@@ -649,42 +652,45 @@ Signets de moteurs
 L14 18
 Engine Command
 Commande du moteur
-L12 14
+L12 15
 Engine Type:
-Type du moteur
+Type de moteur:
 L28 35
 Engine Type: %s (uneditable)
 Type du moteur: %s (non modifiable)
-L43 62
+L43 65
 Engine asked more time to startup, waiting.
-Le moteur a besoin de temps pour se lancer, veuillez attendre.
+Le moteur a besoin de temps pour être lancé; veuillez attendre.
 L19 31
 Engine command line
 Commande de lancement du moteur
-L14 14
+L14 15
 Engine loaded.
-Moteur chargé
-L14 16
+Moteur chargé.
+L14 18
 Engine running
-Moteur en marche
+Moteur en fonction
 L30 30
 Engine started (2 sec timeout)
 Moteur démarré (2 s timeout)
-L18 19
+L18 22
 Enter FEN Position
-Entrer Position FEN
+Entrez la position FEN
 L10 18
 Event Type
 Type d'événement
-L13 18
+L13 22
 Exam.Game #%d
-Analyse partie #%d
-L21 31
+Analyser la partie #%d
+L20 22
+Failed command line:
+Échec de la commande:
+L21 35
 Failed to run engine.
-Lancemement du moteur échoué.
+Échec lors du lancement du moteur.
 L28 35
 Failed to run helper program
-Program d'aide impossible à lancer
+N'a pu lancer l'application externe
 L30 39
 File to play / Program to run:
 Fichier à jouer / programme à lancer:
@@ -696,7 +702,7 @@ Filter: (none)
 Filtre: (aucun)
 L36 39
 Finish the current connection first.
-Terminer la connexion actuelle d'abord.
+Terminez d'abord la connexion en cours.
 L30 36
 Finish the current game first.
 Terminer la partie actuelle d'abord.
@@ -775,30 +781,30 @@ Partie ajoutée à %s
 L17 16
 Game in progress.
 Partie en cours.
-L13 16
+L13 20
 Game over: %s
-Partie finie: %s
+Partie terminée: %s
 L19 31
 Game proposal sent.
 Proposition de partie envoyée.
 L13 19
 Game started!
-Partie démarrée !
+Partie commencée !
 L12 19
 Game/Board: 
-Partie/Échiquier: 
+Partie/échiquier: 
 L5 7
 Games
 Parties
 L24 28
 Generic XBoard Engine...
 Moteur XBoard générique...
-L8 8
+L8 25
 Giveaway
-Giveaway
-L46 49
+Qui perd gagne (giveaway)
+L46 56
 Graphic representation of crazy/bughouse stock
-Représentation graphique de stock crazy/bughouse
+Représentation graphique du matériel de crazy/bughouse
 L16 24
 Help: Debug Info
 Aide: Infos de débogage
@@ -808,6 +814,9 @@ Aide: Premiers pas
 L10 24
 Help: Keys
 Aide: Raccourcis clavier
+L24 32
+Helper program not found
+Application externe non trouvée
 L5 8
 Hide!
 Cacher !
@@ -832,21 +841,21 @@ Humain joue les blancs
 L13 13
 ICS Challenge
 Challenge ICS
-L25 30
+L25 38
 IPC pipe creation failed.
-Creation de pipe IPC échouée
+La création du tunnel IPC a échouée
 L2 3
 Id
 n°
 L104 111
 If you pick a bookmark, the engine\nwill play the next move, ignoring\nthe side setting in the bookmark.
 Après le choix d'un signet, le moteur\njouera le prochain coup, quelles que\nsoient les paramètres du signet.
-L43 73
+L43 76
 Illegal Drop on %c%d (Legality Checking On)
-Prise illégale sur %c%d (Vérification de légalité des coups activée)
-L44 45
+Prise illégale sur %c%d (vérification de la légalité des coups activée)
+L44 74
 Illegal Move %c%d%c%d (Legality Checking On)
-Coup illégal %c%d%c%d (Legality Checking On)
+Coup illégal %c%d%c%d (vérification de la légalité des coups activée)
 L23 27
 Illegal move, not sent.
 Coup illégal, non envoyé.
@@ -856,9 +865,12 @@ Incrément (s):
 L10 11
 Increment:
 Incrément:
-L55 105
+L55 96
+Inhibit seek lines on console when Seek Graph is active
+Ne pas afficher les offres sur la console lorsque le graphique de recherche de parties est actif
+L55 94
 Inhibit seek lines on console when Seek Table is active
-Ne pas afficher les lignes de recherche sur la console quand le tableau de recherche de parties est actif
+Ne pas afficher les offres sur la console lorsque le tableau de recherche de parties est actif
 L16 17
 Initial Position
 Position initiale
@@ -868,15 +880,15 @@ Temps initial ([mm:]ss):
 L19 24
 Initializing engine
 Initialisation du moteur
-L46 51
+L46 53
 Invalid answer to DGT_SEND_BRD on port %s: %s 
-Réponse invalide à DGT_SEND_BRD sur le port %s:%s
-L8 8
+Réponse à DGT_SEND_BRD non valide sur le port %s:%s
+L8 7
 Joystick
-Joystick
-L141 203
+Manette
+L141 257
 Joystick Settings:\n\nBoard Cursor Axis: %d\nBoard Select Button: %d\nBoard Browsing Axis: %d\nPrevious Tab Button: %d\nNext Tab Button: %d\n
-Réglages du Joystick:\n\nAxe du curseur de l'échiquier: %d\nBoutton de séléction de l'échiquier: %d\nAxe de navigation d'échiquiers: %d\nBoutton onglet précédent: %d\nBoutton onglet suivant: %d\n
+Réglages de la manette              :\n\nAxe du curseur de l'échiquier     : %d\nBoutton de séléction de l'échiquier : %d\nAxe de navigation d'échiquiers      : %d\nBoutton onglet précédent            : %d\nBoutton onglet suivant              : %d\n
 L3 4
 Key
 Clé
@@ -898,6 +910,9 @@ Dernière proposition reçue
 L4 6
 Left
 Gauche
+L43 82
+Left click to play, right click to refresh.
+Bouton gauche pour accepter une offre et bouton droit pour rafraîchir le tableau.
 L16 16
 Light Squares...
 Cases claires...
@@ -922,12 +937,12 @@ Perdants
 L10 10
 Main Board
 Échiquier
-L13 13
+L13 11
 Mamer and TDs
-Mamer and TDs
-L14 14
+Mamer et TD
+L14 15
 Manual/Formula
-Manual/Formula
+Manuel/Formules
 L23 23
 Match Found at Line %d.
 Trouvé à la ligne %d 
@@ -937,18 +952,18 @@ Motif:
 L17 18
 Material: %d - %d
 Matériel: %d - %d
-L8 8
+L8 23
 Max Ply:
-Max Ply:
+Nb. max. de demi-coups:
 L30 42
 Move made (Obs'vd/Exm'd Games)
 Coup joué (parties observées/examinées)
-L76 92
+L76 77
 Move the axis to be used for moving back and forth\nthrough moves of a game.
-Déplacer l'axe à utiliser pour se déplacer en arrière et revenir\nau cours d'une partie.
+Déplacer l'axe à utiliser pour naviguer à travers\nles coups d'une partie.
 L46 60
 Move the axis to be used for selecting pieces.
-Déplacer l'axe à utiliser pour séléctionner des pièces.
+Déplacer l'axe à utiliser pour séléctionner les pièces.
 L5 5
 Moves
 Coups
@@ -961,24 +976,24 @@ Nouvelles/notifications
 L2 3
 No
 Non
-L9 14
+L9 13
 No error.
-Pas d'erreurs.
-L19 19
+Pas d'erreur.
+L19 33
 No material to mate
-No material to mate
-L23 33
+Pas assez de matériel pour mater
+L23 27
 No output from program.
-Pas de sorties pour le programme.
+Pas de sortie du programme.
 L8 18
 No peer.
 Pas de partenaire.
-L19 29
+L19 30
 No previous search.
-Pas de recherche précédente
-L18 30
+Pas de recherche précédente.
+L18 28
 No proposals left.
-Pas de propositions laissées.
+Pas de proposition restante.
 L22 26
 No proposals received.
 Aucune proposition reçue.
@@ -988,6 +1003,9 @@ Pas de réponse à DGT_SEND_BRD sur le port %s
 L43 59
 No response to DGT_SEND_BRD on port %s: %s.
 Pas de réponse au message DGT_SEND_BRD sur le port %s: %s.
+L29 34
+Non-ASCII Character Filtering
+Filtrage des caractères non-ASCII
 L4 5
 None
 Aucun
@@ -1003,9 +1021,9 @@ N'est pas une socket ?!?
 L2 2
 OK
 OK
-L17 22
+L17 26
 Obs'vd Game Ended
-Partie observée finie
+Partie observée terminée
 L7 21
 Observe
 Observer cette partie
@@ -1024,15 +1042,15 @@ L'adversaire a joué
 L7 7
 Options
 Options
-L11 13
+L11 12
 PGN Headers
-En-têtes PGN
+Entêtes PGN
 L13 19
 PGN filename:
 Nom du fichier PGN:
-L14 17
+L14 18
 Partner Tells:
-L'adversaire dit:
+Le partenaire dit:
 L10 11
 Pawn    %d
 Pion     %d
@@ -1045,9 +1063,9 @@ Jouer cette partie
 L56 74
 Play %s as %s vs. %s (%s, maxdepth %d, think always: %s)
 Jouer %s en tant que %s contre %s (%s, prfd max. %d, tjrs réfléchir: %s)
-L58 73
+L58 76
 Play WAV (need Device and Filename, sox must be installed)
-Jouer un WAV (nom du fichier et périphérique, sox soit être installé)
+Jouer un WAV (fichier et périphérique nécessaires, en plus du paquet sox)
 L19 19
 Play against Crafty
 Jouer contre Crafty
@@ -1068,7 +1086,7 @@ Player resigns
 Abandon du joueur
 L22 23
 Player/Color Name Font
-Police du nom du Joueur
+Police du nom du joueur
 L14 17
 Pos: %s vs. %s
 Pos: %s contre %s
@@ -1099,18 +1117,18 @@ Progression
 L17 22
 Promotion Piece  
 Pièce de promotion:  
-L7 11
+L7 8
 Propose
-Proposition
-L12 18
+Proposer
+L12 21
 Propose Game
-Proposition de jeu
+Proposition de partie
 L8 9
 Protocol
 Protocole
-L33 31
+L33 32
 Protocol mismatch, disconnecting.
-Mauvais protocole, déconnexion
+Mauvais protocole, déconnexion.
 L10 11
 Queen   %d
 Dame     %d
@@ -1135,21 +1153,21 @@ Hôtes récents
 L12 19
 Refresh List
 Actualiser la liste
-L19 20
+L19 33
 Replied to seek #%d
-Réponse au seek #%d
-L9 13
+Réponse à l'offre de partie #%d
+L9 8
 Resigned.
-A abandonné.
+Abandon.
 L6 9
 Result
 Résultat
 L20 21
 Retracted last move.
 Dernier coup annulé.
-L45 56
+L45 57
 Retrieve ICS Channel Lists from eboard.sf.net
-Récupère la liste des cannaux ICS depuis eboard.sf.net
+Récupérer la liste des cannaux ICS depuis eboard.sf.net
 L18 25
 Revert to Defaults
  Paramètres par défaut 
@@ -1171,12 +1189,12 @@ Lancer le moteur...
 L27 38
 Run Program (need Filename)
 Lancer un programme (nom du programme)
-L47 53
+L47 61
 Run autofics.pl script after connecting to FICS
-Lancer le script autofics.pl après connexion au FICS
+Lancer le script autofics.pl après s'être connecté au FICS
 L17 29
 Save Buffer As...
-Enregistrer le buffer sous...
+Enregistrer le tampon sous...
 L12 24
 Save Game...
 Enregistrer la partie...
@@ -1194,19 +1212,25 @@ Script List
 Liste des scripts
 L34 34
 Scrollback limit (0 = unlimited) :
-Taille du buffer (0 = illimité) :
+Taille du tampon (0 = illimité) :
 L11 19
 Search Text
 Rechercher le texte
 L12 21
 Search for: 
 Texte à rechercher: 
-L22 17
+L22 18
 Search text not found.
-Texte non trouvé
+Texte non trouvé.
 L8 21
 Seek Ads
 Annonces de recherche
+L10 17
+Seek Graph
+Offres de parties
+L15 41
+Seek Graph Font
+Police du graphique des offres de parties
 L10 20
 Seek Table
 Recherche de parties
@@ -1225,18 +1249,18 @@ Appliquer un filtre
 L13 22
 Set Filter...
 Appliquer un filtre...
-L49 69
+L49 59
 Set depth limit to 0 to use the engine's default.
- Mettez la profondeur à 0 pour la profondeur par défaut du moteur. 
-L13 19
+Mettez 0 pour utiliser la profondeur par défaut du moteur.
+L13 20
 Setup Buttons
-Changer les boutons
+Modifier les boutons
 L21 33
 Shortcut Button Setup
 Changer les boutons de raccourcis
-L6 6
+L6 4
 Shouts
-Shouts
+Cris
 L42 56
 Show channel tells in one pane per channel
 Afficher les messages de canaux avec un onglet par canal
@@ -1249,27 +1273,33 @@ Afficher le classement à côté du nom du joueur
 L33 52
 Show shortcut buttons below board
 Afficher les boutons de raccourcis sous l'échiquier
-L11 14
+L30 57
+Show timestamps for text lines
+Afficher l'heure au début des lignes de la console texte
+L11 15
 Side & Time
-Côté & Temps
+Côté et Temps
 L14 15
 Side Selection
 Choix du côté
-L14 12
+L14 10
 Side to move: 
-Vont jouer: 
-L22 26
+Trait aux 
+L22 28
 Smooth joystick cursor
-Curseur du joystick fluide
+Curseur de la manette fluide
 L29 37
 Smooth joystick cursor speed:
 Vitesse du curseur du joystick fluide
-L34 50
+L34 53
 Smoother animation (eats more CPU)
-Animations fluides (fait travailler le processeur)
-L76 77
+Animations fluides (plus exigeant pour le processeur)
+L14 23
+Soft translate
+Conversion transparente
+L76 80
 Sorry, this protocol does not allow to retract a move thru this menu option.
-Désolé, ce protocole ne permet pas d'annuler votre coup par cette commande.
+Désolé, ce protocole ne permet pas d'annuler un coup via cette option du menu.
 L11 15
 Sound Event
 Événement son
@@ -1311,7 +1341,7 @@ The checkbox on the left enables/disables the sound.
 La case sur la gauche (dés)active le son correspondant.
 L69 64
 The engine will be run with\n/bin/sh -c 'cd directory ; command line'
-le moteur sera lancé avec\n/bin/sh -c 'cd directory ; commande'
+Le moteur sera lancé avec\n/bin/sh -c 'cd directory ; commande'
 L12 20
 Think Always
 Toujours réfléchir
@@ -1333,12 +1363,12 @@ Temps imparti:
 L16 22
 Time Running Out
 Temps imparti écoulé
-L7 13
+L7 32
 Timeout
-Plus de temps
-L44 48
+Délai d'attente réseau expiré
+L44 52
 Times can be given as hh:mm:ss , mm:ss or ss
-Les temps sont de la forme hh:mm:ss, mm:ss ou ss
+Entrez les temps sous la forme hh:mm:ss, mm:ss ou ss
 L180 160
 To run multiple commands with one shortcut, separate the commands with ; (semicolon).\nTo run a script from a shortcut, set command to script.ScriptName, e.g.: script.myscript.pl .
 Pour lancer plusieurs commandes, séparez les commandes avec ; (point-virgule).\nPour lancer un script, entrez script.nomduscript (par ex.: script.myscript.pl).
@@ -1351,6 +1381,9 @@ Marque :%s
 L15 12
 Trademark :%s\n
 Marque :%s\n
+L8 8
+Truncate
+Tronquer
 L30 27
 Type: Fischer Clock (ICS-like)
 Type: Horloge Fischer (ICS)
@@ -1363,12 +1396,15 @@ Type: Utiliser les paramètres par défaut du moteur
 L29 35
 Type: X Moves per Time Period
 Type: X coups par période de temps
-L26 29
+L26 38
 Unable to bind on port %d.
-Impossible de lier le port %d
+Impossible de se connecter au port %d.
 L24 31
 Unable to create socket.
 Impossible de créer une socket
+L40 48
+Unable to find the DGT board on port %s.
+Ne peut trouver l'échiquier DGT sur le port %s.
 L44 66
 Unable to find the DGT board on port %s.\n%s
 Impossible de se connecter à l'échiquier DGT sur le port %s.\n%s
@@ -1378,6 +1414,12 @@ Impossible de se connecter à l'échiquier DGT sur le port %s.\n%s.
 L44 66
 Unable to find the DGT board on port %s: %s.
 Impossible de se connecter à l'échiquier DGT sur le port %s: %s.
+L39 66
+Unable to load dgtnix library symbol.\n
+Incapable de charger les symboles de la bibliothèque de dgtnix.\n
+L32 50
+Unable to load dgtnix library.\n
+Incapable de charger la bibliothèque de dgtnix.\n
 L13 15
 Unknown error
 Erreur inconnue
@@ -1387,6 +1429,9 @@ Résultat inconnu
 L23 24
 Use plain color squares
 Utiliser des cases unies
+L15 40
+Use underscores
+Utiliser des caractères de soulignement
 L5 6
 Value
 Valeur
@@ -1411,30 +1456,30 @@ Attente d'une connexion
 L34 38
 Waiting for connection on port %d.
 Attente d'un connexion dur le port %d.
-L30 53
+L30 49
 Warn when own clock is below: 
-Prévenir quand mon horloge est en dessous du seuil: 
+Prévenir lorsque mon horloge est sous ce seuil: 
 L18 20
 Welcome to eboard.
 Bienvenue sur eboard
 L5 6
 White
-Blancs
+blancs
 L14 15
 White: %s - %s
 Blancs: %s - %s
 L10 12
 Working...
 Travaille...
-L16 21
+L16 23
 Write to Console
-Écrit sur la console
+Afficher sur la console
 L19 24
 Wrong address space
 Mauvaise plage d'adresse
-L5 7
+L5 20
 Wrote
-Écrite
+enregistrée dans le
 L3 3
 Yes
 Oui
@@ -1456,15 +1501,18 @@ Commande:
 L29 31
 [eboard] ** $HOME is too long
 [eboard] ** $HOME est trop long
-L39 46
+L39 55
 [eboard] ** failed to create directory 
-[eboard] ** Création du répertoire échouée
+[eboard] ** Échec lors de la création du répertoire 
 L20 24
 [eboard] ** no $HOME
 [eboard] ** pas de $HOME
 L22 28
 [eboard] bad RC line\n
 [eboard] mauvaise ligne RC\n
+L6 9
+[find]
+Chercher:
 L4 3
 beep
 bip
@@ -1473,7 +1521,7 @@ beeps
 bips
 L5 5
 black
-Noirs
+noirs
 L53 66
 can't load PGN move text from %s (error opening file)
 Ne peut charger le fichier PGN %s (impossible d'ouvrir le fichier)
@@ -1483,6 +1531,12 @@ Ne peut se déplacer à %lu de %s
 L26 26
 dgtnix driver version %.1f
 Driver dgtnix version %.1f
+L25 28
+dgtnix driver version: %s
+version du pilote dgtnix: %s
+L41 51
+dgtnix version too old: %f, must be >= %f
+version de dgtnix trop vieille: %f doit être >= %f
 L14 24
 discards board
 Supprimer cet échiquier
@@ -1500,13 +1554,13 @@ eboard: Console #%d
 eboard: console #%d
 L60 81
 engine claimed illegal move but we didn't move, ignoring it.
-le moteur annonce un coup illégal alors que nous n'avons pas joué, on l'ignore.
+le moteur annonce un coup illégal alors que nous n'avons pas joué; on l'ignore.
 L22 34
 error parsing PGN data
 Erreur de lecture des données PGN
-L11 20
+L11 21
 flips board
-Inverse l'échiquier
+Inverser l'échiquier
 L4 6
 game
 partie
@@ -1516,15 +1570,15 @@ parties
 L17 17
 generic xboard v2
 generic xboard v2
-L20 21
+L20 22
 goes back 1 halfmove
-Reculer d'1 demi-coup
+Reculer d'un demi-coup
 L26 29
 goes back to start of game
 Retourner en début de partie
-L23 21
+L23 22
 goes forward 1 halfmove
-Avancer d'1 demi-coup
+Avancer d'un demi-coup
 L27 22
 goes forward to end of game
 Aller en fin de partie
@@ -1543,9 +1597,9 @@ coups en
 L2 3
 no
 non
-L14 23
+L14 22
 no such game: 
-pas de telles parties: 
+pas de telles partie: 
 L19 24
 no time control set
 Pas de réglage de temps
@@ -1555,9 +1609,9 @@ aucun
 L7 4
 nothing
 rien
-L37 45
+L37 49
 opens new scratch board with position
-Ouvre un nouvel échiquier avec les positions
+Crée un nouvel échiquier avec la même position
 L8 8
 per move
 par coup
@@ -1570,9 +1624,9 @@ joue le fichier %s
 L21 27
 pops up the move list
 Afficher la liste des coups
-L24 32
+L24 41
 process creation failed.
-création du processus échouée
+échec lors de la création du processus.
 L5 7
 rated
 classé
@@ -1585,12 +1639,12 @@ lance %s
 L10 15
 running %s
 lancement de %s
-L18 34
+L18 37
 savePGN failed: %s
-enregistrement du PGN échoué: %s
-L54 83
+échec de l'enregistrement du PGN: %s
+L54 86
 savePGN failed: Won't save game with less than 2 moves
-enregistrement du PGN échoué: ne peut enregistrer de partie avec moins de 2 coups
+échec de l'enregistrement du PGN: ne peut enregistrer une partie de moins de 2 coups.
 L8 9
 seconds.
 secondes.
@@ -1606,4 +1660,4 @@ blancs
 L3 3
 yes
 oui
-E 536
+E 554

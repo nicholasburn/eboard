@@ -1,4 +1,4 @@
-onzol leka# (2) 
+# (2) 
 msgid  " ** PNG LOAD FAILED: using internal low-res pieceset. It'll look ugly.\n"
 msgstr " ** PNG betöltés sikertelen: kis felbontású saját figurák használata. Rosszabbul fog kinézni."
 

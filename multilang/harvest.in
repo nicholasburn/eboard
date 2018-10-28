@@ -1,5 +1,5 @@
 package=eboard
-langs=cs,de,es,it,ja,pl,pt_BR,fr
+langs=cs,de,es,hu,it,ja,pl,pt_BR,fr
 ../board.cc
 ../bugpane.cc
 ../chess.cc

@@ -935,7 +935,7 @@ msgstr  "コマンド"
 # state: translated
 # (1) dlg_connect.cc:289
 msgid   "Command Line:"
-msgstr  "コマンドライン":"
+msgstr  "コマンドライン:"
 
 # state: translated
 # (1) proto_xboard.cc:65
