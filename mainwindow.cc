@@ -783,7 +783,7 @@ void MainWindow::greet() {
   char z[128];
   snprintf (z,128,_("eboard version %s (%s)"),global.Version,global.SystemType);
   icsout->append(z,0xc0ff00,IM_IGNORE);
-  snprintf (z,128,_("(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)"), 2016);
+  snprintf (z,128,_("(c) 2000-%d Felipe Bergo <fbergo@gmail.com> (FICS handle: Pulga)"), 2018);
   icsout->append(z,0xc0ff00,IM_IGNORE);
   icsout->append(_("Distributed under the terms of the GNU General Public License, version 2 or later"),0xffc000,IM_IGNORE);
   icsout->append("http://www.gnu.org/copyleft/gpl.html",0xffc000,IM_IGNORE);

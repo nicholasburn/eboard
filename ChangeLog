@@ -11,6 +11,10 @@ eboard ChangeLog
 [eng]     - applies to all engines
 [all]     - applies to all
 
+  * [all] new icons
+
+  * [all] minor adjustments to build scripts
+
 1.1.3
   * [all] Upgraded from gstreamer 0.10 to 1.0
  
