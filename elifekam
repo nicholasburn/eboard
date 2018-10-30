@@ -31,10 +31,10 @@ all: eboard zseal nls-dicts
 debug: eboard.dbg
 
 eboard: $(OBJS)
-	$(CXX) $(LDFLAGS) -o eboard $(OBJS)
+	$(CXX) -o eboard $(OBJS) $(LDFLAGS)
 
 eboard.dbg: $(DBG_OBJS)
-	$(CXX) $(LDFLAGS) -o eboard.dbg $(DBG_OBJS)
+	$(CXX) -o eboard.dbg $(DBG_OBJS) $(LDFLAGS)
 
 dbg_%.o: %.cc $(HEADERS) $(XPMS)
 	$(CXX) $(CXXFLAGS_DBG) -c $< -o $@
