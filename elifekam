@@ -58,6 +58,7 @@ install: install-bin install-man install-data install-extras install-nls
 
 install-bin: eboard zseal
 	$(INSTALL) -d $(bindir)
+	$(INSTALL) -d $(datadir)
 	$(INSTALL) -m 0755 eboard $(bindir)/eboard
 	$(INSTALL) -m 0755 eboard-config   $(bindir)/eboard-config
 	$(INSTALL) -m 0755 eboard-addtheme $(bindir)/eboard-addtheme
