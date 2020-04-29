@@ -1083,7 +1083,7 @@ void CraftyProtocol::readDialog() {
   snprintf(EngineCommandLine,512,"crafty bookpath=%s logpath=%s tbpath=%s",
 	   BookPath,LogPath,LogPath);
   if (!global.env.Home.empty())
-    snprintf(EngineRunDir,512,"%s/.eboard/craftylog",global.env.Home.c_str());
+    snprintf(EngineRunDir,256,"%s/.eboard/craftylog",global.env.Home.c_str());
   else
     strcpy(EngineRunDir,"/tmp");
 
