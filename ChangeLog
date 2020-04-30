@@ -11,11 +11,12 @@ eboard ChangeLog
 [eng]     - applies to all engines
 [all]     - applies to all
 
+1.1.4
+
   * [all] new icons
 
   * [all] minor adjustments to build scripts
 
-1.1.4
   * [all] fixed crash when using crafty engine on ubuntu-based OS
 
 1.1.3
