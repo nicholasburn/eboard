@@ -15,6 +15,9 @@ eboard ChangeLog
 
   * [all] minor adjustments to build scripts
 
+1.1.4
+  * [all] fixed crash when using crafty engine on ubuntu-based OS
+
 1.1.3
   * [all] Upgraded from gstreamer 0.10 to 1.0
  
