@@ -530,8 +530,8 @@ P2PPad::P2PPad(P2PProtocol *_proto) : NonModalDialog("Direct Connection") {
   v = gtk_vbox_new(FALSE, 2);
   gtk_container_add(GTK_CONTAINER(widget), v);
 
-  t = gtk_table_new(4,4,FALSE);
-  gtk_table_set_row_spacings(GTK_TABLE(t), 4);
+  t = gtk_table_new(5,4,FALSE);
+  gtk_table_set_row_spacings(GTK_TABLE(t), 5);
   gtk_table_set_col_spacings(GTK_TABLE(t), 4);
   gtk_container_set_border_width(GTK_CONTAINER(t), 4);
 
@@ -545,6 +545,7 @@ P2PPad::P2PPad(P2PProtocol *_proto) : NonModalDialog("Direct Connection") {
   bl[0] = new BoxedLabel(_("Your color:"));
   bl[1] = new BoxedLabel(_("Initial time ([mm:]ss):"));
   bl[2] = new BoxedLabel(_("Increment (secs):"));
+  bl[3] = new BoxedLabel(_("Variant:"));
 
   color   = new DropBox(_("White"),
 			_("Black"),NULL);
@@ -555,18 +556,24 @@ P2PPad::P2PPad(P2PProtocol *_proto) : NonModalDialog("Direct Connection") {
   gtk_entry_set_text(GTK_ENTRY(wtime),"45:00");
   gtk_entry_set_text(GTK_ENTRY(winc),"0");
 
+  variantbox = new DropBox(_("Chess"),_("Crazyhouse"),_("Suicide"),_("Bughouse"),
+                           _("Wild"),_("Losers"),_("Giveaway"),_("Atomic"),
+                           _("Fischer Random"),_("Wild Castle"),_("Wild No Castle"),NULL);
+
   gtk_table_attach_defaults(GTK_TABLE(t), bl[0]->widget, 0,1, 0,1);
   gtk_table_attach_defaults(GTK_TABLE(t), color->widget, 1,2, 0,1);
   gtk_table_attach_defaults(GTK_TABLE(t), bl[1]->widget, 0,1, 1,2);
   gtk_table_attach_defaults(GTK_TABLE(t), wtime, 1,2, 1,2);
   gtk_table_attach_defaults(GTK_TABLE(t), bl[2]->widget, 0,1, 2,3);
   gtk_table_attach_defaults(GTK_TABLE(t), winc, 1,2, 2,3);
+  gtk_table_attach_defaults(GTK_TABLE(t), bl[3]->widget, 0,1, 3,4);
+  gtk_table_attach_defaults(GTK_TABLE(t), variantbox->widget, 1,2, 3,4);
 
   h=gtk_hbutton_box_new();
   gtk_button_box_set_layout(GTK_BUTTON_BOX(h), GTK_BUTTONBOX_END);
   gtk_button_box_set_spacing(GTK_BUTTON_BOX(h), 5);
 
-  gtk_table_attach_defaults(GTK_TABLE(t), h, 0,2, 3,4);
+  gtk_table_attach_defaults(GTK_TABLE(t), h, 0,2, 4,5);
 
   match = gtk_button_new_with_label(_("Propose"));
   gtk_box_pack_start(GTK_BOX(h), match, TRUE, TRUE, 0);
@@ -575,7 +582,8 @@ P2PPad::P2PPad(P2PProtocol *_proto) : NonModalDialog("Direct Connection") {
 		     GTK_SIGNAL_FUNC(p2ppad_propose), (gpointer) this);
 
   color->show();
-  for(i=0;i<3;i++) bl[i]->show();
+  for(i=0;i<4;i++) bl[i]->show();
+  variantbox->show();
 
   f2 = gtk_frame_new(_("Last Proposal Received"));
   gtk_frame_set_shadow_type(GTK_FRAME(f2), GTK_SHADOW_ETCHED_IN);
@@ -607,9 +615,10 @@ P2PPad::P2PPad(P2PProtocol *_proto) : NonModalDialog("Direct Connection") {
 
 P2PPad::~P2PPad(){
   int i;
-  for(i=0;i<3;i++)
+  for(i=0;i<4;i++)
     delete(bl[i]);
   delete color;
+  delete variantbox;
 }
 
 void P2PPad::setProposal(GameProposal &g) {
@@ -676,7 +685,10 @@ void p2ppad_propose(GtkWidget *w, gpointer data) {
   
   b = atoi(gtk_entry_get_text(GTK_ENTRY(me->winc)));  
   g.timecontrol.setIcs(a,b);
-  g.Variant = REGULAR;
+
+  variant v_names [11] = {REGULAR, CRAZYHOUSE, SUICIDE, BUGHOUSE, WILD, LOSERS, GIVEAWAY, ATOMIC, WILDFR, WILDCASTLE, WILDNOCASTLE};
+  g.Variant = v_names[me->variantbox->getSelection()];
+
   g.AmWhite = (me->color->getSelection() == 0);
 
   if (global.protocol)

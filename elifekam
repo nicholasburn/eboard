@@ -46,7 +46,7 @@ zseal: zseal.c
 	$(CC) -Wall -O2 zseal.c -o zseal
 
 nls-dicts:
-	$(MAKE) -C multilang dicts
+	cd multilang && $(MAKE) dicts
 
 clean:
 	rm -f $(OBJS) $(DBG_OBJS) eboard eboard.dbg *~
@@ -81,7 +81,7 @@ install-data:
 	if [ -d $(prefix)/share/applications -a -w $(prefix)/share/applications ]; then $(INSTALL) -m 0644 eboard.desktop $(prefix)/share/applications/eboard.desktop ; fi
 
 install-nls:
-	$(MAKE) -C multilang install-nls INSTALL=$(INSTALL) datadir=$(datadir)
+	cd multilang && $(MAKE) install-nls INSTALL=$(INSTALL) datadir=$(datadir)
 
 install-extras:
 	$(MAKE) -C extras/pack1 install INSTALL=$(INSTALL) DATADIR=$(datadir)

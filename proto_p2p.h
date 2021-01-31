@@ -57,7 +57,8 @@ class P2PPad : public NonModalDialog {
   P2PProtocol *proto;
   DropBox *color;
   GtkWidget *wtime, *winc, *wprop, *wacc;
-  BoxedLabel *bl[3];
+  BoxedLabel *bl[4];
+  DropBox *variantbox;
 
   bool PropIsDraw;
 

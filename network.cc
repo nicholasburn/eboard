@@ -501,7 +501,7 @@ int IncomingConnection::createSocket() {
   sin.sin_addr.s_addr = INADDR_ANY;
   sin.sin_port = htons(Port);
     
-  if (bind(netsocket,(struct sockaddr *) &sin,sizeof(sin))==-1) {
+  if (::bind(netsocket,(struct sockaddr *) &sin,sizeof(sin))==-1) {
     snprintf(errorMessage,128,_("Unable to bind on port %d."),Port);
     return(-1);
   }

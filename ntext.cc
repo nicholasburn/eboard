@@ -246,10 +246,8 @@ void NText::append(const char *text, int len, int color) {
 
   p = strchr(text, '\n');
   if (p!=NULL) {
-    memcpy(tmp,text,p-text);
-    tmp[p-text] = 0;
-    i = strlen(tmp);
-    nl = new NLine(tmp, color);
+    i = p - text;
+    nl = new NLine(text, color, i);
     lines.push_back(nl);
     formatLine(lines.size()-1);
     append(&p[1], len-(i+1), color);

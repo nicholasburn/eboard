@@ -13,9 +13,9 @@
 # loosely based on gtk-config
 #
 
-prefix=/usr/local
-bindir=/usr/local/bin
-datadir=/usr/local/share
+prefix=/opt/jetbrains
+bindir=/opt/jetbrains/bin
+datadir=/opt/jetbrains/share
 package=eboard
 version=1.1.4
 
